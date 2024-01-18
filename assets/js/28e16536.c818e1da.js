@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_1_relation_documentation=self.webpackChunk_1_relation_documentation||[]).push([[6836],{5532:a=>{a.exports=JSON.parse('{"label":"hola","permalink":"/1rel-documentation/blog/tags/hola","allTagsPath":"/1rel-documentation/blog/tags","count":1,"unlisted":false}')}}]);
