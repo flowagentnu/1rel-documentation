@@ -17,15 +17,15 @@ A core component of item management in 1Relation is the use of Actional Buttons 
 - **Actional Buttons:** These are configurable components that trigger various functions like opening forms, automating processes, or executing CRUD operations on items.
 - **Forms:** Forms in 1Relation are flexible and can be customized to suit specific business needs, allowing for the creation and editing of items with ease.
 
-For a detailed understanding of how Actional Buttons and Forms work and how they can be configured, please refer to our [Actionable Buttons and Forms](/docs/actionable-buttons-forms) section.
+For a detailed understanding of how Actional Buttons and Forms work and how they can be configured, please refer to our [Actionable Buttons and Forms] section.
 
 ## Getting Started
 
 To get started with item management:
 
 1. **Familiarize Yourself:** Understand the basics of items in 1Relation and how they represent different data points in your business.
-2. **Learn About Actional Buttons and Forms:** Explore how these tools are used in creating, editing, and relating items by visiting the [Actionable Buttons and Forms](/docs/actionable-buttons-forms) page.
+2. **Learn About Actional Buttons and Forms:** Explore how these tools are used in creating, editing, and relating items by visiting the [Actionable Buttons and Forms] page.
 3. **Follow Step-by-Step Guides:** For specific tasks like creating a new item or editing an existing one, follow our step-by-step guides in the subsequent sections.
 
-Ready to dive in? Let’s get started with [Creating Items](/docs/creating-items/intro-to-creating-items).
+Ready to dive in? Let’s get started with [Creating Items].
 
