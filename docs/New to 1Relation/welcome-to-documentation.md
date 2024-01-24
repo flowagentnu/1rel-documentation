@@ -1,7 +1,3 @@
----
-sidebar_position: 1
----
-
 # Welcome to 1Relation
 
 ![Alt text](image.png)
