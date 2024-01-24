@@ -51,7 +51,7 @@ In 1Relation, the concept of "items" within forms plays a pivotal role in enhanc
 
 Items in forms are retrieved or identified through JSON queries. These queries can specify which items to fetch based on various criteria, ensuring that the correct data populates the form.
 
-For detailed guidance on constructing JSON queries in 1Relation, refer to our [JSON Queries documentation](/docs/json-queries).
+For detailed guidance on constructing JSON queries in 1Relation, refer to our [JSON Query documentation](/docs/JSON/json-query).
 
 ### JSON Query Example
 
