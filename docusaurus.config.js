@@ -79,10 +79,9 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://1relation.com',
+            label: '1Relation.com',
             position: 'right',
           },
         ],
@@ -112,8 +111,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'API Documentation',
+                to: 'https://documenter.getpostman.com/view/13467580/2s9YymGQEr',
               },
               {
                 label: 'GitHub',
