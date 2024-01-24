@@ -24,7 +24,7 @@ const sidebars = {
       ],
       link: {
         type: 'doc',
-        id: 'New to 1Relation/new-to-what-is-1relation', // Ensure this ID matches an existing document
+        id: 'New to 1Relation/new-to-what-is-1relation',
       },
     },
     {
@@ -63,7 +63,7 @@ const sidebars = {
           type: 'category',
           label: 'Items',
           collapsed: true,
-          items: ['Items/items-intro-to-items'], // Corrected to the 'Items' folder
+          items: [],
           link: {
             type: 'doc',
             id: 'Forms/forms-Items',
@@ -83,20 +83,39 @@ const sidebars = {
                 'Forms/forms-pages-fields-options',
                 'Forms/forms-pages-fields-html',
               ],
+              link: {
+                type: 'doc',
+                id: 'Forms/forms-pages-fields',
+              },
             },
-            'Forms/forms-pages-submit&cancel', // Added this missing document
-            'Forms/forms-pages', // Ensure this document exists
+            {
+              type: 'category',
+              label: 'Submit & Cancel',
+              collapsed: true,
+              items: [
+                'Forms/forms-pages-submit&cancel-triggers',
+                'Forms/forms-pages-submit&cancel-uri',
+              ],
+              link: {
+                type: 'doc',
+                id: 'Forms/forms-pages-submit&cancel',
+              },
+            }
           ],
           link: {
             type: 'doc',
-            id: 'Forms/forms-pages-fields', // Ensure this document exists
+            id: 'Forms/forms-pages',
           },
         },
         {
           type: 'category',
           label: 'Endflow',
           collapsed: true,
-          items: ['Forms/forms-endflow'], // Added the 'Forms' prefix
+          items: [],
+          link: {
+            type: 'doc',
+            id: 'Forms/forms-endflow',
+          },
         },
       ],
       link: {
@@ -106,17 +125,16 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'JSON',
+      label: 'Jay-Sawn',
       collapsed: true,
       items: [
         'JSON/json-query',
       ],
       link: {
         type: 'doc',
-        id: 'JSON/json-intro-to-json', // Corrected the case to match the file name
+        id: 'JSON/json-intro-to-json', 
       },
     },
-    // ... add other categories and items as needed
   ],
 };
 

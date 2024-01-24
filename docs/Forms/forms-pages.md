@@ -1,3 +1,5 @@
+# Pages
+
 Pages in 1Relation forms serve as a fundamental component to structure and organize the form's content. They enable a logical flow of questions and possible answers for the user to input.
 
 ## Use Cases
@@ -63,7 +65,7 @@ Pages in 1Relation forms are designed to organize content and guide user interac
 These components together structure each page within the form, facilitating an intuitive and efficient user experience. By customizing these components, form designers can create diverse and dynamic forms that cater to various user interactions and data collection needs.
 
 
-### Empty JSON Structure for Page Configuration
+### JSON Structure for Page Configuration
 
 Below is an empty JSON structure that serves as a template for configuring individual pages within a form in 1Relation. This structure outlines the fundamental elements of a page, including fields for user input and settings for submit and cancel actions.
 

@@ -1,3 +1,5 @@
+# Fields
+
 Fields are essential components of forms in 1Relation, representing the interactive elements where users enter or interact with data. They are the building blocks of forms, enabling the collection of information, display of content, and execution of various form functionalities.
 
 ## Use Cases
@@ -54,7 +56,7 @@ Fields in 1Relation forms consist of various key components, each contributing t
 
 Each component plays a unique role in the creation and customization of fields in 1Relation forms. By leveraging these components, form designers can ensure their forms are not only functional but also tailored to specific data collection and user experience needs.
 
-### Empty JSON Structure for Field Configuration
+### JSON example for Fields
 
 The following is an empty JSON structure template that outlines how to configure fields in a 1Relation form. This template includes placeholders for the `key`, `options`, and `html` components, representing the essential aspects of field configuration:
 
@@ -75,7 +77,7 @@ The following is an empty JSON structure template that outlines how to configure
         "id": "priority_field",
         "name": "Choose Priority",
         "required": true,
-        "cftype_id": "dropdown" // Assuming 'dropdown' is a type identifier
+        "cftype_id": "165" 
       },
       "options": [
         {

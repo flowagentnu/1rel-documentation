@@ -1,3 +1,5 @@
+# Key options
+
 The `options` component in a field is used to define selectable choices, particularly important for fields like dropdowns, radio buttons, and checkboxes. Each option within a field is specified through this component. `options` are used with the `key` component.
 
 - **id (string)**:
