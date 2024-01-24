@@ -58,66 +58,14 @@ const sidebars = {
       type: 'category',
       label: 'Forms',
       collapsed: true,
-      items: [
-        {
-          type: 'category',
-          label: 'Items',
-          collapsed: true,
-          items: [],
-          link: {
-            type: 'doc',
-            id: 'Forms/forms-Items',
-          },
-        },
-        {
-          type: 'category',
-          label: 'Pages',
-          collapsed: true,
-          items: [
-            {
-              type: 'category',
-              label: 'Fields',
-              collapsed: true,
-              items: [
-                'Forms/forms-pages-fields-key',
-                'Forms/forms-pages-fields-options',
-                'Forms/forms-pages-fields-html',
-              ],
-              link: {
-                type: 'doc',
-                id: 'Forms/forms-pages-fields',
-              },
-            },
-            {
-              type: 'category',
-              label: 'Submit & Cancel',
-              collapsed: true,
-              items: [
-                'Forms/forms-pages-submit&cancel-triggers',
-                'Forms/forms-pages-submit&cancel-uri',
-              ],
-              link: {
-                type: 'doc',
-                id: 'Forms/forms-pages-submit&cancel',
-              },
-            }
-          ],
-          link: {
-            type: 'doc',
-            id: 'Forms/forms-pages',
-          },
-        },
-        {
-          type: 'category',
-          label: 'Endflow',
-          collapsed: true,
-          items: [],
-          link: {
-            type: 'doc',
-            id: 'Forms/forms-endflow',
-          },
-        },
-      ],
+      items: ['Forms/forms-Items',
+      'Forms/forms-pages',
+      'Forms/forms-pages-fields',
+      `Forms/forms-pages-submit&cancel`,
+      `Forms/forms-pages-submit&cancel-triggers`,
+      'Forms/forms-endflow',
+      `Forms/forms-full-singlepage`,
+],
       link: {
         type: 'doc',
         id: 'Forms/forms-introduction',

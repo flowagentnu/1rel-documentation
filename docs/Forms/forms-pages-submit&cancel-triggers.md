@@ -1,155 +1,125 @@
 # Triggers
 
-Triggers in the 'Submit' and 'Cancel' components of 1Relation forms are integral in managing user interactions and navigating through the form. These triggers allow forms to respond dynamically to user inputs, enhancing the overall user experience. This document focuses on the functionality of triggers and their application in form design.
+Triggers in the `submit` and `cancel` components of 1Relation forms are essential for dynamic user interaction. They enable forms to respond to user inputs with various actions, such as navigation and data manipulation.
 
-## Use Cases
+## Structure of `triggers`
 
-Triggers within 'Submit' and 'Cancel' components serve various purposes in form interactions, including:
+Triggers consist of several components, each with specific roles in managing form actions and navigation.
 
-- **Form Navigation**: Directing users to different form pages based on their responses.
-- **Conditional Actions**: Executing specific actions, like creating or modifying records, based on user inputs.
-- **User Feedback and Redirection**: Providing immediate feedback or redirecting users after form submission or cancellation.
+### Trigger Components
 
-## Trigger Components
+| Property     | Type    | Required | Options                | Description |
+|--------------|---------|----------|------------------------|-------------|
+| `Actions`    | object  | No       | insert, update, relate, delete, unlink | Refers to CRUD actions to be executed. |
+| `Page`       | integer | No       | Page numbers           | Directs users to a specific page within the form. |
+| `Endflow`    | boolean | No       | true, false            | Determines the end of form interaction. |
+| `BreakAfter` | boolean | No       | true, false            | Specifies whether to stop executing further triggers. |
+| `Uri`        | string  | No       | URL paths              | Redirects the user to a specific page if no other triggers are defined for the action |
 
-Triggers use the `Actions` functionality to perform CRUD actions and change pages
-
-### Submit Trigger Example
-For a 'Submit' button, the trigger might look like this:
-
+#### Trigger with Page Change
 ```json
 {
   "submit": {
-    "text": "Submit",
+    "triggers": [
+      {
+        "then": {
+          "page": 2
+        }
+      }
+    ]
+  }
+}
+```
+#### Trigger with Insert Action, "Relate" and No "If"
+```json
+{
+  "submit": {
+    "triggers": [
+      {
+        "then": {
+          "insert": {
+            // Insert details...
+          },
+          "relate": [
+            // Relate details...
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+#### Trigger with Two Actions and "If"
+```json
+{
+  "submit": {
     "triggers": [
       {
         "if": [["field_id", "=", "specific_value"]],
         "then": {
-          "crud": {
-            "insert": {
-              "Entity": {
-                "field1": "value1",
-                "field2": "value2"
-              }
-            }
+          "insert": {
+            // Insert details...
+          },
+          "update": {
+            // Update details...
+          }
+        }
+      }
+    ]
+  }
+}
+```
+#### Example with `Uri`
+```json
+{
+  "pages": {
+    "1": {
+      "name": "New Contact Person",
+      "submit": {
+        "text": "Submit",
+        "triggers": [
+          // Trigger actions...
+        ]
+      },
+      "cancel": {
+        "text": "Go Back",
+        "uri": "/item/[itemid]"
+      }
+    }
+    // Additional pages...
+  }
+}
+```
+#### Trigger with Multiple Actions and breakAfter: false
+```json
+{
+  "submit": {
+    "triggers": [
+      {
+        "then": {
+          "insert": {
+            // Insert details...
+          },
+          "update": {
+            // Update details...
+          },
+          "breakAfter": false
+        }
+      },
+      {
+        "then": {
+          "relate": {
+            // Relate details...
           }
         }
       },
-    ]
-  },
-   "cancel": {
-   "text": "Back",
-   "triggers": [
-       {
-       "then": {
-           "page": "2"
-       }
-     }
-   ]
-  }
-}
-```
-
----
-
-## Example: Create a new item
-
-In this example a customer is created using a form. The user adds customer information to the fields in the form fields.
-
-```json
-{
-  "pages": {
-    "1": {
-      "name": "Customer Information",
-      "fields": [
-        // Field definitions for name, address, zipcode, city, revenue
-      ],
-      "submit": {
-        "text": "Create",
-        "triggers": [
-          {
-            "then": {
-              "do": {
-                "insert": {
-                  "newCustomer": {
-                    "moduleid": 58,
-                    "moduleitemtype_id": 100,
-                    "customfield": {
-                      "cf314": "post[name]",
-                      "cf315": "post[address]",
-                      "cf316": "post[zipcode]",
-                      "cf317": "post[city]",
-                      "cf322": "post[revenue]"
-                    }
-                  }
-                }
-              },
-              "endflow": true
-            }
-          }
-        ]
-      },
-      "cancel": {
-        "text": "Cancel"
+      {
+        "then": {
+          "endflow": true
+        }
       }
-    }
-  },
-  "endflow": {
-    "redirect": "itemkey.newCustomer"
-  }
-}
-```
-## Example: Edit an existing item
-This example demonstrates editing an existing customer's information in 1Relation. The form is pre-populated with the customer's current data, which can be updated as needed. The key part of this configuration is the trigger action, which is executed upon form submission to update the customer details.
-
-```json
-Copy code
-{
-  "items": {
-    "existingCustomer": [
-      [
-        "id",
-        "=",
-        "[itemid]"
-      ]
     ]
-  },
-  "pages": {
-    "1": {
-      "name": "Edit Customer Information",
-      "fields": [
-        // Field definitions for name, address, zipcode, city, revenue
-      ],
-      "submit": {
-        "text": "Update",
-        "triggers": [
-          {
-            "then": {
-              "do": {
-                "update": {
-                  "existingCustomer": {
-                    "customfield": {
-                      "cf314": "post[name]",
-                      "cf315": "post[address]",
-                      "cf316": "post[zipcode]",
-                      "cf317": "post[city]",
-                      "cf322": "post[revenue]"
-                    }
-                  }
-                }
-              },
-              "endflow": true
-            }
-          }
-        ]
-      },
-      "cancel": {
-        "text": "Cancel"
-      }
-    }
-  },
-  "endflow": {
-    "redirect": "itemkey.existingCustomer"
   }
 }
 ```
+Each of these examples demonstrates different configurations of triggers, showcasing how they can be used to manage form navigation, perform actions, and control the flow based on user interactions.

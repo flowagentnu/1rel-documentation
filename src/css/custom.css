@@ -28,3 +28,13 @@
   --ifm-color-primary-lightest: #8464da;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+h1 {
+  font-size: 28px;
+  color: #644DA3;
+}
+h2 {
+  font-size: 24px;
+  color: #7660B6;
+}
+
