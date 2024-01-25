@@ -64,11 +64,23 @@ const sidebars = {
       `Forms/forms-pages-submit&cancel`,
       `Forms/forms-pages-submit&cancel-triggers`,
       'Forms/forms-endflow',
-      `Forms/forms-full-singlepage`,
+
 ],
       link: {
         type: 'doc',
         id: 'Forms/forms-introduction',
+      },
+    },
+    {
+      type: 'category',
+      label: 'Apps',
+      collapsed: true,
+      items: [
+        'apps/apps-install-apps',
+      ],
+      link: {
+        type: 'doc',
+        id: 'apps/apps-intro-to-apps',
       },
     },
     {
