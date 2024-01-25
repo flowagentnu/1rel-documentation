@@ -1,4 +1,4 @@
-# Installing and Implementing Apps in 1Relation
+# Installing Apps
 
 This guide provides step-by-step instructions on how to install and implement apps in the 1Relation platform. It is intended for system designers and administrators responsible for configuring and customizing the 1Relation environment.
 
