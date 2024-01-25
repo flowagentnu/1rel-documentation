@@ -1,7 +1,5 @@
 # Introduction to Forms
 
-## Overview
-
 In 1Relation, forms serve as a dynamic interface between the system and its users, offering a structured and interactive way to capture information. They are integral to various functionalities within 1Relation, designed to present questions and fields that require user input. Whether it's for creating, editing, or managing data, forms play a crucial role in ensuring efficient and accurate data collection.
 
 ## Use Cases for Forms
@@ -31,7 +29,37 @@ Forms are typically activated in two ways:
 
 - **Through Apps**: Certain applications within 1Relation are designed to trigger forms, initiating specific workflows or data entry processes.
 - **Via Actionable Buttons**: Forms can be linked to actionable buttons, providing users with immediate access to the forms through a simple click, streamlining the process of data entry or modification.
+---
 
-## Conclusion
+# Forms Documentation
 
-Forms are a foundational element in 1Relation, bridging the gap between system capabilities and user interaction. They not only enhance the user experience but also contribute significantly to the systematic and orderly management of data within the system. This documentation will guide you through the intricacies of form configuration, ensuring you
+## Introduction
+This documentation provides a detailed guide on the JSON structure used for configuring forms in 1Relation. It is designed to assist system designers in understanding and applying the various components and configurations necessary for form creation and management. The documentation is structured hierarchically, starting with top-level components and delving into more specific elements and their properties. Each component is explained with its properties, types, and required values, followed by JSON examples for practical understanding.
+
+## Top-Level Components
+
+The JSON structure for forms is primarily divided into three top-level components: `items`, `pages`, and `endflow`. Each of these components plays a vital role in form configuration.
+
+| Component | Description |
+|-----------|-------------|
+| `items`   | Defines the items that are associated with the form. This could include any data items that the form will interact with or manipulate. |
+| `pages`   | Contains the pages of the form. Each page can have its own set of fields, as well as submit and cancel actions. |
+| `endflow` | Specifies the behavior at the end of the form process, such as redirection or other post-submission actions. |
+
+### JSON Example
+
+The following is a simple JSON example illustrating how these top-level components might be structured in a form configuration:
+
+```json
+{
+  "items": {
+    // Item definitions go here
+  },
+  "pages": {
+    // Page definitions, including fields and actions, go here
+  },
+  "endflow": {
+    // Endflow actions (like redirection) go here
+  }
+}
+```

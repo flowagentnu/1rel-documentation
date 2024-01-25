@@ -1,97 +1,158 @@
-Fields are essential components of forms in 1Relation, representing the interactive elements where users enter or interact with data. They are the building blocks of forms, enabling the collection of information, display of content, and execution of various form functionalities.
+# Fields
 
-## Use Cases
+Within each page of the form, the `fields` component is essential, as it defines the individual input fields where users can enter or select data. Each field has specific properties and configurations.
 
->- **Data Collection and Entry**
->
-> Fields in forms are primarily used for collecting user inputs. They can vary in type, such as text boxes for open-ended responses or dropdowns for selecting predefined options. This versatility makes fields suitable for various data entry scenarios, from simple information gathering to complex data collection processes.
->
->- **Dynamic Interaction and Response**
->
-> Fields can be configured to interact dynamically with user inputs. For example, changing page based on previous responses or changing field options in real-time. This dynamic interaction enhances user engagement and ensures relevant data collection.
+## Structure of `fields`
 
-## Field Components
+Each field within a page is defined by an object with specific properties to control its behavior and appearance.
 
-Fields in 1Relation forms consist of various key components, each contributing to the field's functionality and user interaction. Understanding these components is essential for creating effective forms:
+### Field Properties
 
-- **key (object)**:
-  - Required: Yes
-  - Description: Defines the fundamental properties of a field, including its identifier, display name, type, and default settings. This component is vital for the field's operation and interaction within the form.
-  - Example:
-    ```json
-    "key": {
-      "id": "email_address",
-      "name": "Email Address",
-      "required": true,
-      "defaultValue": "",
-      "cftype_id": "162"
+| Property       | Type    | Required | Options                    | Description |
+|----------------|---------|----------|----------------------------|-------------|
+| `id`           | string  | Yes      | N/A                        | Unique identifier for the field. |
+| `name`         | string  | Yes      | N/A                        | Display name of the field. |
+| `required`     | boolean | No       | true, false                | Specifies if the field is mandatory for form submission. |
+| `cftype_id`    | integer | Yes      | N/A                        | Custom field type identifier. |
+| `defaultValue` | various | No       | "[customer.cf123]", "option_2", "string" | Default value of the field. Can reference a custom field, an option, or be a fixed string. |
+| `options`      | array   | No       | Depends on field type      | Options for fields like dropdowns, radio buttons, etc. |
+
+#### JSON Example
+
+Below is an example illustrating the `fields` component within a page with various types of keys:
+
+```json
+{
+  "pages": {
+    "1": {
+      "name": "Page Name",
+      "fields": [
+        {
+          "key": {
+            "id": "simpleField",
+            "name": "Simple Field",
+            "required": true,
+            "cftype_id": 123,
+            "defaultValue": "Simple is good",
+          }
+        },
+        {
+          "key": {
+            "id": "dropdownField",
+            "name": "Dropdown Field",
+            "required": false,
+            "cftype_id": 124,
+            "defaultValue": "Option 1"
+          },
+          "options": [
+            {"id": "option1", "value": "High"},
+            {"id": "option2", "value": "low"}
+          ]
+        },
+        {
+          "key": {
+            "id": "fieldWithCustomFieldDefault",
+            "name": "Field with Custom Field Default",
+            "required": false,
+            "cftype_id": 125,
+            "defaultValue": "[customer.cf123]"
+          }
+        },      
+      ],
+      "submit": {
+        "text": "Submit Button Text",
+        // Submit action configuration...
+      },
+      "cancel": {
+        "text": "Cancel Button Text",
+        // Cancel action configuration...
+      }
     }
-    ```
+    // Additional pages...
+  }
+}
+```
+In this example, we illustrate different types of fields within a page. These include a simple key with no options, a key with options and a default static text value, a key with options and a default value fetched from a custom field of an item, and a key with options where the default value is set to one of the options.
 
-- **options (array)**:
-  - Required: Conditional (only for fields like dropdowns, radios, checkboxes)
-  - Description: Specifies the selectable options for a field. This component is crucial for fields where the user must choose from multiple choices, ensuring clear presentation and user-friendly interaction.
-  - Example:
-    ```json
-    "options": [
-      {"id": "option1", "value": "High"},
-      {"id": "option2", "value": "Low"}
-      // Additional options here
-    ]
-    ```
+## Options Component
 
-- **html (object)**:
-  - Required: No
-  - Description: Allows the inclusion of custom HTML elements within a field, enhancing the field's presentation and functionality. This component is useful for adding rich content, styling, or layout customizations.
-  - Example:
-    ```json
-    "html": {
-      "tag": "div",
-      "content": "<p>Additional instructions or information here</p>"
-      // Additional HTML content here
+The `options` component is used within certain types of fields (like dropdowns, radio buttons, and checkboxes) to provide a list of selectable choices to the user.
+
+### Structure of `options`
+
+`options` is an array where each element represents a selectable choice within the field. Each option has specific properties that define its value and behavior.
+
+#### Options Properties
+
+| Property | Type    | Required | Description |
+|----------|---------|----------|-------------|
+| `id`     | string  | Yes      | A unique identifier for the option, used for referencing and selection logic. |
+| `value`  | string  | Yes      | The display text of the option that the user will see and select. |
+
+#### JSON Example
+
+Below is an example illustrating the `options` component within a field:
+
+```json
+{
+  "pages": {
+    "1": {
+      "name": "Page Name",
+      "fields": [
+        {
+          "key": {
+            "id": "dropdownField",
+            "name": "Dropdown Field",
+            "required": false,
+            "cftype_id": 124,
+            "defaultValue": "option_2"
+          },
+          "options": [
+            {"id": "option_1", "value": "high"},
+            {"id": "option_2", "value": "low"},
+            // Additional options...
+          ]
+        }
+        // Additional fields...
+      ],
+      "submit": {
+        "text": "Submit Button Text",
+        // Submit action configuration...
+      },
+      "cancel": {
+        "text": "Cancel Button Text",
+        // Cancel action configuration...
+      }
     }
-    ```
+    // Additional pages...
+  }
+}
+```
 
-Each component plays a unique role in the creation and customization of fields in 1Relation forms. By leveraging these components, form designers can ensure their forms are not only functional but also tailored to specific data collection and user experience needs.
+In this example, the field dropdownField has multiple options, each defined with an id and value. The id serves as a unique identifier, while value is what the user sees in the dropdown menu. The defaultValue for the field can reference one of these options, pre-selecting it for the user.
 
-### Empty JSON Structure for Field Configuration
+## HTML Component
 
-The following is an empty JSON structure template that outlines how to configure fields in a 1Relation form. This template includes placeholders for the `key`, `options`, and `html` components, representing the essential aspects of field configuration:
+The `html` component within a field is used to integrate custom HTML content, enabling enhanced presentation and layout customization within the form. This component allows for adding rich text, links, or other HTML elements to a field for a richer user experience.
+
+### Structure of `html`
+
+The `html` object within a field allows the inclusion of custom HTML elements with specific tags and content.
+
+#### HTML Properties
+
+| Property  | Type   | Required | Options                                      | Description |
+|-----------|--------|----------|----------------------------------------------|-------------|
+| `tag`     | string | Yes      | h1, h2, h3, h4, h5, h6, b, p, i, u, strong   | Defines the HTML tag to be used for the field content. This enables custom styling and layout within the form. |
+| `content` | string | Yes      | N/A                                          | Specifies the actual HTML content to be displayed within the field. This can include formatted text, images, links, or other HTML elements. |
+
+#### JSON Example
+
+Below is an example illustrating the `html` component within fields, showcasing how custom HTML content can be embedded:
 
 ```json
 {
   "fields": [
-     {
-      "key": {
-        "id": "customer_name",
-        "name": "Write Customer Name",
-        "required": true,
-        "defaultValue": "",
-        "cftype_id": "162"
-      }
-    },
-    {
-      "key": {
-        "id": "priority_field",
-        "name": "Choose Priority",
-        "required": true,
-        "cftype_id": "dropdown" // Assuming 'dropdown' is a type identifier
-      },
-      "options": [
-        {
-          "id": "low_priority",
-          "value": "Low"
-        },
-        {
-          "id": "medium_priority",
-          "value": "Medium"
-        },
-        {
-          "id": "high_priority",
-          "value": "High"
-        }
-      ]
-    },
     {
       "html": {
         "tag": "h1",
@@ -104,7 +165,9 @@ The following is an empty JSON structure template that outlines how to configure
         "content": "Remember to close the task"
       }
     }
+    // Additional fields with html configurations as needed
   ]
 }
-
 ```
+
+In this example, two fields demonstrate the use of the html component: one uses an `h1` tag for a heading, and the other uses a `p` tag for a paragraph with custom content. This flexibility allows for diverse and rich content presentation within the form.

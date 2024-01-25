@@ -1,88 +1,41 @@
-Pages in 1Relation forms serve as a fundamental component to structure and organize the form's content. They enable a logical flow of questions and possible answers for the user to input.
+# Pages
 
-## Use Cases
+The `pages` component is a crucial part of the form's JSON structure, as it defines the individual pages of the form, each containing its own set of fields, actions, and navigation options.
 
->- **Editing Items**
->
-> Pages in forms facilitate the management of information by presenting users with fields. This is crucial for tasks like creating or editing for example a customer, where fields in a form are paired with custom fields from items, allowing for efficient data entry and modification.
->
->- **Survey and Feedback Forms**
->
-> In surveys or feedback forms, pages can be used to group related questions. This approach helps in organizing the form logically and makes it easier for respondents to understand and answer accurately. By segmenting questions into different pages, users can navigate through the survey without feeling overwhelmed.
+## Structure of `pages`
 
-## Pages Components
+Each page within the `pages` object is identified by a key (usually a number or identifier) and contains various properties to define the page's content and behavior.
 
-Pages in 1Relation forms are designed to organize content and guide user interaction. Each page comprises several key components:
+### Page Properties
 
-- **name (string)**:
-  - Required: Yes
-  - Description: Provides a unique identifier for each page. This name is displayed to the user and helps in navigating the form.
-  - Example: `"name": "Contact Information"`
+| Property | Type   | Required | Options | Description |
+|----------|--------|----------|---------|-------------|
+| `name`   | string | Yes      | N/A     | The title or name of the page. |
+| `fields` | array  | Yes      | N/A     | An array of field objects defining the input fields on the page. |
+| `submit` | object | No       | N/A     | Defines the submit action of the page, including text and triggers. |
+| `cancel` | object | No       | N/A     | Defines the cancel action of the page, including text and optional triggers. |
 
-- **fields (array)**:
-  - Required: Yes
-  - Description: Specifies the set of fields present on a page. Each field is defined with its own properties and configurations. Fields can be used for gathering data (like text inputs or checkboxes) or providing information (such as titles or instructions).
-  - Example: 
-    ```json
-    "fields": [
-      {
-        "key": {
-          "id": "first_name",
-          "name": "First Name",
-          "required": true
-        }
-      },
-      // Additional fields here
-    ]
-    ```
+#### JSON Example
 
-- **submit (object)**:
-  - Required: No
-  - Description: Configures the actions to be performed when the user submits the page. This can include data processing, navigation to another page, or triggering other workflows.
-  - Example: 
-    ```json
-    "submit": {
-      "text": "Next",
-      "action": "submitForm",
-      // Additional submit configurations here
-    }
-    ```
-
-- **cancel (object)**:
-  - Required: No
-  - Description: Defines the actions to be taken when the user cancels the page. This could involve returning to a previous page, clearing the form, or other custom behaviors.
-  - Example: 
-    ```json
-    "cancel": {
-      "text": "Go Back",
-      "action": "cancelForm",
-      // Additional cancel configurations here
-    }
-    ```
-
-These components together structure each page within the form, facilitating an intuitive and efficient user experience. By customizing these components, form designers can create diverse and dynamic forms that cater to various user interactions and data collection needs.
-
-
-### Empty JSON Structure for Page Configuration
-
-Below is an empty JSON structure that serves as a template for configuring individual pages within a form in 1Relation. This structure outlines the fundamental elements of a page, including fields for user input and settings for submit and cancel actions.
+Below is an example illustrating the `pages` component with various pages and their configurations:
 
 ```json
 {
   "pages": {
     "1": {
-      "name": "Page Name",
-      "fields": [
-        // Define fields for user input here
-      ],
-      "submit": {
-        // Configure actions for the submit button here
-      },
-      "cancel": {
-        // Configure actions for the cancel button here
-      }
+      "name": "Tabt / Vundet salg",
+      // Fields, submit and cancel actions for page 1
     },
-    // Additional pages can be configured similarly
+    "2": {
+      "name": "Overlevering til tilsynsafdeling",
+      // Fields, submit and cancel actions for page 2
+    },
+    "3": {
+      "name": "1 besøg",
+      // Fields, submit and cancel actions for page 3
+    },
+    // Additional pages...
   }
 }
 ```
+In this example, each page is uniquely identified (e.g., "1", "2", "3") and includes a name, an array of fields, and submit and cancel actions. The fields array on each page contains individual field configurations, while submit and cancel define the actions to be taken when these buttons are clicked, including any triggers or navigation steps.

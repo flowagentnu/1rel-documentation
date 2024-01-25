@@ -1,3 +1,5 @@
+# HTML
+
 The `html` component in a field is used to incorporate custom HTML content, allowing for enhanced presentation and layout customization within the form. This component is instrumental in adding rich text, links, or other HTML elements to a field.
 
 - **tag (string)**:

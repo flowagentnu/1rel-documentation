@@ -1,5 +1,5 @@
 
-# JSON Queries in 1Relation
+# JSON Queries
 
 ## Introduction
 

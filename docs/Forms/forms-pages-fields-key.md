@@ -1,3 +1,5 @@
+# Keys
+
 The key `component` in a form field is fundamental to its identification and functionality. It includes essential attributes like the field's unique identifier, display name, data type, and whether the field is mandatory. This component is crucial for defining the field's role and behavior in the form.
 
 - **id (string)**:
@@ -28,7 +30,7 @@ The key `component` in a form field is fundamental to its identification and fun
   - Description: Identifies the field type (e.g., 'text', 'dropdown', 'checkbox'), affecting user interaction.
   - Example: `"cftype_id": "159"`
 
-#### Empty JSON Structure for key Configuration
+#### JSON example for key Configuration
 
 The following JSON structure provides a template for configuring the `key` component of fields in a 1Relation form. This structure outlines the essential properties of the `key` component, setting the foundation for field functionality and user interaction:
 

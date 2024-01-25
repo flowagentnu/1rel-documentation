@@ -1,11 +1,49 @@
-In 1Relation, the 'Submit' and 'Cancel' components play pivotal roles in guiding the user journey through forms. They are not just simple buttons but integral elements that drive the workflow and user interaction within the form. This document aims to provide comprehensive insights into these components, their functionalities, and how they can be configured to handle diverse scenarios.
+# Submit and Cancel
 
-### Submit Component
-The 'Submit' component acts as the cornerstone of form submission, initiating the processing of user inputs and potentially triggering a series of actions based on the form's logic. It can lead to different outcomes, like updating data, switching to another page, or even inserting new records, based on the conditions set within the form's design.
+The `submit` and `cancel` components within a form page define the actions to be executed when the form is either submitted or cancelled. They also include configurations for button text and any triggers associated with these actions.
 
-### Cancel Component
-Conversely, the 'Cancel' component offers an exit route for users, allowing them to gracefully step back from the current interaction or revert to a previous state. It's essential for enhancing user experience by providing flexibility and control over their actions within the form.
+## Structure of `submit` and `cancel`
 
-The detailed JSON example provided showcases these components in action, demonstrating how they can be effectively utilized in various form scenarios, ranging from simple data submission to more complex conditional workflows.
+These components consist of properties that define their behavior and appearance on the form.
 
-In the following sections, we will dissect and analyze the provided JSON structure, highlighting key aspects of the 'Submit' and 'Cancel' components. We'll explore their configurations, showcase practical examples, and offer best practices to maximize their utility in your 1Relation forms.
+### Submit and Cancel Properties
+
+| Property   | Type   | Required | Description |
+|------------|--------|----------|-------------|
+| `text`     | string | Yes      | The text displayed on the submit or cancel button. |
+| `triggers` | array  | No       | An array of action triggers that are executed when the button is clicked. |
+
+#### JSON Example
+
+Below is an example illustrating the `submit` and `cancel` components within a form page:
+
+```json
+{
+  "pages": {
+    "1": {
+      "name": "Page Name",
+      // Fields configuration...
+      "submit": {
+        "text": "Submit",
+        "triggers": [
+          {
+            // Trigger configurations...
+          }
+          // Additional triggers...
+        ]
+      },
+      "cancel": {
+        "text": "Cancel",
+        "triggers": [
+          {
+            // Optional trigger configurations for cancel action...
+          }
+        ]
+      }
+    }
+    // Additional pages...
+  }
+}
+```
+
+In this example, the submit component has a text label "Submit" and may include triggers that define actions to be executed upon form submission, such as moving to another page, updating data, or triggering custom workflows. Similarly, the cancel component includes a "Cancel" button, which can optionally have triggers for actions to be performed when the user cancels the form.
