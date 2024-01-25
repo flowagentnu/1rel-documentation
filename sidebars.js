@@ -64,7 +64,7 @@ const sidebars = {
       `Forms/forms-pages-submit&cancel`,
       `Forms/forms-pages-submit&cancel-triggers`,
       'Forms/forms-endflow',
-      `Forms/forms-full-singlepage`,
+
 ],
       link: {
         type: 'doc',
