@@ -73,6 +73,18 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Apps',
+      collapsed: true,
+      items: [
+        'apps/apps-install-apps',
+      ],
+      link: {
+        type: 'doc',
+        id: 'apps/apps-intro-to-apps',
+      },
+    },
+    {
+      type: 'category',
       label: 'Jay-Sawn',
       collapsed: true,
       items: [
