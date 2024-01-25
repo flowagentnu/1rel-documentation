@@ -56,6 +56,16 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Actionable buttons',
+      collapsed: true,
+      items: [],
+      link: {
+        type: 'doc',
+        id: 'actionable-buttons/ab-intro-to-ab', 
+      },
+    },
+    {
+      type: 'category',
       label: 'Forms',
       collapsed: true,
       items: ['Forms/forms-Items',
@@ -77,6 +87,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'apps/apps-install-apps',
+        'apps/widgets/apps-table',
       ],
       link: {
         type: 'doc',
