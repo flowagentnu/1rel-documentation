@@ -81,7 +81,7 @@ Configure filters for the data displayed in the widget using queries:
 |-----------|-------|----------|---------|-------------|
 | `query`   | array | Yes      | N/A     | An array of conditions for filtering the data displayed in the widget. Each condition is an array where the first element is the property, the second element is the operator, and the third element is the value. |
 
-For detailed information on JSON query formatting and options, refer to the documentation [here](JSON/json-query).
+For detailed information on JSON query formatting and options, refer to the documentation [here](/docs/JSON/json-query).
 
 #### Example 4: Widget with Queries
 ```json
@@ -164,7 +164,7 @@ In this configuration for forms options, users are provided with the ability to 
 ```
 ## Actionable Buttons
 
-Enhance your table widget with actionable buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actionable buttons, refer to [Actionable Buttons Introduction](actionable-buttons/ab-intro-to-ab).
+Enhance your table widget with actionable buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actionable buttons, refer to [Actionable Buttons Introduction](/docs/actionable-buttons/ab-intro-to-ab).
 
 | Property             | Type    | Required | Options       | Description |
 |----------------------|---------|----------|---------------|-------------|
