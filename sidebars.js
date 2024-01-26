@@ -88,6 +88,7 @@ const sidebars = {
       items: [
         'apps/apps-install-apps',
         'apps/widgets/apps-table',
+        'apps/widgets/apps-details',
       ],
       link: {
         type: 'doc',
