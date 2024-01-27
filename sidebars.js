@@ -58,7 +58,13 @@ const sidebars = {
       type: 'category',
       label: 'Actionable buttons',
       collapsed: true,
-      items: [],
+      items: [
+        'actionable-buttons/ab-main-components',
+        'actionable-buttons/ab-items',
+        'actionable-buttons/ab-visibility',
+        'actionable-buttons/ab-actions',
+        'actionable-buttons/ab-outcome',
+      ],
       link: {
         type: 'doc',
         id: 'actionable-buttons/ab-intro-to-ab', 
@@ -68,7 +74,9 @@ const sidebars = {
       type: 'category',
       label: 'Forms',
       collapsed: true,
-      items: ['Forms/forms-Items',
+      items: [
+      'Forms/forms-main-components',
+      'Forms/forms-Items',
       'Forms/forms-pages',
       'Forms/forms-pages-fields',
       `Forms/forms-pages-submit&cancel`,
