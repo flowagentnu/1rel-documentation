@@ -56,17 +56,15 @@ An action object is structured to clearly define when and how it should be trigg
 }
 ```
 
-In this example, if the condition is met (customerName equals John), the system will perform the defined CRUD operation, inserting a new customer with the specified details.
-
 ## Defining Conditions (`if`)
 
 Setting conditions is like setting the rules of the game. They determine when an action should kick into gear.
 
-| Property | Options | Description |
-|----------|---------|-------------|
-| Key      | Various | The field or attribute to be evaluated (e.g., a user group or custom field). |
-| Operator | `=` `!=` `>` `<` etc. | Defines how the key's value should be compared to the condition's value. |
-| Value    | Various | The value to compare against the key's value. |
+| Property | Type   | Required | Options | Description |
+|----------|--------|----------|---------|-------------|
+| Key      | string | Yes      | Various | The field or attribute to be evaluated (e.g., a user group or custom field). |
+| Operator | string | Yes      | `=`, `!=`, `>`, `<`, etc. | Defines how the key's value should be compared to the condition's value. |
+| Value    | string | Yes      | Various | The value to compare against the key's value. |
 
 ### Examples of Conditions
 
@@ -81,30 +79,30 @@ Setting conditions is like setting the rules of the game. They determine when an
 
 When conditions are met, the `then` part defines what happens next. It's where the action truly happens.
 
-| Property | Description |
-|----------|-------------|
-| `crud`   | Perform CRUD operations, manipulating data as needed. |
-| `showForm` | Open a specific form, passing along necessary data. |
-| `showRelevantForms` | Display forms relevant to the current context or data. |
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `crud`   | object | No       | Perform CRUD operations, manipulating data as needed. |
+| `showForm` | object | No       | Open a specific form, passing along necessary data. |
+| `showRelevantForms` | object | No | Display forms relevant to the current context or data. |
 
 ### CRUD Operations
 
 CRUD operations are the backbone of data management within 1Relation.
 
-| Operation | Description |
-|-----------|-------------|
-| `insert` / `update` | Add new data or modify existing data. Specify the module, item type, and custom fields as needed. |
-| `relate` | Create a relationship between items, linking data in meaningful ways. |
-| `delete` | Remove data that's no longer needed, keeping your system clean and up-to-date. |
+| Operation | Type   | Required | Description |
+|-----------|--------|----------|-------------|
+| `insert` / `update` | object | Yes | Add new data or modify existing data. Specify the module, item type, and custom fields as needed. |
+| `relate` | array | Yes | Create a relationship between items, linking data in meaningful ways. |
+| `delete` | array | Yes | Remove data that's no longer needed, keeping your system clean and up-to-date. |
 
 ### Form Interaction
 
 Actions can also enhance user interaction with forms:
 
-| Interaction | Description |
-|-------------|-------------|
-| `showForm` | Open a form directly, making it easy for users to input or review data. |
-| `showRelevantForms` | Present users with forms that are relevant to their current task or data, streamlining their workflow. |
+| Interaction | Type   | Required | Description |
+|-------------|--------|----------|-------------|
+| `showForm` | object | No | Open a form directly, making it easy for users to input or review data. |
+| `showRelevantForms` | object | No | Present users with forms that are relevant to their current task or data, streamlining their workflow. |
 
 ---
 
