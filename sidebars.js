@@ -34,6 +34,7 @@ const sidebars = {
       items: [
         'Modules/modules-how-to-create-a-module',
         'Modules/modules-how-to-delete-a-module',
+        'Modules/Settings/settings-dynamic-values'
       ],
       link: {
         type: 'doc',
@@ -109,6 +110,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'JSON/json-query',
+        'JSON/json-actions'
       ],
       link: {
         type: 'doc',

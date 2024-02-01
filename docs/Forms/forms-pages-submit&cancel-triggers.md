@@ -1,23 +1,43 @@
-# Triggers
+# Triggers (Actions) in Forms
 
-Triggers in the `submit` and `cancel` components of 1Relation forms are essential for dynamic user interaction. They enable forms to respond to user inputs with various actions, such as navigation and data manipulation.
+## Introduction
 
-## Structure of `triggers`
+In 1Relation forms, 'triggers' are part of a broader concept referred to as 'actions.' These actions consist of rules and tasks executed when specific conditions are met, enhancing the dynamic and interactive capabilities of forms. This document provides an overview of how actions (as triggers) are utilized in forms, outlining their purpose, basic structure, and interaction with form components.
 
-Triggers consist of several components, each with specific roles in managing form actions and navigation.
+:::tip
+For a comprehensive guide on the syntax, types, and advanced configurations of actions, including CRUD operations, form interactions, and more, please refer to the detailed [Actions Documentation](/docs/JSON/json-actions).
+:::
 
-### Trigger Components
+## Purpose of Actions in Forms
 
-| Property        | Type    | Required | Options                                   | Description |
-|-----------------|---------|----------|-------------------------------------------|-------------|
-| `Actions`       | object  | No       | insert, update, relate, delete, unlink    | Refers to CRUD actions to be executed. |
-| `Page`          | integer | No       | Page numbers                              | Directs users to a specific page within the form. |
-| `Endflow`       | boolean | No       | true, false                               | Determines the end of form interaction. |
-| `BreakAfter`    | boolean | No       | true, false                               | Specifies whether to stop executing further triggers. |
-| `Uri`           | string  | No       | URL paths                                 | Redirects the user to a specific page if no other triggers are defined for the action. |
-| `dynamicdata`   | object  | No       |                                           | Retrieves data dynamically based on specified conditions and uses it in other actions. |
-| `createInModule`| object | No        |                                           | Creates new items in a specified module, utilizing dynamically retrieved data or form inputs. |
+Actions in forms serve to:
 
+1. **Automate Data Manipulation**: Perform CRUD (Create, Read, Update, Delete) operations based on user input or predefined conditions.
+2. **Control Form Flow**: Dynamically open forms, navigate between pages, or execute other actions based on user interactions or data states within the form.
+3. **Integrate with System Workflows**: Initiate system actions or workflows, like sending notifications, creating tasks, or updating records, upon specific triggers within the form.
+
+## Basic Structure of an Action
+
+While actions can be complex and highly customizable, their basic structure within forms typically involves:
+
+- **Condition (`if`)**: A set of rules that define when an action is triggered. Conditions can involve field values, user groups, or other form-related data.
+- **Action (`then`)**: The tasks to be executed when conditions are met. This can include CRUD operations, opening forms, and more.
+
+## Actions in Context: Submit and Cancel
+
+Within forms, actions are commonly associated with the `submit` and `cancel` components, defining dynamic behaviors that occur when these buttons are clicked:
+
+### Submit Actions
+
+- **Purpose**: Define dynamic operations upon form submission, such as data updates, record creation, or opening related forms.
+- **Structure**: May include complex actions with multiple conditions and tasks.
+
+### Cancel Actions
+
+- **Purpose**: Optionally define dynamic operations upon form cancellation, like data reverting, logging activities, or redirecting to other forms or pages.
+- **Structure**: Similar to submit actions, but typically focused on aborting the form process or cleaning up.
+
+## Example of an Action in a Form
 
 #### Trigger with Page Change
 ```json
@@ -55,7 +75,7 @@ This example demonstrates a trigger that navigates the user to the second page o
 }
 ```
 #### Trigger with Two Actions and "If"
-This example shows a trigger performing two actions: insert and relate. It creates a new record and establishes a relationship with another item, all without a conditional statement (if).
+This example shows a trigger performing two actions: `insert` and `relate`. It creates a new record and establishes a relationship with another item, all without a conditional statement `if`.
 
 ```json
 {
@@ -76,7 +96,7 @@ This example shows a trigger performing two actions: insert and relate. It creat
   }
 }
 ```
-This trigger includes a conditional check (if) and executes two actions (insert and update) based on the condition being met. It illustrates how to conditionally perform multiple actions based on user input.
+This trigger includes a conditional check `if` and executes two actions (`insert` and `update`) based on the condition being met. It illustrates how to conditionally perform multiple actions based on user input.
 
 #### Example with `Uri`
 ```json
@@ -99,7 +119,7 @@ This trigger includes a conditional check (if) and executes two actions (insert 
   }
 }
 ```
-This trigger is set on the cancel button. When the user clicks "Go Back," they are redirected to a specific URI, showing how the uri property can be used for redirection.
+This trigger is set on the cancel button. When the user clicks "Go Back," they are redirected to a specific URI, showing how the `uri` property can be used for redirection.
 
 #### Trigger with Multiple Actions and breakAfter: false
 ```json
@@ -133,7 +153,7 @@ This trigger is set on the cancel button. When the user clicks "Go Back," they a
   }
 }
 ```
-This complex trigger involves multiple actions: insert, update, and relate. It uses breakAfter: false to continue executing subsequent actions without stopping the flow, ending with endflow: true.
+This complex trigger involves multiple actions: `insert`, `update`, and `relate`. It uses `breakAfter: false` to continue executing subsequent actions without stopping the flow, ending with `endflow: true`.
 
 #### Trigger with "dynamicdata" and "createInModule"
 ```json
@@ -157,7 +177,13 @@ This complex trigger involves multiple actions: insert, update, and relate. It u
                   "cf570": "0",
                   "cf615": "dynamicdata[cf548]",
                   "cf616": "dynamicdata[cf549]"
-                }
+                },
+                "relations": [
+                  {
+                    "child": "dynamicitem",
+                    "parent": "opgave"
+                  }
+                ]
               }
             }
           }
@@ -170,6 +196,7 @@ This complex trigger involves multiple actions: insert, update, and relate. It u
   // ...
 }
 ```
-This example illustrates the use of the dynamicdata feature to fetch data based on specific criteria. The retrieved data is then used in a createInModule action to create a new item in a specified module. This showcases advanced data handling capabilities within triggers.
+This example illustrates the use of the dynamicdata feature to fetch data based on specific criteria. The retrieved data is then used in a `createInModule` action to create a new item in a specified module.
+Another relation is also assigned to the items created with `createInModule` functionality. When refering to these items, the `dynamicitem` is used. This showcases advanced data handling capabilities within triggers.
 
 Each of these examples demonstrates different configurations of triggers, showcasing how they can be used to manage form navigation, perform actions, and control the flow based on user interactions.
