@@ -98,7 +98,13 @@ This action uses the `uri` property to redirect the user to a specific URI, demo
               "cf615": "dynamicdata[cf548]",
               "cf616": "dynamicdata[cf549]"
             }
-          }
+          },
+          "relations": [
+            {
+              "child": "dynamicitem",
+              "parent": "opgave"
+            }
+          ]
         }
       }
     }
@@ -106,6 +112,7 @@ This action uses the `uri` property to redirect the user to a specific URI, demo
   ]
 }
 ```
-In this advanced example, the `dynamicdata` feature is used to fetch data based on specific criteria. The retrieved data is then utilized in a `createInModule` action to create a new item in a specified module, showcasing the sophisticated data handling and operational capabilities of Actional Buttons.
+This example illustrates the use of the dynamicdata feature to fetch data based on specific criteria. The retrieved data is then used in a `createInModule` action to create a new item in a specified module.
+Another relation is also assigned to the items created with `createInModule` functionality. When refering to these items, the `dynamicitem` is used. This showcases advanced data handling capabilities within triggers.
 
 Each of these examples demonstrates different configurations of actions within Actional Buttons, showcasing the versatility and power of the system in responding to user interactions and automating complex tasks.

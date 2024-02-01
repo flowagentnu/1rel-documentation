@@ -67,15 +67,15 @@ In this trigger-specific endflow example, the form ends and redirects to "item1"
 
 ## Endflow Commands
 
-The following commands are available for both global and trigger-specific endflows:
+The following commands are available for both global and trigger-specific endflows, offering precise control over the navigation after form interaction:
 
-|Command	    |Description
-|---------------|-------------|
-|`back`	        |Returns to the previous page.
-|`dashboard`	    |Redirects to the dashboard.
-|`item`	        |Redirects to the starting item. Requires the form to have been started on an item.
-|`uri`	        |Redirects to a given URI. Only possible for global endflow and requires redirect_uri.
-|`itemkey.[item]`	|Redirects to a specific item defined in the flow. Requires the item key to exist.
+| Command           | Description |
+|-------------------|-------------|
+| `back`            | Returns the user to the previous page. Typically used in multi-page forms to navigate backward. |
+| `dashboard`       | Redirects the user to the dashboard. Ideal for concluding a form process and returning to the main menu. |
+| `item`            | Redirects to the starting item, requiring that the form was initiated from a specific item. |
+| `uri`             | Directs the user to a specified URI, allowing for custom redirection paths. Applicable only in global endflow settings. |
+| `itemkey.[item]`  | Redirects to a specific item defined in the form's flow. `itemkey` refers to the unique identifier of an item within the form, allowing for directed navigation post-submission. |
 
 ### Endflow Command Examples
 
@@ -118,6 +118,3 @@ The following commands are available for both global and trigger-specific endflo
   }
 }
 ```
-
-Understanding and utilizing the endflow component allows for precise control over the form's behavior upon completion, enhancing user experience and ensuring seamless navigation within the 1Relation system.
-
