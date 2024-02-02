@@ -7,12 +7,12 @@ The `items` component in the form's JSON structure is crucial for two primary fu
 
 ## `items` Properties
 
-The `items` object is structured as a collection of key-value pairs. Each key represents a unique identifier for an item type within the form, and the associated value is an array. This array specifies the criteria for fetching or interacting with the item, utilizing query filters as defined in the `JSON Query document`.
+The `items` object is structured as a collection of key-value pairs. Each key represents a unique identifier for an item type within the form, and the associated value is an array. This array specifies the criteria for fetching or interacting with the item, utilizing query filters as defined in the [JSON Query Documentation](/docs/JSON/json-query)..
 
 | Property | Type   | Required | Description |
 |----------|--------|----------|-------------|
 | Key      | string | Yes      | Serves as the unique identifier of the item within the form. |
-| Value    | array  | Yes      | An array of conditions or parameters, defining the criteria for fetching or manipulating the item. It uses a structured query format as described in the `JSON Query document`. |
+| Value    | array  | Yes      | An array of conditions or parameters, defining the criteria for fetching or manipulating the item. It uses a structured query format as described in the [JSON Query Documentation](/docs/JSON/json-query).. |
 
 ### JSON Example
 
@@ -41,9 +41,3 @@ In this example:
 - The `task` item is associated with a related item, identified through a relationship indicated as `[relationXX]`, where `XX` should be replaced with the actual relation ID relevant to your configuration.
 
 Each array under an item key (like `Project`, `customer`, `task`) is structured as a query filter. It specifies the criteria for fetching or interacting with that item, primarily for the purpose of populating form fields or performing actions through form triggers.
-
-For a detailed understanding of the structure and usage of these query filters, please refer to the `JSON Query document`.
-
----
-
-This revision ensures that the document is more aligned with the original documentation, providing clear explanations and maintaining consistency in the use of placeholders and references to external documents.
