@@ -1,48 +1,86 @@
 # Actions
 
-Actions in Actional Buttons within 1Relation are pivotal for dynamic user interaction, mirroring the concept of triggers in forms. They enable Actional Buttons to perform a wide range of tasks, from navigation and data manipulation to more complex operations, ensuring a responsive and interactive user experience.
+## Introduction
 
-## Structure of `actions`
+Actions within Actionable Buttons in 1Relation are dynamic sets of tasks triggered based on specific conditions. These actions automate processes, manipulate data, and guide user interaction within the application. This document offers an overview of actions in Actionable Buttons, detailing their structure and interaction with other components.
 
-Actions consist of several components, each with specific roles in managing the button's behavior and response to user interactions.
+:::tip
+For an in-depth guide on the syntax, types, and advanced configurations of actions, please refer to the comprehensive [Actions Documentation](/docs/JSON/json-actions).
+:::
 
-### Action Components
+## Purpose of Actions in Actionable Buttons
 
-| Property        | Type    | Required | Options                                     | Description |
-|-----------------|---------|----------|---------------------------------------------|-------------|
-| `Actions`       | object  | Yes      | insert, update, relate, delete, unlink, showForm | Specifies the operations to be executed when the action is triggered. |
-| `If`            | array   | No       | Conditions as described in the JSON Query documentation | A set of conditions that must be met for the action to execute. |
-| `Then`          | object  | Yes      | N/A                                         | Outlines the actions to take place if the conditions are met. |
-| `dynamicdata`   | object  | No       |                                             | Retrieves data dynamically based on specified conditions and uses it in other actions. |
-| `BreakAfter`    | boolean | No       | true, false                                 | Specifies whether to stop executing further actions after this one. |
-| `Uri`           | string  | No       | URL paths                                   | Redirects the user to a specific page if no other actions are defined. |
-| `createInModule`| object  | No       |                                             | Creates new items in a specified module, utilizing dynamically retrieved data or Actional Button inputs. |
+Actions in Actionable Buttons are designed to:
 
-#### Action with Conditional Logic
+1. **Automate Tasks**: Execute tasks like CRUD operations automatically, enhancing efficiency in data management.
+2. **Enhance User Interaction**: Trigger forms and display notifications, ensuring a responsive and engaging user experience.
+3. **Streamline Workflows**: Seamlessly integrate with system workflows, triggering necessary actions in response to user interactions with Actionable Buttons.
+
+## Basic Structure of an Action
+
+Actions are defined by conditions (`if`) and the tasks to be executed (`then`).
+
+| Property | Type  | Required | Description |
+|----------|-------|----------|-------------|
+| `if`     | array | No       | A set of criteria that determine when the action should be triggered. These criteria can involve item states, user roles, or other contextual data. |
+| `then`   | object| Yes      | Defines the tasks or operations to be performed when the action is triggered. This can include CRUD operations, opening forms, and more. |
+
+## Examples of Actions in Actionable Buttons
+
+### Basic Action Configuration
+
 ```json
 {
   "actions": [
     {
+      "name": "Mark Task as Complete",
       "if": [
-        ["field_id", "=", "specific_value"]
+        ["taskStatus", "!=", "Completed"]
       ],
       "then": {
-        "update": {
-          // Update details...
+        "crud": {
+          "update": {
+            "task": {
+              "customfield": {
+                "cf445": "Completed"
+              }
+            }
+          }
         }
       }
     }
   ]
 }
 ```
-This example demonstrates an action that updates certain details based on a conditional check (`if`). The action is executed only if the condition is met, showcasing the ability to perform context-sensitive operations.
 
-#### Action with Multiple Operations and "If"
+### Action with Conditional Display and Form Trigger
+
 ```json
 {
   "actions": [
     {
-      "if": [["field_id", "=", "specific_value"]],
+      "name": "Open Feedback Form",
+      "if": [
+        ["userRole", "=", "Customer"]
+      ],
+      "then": {
+        "showForm": {
+          "formId": 456,
+          "itemKey": "feedback"
+        }
+      }
+    }
+  ]
+}
+```
+
+### Action with Multiple Operations
+
+```json
+{
+  "actions": [
+    {
+      "name": "Process Order",
       "then": {
         "insert": {
           // Insert details...
@@ -50,11 +88,6 @@ This example demonstrates an action that updates certain details based on a cond
         "update": {
           // Update details...
         },
-        "breakAfter": false
-      }
-    },
-    {
-      "then": {
         "relate": {
           // Relate details...
         }
@@ -63,56 +96,5 @@ This example demonstrates an action that updates certain details based on a cond
   ]
 }
 ```
-This example shows an action sequence with a conditional check (`if`) and multiple operations (`insert` and `update`). The `breakAfter`: false ensures that subsequent actions are also executed, in this case, the `relate` action.
 
-#### Action with Uri for Redirection
-```json
-{
-  "actions": [
-    {
-      "then": {
-        "uri": "/item/[itemid]"
-      }
-    }
-  ]
-}
-```
-This action uses the `uri` property to redirect the user to a specific URI, demonstrating how actions can also control navigation within the application.
-
-#### Action with dynamicdata and createInModule
-```json
-{
-  "actions": [
-    {
-      "then": {
-        "dynamicdata": {
-          "module_id": 68,
-          "where": [
-            ["cf548.string", "NOT LIKE", "#%"]
-          ],
-          "createInModule": {
-            "moduleitemtype_id": 128,
-            "module_id": 70,
-            "customfield": {
-              "cf570": "0",
-              "cf615": "dynamicdata[cf548]",
-              "cf616": "dynamicdata[cf549]"
-            }
-          },
-          "relations": [
-            {
-              "child": "dynamicitem",
-              "parent": "opgave"
-            }
-          ]
-        }
-      }
-    }
-    // Additional actions...
-  ]
-}
-```
-This example illustrates the use of the dynamicdata feature to fetch data based on specific criteria. The retrieved data is then used in a `createInModule` action to create a new item in a specified module.
-Another relation is also assigned to the items created with `createInModule` functionality. When refering to these items, the `dynamicitem` is used. This showcases advanced data handling capabilities within triggers.
-
-Each of these examples demonstrates different configurations of actions within Actional Buttons, showcasing the versatility and power of the system in responding to user interactions and automating complex tasks.
+For detailed syntax, types, advanced configurations, and examples of actions, please refer to the comprehensive [Actions Documentation](/docs/JSON/json-actions). Understanding the full capabilities of actions will empower you to create dynamic, efficient, and user-friendly interactions within your system.

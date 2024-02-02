@@ -20,8 +20,10 @@ Actions in forms serve to:
 
 While actions can be complex and highly customizable, their basic structure within forms typically involves:
 
-- **Condition (`if`)**: A set of rules that define when an action is triggered. Conditions can involve field values, user groups, or other form-related data.
-- **Action (`then`)**: The tasks to be executed when conditions are met. This can include CRUD operations, opening forms, and more.
+| Property | Type  | Required | Description |
+|----------|-------|----------|-------------|
+| `if`     | array | No       | A set of rules that define when an action is triggered. Conditions can involve field values, user groups, or other form-related data. |
+| `then`   | object| Yes      | The tasks to be executed when conditions are met. This can include CRUD operations, opening forms, and more. |
 
 ## Actions in Context: Submit and Cancel
 

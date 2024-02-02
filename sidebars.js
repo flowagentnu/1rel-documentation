@@ -1,16 +1,3 @@
-/**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
- */
-
-// @ts-check
-
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   docs: [
@@ -32,29 +19,38 @@ const sidebars = {
       label: 'Modules',
       collapsed: true,
       items: [
-        'Modules/modules-how-to-create-a-module',
-        'Modules/modules-how-to-delete-a-module',
-        'Modules/Settings/settings-dynamic-values'
+//        'Modules/modules-how-to-create-a-module',
+//        'Modules/modules-how-to-delete-a-module',
+        {
+          type: 'category',
+          label: 'Settings',
+          items: [
+            'Modules/Settings/settings-dynamic-values',
+            'Modules/Settings/settings-types',
+            'Modules/Settings/settings-customfields',
+            'Modules/Settings/settings-relations',
+          ],
+        },
       ],
       link: {
         type: 'doc',
         id: 'Modules/modules-Intro-to-modules',
       },
     },
-    {
-      type: 'category',
-      label: 'Items',
-      collapsed: true,
-      items: [
-        'Items/items-how-to-create-an-item',
-        'Items/items-how-to-edit-an-item',
-        'Items/items-how-to-delete-an-item',
-      ],
-      link: {
-        type: 'doc',
-        id: 'Items/items-intro-to-items',
-      },
-    },
+//    {
+//      type: 'category',
+//      label: 'Items',
+//      collapsed: true,
+//      items: [
+//        'Items/items-how-to-create-an-item',
+//        'Items/items-how-to-edit-an-item',
+//        'Items/items-how-to-delete-an-item',
+//      ],
+//      link: {
+//        type: 'doc',
+//        id: 'Items/items-intro-to-items',
+//      },
+//    },
     {
       type: 'category',
       label: 'Actionable buttons',
@@ -98,6 +94,7 @@ const sidebars = {
         'apps/apps-install-apps',
         'apps/widgets/apps-table',
         'apps/widgets/apps-details',
+        'apps/integrations/integrations-365-sync',
       ],
       link: {
         type: 'doc',

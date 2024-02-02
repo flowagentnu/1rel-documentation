@@ -1,33 +1,67 @@
 # Visibility
 
-The `visibility` component of an Actional Button's JSON configuration determines when and how the button is displayed in the UI. It ensures that buttons are presented to the right users under the right circumstances, enhancing the user experience and the system's overall efficiency.
+## Introduction
 
-## Structure of `visibility`
+The `visibility` component plays a pivotal role in ensuring that Actional Buttons in 1Relation appear at the right time, to the right users, and in the right context. It is primarily structured around two key properties: `visual` for defining the button's appearance, and `condition` for setting the logical rules for its display.
 
-The `visibility` object is structured to control both the visual presentation of the Actional Button and the logical conditions under which the button is displayed.
+## Top-Level Properties of `visibility`
 
-| Property                  | Type    | Required | Options  | Description |
-|---------------------------|---------|----------|----------|-------------|
-| `visibility`              | object  | No       | N/A      | The parent object that contains visual and condition properties. |
-| → `visual`                | object  | No       | N/A      | An object containing properties that define the button's visual presentation. |
-| →→ `text`                 | string  | No       | N/A      | The display text of the button. |
-| →→ `textColor`            | string  | No       | N/A      | The color of the button text. |
-| →→ `bgColor`              | string  | No       | N/A      | The background color of the button. |
-| →→ `icon`                 | string  | No       | N/A      | The icon displayed on the button, typically from a predefined set like Google Material Symbols. |
-| →→ `displayIconOnly`      | boolean | No       | N/A      | A flag to indicate if only the icon should be displayed, hiding the text. |
-| `condition`               | array   | No       | N/A     | An array of conditions that define when the button is visible. Each condition is a set of parameters that the system evaluates. |
+The `visibility` object is composed of the following top-level properties, each contributing to the button's display logic and appearance:
 
-### Conditional Configuration
+| Property    | Type   | Required | Description |
+|-------------|--------|----------|-------------|
+| `visual`    | object | No       | Contains properties that define the button's visual presentation. It includes settings for the button's text, color, icon, and display preferences. |
+| `condition` | array  | No       | An array of conditions that dictate when the button is visible. It involves a set of logical expressions evaluated against specific item attributes or user contexts. |
 
-Specifies the conditions that must be met for the button to be visible. This section refers to the separate JSON Query documentation for detailed information on forming conditions.
+## 1. Visual Configuration
 
-| Property    | Type  | Required | Options | Description |
-|-------------|-------|----------|---------|-------------|
-| `condition` | array | No       | N/A     | An array of conditions that define when the button is visible. Each condition is a set of parameters that the system evaluates. |
+The `visual` object within the `visibility` component defines the aesthetic aspects of the Actional Button.
 
-### JSON Example
+### Properties of `visual`
 
-Below is an example demonstrating the `visibility` component within an Actional Button's configuration:
+| Property          | Type    | Required | Description |
+|-------------------|---------|----------|-------------|
+| `text`            | string  | No       | The text displayed on the button. |
+| `textColor`       | string  | No       | The color of the button text. |
+| `bgColor`         | string  | No       | The background color of the button. |
+| `icon`            | string  | No       | The icon displayed on the button, typically from a set like Google Material Symbols. |
+| `displayIconOnly` | boolean | No       | Indicates if only the icon is displayed, hiding the button text. |
+
+### JSON Example for `visual`
+
+```json
+"visual": {
+  "text": "Complete Task",
+  "textColor": "white",
+  "bgColor": "success",
+  "icon": "check_circle",
+  "displayIconOnly": false
+}
+```
+## 2. Condition Configuration
+
+The `condition` array within the `visibility` component determines the logical rules for when the Actional Button should be displayed.
+
+### Properties of `condition`
+
+| Property  | Type  | Required | Description |
+|-----------|-------|----------|-------------|
+| `condition` | array | No | A set of conditions that control the visibility of the button. Each condition is an array of three values: the key, operator, and value to be evaluated. Conditions are documented separeately [JSON Query Documentation](/docs/JSON/json-query) |
+
+### JSON Example for `condition`
+
+```json
+"condition": [
+  ["task.cf433", "!=", "option_844"],
+  ["group", "IN", "Sales"]
+]
+```
+
+## Overall Visibility Configuration
+
+Combining `visual` and `condition` settings, the `visibility` component as a whole controls when and how an Actional Button is displayed.
+
+### JSON Example for `visibility`
 
 ```json
 {
@@ -47,49 +81,13 @@ Below is an example demonstrating the `visibility` component within an Actional 
 }
 ```
 
-In this example:
+In this configuration:
 
-- The `visual` properties define the button's appearance as having the text "Complete Task," with white text color on a success (green) background, and a check_circle icon.
-- The `condition` array specifies that the button is visible only if the task's status is not "completed"(option_844) and the user is part of the "Sales" permission group.
+- The `visual` settings define the button's appearance, making it visually identifiable and aligned with the application's design.
+- The `condition` settings ensure that the button appears only under specific circumstances, enhancing the user experience by presenting contextually relevant options.
 
-This configuration ensures that the Actional Button is not only visually consistent with the application's design but also contextually appropriate, appearing only in relevant situations based on the defined conditions.
+By configuring the `visibility` component thoughtfully, you can create Actional Buttons that are both aesthetically pleasing and functionally precise, guiding users effectively through their interactions with your system.
 
-# Visibility in Actional Buttons
 
-The `visibility` component of an Actional Button's JSON configuration determines when and how the button is displayed in the UI. It ensures that buttons are presented to the right users under the right circumstances, enhancing the user experience and the system's overall efficiency.
 
-## Structure of `visibility`
-
-The `visibility` object is structured to control both the visual presentation of the Actional Button and the logical conditions under which the button is displayed.
-
-| Property                  | Type    | Required | Options  | Description |
-|---------------------------|---------|----------|----------|-------------|
-| `visibility`              | object  | No       | N/A      | The parent object that contains visual and condition properties. |
-| → `visual`                | object  | No       | N/A      | An object containing properties that define the button's visual presentation. |
-| →→ `text`                 | string  | No       | N/A      | The display text of the button. |
-| →→ `textColor`            | string  | No       | N/A      | The color of the button text. |
-| →→ `bgColor`              | string  | No       | N/A      | The background color of the button. |
-| →→ `icon`                 | string  | No       | N/A      | The icon displayed on the button, typically from a predefined set like Google Material Symbols. |
-| →→ `displayIconOnly`      | boolean | No       | N/A      | A flag to indicate if only the icon should be displayed, hiding the text. |
-| `condition`               | array   | No       | N/A     | An array of conditions that define when the button is visible. Each condition is a set of parameters that the system evaluates. |
-
-### JSON Example
-
-Below is an example illustrating the `visibility` component within an Actional Button's configuration:
-
-```json
-{
-  "visibility": {
-    "visual": {
-      "text": "Complete Task",
-      "textColor": "white",
-      "bgColor": "green",
-      "icon": "check_circle",
-      "displayIconOnly": false
-    },
-    "condition": [
-      ["task.status", "!=", "completed"],
-      ["user.role", "=", "admin"]
-    ]
-  }
-}
+Details the conditions or parameters for interacting with the item. Includes item IDs, parent item IDs, or other relationships as specified in the [JSON Query Documentation](/docs/JSON/json-query)..

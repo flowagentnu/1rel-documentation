@@ -16,7 +16,3 @@ Apps are integral components of the 1Relation system, designed to extend its cap
 ### Installation and Setup
 
 For detailed instructions on installing and setting up Apps in 1Relation, please refer to the respective documentation sections. These guidelines will provide you with step-by-step procedures and essential information to effectively utilize Apps within the 1Relation ecosystem.
-
----
-
-**Note**: This document is intended for system designers and developers working with the 1Relation platform. For further assistance or inquiries, please refer to our support resources or contact our technical support team.
