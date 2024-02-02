@@ -2,27 +2,23 @@
 
 ## Overview
 
-Actions are the driving force behind the dynamic capabilities of 1Relation. They are sets of rules and tasks that are executed when certain conditions are met, making your forms and systems smarter and more interactive.
+Actions in 1Relation enable dynamic and automated interactions within your system. They allow for the execution of predefined tasks based on user interactions or specific conditions, making forms and systems more interactive and intelligent.
 
-## What Actions Can Do
+## Purpose of Actions
 
-Think of actions as your digital workforce, ready to perform a variety of tasks on command:
-
-1. **Data Management (CRUD)**: Automatically create, read, update, or delete data based on user interactions or other conditions.
-2. **Form Navigation**: Guide users by opening specific forms or displaying relevant forms based on the data they've entered or actions they've performed.
-3. **Custom Responses**: Tailor the system's response to specific user inputs or scenarios, ensuring a personalized and efficient user experience.
+Actions serve various purposes, including data management through CRUD operations, form navigation, and providing custom responses. They act as a digital workforce in your system, ready to perform tasks on command.
 
 ## Anatomy of an Action
 
-An action object is structured to clearly define when and how it should be triggered:
+An action in 1Relation is a structured object that defines when it should be triggered (`if`) and what it should do (`then`). It's a crucial part of making your forms and systems interactive.
 
 ### Structure of an Action
 
 | Property | Type   | Required | Description |
 |----------|--------|----------|-------------|
-| `name`   | string | Yes      | A label to identify the action, making it easier to manage and understand. |
-| `if`     | array  | No       | Conditions that determine when the action should be triggered. |
-| `then`   | object | Yes      | Defines what should happen when the action is triggered. |
+| `name`   | string | Yes      | Identifies the action for easier management and understanding. |
+| `if`     | array  | No       | Specifies the conditions under which the action is triggered. |
+| `then`   | object | Yes      | Outlines the tasks to be executed when the conditions are met. |
 
 ### Example Action
 
@@ -59,6 +55,7 @@ An action object is structured to clearly define when and how it should be trigg
 ## Defining Conditions (`if`)
 
 Setting conditions is like setting the rules of the game. They determine when an action should kick into gear.
+It uses a structured query format as described in the [JSON Query Documentation](/docs/JSON/json-query)..
 
 | Property | Type   | Required | Options | Description |
 |----------|--------|----------|---------|-------------|
@@ -85,25 +82,280 @@ When conditions are met, the `then` part defines what happens next. It's where t
 | `showForm` | object | No       | Open a specific form, passing along necessary data. |
 | `showRelevantForms` | object | No | Display forms relevant to the current context or data. |
 
-### CRUD Operations
+Let's create a new section titled "CRUD Operations" in the "JSON Actions" document. This section will include an introduction, a properties table for each CRUD operation (insert, update, delete, relate), and a comprehensive example showcasing all four operations.
 
-CRUD operations are the backbone of data management within 1Relation.
+## CRUD Operations in Actions
+
+CRUD operations form the core of data management in 1Relation, allowing you to create, read, update, and delete data items. Understanding and effectively utilizing these operations is crucial for maintaining a dynamic and responsive system.
+
+### Overview of CRUD Operations
+
+CRUD operations ensure that your system can respond to user inputs and scenarios by manipulating data as needed.
 
 | Operation | Type   | Required | Description |
 |-----------|--------|----------|-------------|
-| `insert` / `update` | object | Yes | Add new data or modify existing data. Specify the module, item type, and custom fields as needed. |
-| `relate` | array | Yes | Create a relationship between items, linking data in meaningful ways. |
-| `delete` | array | Yes | Remove data that's no longer needed, keeping your system clean and up-to-date. |
+| `insert`  | object | No       | Adds new data items to the system. |
+| `update`  | object | No       | Modifies existing data items. |
+| `delete`  | array  | No       | Removes data items from the system. |
+| `relate`  | array  | No       | Defines or updates relationships between data items. |
 
-### Form Interaction
+### Example of CRUD Operations
 
-Actions can also enhance user interaction with forms:
+In this example, we showcase how to perform insert, update, delete, and relate operations within a single action.
 
-| Interaction | Type   | Required | Description |
-|-------------|--------|----------|-------------|
-| `showForm` | object | No | Open a form directly, making it easy for users to input or review data. |
-| `showRelevantForms` | object | No | Present users with forms that are relevant to their current task or data, streamlining their workflow. |
+```json
+{
+  "actions": [
+    {
+      "name": "Manage Data",
+      "then": {
+        "crud": {
+          "insert": {
+            "newItem": {
+              "moduleid": 50,
+              "moduleitemtype_id": "111",
+              "customfield": {
+                "cf100": "post[value1]",
+                "cf101": "post[value2]"
+              }
+            }
+          },
+          "update": {
+            "existingItem": {
+              "moduleitemtype_id": "112",
+              "customfield": {
+                "cf102": "post[value3]",
+                "cf103": "post[value4]"
+              }
+            }
+          },
+          "delete": [
+            "itemToDelete"
+          ],
+          "relate": [
+            {
+              "child": "childItemKey",
+              "parent": "parentItemKey",
+              "relationid": 123,
+              "unlink": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
----
+In this comprehensive example:
 
-By understanding and utilizing actions within 1Relation, you can automate processes, streamline user interactions, and ensure that your system responds intelligently to user inputs and scenarios.
+- **Insert**: A new item is added to the system with specific custom field values.
+- **Update**: An existing item's custom fields are updated with new values.
+- **Delete**: A specific item is removed from the system.
+- **Relate**: A relationship is defined or updated between two items, potentially linking them together without unlinking.
+
+### Insert Properties
+
+Insert operations add new data items to the system.
+
+#### Properties of Insert
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `moduleid` | number | Yes | Specifies the module where the new item will be added. |
+| `moduleitemtype_id` | number | Yes | Defines the module item type for the new item. |
+| `customfield` | object | Yes | Sets the custom fields and their values for the new item. |
+
+#### Example of Insert Operation
+
+```json
+"insert": {
+  "customer": {
+    "moduleid": 50,
+    "moduleitemtype_id": "111",
+    "customfield": {
+      "cf100": "John Doe",
+      "cf101": "1234567890"
+    }
+  }
+}
+```
+
+### Update Properties
+
+Update operations modify existing data items.
+
+#### Properties of Update
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `moduleitemtype_id` | number | Yes | Identifies the module item type for the item being updated. |
+| `customfield` | object | Yes | Determines the custom fields and their new values for the item. |
+
+#### Example of Update Operation
+
+```json
+"update": {
+  "customer": {
+    "moduleitemtype_id": "111",
+    "customfield": {
+      "cf100": "Jane Doe",
+      "cf101": "0987654321"
+    }
+  }
+}
+```
+
+## Custom Fields in Actions
+
+Custom fields allow for dynamic data assignment in actions, enhancing flexibility and adaptability.
+
+### Ways to Assign Values to Custom Fields
+
+| Method                   | Type   | Required | Description |
+|--------------------------|--------|----------|-------------|
+| Fixed Value              | string | Yes      | Assigns a fixed value directly to the custom field. |
+| Form Field Value         | string | Yes      | Utilizes a value entered by the user in a form field. |
+| Form Field with Strip    | string | Yes      | Strips a specified pattern (e.g., "strip_option") from the form field value. |
+| Dropdown Option          | string | Yes      | Assigns a value from a dropdown custom field using "option_xxx". |
+| Referenced Custom Field  | string | Yes      | Assigns a value by referencing another item's custom field. |
+
+## Examples of Assigning Values to Custom Fields
+
+### Fixed Value
+
+Assign a static value directly to the custom field.
+
+```json
+"customfield": {
+  "cf100": "Red"
+}
+```
+
+### Form Field Value
+
+Use a value entered by the user in a form field.
+
+```json
+"customfield": {
+  "cf101": "post[color]"
+}
+```
+
+### Form Field with Strip
+
+Strip a specific pattern from a form field value, commonly used for processing dropdowns, radios, or checkboxes.
+
+```json
+"customfield": {
+  "cf102": "post[visitFrequency]|strip_option"
+}
+```
+
+### Dropdown Option
+
+Use an option ID for assigning a value from a dropdown custom field.
+
+```json
+"customfield": {
+  "cf103": "option_123"
+}
+```
+
+### Referenced Custom Field
+
+Assign a value by referencing a custom field from another item.
+
+```json
+"customfield": {
+  "cf104": "customer.cf445"
+}
+```
+
+### Relate Properties
+
+Relate operations define or update the relationships between data items.
+
+#### Properties of Relate
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `child` | string | Yes | Indicates the child item in the relationship. |
+| `parent` | string | Yes | Specifies the parent item in the relationship. |
+| `relationid`
+
+ | number | No | Provides the ID of the relation type. |
+| `unlink` | boolean | No | Determines if the specified relationship should be unlinked. |
+
+#### Example of Relate Operation
+
+```json
+"relate": [
+  {
+    "child": "kunde",
+    "parent": "kampagne",
+    "relationid": 76,
+    "unlink": true
+  }
+]
+```
+
+### Delete Properties
+
+Delete operations remove data items from the system.
+
+#### Properties of Delete
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `itemKey` | string | Yes | Defines the key of the item to be deleted. |
+
+#### Example of Delete Operation
+
+```json
+"delete": [
+  "salgstur"
+]
+```
+
+## Form Interactions
+
+Actions can enhance user interaction with forms, guiding them through the system's functionalities.
+
+### Show Form
+
+The `showForm` operation opens a specific form for user interaction.
+
+#### Properties of Show Form
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `formId` | number | Yes | Specifies the ID of the form to be opened. |
+| `itemKey` | string | Yes | Identifies the key of the item to be passed to the form. |
+
+#### Example of Show Form
+
+```json
+"showForm": {
+  "formId": 23,
+  "itemKey": "opgave"
+}
+```
+
+### Show Relevant Forms
+
+The `showRelevantForms` operation displays forms that are contextually relevant to the current data or user interaction.
+
+#### Properties of Show Relevant Forms
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `itemKey` | string | Yes | Determines the key of the item based on which relevant forms are displayed. |
+
+#### Example of Show Relevant Forms
+
+```json
+"showRelevantForms": {
+  "itemKey": "opgave"
+}
+```
