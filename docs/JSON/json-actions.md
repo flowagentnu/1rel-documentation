@@ -88,20 +88,23 @@ Let's create a new section titled "CRUD Operations" in the "JSON Actions" docume
 
 CRUD operations form the core of data management in 1Relation, allowing you to create, read, update, and delete data items. Understanding and effectively utilizing these operations is crucial for maintaining a dynamic and responsive system.
 
+To integrate the "dynamicdata" operation into the existing documentation seamlessly, I'll add it to the "Overview of CRUD Operations" section, ensuring it fits naturally with the existing content. Here's the revised section with the inclusion of "dynamicdata":
+
 ### Overview of CRUD Operations
 
-CRUD operations ensure that your system can respond to user inputs and scenarios by manipulating data as needed.
+CRUD operations, along with dynamic data handling, ensure that your system can respond to user inputs and scenarios by manipulating data as needed.
 
-| Operation | Type   | Required | Description |
-|-----------|--------|----------|-------------|
-| `insert`  | object | No       | Adds new data items to the system. |
-| `update`  | object | No       | Modifies existing data items. |
-| `delete`  | array  | No       | Removes data items from the system. |
-| `relate`  | array  | No       | Defines or updates relationships between data items. |
+| Operation      | Type   | Required | Description |
+|----------------|--------|----------|-------------|
+| `insert`       | object | No       | Adds new data items to the system. |
+| `update`       | object | No       | Modifies existing data items. |
+| `delete`       | array  | No       | Removes data items from the system. |
+| `relate`       | array  | No       | Defines or updates relationships between data items. |
+| `dynamicdata`  | object | No       | Handles operations involving data that needs to be processed dynamically before further action. |
 
 ### Example of CRUD Operations
 
-In this example, we showcase how to perform insert, update, delete, and relate operations within a single action.
+In this example, we showcase how to perform insert, update, delete, relate, and dynamic data operations within a single action.
 
 ```json
 {
@@ -139,7 +142,38 @@ In this example, we showcase how to perform insert, update, delete, and relate o
               "relationid": 123,
               "unlink": false
             }
-          ]
+          ],
+          "dynamicdata": {
+            "module_id": 60,
+            "where": [
+              [
+                "moduleitemtype_id",
+                "=",
+                "132"
+              ],
+              [
+                "cf610.string",
+                "=",
+                "option_818"
+              ]
+            ],
+            "createInModule": {
+              "moduleitemtype_id": 103,
+              "module_id": 60,
+              "customfield": {
+                "cf460": "dynamicdata[cf460]",
+                "cf645": "dynamicdata[cf645]",
+                "cf463": "dynamicdata[cf463]",
+                "cf461": "selfitem[cf323]"
+              },
+              "relations": [
+                {
+                  "parent": "salgstur",
+                  "child": "dynamicitem"
+                }
+              ]
+            }
+          }
         }
       }
     }
@@ -153,6 +187,7 @@ In this comprehensive example:
 - **Update**: An existing item's custom fields are updated with new values.
 - **Delete**: A specific item is removed from the system.
 - **Relate**: A relationship is defined or updated between two items, potentially linking them together without unlinking.
+- **Dynamic Data**: Data is dynamically retrieved and processed, then used in subsequent operations, showcasing the versatility and adaptability of the system to handle complex, data-driven scenarios.
 
 ### Insert Properties
 
@@ -205,6 +240,161 @@ Update operations modify existing data items.
   }
 }
 ```
+
+### Relate Properties
+
+Relate operations define or update the relationships between data items.
+
+#### Properties of Relate
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `child` | string | Yes | Indicates the child item in the relationship. |
+| `parent` | string | Yes | Specifies the parent item in the relationship. |
+| `relationid`
+
+ | number | No | Provides the ID of the relation type. |
+| `unlink` | boolean | No | Determines if the specified relationship should be unlinked. |
+
+#### Example of Relate Operation
+
+```json
+"relate": [
+  {
+    "child": "kunde",
+    "parent": "kampagne",
+    "relationid": 76,
+    "unlink": true
+  }
+]
+```
+
+### Delete Properties
+
+Delete operations remove data items from the system.
+
+#### Properties of Delete
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `itemKey` | string | Yes | Defines the key of the item to be deleted. |
+
+#### Example of Delete Operation
+
+```json
+"delete": [
+  "salgstur"
+]
+```
+## Dynamic Data Operations in Actions
+
+Dynamic data operations allow for real-time data manipulation and interaction, ensuring that your system can adapt to changing data and user needs dynamically.
+
+### Overview of Dynamic Data Operations
+
+Dynamic data operations are designed to handle complex scenarios where data needs to be retrieved, processed, or transformed before being used in CRUD operations or other action sequences.
+
+| Operation      | Type   | Required | Description |
+|----------------|--------|----------|-------------|
+| `dynamicdata`  | object | No       | Handles operations involving data that needs to be processed dynamically before further action. |
+
+### Example of Dynamic Data Operation
+
+This example illustrates a dynamic data operation where data is dynamically retrieved and processed, then used in a subsequent insert and relate operation.
+
+```json
+{
+  "actions": [
+    {
+      "name": "opret salgstur",
+      "then": {
+        "crud": {
+          "insert": {
+            "salgstur": {
+              "moduleid": 74,
+              "moduleitemtype_id": 131,
+              "customfield": {
+                "cf606": "Salgstur",
+                "cf609": "selfitem[cf323]"
+              }
+            }
+          },
+          "relate": [
+            {
+              "child": "salgstur",
+              "parent": "selfitem"
+            },
+            {
+              "child": "salgstur",
+              "parent": "kampagne"
+            },
+            {
+              "child": "selfitem",
+              "parent": "kampagne"
+            }
+          ],
+          "dynamicdata": {
+            "module_id": 60,
+            "where": [
+              [
+                "moduleitemtype_id",
+                "=",
+                "132"
+              ],
+              [
+                "cf610.string",
+                "=",
+                "option_818"
+              ]
+            ],
+            "createInModule": {
+              "moduleitemtype_id": 103,
+              "module_id": 60,
+              "customfield": {
+                "cf460": "dynamicdata[cf460]",
+                "cf645": "dynamicdata[cf645]",
+                "cf463": "dynamicdata[cf463]",
+                "cf461": "selfitem[cf323]"
+              },
+              "relations": [
+                {
+                  "parent": "salgstur",
+                  "child": "dynamicitem"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+In this example, the `dynamicdata` operation is utilized to:
+
+- Retrieve data based on specific conditions (`where` clause).
+- Process and transform the retrieved data (`createInModule`), allowing for the creation of new items with dynamically assigned custom fields.
+- Establish relations between newly created items and existing ones (`relations`).
+
+### Properties of Dynamic Data Operation
+
+| Property          | Type   | Required | Description |
+|-------------------|--------|----------|-------------|
+| `module_id`       | number | Yes      | Specifies the module from which the dynamic data is retrieved. |
+| `where`           | array  | Yes      | Sets the conditions for retrieving dynamic data. |
+| `createInModule`  | object | Yes      | Defines how the retrieved dynamic data is processed and how new items are created. |
+
+#### `createInModule` Properties
+
+| Property       | Type   | Required | Description |
+|----------------|--------|----------|-------------|
+| `moduleitemtype_id` | number | Yes | Specifies the module item type for the new item to be created. |
+| `module_id`    | number | Yes      | Specifies the module where the new item will be created. |
+| `customfield`  | object | Yes      | Sets the custom fields and their dynamic values for the new item. |
+| `relations`    | array  | No       | Defines relationships between the newly created item and existing items. |
+
+---
 
 ## Custom Fields in Actions
 
@@ -272,51 +462,122 @@ Assign a value by referencing a custom field from another item.
 }
 ```
 
-### Relate Properties
+## Controlling Action Flow with `breakAfter`
 
-Relate operations define or update the relationships between data items.
+The `breakAfter` property is an essential part of the action framework in 1Relation, allowing for granular control over the execution sequence of actions. It determines whether the system should continue processing subsequent actions after the current one.
 
-#### Properties of Relate
+### Overview of `breakAfter`
 
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `child` | string | Yes | Indicates the child item in the relationship. |
-| `parent` | string | Yes | Specifies the parent item in the relationship. |
-| `relationid`
+The `breakAfter` property is used within an action to specify whether subsequent actions should be processed or ignored after the current action is executed. This feature is particularly useful in scenarios where the execution of further actions depends on the outcome or completion of the current action.
 
- | number | No | Provides the ID of the relation type. |
-| `unlink` | boolean | No | Determines if the specified relationship should be unlinked. |
+| Property    | Type    | Default | Required | Description |
+|-------------|---------|---------|----------|-------------|
+| `breakAfter`| boolean | true    | No       | Determines whether to halt the execution of subsequent actions after the current one. If set to `true`, the action sequence stops; if `false`, the action sequence continues with the next action. |
 
-#### Example of Relate Operation
+### Usage of `breakAfter`
 
-```json
-"relate": [
-  {
-    "child": "kunde",
-    "parent": "kampagne",
-    "relationid": 76,
-    "unlink": true
-  }
-]
-```
+The `breakAfter` property is typically used in complex workflows where certain conditions or outcomes necessitate a halt in the sequence of actions. By setting `breakAfter` to `true`, you ensure that no further actions are processed after the current action, allowing for conditional branching or early termination of the action sequence.
 
-### Delete Properties
-
-Delete operations remove data items from the system.
-
-#### Properties of Delete
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `itemKey` | string | Yes | Defines the key of the item to be deleted. |
-
-#### Example of Delete Operation
+#### Example Usage of `breakAfter`
 
 ```json
-"delete": [
-  "salgstur"
-]
+{
+  "actions": [
+    {
+      "name": "Update and Insert Data",
+      "then": {
+        "crud": {
+          "update": {
+            "existingData": {
+              "moduleid": 30,
+              "moduleitemtype_id": "222",
+              "customfield": {
+                "cf200": "updatedValue"
+              }
+            }
+          },
+          "insert": {
+            "newData": {
+              "moduleid": 40,
+              "moduleitemtype_id": "333",
+              "customfield": {
+                "cf300": "newValue"
+              }
+            }
+          }
+        },
+        "breakAfter": false  // Continue processing subsequent actions
+      }
+    },
+    {
+      "name": "Conditional Insert",
+      "if": [
+        ["item.condition", "=", "specificValue"]
+      ],
+      "then": {
+        "crud": {
+          "insert": {
+            "conditionalData": {
+              "moduleid": 50,
+              "moduleitemtype_id": "444",
+              "customfield": {
+                "cf400": "conditionalValue"
+              }
+            }
+          }
+        },
+        "breakAfter": false  // Continue processing subsequent actions
+      }
+    },
+    {
+      "name": "Conditional Relate",
+      "if": [
+        ["user.status", "=", "active"]
+      ],
+      "then": {
+        "crud": {
+          "relate": [
+            {
+              "child": "childItemKey",
+              "parent": "parentItemKey",
+              "relationid": 567,
+              "unlink": false
+            }
+          ]
+        },
+        "breakAfter": false  // Continue processing subsequent actions (if any)
+      }
+    }
+  ]
+}
 ```
+
+In this sequence:
+
+1. **Update and Insert Data**:
+   - The first action performs both an update and an insert operation as part of the same `crud`.
+   - Existing data is updated, and new data is inserted into the system.
+   - `breakAfter` is set to `false`, allowing the action sequence to continue.
+
+2. **Conditional Insert**:
+   - The second action checks a condition (`item.condition = specificValue`).
+   - If the condition is met, a new item is inserted with conditional data.
+   - `breakAfter` is set to `false`, allowing the next action to be processed.
+
+3. **Conditional Relate**:
+   - The third action checks another condition (`user.status = active`).
+   - If the user status is active, a `relate` operation is performed to define or update relationships between data items.
+   - `breakAfter` is set to `false`, indicating that further actions would continue if they existed.
+
+### Considerations for `breakAfter`
+
+- **Default Behavior**: The default setting for `breakAfter` is `true`, which means that, unless explicitly set to `false`, the system will naturally halt the action sequence after executing an action.
+- **Conditional Logic**: Use `breakAfter` in conjunction with conditional logic (`if`) to create dynamic, responsive action sequences that adapt based on user inputs or system states.
+- **Action Design**: Plan your action sequences carefully, considering the implications of halting the sequence at different stages based on your system's workflow requirements.
+
+By providing a dedicated control mechanism like `breakAfter`, 1Relation empowers users to design intricate and adaptive workflows, ensuring that actions are executed in a controlled, logical manner that aligns with the specific needs of each process.
+
+---
 
 ## Form Interactions
 
