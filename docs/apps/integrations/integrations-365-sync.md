@@ -25,7 +25,7 @@ In the **General** tab, click on **Connect to Microsoft**.
 Log into your Microsoft account and approve the connection to complete the integration.
 
 ## Integration with 1Relation Apps
-Once the sync is set up, events can be displayed and managed in compatible 1Relation apps, such as the [calendar app](/docs/apps/apps-calendar).
+Once the sync is set up, events can be displayed and managed in compatible 1Relation apps, such as the [calendar app](/docs/apps/widgets/apps-calendar).
 
 ---
 
