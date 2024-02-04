@@ -19,14 +19,17 @@ const sidebars = {
       label: 'Modules',
       collapsed: true,
       items: [
-//        'Modules/modules-how-to-create-a-module',
-//        'Modules/modules-how-to-delete-a-module',
         {
           type: 'category',
           label: 'Settings',
+          link: {
+            type: 'generated-index',
+            title: 'Module Settings',
+            slug: 'modules/settings',
+          },
           items: [
             'Modules/Settings/settings-dynamic-values',
-            'Modules/Settings/settings-types',
+            'Modules/Settings/settings-module-item-types',
             'Modules/Settings/settings-customfields',
             'Modules/Settings/settings-relations',
           ],
