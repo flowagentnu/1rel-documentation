@@ -4,9 +4,17 @@ Within each page of the form, the `fields` component is essential, defining the 
 
 ## Structure of `fields`
 
+| Property       | Type    | Required | Description |
+|----------------|---------|----------|-------------|
+| `key`          | object  | No      | Unique identifier for the field. |
+| `options`      | object  | No      | Display name of the field. |
+| `html`         | object | No       | Specifies if the field is mandatory for form submission. |
+
+## Key Component
+
 Each field within a page is defined by an object wrapped in a `key`, with specific properties controlling its behavior and appearance.
 
-### Field Properties
+### Structure of `key`
 
 | Property       | Type    | Required | Description |
 |----------------|---------|----------|-------------|
@@ -15,7 +23,6 @@ Each field within a page is defined by an object wrapped in a `key`, with specif
 | `required`     | boolean | No       | Specifies if the field is mandatory for form submission. |
 | `cftype_id`    | integer | Yes      | Custom field type identifier. |
 | `defaultValue` | various | No       | Default value of the field. Can reference a custom field, a post value, an option, or be a fixed string. |
-| `options`      | array   | No       | Options for fields like dropdowns, radio buttons, etc. |
 
 #### JSON Example
 
@@ -97,19 +104,22 @@ Below is an example illustrating the `options` component within a field:
 
 ```json
 {
-  "key":
-
- {
-    "id": "dropdownField",
-    "name": "Dropdown Field",
-    "required": false,
-    "cftype_id": 124,
-    "defaultValue": "option_2"
-  },
-  "options": [
-    {"id": "option_1", "value": "High"},
-    {"id": "option_2", "value": "Low"},
-    // Additional options...
+  "fields": [
+    {
+      "key": {
+        "id": "dropdownField",
+        "name": "Dropdown Field",
+        "required": false,
+        "cftype_id": 124,
+        "defaultValue": "option_2"
+      },
+      "options": [
+        { "id": "option_1", "value": "High" },
+        { "id": "option_2", "value": "Low" },
+        // Additional options...
+      ]
+    }
+    // Additional fields...
   ]
 }
 ```
@@ -137,21 +147,20 @@ Below is an example illustrating the `html` component within fields:
 
 ```json
 {
-  "key": {
-    "html": {
-      "tag": "h1",
-      "content": "Customer Details"
-    }
-  },
-  {
-    "key": {
+  "fields": [
+    {
+      "html": {
+        "tag": "h1",
+        "content": "Customer Details",
+      }
+    },
+    {
       "html": {
         "tag": "p",
-        "content": "Remember to close the task"
+        "content": "Remember to close the task",
       }
     }
-    // Additional fields with html configurations as needed
-  }
+  ]
 }
 ```
 

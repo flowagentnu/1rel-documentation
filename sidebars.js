@@ -40,20 +40,6 @@ const sidebars = {
         id: 'Modules/modules-Intro-to-modules',
       },
     },
-//    {
-//      type: 'category',
-//      label: 'Items',
-//      collapsed: true,
-//      items: [
-//        'Items/items-how-to-create-an-item',
-//        'Items/items-how-to-edit-an-item',
-//        'Items/items-how-to-delete-an-item',
-//      ],
-//      link: {
-//        type: 'doc',
-//        id: 'Items/items-intro-to-items',
-//      },
-//    },
     {
       type: 'category',
       label: 'Actionable buttons',
@@ -75,15 +61,23 @@ const sidebars = {
       label: 'Forms',
       collapsed: true,
       items: [
-      'Forms/forms-main-components',
-      'Forms/forms-Items',
-      'Forms/forms-pages',
-      'Forms/forms-pages-fields',
-      `Forms/forms-pages-submit&cancel`,
-      `Forms/forms-pages-submit&cancel-triggers`,
-      'Forms/forms-endflow',
-
-],
+        'Forms/forms-main-components',
+        'Forms/forms-items',
+        {
+          type: 'category',
+          label: 'Pages',
+          link: {
+            type: 'doc',
+            id: 'Forms/forms-pages',
+          },
+          items: [
+            'Forms/forms-pages-fields',
+            `Forms/forms-pages-submit&cancel`,
+            `Forms/forms-pages-submit&cancel-triggers`
+          ],
+        },
+        'Forms/forms-endflow'
+      ],
       link: {
         type: 'doc',
         id: 'Forms/forms-introduction',

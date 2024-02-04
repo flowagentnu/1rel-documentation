@@ -7,12 +7,12 @@ The `items` component in the form's JSON structure is crucial for two primary fu
 
 ## `items` Properties
 
-The `items` object is structured as a collection of key-value pairs. Each key represents a unique identifier for an item type within the form, and the associated value is an array. This array specifies the criteria for fetching or interacting with the item, utilizing query filters as defined in the [JSON Query Documentation](/docs/JSON/json-query)..
+The `items` object consists of arrays, where the key defined for each array is the variable name of that item. Each array contains a set of conditions or parameters for interacting with the item. These conditions are specified in the [JSON Query Documentation](/docs/JSON/json-query).
 
 | Property | Type   | Required | Description |
 |----------|--------|----------|-------------|
-| Key      | string | Yes      | Serves as the unique identifier of the item within the form. |
-| Value    | array  | Yes      | An array of conditions or parameters, defining the criteria for fetching or manipulating the item. It uses a structured query format as described in the [JSON Query Documentation](/docs/JSON/json-query).. |
+| Key      | string | Yes      | The variable name of the item defined, that can be used later to update or creating a condition on given item |
+| Value    | array  | Yes      | [JSON Query Documentation](/docs/JSON/json-query) |
 
 ### JSON Example
 
@@ -21,14 +21,11 @@ The following example illustrates the `items` component with different types of 
 ```json
 {
   "items": {
-    "Project": [
-      ["id", "=", "[itemid]"]
-    ],
-    "customer": [
-      ["id", "=", "[parentitemid]"]
+    "project": [
+      ["id", "=", "[itemid]"] // Interacts with the project having the current item's ID
     ],
     "task": [
-      ["id", "=", "[relationXX]"]
+      ["id", "=", "[relation79]"] // Interacts with the task having a specific relationship ID
     ]
   }
 }
@@ -36,8 +33,15 @@ The following example illustrates the `items` component with different types of 
 
 In this example:
 
-- The `Project` item is fetched using the current item's ID, referred to as `[itemid]`.
-- The `customer` item is linked to the ID of a parent item, denoted by `[parentitemid]`.
+- The `project` item is fetched using the current item's ID, referred to as `[itemid]`.
 - The `task` item is associated with a related item, identified through a relationship indicated as `[relationXX]`, where `XX` should be replaced with the actual relation ID relevant to your configuration.
 
-Each array under an item key (like `Project`, `customer`, `task`) is structured as a query filter. It specifies the criteria for fetching or interacting with that item, primarily for the purpose of populating form fields or performing actions through form triggers.
+Each array under an item key (like `project`, `customer`, `task`) is structured as a query filter. It specifies the criteria for fetching or interacting with that item, primarily for the purpose of populating form fields or performing actions through triggers.
+
+### Item Commands
+In above example, the `project`, `customer`, and `task` are defined by different commands. To understand the commands, see table below:
+
+| Command | Description |
+|---------|-------------|
+| `[itemid]` | The ID of the current item |
+| `[relationXX]` | The ID of the related item, where `XX` should be replaced with the actual relation ID relevant to your configuration |
