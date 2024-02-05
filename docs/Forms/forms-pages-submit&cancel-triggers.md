@@ -45,6 +45,7 @@ The `submit` and `cancel` components are completely similar in structure and pro
 :::
 
 ## Form specific actions
+
 Form has two unique actions that can be used only in forms:
 | Property | Type  | Required | Description |
 |----------|-------|----------|-------------|

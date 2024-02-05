@@ -36,10 +36,10 @@ In this example:
 - The `project` item is fetched using the current item's ID, referred to as `[itemid]`.
 - The `task` item is associated with a related item, identified through a relationship indicated as `[relationXX]`, where `XX` should be replaced with the actual relation ID relevant to your configuration.
 
-Each array under an item key (like `project`, `customer`, `task`) is structured as a query filter. It specifies the criteria for fetching or interacting with that item, primarily for the purpose of populating form fields or performing actions through triggers.
+Each array under an item key (like `project`, `task`) is structured as a query filter. It specifies the criteria for fetching or interacting with that item, primarily for the purpose of populating form fields or performing actions through triggers.
 
 ### Item Commands
-In above example, the `project`, `customer`, and `task` are defined by different commands. To understand the commands, see table below:
+In above example, the `project`, and `task` are defined by different commands. To understand the commands, see table below:
 
 | Command | Description |
 |---------|-------------|
