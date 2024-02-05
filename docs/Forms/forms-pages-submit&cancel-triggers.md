@@ -61,6 +61,7 @@ Form has two unique actions that can be used only in forms:
     "triggers": [
       {
         "then": {
+          // highlight-next-line
           "page": 2
         }
       }
@@ -78,12 +79,14 @@ This example demonstrates a trigger that navigates the user to the second page o
       {
         "then": {
           "crud": {
+            // highlight-start
             "insert": {
               // Insert details...
             },
             "relate": [
               // Relate details...
             ]
+            // highlight-end
           }
         }
       }
