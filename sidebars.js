@@ -62,7 +62,7 @@ const sidebars = {
       collapsed: true,
       items: [
         'Forms/forms-main-components',
-        'Forms/forms-items',
+        'Forms/forms-Items',
         {
           type: 'category',
           label: 'Pages',
