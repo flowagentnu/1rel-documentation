@@ -6,7 +6,7 @@ Custom fields are essential to the system when using a module to store items suc
 
 ## The Different Custom Fields
 
-Custom fields vary in appearance and behavior. They are listed in the fields menu and can be installed from a fields app. New fields can be added, and existing ones can be edited as needed.
+Custom fields vary in appearance and behavior. They are listed in the fields menu and can be installed from a [fields app](/docs/apps/plugins/fileds.). New fields can be added, and existing ones can be edited as needed.
 
 ![alt text](image-5.png)
 
