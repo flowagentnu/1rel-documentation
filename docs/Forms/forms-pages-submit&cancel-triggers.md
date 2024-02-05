@@ -23,11 +23,12 @@ While actions can be complex and highly customizable, their basic structure with
 | Property | Type  | Required | Description |
 |----------|-------|----------|-------------|
 | `if`     | array | No       | A set of rules that define when an action is triggered. Conditions can involve field values, user groups, or other form-related data. |
-| `then`   | object| Yes      | The tasks to be executed when conditions are met. This can include CRUD operations, opening forms, and more. |
+| `then`   | object| Yes      | The tasks to be executed when conditions are met. This can include CRUD operations and more. |
+| `breakAfter` | boolean | No | A flag to control the flow of subsequent actions. If set to `false`, the flow continues to the next action, if the current one is executed sucessfully. |
 
 ## Actions in Context: Submit and Cancel
 
-Within forms, actions are commonly associated with the `submit` and `cancel` components, defining dynamic behaviors that occur when these buttons are clicked:
+Within forms, actions are defined within `submit` and `cancel` components, defining dynamic behaviors that occur when the user clicks these buttons:
 
 ### Submit Actions
 
@@ -39,6 +40,19 @@ Within forms, actions are commonly associated with the `submit` and `cancel` com
 - **Purpose**: Optionally define dynamic operations upon form cancellation, like data reverting, logging activities, or redirecting to other forms or pages.
 - **Structure**: Similar to submit actions, but typically focused on aborting the form process or cleaning up.
 
+:::info
+The `submit` and `cancel` components are completely similar in structure and properties.
+:::
+
+## Form specific actions
+
+Form has two unique actions that can be used only in forms:
+| Property | Type  | Required | Description |
+|----------|-------|----------|-------------|
+| `endflow`| boolean | No | If set to `true`, the form flow will end |
+| `endflow_redirect` | string | No | If endflow is true and redirect is set, the form flow will end and the user will be redirected to the specified URI |
+| `page`   | number | No | The page number to navigate to |
+
 ## Example of an Action in a Form
 
 #### Trigger with Page Change
@@ -48,6 +62,7 @@ Within forms, actions are commonly associated with the `submit` and `cancel` com
     "triggers": [
       {
         "then": {
+          // highlight-next-line
           "page": 2
         }
       }
@@ -64,12 +79,16 @@ This example demonstrates a trigger that navigates the user to the second page o
     "triggers": [
       {
         "then": {
-          "insert": {
-            // Insert details...
-          },
-          "relate": [
-            // Relate details...
-          ]
+          "crud": {
+            // highlight-start
+            "insert": {
+              // Insert details...
+            },
+            "relate": [
+              // Relate details...
+            ]
+            // highlight-end
+          }
         }
       }
     ]
@@ -86,11 +105,13 @@ This example shows a trigger performing two actions: `insert` and `relate`. It c
       {
         "if": [["field_id", "=", "specific_value"]],
         "then": {
-          "insert": {
-            // Insert details...
-          },
-          "update": {
-            // Update details...
+          "crud": {
+            "insert": {
+              // Insert details...
+            },
+            "update": {
+              // Update details...
+            }
           }
         }
       }
@@ -100,7 +121,7 @@ This example shows a trigger performing two actions: `insert` and `relate`. It c
 ```
 This trigger includes a conditional check `if` and executes two actions (`insert` and `update`) based on the condition being met. It illustrates how to conditionally perform multiple actions based on user input.
 
-#### Example with `Uri`
+#### Example with `uri`
 ```json
 {
   "pages": {
@@ -130,21 +151,26 @@ This trigger is set on the cancel button. When the user clicks "Go Back," they a
     "triggers": [
       {
         "then": {
-          "insert": {
-            // Insert details...
-          },
-          "update": {
-            // Update details...
-          },
-          "breakAfter": false
-        }
+          "crud": {
+            "insert": {
+              // Insert details...
+            },
+            "update": {
+              // Update details...
+            }
+          }
+        },
+        "breakAfter": false
       },
       {
         "then": {
-          "relate": {
-            // Relate details...
+          "crud": {
+            "relate": {
+              // Relate details...
+            }
           }
-        }
+        },
+        "breakAfter": false
       },
       {
         "then": {
@@ -155,7 +181,7 @@ This trigger is set on the cancel button. When the user clicks "Go Back," they a
   }
 }
 ```
-This complex trigger involves multiple actions: `insert`, `update`, and `relate`. It uses `breakAfter: false` to continue executing subsequent actions without stopping the flow, ending with `endflow: true`.
+This complex trigger involves multiple actions: `insert`, `update`, and `relate`. It uses `breakAfter: false` to continue executing subsequent actions without stopping the flow, ending with `endflow: true`. In this example all triggers are run, where normally (without `breakAfter: false`), the flow would stop after the first successful trigger.
 
 #### Trigger with "dynamicdata" and "createInModule"
 ```json
@@ -165,8 +191,7 @@ This complex trigger involves multiple actions: `insert`, `update`, and `relate`
     "triggers": [
       {
         "then": {
-          "do": {
-            // Other actions...
+          "crud": {
             "dynamicdata": {
               "module_id": 68,
               "where": [
@@ -180,7 +205,7 @@ This complex trigger involves multiple actions: `insert`, `update`, and `relate`
                   "cf615": "dynamicdata[cf548]",
                   "cf616": "dynamicdata[cf549]"
                 },
-                "relations": [
+                "relate": [
                   {
                     "child": "dynamicitem",
                     "parent": "opgave"
@@ -192,8 +217,7 @@ This complex trigger involves multiple actions: `insert`, `update`, and `relate`
         }
       }
       // Additional triggers...
-    ],
-    "endflow": true
+    ]
   }
   // ...
 }

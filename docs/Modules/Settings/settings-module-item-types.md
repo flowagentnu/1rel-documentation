@@ -1,6 +1,6 @@
-# Types
+# Module Item Types
 
-Types are used to differentiate items in each module. This is a useful functionality as it reduces the need to create extra modules when the difference between the type of items isn’t too wide.
+Module Item Types are used to differentiate items in each module. This is a useful functionality as it reduces the need to create extra modules when the difference between the type of items isn’t too wide.
 
 For example, a module used for "orders" can have different types like:
 

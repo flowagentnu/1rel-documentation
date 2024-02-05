@@ -10,22 +10,24 @@ The `visibility` object is composed of the following top-level properties, each 
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-| `visual`    | object | No       | Contains properties that define the button's visual presentation. It includes settings for the button's text, color, icon, and display preferences. |
+| `visual`    | object | Yes       | Contains properties that define the button's visual presentation. It includes settings for the button's text, color, icon, and display preferences. |
 | `condition` | array  | No       | An array of conditions that dictate when the button is visible. It involves a set of logical expressions evaluated against specific item attributes or user contexts. |
 
-## 1. Visual Configuration
+## Visual Configuration
 
 The `visual` object within the `visibility` component defines the aesthetic aspects of the Actional Button.
 
 ### Properties of `visual`
 
-| Property          | Type    | Required | Description |
-|-------------------|---------|----------|-------------|
-| `text`            | string  | No       | The text displayed on the button. |
-| `textColor`       | string  | No       | The color of the button text. |
-| `bgColor`         | string  | No       | The background color of the button. |
-| `icon`            | string  | No       | The icon displayed on the button, typically from a set like Google Material Symbols. |
-| `displayIconOnly` | boolean | No       | Indicates if only the icon is displayed, hiding the button text. |
+| Property          | Type    | Required | Default Value | Description |
+|-------------------|---------|----------|-------------|-------------|
+| `text`            | string  | Yes       |  | The text displayed on the button. |
+| `textColor`       | string  | No       | white | The color of the button text. |
+| `bgColor`         | string  | No       | primary | The background color of the button. |
+| `icon`            | string  | No       |  | The icon displayed on the button. See page about [Icons](/docs/icons). |
+| `displayIconOnly` | boolean | No       | false | Indicates if only the icon is displayed, hiding the button text. |
+| `allowMultipleItems` | boolean | No | false | Indicates if the button should be enabled when multiple items are selected. Otherwise it will be disabled. |
+| `placement`       | string  | No       | widget | The placement of the button. Possible values are `widget` and `row`. |
 
 ### JSON Example for `visual`
 
@@ -38,15 +40,13 @@ The `visual` object within the `visibility` component defines the aesthetic aspe
   "displayIconOnly": false
 }
 ```
-## 2. Condition Configuration
+## Condition Configuration
 
 The `condition` array within the `visibility` component determines the logical rules for when the Actional Button should be displayed.
 
 ### Properties of `condition`
 
-| Property  | Type  | Required | Description |
-|-----------|-------|----------|-------------|
-| `condition` | array | No | A set of conditions that control the visibility of the button. Each condition is an array of three values: the key, operator, and value to be evaluated. Conditions are documented separeately [JSON Query Documentation](/docs/JSON/json-query) |
+A set of conditions that control the visibility of the button. Each condition is an array of three values: the key, operator, and value to be evaluated. Conditions are documented separeately [JSON Query Documentation](/docs/JSON/json-query)
 
 ### JSON Example for `condition`
 

@@ -2,11 +2,11 @@
 
 ## What are Dynamic Values?
 
-Dynamic Values in 1Relation are configurable JSON structures that allow triggering a set of functions such as automations, opening forms, CRUD operations on items, and much more. These Dynamic Values are represented as buttons within the application and can be placed almost anywhere. They are highly flexible and can be adapted to suit specific business needs.
+Dynamic Values are a set of rules that generate a value based on the rules defined. These rules can be static, number, date, or relation field. The generated value can be used on Custom Fields in order to generate a pre-defined value.
 
 ## What can Dynamic Values do?
 
-Although Actional Buttons have no interface other than being a button, they can trigger other visuals like forms or different success messages as toasts.
+Dynamic Values can be used to create customer numbers, invoice numbers, or any other value that needs to be generated based on a set of rules.
 
 ## Dynamic Value Object
 
@@ -52,16 +52,13 @@ There are multiple types of rules, each with its own set of parameters. A combin
   "rules": [
     {
       "type": "date",
-      "format": "Y-m-d", // Any valid format is accepted: https://www.php.net/manual/en/datetime.formats.php
+      "format": "Y-m-d",
       "stepSize": 0,
-      "stepSizeType": "day", // Any valid format is accepted: https://www.php.net/manual/en/datetime.formats.php
+      "stepSizeType": "day",
       "direction": "asc", // asc or desc
-      "start": "today" // use a date or e.g., today/yesterday or other accepted format
+      "start": "today" // use a date or e.g., today/yesterday/tomorrow
     }
   ]
 }
 ```
-
-#### Relation Field
-*(To Be Developed)*
-```
+Format, stepSizeType and start accepts valid PHP date formats. For more information, please visit [PHP Date Formats](https://www.php.net/manual/en/datetime.formats.php)

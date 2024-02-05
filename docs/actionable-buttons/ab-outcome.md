@@ -23,8 +23,8 @@ Used to display a toast message as an outcome.
 
 | Property | Type   | Required | Description |
 |----------|--------|----------|-------------|
-| `title`  | string | No       | The heading or title of the toast message. |
-| `message`| string | No       | The detailed message or content within the toast. |
+| `title`  | string | Yes       | The heading or title of the toast message. |
+| `message`| string | Yes       | The detailed message or content within the toast. |
 
 #### Redirect
 Used to redirect the user to another page or URI.

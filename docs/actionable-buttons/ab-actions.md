@@ -53,7 +53,19 @@ Actions are defined by conditions (`if`) and the tasks to be executed (`then`).
 }
 ```
 
-### Action with Conditional Display and Form Trigger
+## Then Object
+Actional Button has a `then` object that contains the tasks or operations to be performed when the action is triggered. This can include CRUD operations, opening forms, and more.
+
+### `showForm`: Show form
+
+Actional Button can be configured to display a form based on specific conditions.
+To show a form, you must use the command "showForm", that have following properties:
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `formId` | number | Yes      | The ID of the form to be displayed. |
+| `itemKey`| string | No       | The key of the item to be used in the form as the main item. |
+| `items`  | array  | No       | In some situations, you need to pass an item you need, but cannot get outside the Actional Button context. In this array you can pass any items you need |	
 
 ```json
 {
@@ -66,7 +78,11 @@ Actions are defined by conditions (`if`) and the tasks to be executed (`then`).
       "then": {
         "showForm": {
           "formId": 456,
-          "itemKey": "feedback"
+          "itemKey": "feedback",
+          "items": [
+            "customer",
+            "project"
+          ]
         }
       }
     }
@@ -74,7 +90,38 @@ Actions are defined by conditions (`if`) and the tasks to be executed (`then`).
 }
 ```
 
-### Action with Multiple Operations
+### `showRelevantForms`: Show relevant forms
+
+Sometimes we don´t know what form to be displayed, as this is setup as a "relvant form". This is a form that is relevant to the current item, and is setup in the form configuration. This is a way to show the relevant form.
+
+| Property | Type   | Required | Description |
+|----------|--------|----------|-------------|
+| `itemKey`| string | No       | The key of the item to be used in the form as the main item. |
+| `items`  | array  | No       | In some situations, you need to pass an item you need, but cannot get outside the Actional Button context. In this array you can pass any items you need |	
+
+```json
+{
+  "actions": [
+    {
+      "name": "Open Feedback Form",
+      "if": [
+        ["userRole", "=", "Customer"]
+      ],
+      "then": {
+        "showRelevantForms": {
+          "itemKey": "feedback",
+          "items": [
+            "customer",
+            "project"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+### `crud`: CRUD Operations
 
 ```json
 {
@@ -82,14 +129,19 @@ Actions are defined by conditions (`if`) and the tasks to be executed (`then`).
     {
       "name": "Process Order",
       "then": {
-        "insert": {
-          // Insert details...
-        },
-        "update": {
-          // Update details...
-        },
-        "relate": {
-          // Relate details...
+        "crud": {
+          "insert": {
+            // Insert details...
+          },
+          "update": {
+            // Update details...
+          },
+          "relate": {
+            // Relate details...
+          },
+          "delete": {
+            // Delete details...
+          }
         }
       }
     }
