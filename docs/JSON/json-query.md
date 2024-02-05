@@ -79,7 +79,7 @@ Query values are the data or conditions against which the query keys are compare
 ### Dropdown, Radio and Checkbox Fields
 
 - Always use the option ID in queries, not the display name.
-- Example: `["cf153.string", "IN", "\"option_220\",\"option_221\",\"option_222\""]` specifies that the value of custom field `cf153.string` should be in the specified list of values.
+- Example: `["cf153.string", "IN", ["option_220", "option_221", "option_222"]]` specifies that the value of custom field `cf153.string` should be in the specified list of values.
 
 ### Date Fields
 
@@ -101,7 +101,7 @@ Query values are the data or conditions against which the query keys are compare
 
 ### Module ID
 
-- `["module_id", "IN", "\"module_5\",\"module_6\""]` specifies that the items should belong to one of the specified modules.
+- `["module_id", "IN", ["module_6", "module_7"]]` specifies that the items should belong to one of the specified modules.
 
 ### Empty Query
 

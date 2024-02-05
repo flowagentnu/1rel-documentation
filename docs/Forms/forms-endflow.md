@@ -85,36 +85,49 @@ The following commands are available for both global and trigger-specific endflo
   "endflow": {
     "redirect": "back"
   }
-},
+}
+```
+In this example, the form will navigate the user to the previous page upon completion.
+
+#### Endflow Command: `dashboard`
+```json
 {
   "endflow": {
     "redirect": "dashboard"
   }
-},
+}
+```
+In this example, the form will redirect the user to the dashboard upon completion.
+
+#### Endflow Command: `item`
+```json
 {
-  "items": {
-    "existingItem": [
-      ["id", "=", "[itemid]"]
-    ]
-  },
   "endflow": {
     "redirect": "item"
   }
-},
+}
+```
+In this example, the form will redirect the user to the starting item upon completion.
+
+#### Endflow Command: `uri`
+```json
 {
   "endflow": {
     "redirect": "uri",
     "redirect_uri": "/specific-path"
   }
-},
+}
+```
+
+In this example, the form will redirect the user to a specific URI upon completion.
+
+#### Endflow Command: `itemkey.[item]`
+```json
 {
-  "items": {
-    "newItem": [
-      // Item details...
-    ]
-  },
   "endflow": {
     "redirect": "itemkey.newItem"
   }
 }
 ```
+
+In this example, the form will redirect the user to the item with the unique identifier `newItem` upon completion.
