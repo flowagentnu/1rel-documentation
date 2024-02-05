@@ -72,11 +72,20 @@ const sidebars = {
           },
           items: [
             'Forms/forms-pages-fields',
-            `Forms/forms-pages-submit&cancel`,
-            `Forms/forms-pages-submit&cancel-triggers`
-          ],
+            {
+              type: 'category',
+              label: 'Submit & Cancel',
+              items: [
+                'Forms/forms-pages-submit&cancel-triggers'
+              ],
+              link: {
+                type: 'doc',
+                id: 'Forms/forms-pages-submit&cancel',
+              },
+            },
+            'Forms/forms-endflow'
+          ]
         },
-        'Forms/forms-endflow'
       ],
       link: {
         type: 'doc',
@@ -100,7 +109,7 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Jay-Sawn',
+      label: 'JSON',
       collapsed: true,
       items: [
         'JSON/json-query',

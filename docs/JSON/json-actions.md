@@ -19,6 +19,7 @@ An action in 1Relation is a structured object that defines when it should be tri
 | `name`   | string | Yes      | Identifies the action for easier management and understanding. |
 | `if`     | array  | No       | Specifies the conditions under which the action is triggered. |
 | `then`   | object | Yes      | Outlines the tasks to be executed when the conditions are met. |
+| `breakAfter` | boolean | No | A flag to control the flow of subsequent actions. If set to `false`, the flow continues to the next action, if the current one is executed sucessfully. |
 
 ### Example Action
 
@@ -79,8 +80,6 @@ When conditions are met, the `then` part defines what happens next. It's where t
 | Property | Type   | Required | Description |
 |----------|--------|----------|-------------|
 | `crud`   | object | No       | Perform CRUD operations, manipulating data as needed. |
-| `showForm` | object | No       | Open a specific form, passing along necessary data. |
-| `showRelevantForms` | object | No | Display forms relevant to the current context or data. |
 
 Let's create a new section titled "CRUD Operations" in the "JSON Actions" document. This section will include an introduction, a properties table for each CRUD operation (insert, update, delete, relate), and a comprehensive example showcasing all four operations.
 
@@ -189,7 +188,7 @@ In this comprehensive example:
 - **Relate**: A relationship is defined or updated between two items, potentially linking them together without unlinking.
 - **Dynamic Data**: Data is dynamically retrieved and processed, then used in subsequent operations, showcasing the versatility and adaptability of the system to handle complex, data-driven scenarios.
 
-### Insert Properties
+### Insert Property
 
 Insert operations add new data items to the system.
 
@@ -216,7 +215,7 @@ Insert operations add new data items to the system.
 }
 ```
 
-### Update Properties
+### Update Property
 
 Update operations modify existing data items.
 
@@ -224,7 +223,7 @@ Update operations modify existing data items.
 
 | Property | Type   | Required | Description |
 |----------|--------|----------|-------------|
-| `moduleitemtype_id` | number | Yes | Identifies the module item type for the item being updated. |
+| `moduleitemtype_id` | number | No | Identifies the module item type for the item being updated. |
 | `customfield` | object | Yes | Determines the custom fields and their new values for the item. |
 
 #### Example of Update Operation
@@ -241,7 +240,7 @@ Update operations modify existing data items.
 }
 ```
 
-### Relate Properties
+### Relate Property
 
 Relate operations define or update the relationships between data items.
 
@@ -251,9 +250,7 @@ Relate operations define or update the relationships between data items.
 |----------|--------|----------|-------------|
 | `child` | string | Yes | Indicates the child item in the relationship. |
 | `parent` | string | Yes | Specifies the parent item in the relationship. |
-| `relationid`
-
- | number | No | Provides the ID of the relation type. |
+| `relationid` | number | No | Provides the ID of the relation type. |
 | `unlink` | boolean | No | Determines if the specified relationship should be unlinked. |
 
 #### Example of Relate Operation
@@ -269,7 +266,7 @@ Relate operations define or update the relationships between data items.
 ]
 ```
 
-### Delete Properties
+### Delete Property
 
 Delete operations remove data items from the system.
 
@@ -356,7 +353,7 @@ This example illustrates a dynamic data operation where data is dynamically retr
                 "cf463": "dynamicdata[cf463]",
                 "cf461": "selfitem[cf323]"
               },
-              "relations": [
+              "relate": [
                 {
                   "parent": "salgstur",
                   "child": "dynamicitem"
@@ -392,7 +389,7 @@ In this example, the `dynamicdata` operation is utilized to:
 | `moduleitemtype_id` | number | Yes | Specifies the module item type for the new item to be created. |
 | `module_id`    | number | Yes      | Specifies the module where the new item will be created. |
 | `customfield`  | object | Yes      | Sets the custom fields and their dynamic values for the new item. |
-| `relations`    | array  | No       | Defines relationships between the newly created item and existing items. |
+| `relate`    | array  | No       | Defines relationships between the newly created item and existing items. |
 
 ---
 
@@ -406,7 +403,7 @@ Custom fields allow for dynamic data assignment in actions, enhancing flexibilit
 |--------------------------|--------|----------|-------------|
 | Fixed Value              | string | Yes      | Assigns a fixed value directly to the custom field. |
 | Form Field Value         | string | Yes      | Utilizes a value entered by the user in a form field. |
-| Form Field with Strip    | string | Yes      | Strips a specified pattern (e.g., "strip_option") from the form field value. |
+| Form Field with Strip Option | string | Yes      | Strips prefixed option_ from option values. |
 | Dropdown Option          | string | Yes      | Assigns a value from a dropdown custom field using "option_xxx". |
 | Referenced Custom Field  | string | Yes      | Assigns a value by referencing another item's custom field. |
 
@@ -432,7 +429,7 @@ Use a value entered by the user in a form field.
 }
 ```
 
-### Form Field with Strip
+### Form Field with Strip Option
 
 Strip a specific pattern from a form field value, commonly used for processing dropdowns, radios, or checkboxes.
 
@@ -441,6 +438,10 @@ Strip a specific pattern from a form field value, commonly used for processing d
   "cf102": "post[visitFrequency]|strip_option"
 }
 ```
+
+:::info
+The `strip_option` option is used to remove the `option_` prefix from the form field value, ensuring that the actual value is assigned to the custom field. This is useful when option ids are strings you need to input into a normal text field.
+:::
 
 ### Dropdown Option
 
@@ -470,13 +471,9 @@ The `breakAfter` property is an essential part of the action framework in 1Relat
 
 The `breakAfter` property is used within an action to specify whether subsequent actions should be processed or ignored after the current action is executed. This feature is particularly useful in scenarios where the execution of further actions depends on the outcome or completion of the current action.
 
-| Property    | Type    | Default | Required | Description |
-|-------------|---------|---------|----------|-------------|
-| `breakAfter`| boolean | true    | No       | Determines whether to halt the execution of subsequent actions after the current one. If set to `true`, the action sequence stops; if `false`, the action sequence continues with the next action. |
-
 ### Usage of `breakAfter`
 
-The `breakAfter` property is typically used in complex workflows where certain conditions or outcomes necessitate a halt in the sequence of actions. By setting `breakAfter` to `true`, you ensure that no further actions are processed after the current action, allowing for conditional branching or early termination of the action sequence.
+The `breakAfter` property is typically used in complex workflows where certain conditions or outcomes necessitate a halt in the sequence of actions. By setting `breakAfter` to `true`, you ensure that no further actions are processed after the current action, allowing for conditional branching or early termination of the action sequence, which is also the default behavior.
 
 #### Example Usage of `breakAfter`
 
@@ -505,9 +502,9 @@ The `breakAfter` property is typically used in complex workflows where certain c
               }
             }
           }
-        },
-        "breakAfter": false  // Continue processing subsequent actions
-      }
+        }
+      },
+      "breakAfter": false  // Continue processing subsequent actions
     },
     {
       "name": "Conditional Insert",
@@ -525,9 +522,9 @@ The `breakAfter` property is typically used in complex workflows where certain c
               }
             }
           }
-        },
-        "breakAfter": false  // Continue processing subsequent actions
-      }
+        }
+      },
+      "breakAfter": false  // Continue processing subsequent actions
     },
     {
       "name": "Conditional Relate",
@@ -544,8 +541,7 @@ The `breakAfter` property is typically used in complex workflows where certain c
               "unlink": false
             }
           ]
-        },
-        "breakAfter": false  // Continue processing subsequent actions (if any)
+        }
       }
     }
   ]
@@ -567,7 +563,7 @@ In this sequence:
 3. **Conditional Relate**:
    - The third action checks another condition (`user.status = active`).
    - If the user status is active, a `relate` operation is performed to define or update relationships between data items.
-   - `breakAfter` is set to `false`, indicating that further actions would continue if they existed.
+   - There are no further actions, so `breakAfter` doesn't need to be specified.
 
 ### Considerations for `breakAfter`
 
@@ -576,47 +572,3 @@ In this sequence:
 - **Action Design**: Plan your action sequences carefully, considering the implications of halting the sequence at different stages based on your system's workflow requirements.
 
 By providing a dedicated control mechanism like `breakAfter`, 1Relation empowers users to design intricate and adaptive workflows, ensuring that actions are executed in a controlled, logical manner that aligns with the specific needs of each process.
-
----
-
-## Form Interactions
-
-Actions can enhance user interaction with forms, guiding them through the system's functionalities.
-
-### Show Form
-
-The `showForm` operation opens a specific form for user interaction.
-
-#### Properties of Show Form
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `formId` | number | Yes | Specifies the ID of the form to be opened. |
-| `itemKey` | string | Yes | Identifies the key of the item to be passed to the form. |
-
-#### Example of Show Form
-
-```json
-"showForm": {
-  "formId": 23,
-  "itemKey": "opgave"
-}
-```
-
-### Show Relevant Forms
-
-The `showRelevantForms` operation displays forms that are contextually relevant to the current data or user interaction.
-
-#### Properties of Show Relevant Forms
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `itemKey` | string | Yes | Determines the key of the item based on which relevant forms are displayed. |
-
-#### Example of Show Relevant Forms
-
-```json
-"showRelevantForms": {
-  "itemKey": "opgave"
-}
-```

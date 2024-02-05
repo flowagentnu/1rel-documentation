@@ -45,7 +45,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/1relation/1rel-documentation/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -91,19 +91,19 @@ const config = {
         links: [
 
           {
-            title: 'Community',
+            title: 'Sites',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: '1Relation.com',
+                href: 'https://1relation.com',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'API',
+                href: 'https://documenter.getpostman.com/view/13467580/2s9YymGQEr',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/company/1relationcom/',
               },
             ],
           },

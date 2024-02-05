@@ -15,6 +15,10 @@ These components consist of properties that define their behavior, appearance, a
 | `default`  | array  | No       | Default actions that are executed when the button is clicked, in addition to any specified triggers. |
 | `uri`      | string | No       | A specific URL to redirect the user upon action completion. This property is applicable for both submit and cancel actions. |
 
+:::info
+Note that `uri` is optional, but if provided, it will skip the ´triggers´ and redirect the user to the specified URL.
+:::
+
 #### JSON Example
 
 Below is an example illustrating the `submit` and `cancel` components within a form page:
