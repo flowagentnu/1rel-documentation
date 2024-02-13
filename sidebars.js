@@ -16,6 +16,33 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Site settings',
+      collapsed: true,
+      items: [
+        'site-settings/site-settings-general',
+        'site-settings/site-settings-modules',
+        'site-settings/site-settings-groups',
+        'site-settings/site-settings-users',
+      ],
+      link: {
+        type: 'doc',
+        id: 'site-settings/site-settings-introduction',
+      },
+    },
+    {
+      type: 'category',
+      label: 'Best practices',
+      collapsed: true,
+      items: [
+        'best-practices/bs-customer-intro',
+      ],
+      link: {
+        type: 'doc',
+        id: 'best-practices/bp-introduction',
+      },
+    },
+    {
+      type: 'category',
       label: 'Modules',
       collapsed: true,
       items: [
@@ -101,6 +128,7 @@ const sidebars = {
         'apps/widgets/apps-table',
         'apps/widgets/apps-details',
         'apps/integrations/integrations-365-sync',
+        'apps/widgets/apps-files',
       ],
       link: {
         type: 'doc',

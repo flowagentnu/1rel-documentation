@@ -76,6 +76,7 @@ The following commands are available for both global and trigger-specific endflo
 | `item`            | Redirects to the starting item, requiring that the form was initiated from a specific item. |
 | `uri`             | Directs the user to a specified URI, allowing for custom redirection paths. Applicable only in global endflow settings. |
 | `itemkey.[item]`  | Redirects to a specific item defined in the form's flow. `itemkey` refers to the unique identifier of an item within the form, allowing for directed navigation post-submission. |
+| `closeModal`	    |Closes the modal upon form completion.
 
 ### Endflow Command Examples
 
@@ -131,3 +132,14 @@ In this example, the form will redirect the user to a specific URI upon completi
 ```
 
 In this example, the form will redirect the user to the item with the unique identifier `newItem` upon completion.
+
+#### Endflow Command: `itemkey.[item]`
+```json
+{
+  "endflow": {
+    "closeModal": true
+  }
+}
+```
+
+In this example, the form close the modal and redirect the user to where the form was initiated.
