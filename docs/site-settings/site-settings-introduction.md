@@ -22,7 +22,6 @@ Upon entering the site settings, you are presented with a variety of options tha
 - **General**: Here, you can access and modify the basic settings of your site.
 - **Modules**: Manage the different modules available on your site.
 - **Actional buttons**: Here you can add, edit, and delete actional buttons.
-- **Mail**: Configure mail settings and manage mail configurations.
 - **Groups**: Manage user groups and security settings.
 - **Cronjobs**: Set up and manage cronjobs.
 - **Users**: Manage site users and their permissions.
