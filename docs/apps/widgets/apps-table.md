@@ -58,6 +58,9 @@ Define the relationships between different modules within your widget:
 | `parent`     | integer | Yes      | N/A        | The ID of the parent module in the relation. |
 | `child`      | integer | Yes      | N/A        | The ID of the child module in the relation. |
 | `relationid` | integer | No       | N/A        | The ID of the specific relation, if multiple relations exist between the two modules. |
+| `relationtype` | string | No       | N/A        | The type of relation between the two modules. |
+| `parent_id`  | integer | No       | N/A        | The ID of the parent item in the relation. |
+| `child_id`   | integer | No       | N/A        | The ID of the child item in the relation. |
 
 #### Example 3: Widget with Relations
 ```json
@@ -72,6 +75,45 @@ Define the relationships between different modules within your widget:
 }
 ```
 In this relation configuration, the parent module is identified as module 43, and the child module as module 41. The relationid is set to 22, indicating the specific relation used if multiple relations exist between these two modules.
+
+##### Parent and Child Item IDs
+On some occasions, you may need to specify the parent or child item IDs in the relation. This is useful when you want to display data from the child module based on the parent item selected in the widget.
+
+```json
+{
+  "relations": {
+    "module64": {
+      "parent": 64,
+      "child": 63,
+      "relationid": 65
+    },
+    "module60": {
+      "parent": 64,
+      "child": 60,
+      "relationid": 66,
+      "parent_id": "module64.parent_id"
+    }
+  }
+}
+```
+In this example, we want to display data from module 60 based on the parent item selected in module 64. The parent item ID is specified as `module64.parent_id`.
+
+##### Relation Types
+Relation type is typically calculated by the system and is used to determine the type of relation between the parent and child modules. This is useful when you have multiple relations between two modules and need to specify a particular relation for the widget or when the relation type is not automatically calculated correctly by the system.
+
+```json
+{
+  "relations": {
+    "module107": {
+      "parent": 107,
+      "child": 108,
+      "relationid": 104,
+      "relationtype": "child"
+    }
+  }
+}
+```
+In this example, we want to show data from module 107 and its child data from module 108. The relation type is specified as 'child' to ensure that the correct relation is used between the two modules.
 
 ## Queries
 
