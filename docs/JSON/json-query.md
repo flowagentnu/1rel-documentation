@@ -85,6 +85,16 @@ Query values are the data or conditions against which the query keys are compare
 
 - Use the date in the "YYYY-MM-DD" format.
 - Example: `["cf154.string", ">=", "2023-01-01"]` specifies that the date in custom field `cf154.string` should be on or after "2023-01-01".
+- The following date queries are also available:
+[datenow] = Today
+
+[datetomorrow] = Today +1 
+
+[dateyesterday] = Today -1
+
+[dateweek] = From monday of the current week
+
+[datemonth] = First day of the current month
 
 ### User Fields
 

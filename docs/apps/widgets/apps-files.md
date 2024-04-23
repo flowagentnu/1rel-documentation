@@ -49,12 +49,13 @@ The Files widget needs to be configures with JSON. The settings allow for detail
   "iconColor": "white",
   "iconBackgroundColor": "orange",
   "filesWidget": {
-    "getWithTags": [
-      "[itemid]"
-    ],
     "createWithTags": [
-      "[itemid]",
+      "item[itemid]",
       "Inspections"
+    ],
+     "getWithTags": [
+      "item[itemid]",
+      "item[relation77]"
     ],
     "additionalCreateTags": [
       "Deviation",
@@ -64,9 +65,12 @@ The Files widget needs to be configures with JSON. The settings allow for detail
 }
 ```
 
-This JSON example configuration shows Files Tagged With ("[itemid]"): This instruction makes the widget display only the files that are tagged with the specific item you're looking at. 
-Automatically Tag Uploaded Files: When you upload a new file, it automatically gets two tags: one is the ID of the item you're currently viewing, and the other is "Inspections". 
-Options for Additional Tags on Upload ("Deviation", "Corrected"): This gives the user, the option of assigning futher tags when uploading files.In this case "Deviation" or "Corrected".
+This JSON example is a `file widget` on a project with the id: `1234`.
+`"createWithTags"`:  When uploading a file, it will be tagged with `item[itemid]`(which is converted to `item1234`) and `insepection`. 
+`"getWithTags"`: When viewing, the configuration shows Files Tagged With:
+- `item[itemid]`: This instruction makes the widget display only the files that are tagged with the specific item you're looking at. (`item1234`).
+- `item[relation77]`: This inststruction makes the widget display the files from items related to the current item. In this case `item[relation77]` which is translated to `item7878` 
+`"additionalCreateTags"`: When the user uploades a file, the widget will prompt the user to assign one of the included tags. In this case `"Deviation"`, and `"Corrected"`.
 
 ## Usage
 

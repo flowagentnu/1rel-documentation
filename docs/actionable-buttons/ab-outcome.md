@@ -8,13 +8,15 @@ The `outcome` component in Actionable Buttons within 1Relation plays a pivotal r
 
 The `outcome` object outlines the type of response presented to the user after an action is performed. This can range from visual feedback and messages to redirection or other post-action behaviors.
 
-| Property    | Type    | Required | Options         | Description |
-|-------------|---------|----------|-----------------|-------------|
-| `type`      | string  | Yes      | toast, redirect, none | Specifies the type of outcome or feedback to present. |
-| `visual`    | object  | No       |                 | Defines the visual properties of the outcome, such as disabling or hiding the button post-action. |
-| `title`     | string  | No       |                 | The title of the toast, if a toast is used for the outcome. |
-| `message`   | string  | No       |                 | The content of the message or feedback to the user. |
-| `uri`       | string  | No       |                 | The URI for redirection if specified as the outcome. |
+| Property    | Type    | Required | Options               | Description |
+|-------------|---------|----------|-----------------------|-------------|
+| `type`      | string  | Yes      | `toast`, `redirect`, `none` | Specifies the type of outcome or feedback to present. |
+| `visual`    | object  | No       |                       | Defines the visual properties of the outcome, such as disabling or hiding the button post-action. |
+| `title`     | string  | No       |                       | The title of the toast, if a toast is used for the outcome. |
+| `message`   | string  | No       |                       | The content of the message or feedback to the user. |
+| `uri`       | string  | No       |                       | The URI for redirection if specified as the outcome. |
+| `widgetsUpdate` | array | No    |                       | Specifies which widgets should be updated post-action. |
+
 
 ### Outcome Types and Configurations
 
@@ -40,6 +42,18 @@ Used to alter the visual state of the button post-action.
 |-------------|---------|----------|-------------|
 | `disabled`  | boolean | No       | If true, disables the button post-action. |
 | `hide`      | boolean | No       | If true, hides the button post-action. |
+
+### Widget Update
+
+Actional Button should control which widgets to be updated on the page. If none is provided, it defaults to updating all widgets on a given page.
+
+Following options are available for the `widgetsUpdate` property:
+
+| Property    | Type  | Required | Description                                                             |
+|-------------|-------|----------|-------------------------------------------------------------------------|
+| `array`     |       |          | Updates keynames found in the array, if they exist on the page.         |
+
+Note: Per default, a table row actional button will always update - as it's almost always expected that a button placed on a row will update something related to that row.
 
 ## JSON Examples
 
@@ -83,5 +97,20 @@ This example demonstrates redirection as the outcome, guiding the user to the da
 
 Here, the button is disabled after the action, indicating that the task is complete or unavailable. This visual feedback is crucial for preventing redundant actions and maintaining the clarity of the user interface.
 
+#### Example 4: Widget Update
+
+```json
+{
+  "outcome": {
+    "widgetsUpdate": [
+      "opgaverwidg_info",
+      "opgaverwidg_tidsregistreringer"
+    ]
+  }
+}
+```
+
+In this example the `widgetsUpdate` property is set to an array specifying whych widgets on the page should be updated.
 
 By configuring the `outcome` component effectively, you can ensure that Actionable Buttons provide meaningful feedback and guide users efficiently through their tasks within the system. The `outcome` component's flexibility in design allows for a responsive and user-friendly application, enhancing the overall user experience.
+
