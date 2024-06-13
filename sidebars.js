@@ -61,6 +61,8 @@ const sidebars = {
             'Modules/Settings/settings-relations',
           ],
         },
+        'Modules/modules-how-to-create-a-module',
+        'Modules/modules-how-to-delete-a-module',
       ],
       link: {
         type: 'doc',
@@ -80,7 +82,7 @@ const sidebars = {
       ],
       link: {
         type: 'doc',
-        id: 'actionable-buttons/ab-intro-to-ab', 
+        id: 'actionable-buttons/ab-intro-to-ab',
       },
     },
     {
@@ -145,9 +147,55 @@ const sidebars = {
       ],
       link: {
         type: 'doc',
-        id: 'JSON/json-intro-to-json', 
+        id: 'JSON/json-intro-to-json',
       },
     },
+    {
+      type: 'category',
+      label: 'Knowledge Base',
+      collapsed: true,
+      items: [
+        
+        {
+          type: 'category',
+          label: 'Users and Permissions',
+          items: [
+
+            {
+              type: 'category',
+              label: 'Users',
+              items: [
+
+                'knowledge-base/knb-users-and-permssions/knb-users/knb-users-how-to-invite'
+              ],
+              link: {
+              type: 'doc',
+              id: 'knowledge-base/knb-users-and-permssions/knb-users/knb-introduction-to-users'
+          }
+            },
+            {
+              type: 'category',
+              label: 'Permissions',
+              items: [
+                
+              ],
+              link: {
+              type: 'doc',
+              id: 'knowledge-base/knb-users-and-permssions/knb-permissions/knb-introduction-to-permisisons'
+          }
+            }
+          ],
+            link: {
+            type: 'doc',
+            id: 'knowledge-base/knb-users-and-permssions/knb-introduction-to-users-and-permissions'
+        }
+      }
+      ],
+       link: {
+        type: 'doc',
+        id: 'knowledge-base/knb-intro'
+      }
+    }
   ],
 };
 
