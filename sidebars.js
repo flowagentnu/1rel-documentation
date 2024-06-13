@@ -160,12 +160,10 @@ const sidebars = {
           type: 'category',
           label: 'Users and Permissions',
           items: [
-
             {
               type: 'category',
               label: 'Users',
               items: [
-
                 'knowledge-base/knb-users-and-permssions/knb-users/knb-users-how-to-invite'
               ],
               link: {

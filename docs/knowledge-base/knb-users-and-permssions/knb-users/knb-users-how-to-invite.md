@@ -51,8 +51,3 @@ This guide will walk you through the steps to invite new users to your FlowAgent
 - **Invitation Not Received:** Check the spam/junk folder of the recipient's email.
 - **Incorrect Email Address:** Double-check the email address for typos before sending.
 
-## Additional Resources
-
-- [How to Edit the User Invitation Mail](link-to-documentation)
-- [How to Archive Users](link-to-documentation)
-- [User Roles and Permissions](link-to-documentation)
