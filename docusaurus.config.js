@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '1Relation Documentation',
+  title: 'FlowAgent Documentation',
   tagline: 'No compromises. Software your way.',
   favicon: 'img/favicon.ico',
 
@@ -67,7 +67,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: '1Relation Documentation',
+        title: 'FlowAgent Documentation',
         logo: {
           alt: '1Relation Logo',
           src: 'img/logo.svg',
@@ -80,8 +80,8 @@ const config = {
             label: 'Documentation',
           },
                     {
-            href: 'https://1relation.com',
-            label: '1Relation.com',
+            href: 'https://flowagent.nu',
+            label: 'flowagent.nu',
             position: 'right',
           },
         ],
@@ -94,8 +94,8 @@ const config = {
             title: 'Sites',
             items: [
               {
-                label: '1Relation.com',
-                href: 'https://1relation.com',
+                label: 'FlowAgent',
+                href: 'https://flowagent.nu',
               },
               {
                 label: 'API',

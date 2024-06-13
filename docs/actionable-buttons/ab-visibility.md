@@ -10,8 +10,9 @@ The `visibility` object is composed of the following top-level properties, each 
 
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
-| `visual`    | object | Yes       | Contains properties that define the button's visual presentation. It includes settings for the button's text, color, icon, and display preferences. |
+| `visual`    | object | Yes      | Contains properties that define the button's visual presentation. It includes settings for the button's text, color, icon, and display preferences. |
 | `condition` | array  | No       | An array of conditions that dictate when the button is visible. It involves a set of logical expressions evaluated against specific item attributes or user contexts. |
+| `popconfirm`| object | No       | An optional confirmation dialog that prompts the user to confirm an action before proceeding. This object includes properties to customize the confirmation message, as well as the labels for the confirm and cancel buttons. |
 
 ## Visual Configuration
 
@@ -55,6 +56,41 @@ A set of conditions that control the visibility of the button. Each condition is
   ["task.cf433", "!=", "option_844"],
   ["group", "IN", "Sales"]
 ]
+```
+
+## Pop Confirm Configuration
+
+The `popconfirm` object within the `visibility` component introduces an additional layer of user interaction by prompting the user to confirm an action before it proceeds. This functionality is critical for actions that have significant effects or cannot be easily undone, ensuring that the user has explicitly consented to the action.
+
+### Properties of `popconfirm`
+
+| Property | Type    | Required | Description                                       |
+|----------|---------|----------|---------------------------------------------------|
+| `text`   | string  | Yes      | The message displayed in the confirmation dialog. |
+| `no`     | string  | No       | The text for the cancellation button. Default is "Cancel". |
+| `yes`    | string  | No       | The text for the confirmation button. Default is "Confirm". |
+| `show`   | boolean | Yes      | Controls whether the confirmation prompt should be displayed when the button is pressed. |
+
+### JSON Example for `popconfirm`
+
+```json
+{
+  "visibility": {
+    "visual": {
+      "text": "Close task",
+      "textColor": "white",
+      "bgColor": "success",
+      "icon": "add",
+      "displayIconOnly": false
+    },
+    "popconfirm": {
+      "text": "Confirm that the task is done",
+      "no": "Cancel",
+      "yes": "Confirm",
+      "show": true
+    }
+  }
+}
 ```
 
 ## Overall Visibility Configuration
