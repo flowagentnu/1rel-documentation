@@ -175,7 +175,7 @@ const sidebars = {
               type: 'category',
               label: 'Permissions',
               items: [
-                
+                'knowledge-base/knb-users-and-permssions/knb-permissions/knb-permissions-how-to-create-group'
               ],
               link: {
               type: 'doc',
@@ -187,7 +187,23 @@ const sidebars = {
             type: 'doc',
             id: 'knowledge-base/knb-users-and-permssions/knb-introduction-to-users-and-permissions'
         }
-      }
+      },
+      {
+        type: 'category',
+        label: 'Modules',
+        items: [
+          'knowledge-base/knb-modules/knb-modules-how-to-create-a-module',
+          'knowledge-base/knb-modules/knb-modules-how-to-create-a-module-item-type',
+          'knowledge-base/knb-modules/knb-modules-how-to-create-a-module-customfield',
+          'knowledge-base/knb-modules/knb-modules-how-to-create-a-module-customfileld-options',
+          'knowledge-base/knb-modules/knb-modules-how-to-archive-a-module-customfield',
+          'knowledge-base/knb-modules/knb-modules-how-to-restore-a-module-customfield'
+        ],
+        link: {
+        type: 'doc',
+        id: 'knowledge-base/knb-modules/knb-modules-introduction-to-modules'
+    }
+    }
       ],
        link: {
         type: 'doc',
