@@ -101,6 +101,7 @@ const sidebars = {
           },
           items: [
             'Forms/forms-pages-fields',
+
             {
               type: 'category',
               label: 'Submit & Cancel',
@@ -194,16 +195,41 @@ const sidebars = {
         items: [
           'knowledge-base/knb-modules/knb-modules-how-to-create-a-module',
           'knowledge-base/knb-modules/knb-modules-how-to-create-a-module-item-type',
+          'knowledge-base/knb-modules/knb-modules-how-to-archive-a-module-item-type',
           'knowledge-base/knb-modules/knb-modules-how-to-create-a-module-customfield',
           'knowledge-base/knb-modules/knb-modules-how-to-create-a-module-customfileld-options',
           'knowledge-base/knb-modules/knb-modules-how-to-archive-a-module-customfield',
-          'knowledge-base/knb-modules/knb-modules-how-to-restore-a-module-customfield'
+          'knowledge-base/knb-modules/knb-modules-how-to-restore-a-module-customfield',
+          'knowledge-base/knb-modules/kbn-modules-how-create-relations-between-modules',
+          'knowledge-base/knb-modules/knb-modules-how-to-create-a-dynamic-value-for-customfields'
         ],
         link: {
         type: 'doc',
         id: 'knowledge-base/knb-modules/knb-modules-introduction-to-modules'
     }
-    }
+    },
+    {
+      type: 'category',
+      label: 'Site settings',
+      items: [
+        'knowledge-base/knb-site-settings/knb-site-settings-how-to-create-a-custom-fieldtype'
+      ],
+      link: {
+      type: 'doc',
+      id: 'knowledge-base/knb-site-settings/knb-introduction-to-site-settings'
+  }
+  },
+  {
+    type: 'category',
+    label: 'Actional buttons',
+    items: [
+      'knowledge-base/knb-actional-buttons/knb-modules-introduction-to-actional-buttons'
+    ],
+    link: {
+    type: 'doc',
+    id: 'knowledge-base/knb-actional-buttons/knb-modules-introduction-to-actional-buttons'
+}
+}
       ],
        link: {
         type: 'doc',
