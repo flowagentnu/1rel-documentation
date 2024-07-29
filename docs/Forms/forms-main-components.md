@@ -1,4 +1,4 @@
-# Main components
+# Top-Level Properties
 
 ## Introduction
 This documentation provides a detailed guide on the JSON structure used for configuring forms in 1Relation. It is designed to assist system designers in understanding and applying the various components and configurations necessary for form creation and management. The documentation is structured hierarchically, starting with top-level components and delving into more specific elements and their properties. Each component is explained with its properties, types, and required values, followed by JSON examples for practical understanding.
@@ -29,4 +29,3 @@ The following is a simple JSON example illustrating how these top-level componen
     // Endflow actions (like redirection) go here
   }
 }
-```
