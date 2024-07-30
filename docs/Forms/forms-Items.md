@@ -1,47 +1,129 @@
 # Items
 
-The `items` component in the form's JSON structure is crucial for two primary functionalities:
+The `items` component in the form's JSON structure is essential for:
 
-1. **Populating Form Fields**: It facilitates pre-filling form fields with predefined information by fetching data from specified items based on certain conditions.
-2. **Performing Actions through Triggers**: It allows for the manipulation of these items through CRUD (Create, Read, Update, Delete) functions as part of the form's operational flow.
+1. **Populating Form Fields**: Pre-filling form fields with data fetched based on specified conditions.
+2. **Performing Actions through Triggers**: Manipulating items through CRUD (Create, Read, Update, Delete) functions as part of the form's operational flow.
 
-## `items` Properties
-
-The `items` object consists of arrays, where the key defined for each array is the variable name of that item. Each array contains a set of conditions or parameters for interacting with the item. These conditions are specified in the [JSON Query Documentation](/docs/JSON/json-query).
+## Structure of `items`
 
 | Property | Type   | Required | Description |
 |----------|--------|----------|-------------|
-| Key      | string | Yes      | The variable name of the item defined, that can be used later to update or creating a condition on given item |
-| Value    | array  | Yes      | [JSON Query Documentation](/docs/JSON/json-query) |
+| Key      | string | Yes      | The variable name of the item, used later in fields or triggers. |
+| Value    | array  | Yes      | Array of conditions for fetching or interacting with the item, specified as per the [JSON Query Documentation](/docs/JSON/json-query). |
 
 ### JSON Example
 
-The following example illustrates the `items` component with different types of item identifiers:
+Below is an example illustrating the `items` component with different item identifiers:
 
 ```json
 {
   "items": {
     "project": [
-      ["id", "=", "[itemid]"] // Interacts with the project having the current item's ID
+      ["id", "=", "[itemid]"] // Fetches the project with the current item's ID
     ],
-    "task": [
-      ["id", "=", "[relation79]"] // Interacts with the task having a specific relationship ID
+    "customer[]": [
+      ["id", "IN", "[relation80]"] // Fetches multiple customers related by relation ID 80
+    ],
+    "subtasks[]": [
+      ["id", "IN", "[relation90]"], // Fetches multiple subtasks related by relation ID 90
+      ["moduleitemtype_id", "=", "158"], // Further filters subtasks by module item type ID 158
+      ["cf123", "=", "option_1000"] // Additional condition on a custom field
     ]
   }
 }
 ```
 
 In this example:
-
 - The `project` item is fetched using the current item's ID, referred to as `[itemid]`.
-- The `task` item is associated with a related item, identified through a relationship indicated as `[relationXX]`, where `XX` should be replaced with the actual relation ID relevant to your configuration.
-
-Each array under an item key (like `project`, `task`) is structured as a query filter. It specifies the criteria for fetching or interacting with that item, primarily for the purpose of populating form fields or performing actions through triggers.
+- The `customer[]` item fetches multiple customers related to the current item by `relation80`.
+- The `subtasks[]` item fetches multiple subtasks related by `relation90`, further filtered by `moduleitemtype_id` and a custom field condition.
 
 ### Item Commands
-In above example, the `project`, and `task` are defined by different commands. To understand the commands, see table below:
+
+The commands used to define items are detailed below:
 
 | Command | Description |
 |---------|-------------|
-| `[itemid]` | The ID of the current item |
-| `[relationXX]` | The ID of the related item, where `XX` should be replaced with the actual relation ID relevant to your configuration |
+| `[itemid]` | The ID of the current item. |
+| `[relationXX]` | The ID of related items, where `XX` is the relation ID. |
+
+## Example Usage in Forms
+
+### Populating Form Fields
+
+```json
+{
+  "items": {
+    "project": [
+      ["id", "=", "[itemid]"]
+    ],
+    "customer[]": [
+      ["id", "IN", "[relation80]"]
+    ],
+    "subtasks[]": [
+      ["id", "IN", "[relation90]"],
+      ["moduleitemtype_id", "=", "158"],
+      ["cf123", "=", "option_1000"]
+    ]
+  },
+  "pages": {
+    "1": {
+      "name": "Info",
+      "fields": [
+        {
+          "key": {
+            "id": "project_name",
+            "name": "Project Name",
+            "required": true,
+            "cftype_id": 307,
+            "defaultValue": "[project.cf1234]"
+          }
+        },
+        {
+          "key": {
+            "id": "customer_contact",
+            "name": "Customer Contact",
+            "required": true,
+            "cftype_id": 305,
+            "defaultValue": "[customer.cf5678]"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+*In this form, the `project_name` and `customer_contact` fields are prefilled using data from the `project` and `customer` items respectively.*
+
+### Performing CRUD Actions
+
+```json
+{
+  "submit": {
+    "text": "Save",
+    "triggers": [
+      {
+        "then": {
+          "crud": {
+            "update": {
+              "project": {
+                "customfield": {
+                  "cf1234": "post[project_name]"
+                }
+              },
+              "subtasks[]": {
+                "customfield": {
+                  "cf5678": "post[customer_contact]"
+                }
+              }
+            }
+          },
+          "endflow": true
+        }
+      }
+    ]
+  }
+}
+```
+*On submission, this trigger updates the `project` and multiple `subtasks[]` items with data entered in the form fields.*
