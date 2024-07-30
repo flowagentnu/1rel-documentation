@@ -2,6 +2,8 @@
 
 Within each page of the form, the `fields` component is essential, defining the individual input fields where users can enter or select data. Each field has specific properties and configurations.
 
+![Fields overview](formfield-overview.png)
+
 ## Structure of `fields`
 
 | Property       | Type    | Required | Description |
