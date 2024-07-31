@@ -124,10 +124,11 @@ Query values are the data or conditions against which the query keys are compare
 {
   "query": [
     ["cf101.string", "=", "fixedValue"],
-    ["cf101.string", "=", "[itemid]"],
-    ["cf101.string", "=", "[relation80]"],
     ["cf101.string", "=", "[datenow]"],
     ["cf101.string", "=", "[userid]"]
+    ["id", "=", "[itemid]"],
+    ["id", "=", "[relation80]"],
+
   ]
 }
 ```
@@ -155,8 +156,8 @@ Replaceables are special placeholders that are replaced with actual values durin
 ```json
 {
   "query": [
-    ["cf101.string", "=", "[itemid]"],
-    ["cf101.string", "=", "[relation80]"],
+    ["id", "=", "[itemid]"],
+    ["id", "=", "[relation80]"],
     ["cf101.string", "=", "[datenow]"],
     ["cf101.string", "=", "[datetomorrow]"],
     ["cf101.string", "=", "[dateyesterday]"],
