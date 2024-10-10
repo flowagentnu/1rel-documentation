@@ -4,32 +4,35 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'New to FlowAgent?',
+    Svg: require('@site/static/img/undraw_getting_started.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        <a href="/docs/category/getting-started">
+          Learn how to configure FlowAgent and get the most out of the platform.
+        </a>
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Shortcuts',
+    Svg: require('@site/static/img/undraw_shortcuts.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        <a href="/docs/shortcuts">
+          Shortcuts to typical configurations and setups.
+        </a>
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Knowledge Base',
+    Svg: require('@site/static/img/undraw_knowledge_base.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        <a href="/docs/knowledge-base/knb-intro">
+          Learn more about FlowAgent and how you can use the platform.
+        </a>
       </>
     ),
   },

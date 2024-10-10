@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In 1Relation forms, 'triggers' are part of a broader concept referred to as 'actions.' These actions consist of rules and tasks executed when specific conditions are met, enhancing the dynamic and interactive capabilities of forms. This document provides an overview of how actions (as triggers) are utilized in forms, outlining their purpose, basic structure, and interaction with form components.
+In FlowAgent forms, 'triggers' are part of a broader concept referred to as 'actions.' These actions consist of rules and tasks executed when specific conditions are met, enhancing the dynamic and interactive capabilities of forms. This document provides an overview of how actions (as triggers) are utilized in forms, outlining their purpose, basic structure, and interaction with form components.
 
 :::tip
 For a comprehensive guide on the syntax, types, and advanced configurations of actions, including CRUD operations, form interactions, and more, please refer to the detailed [Actions Documentation](/docs/JSON/json-actions).

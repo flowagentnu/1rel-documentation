@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Actions within Actionable Buttons in 1Relation are dynamic sets of tasks triggered based on specific conditions. These actions automate processes, manipulate data, and guide user interaction within the application. This document offers an overview of actions in Actionable Buttons, detailing their structure and interaction with other components.
+Actions within Actionable Buttons in FlowAgent are dynamic sets of tasks triggered based on specific conditions. These actions automate processes, manipulate data, and guide user interaction within the application. This document offers an overview of actions in Actionable Buttons, detailing their structure and interaction with other components.
 
 :::tip
 For an in-depth guide on the syntax, types, and advanced configurations of actions, please refer to the comprehensive [Actions Documentation](/docs/JSON/json-actions).

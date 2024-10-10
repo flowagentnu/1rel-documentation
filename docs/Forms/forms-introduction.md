@@ -1,10 +1,10 @@
 # Introduction to Forms
 
-In 1Relation, forms serve as a dynamic interface between the system and its users, offering a structured and interactive way to capture information. They are integral to various functionalities within 1Relation, designed to present questions and fields that require user input. Whether it's for creating, editing, or managing data, forms play a crucial role in ensuring efficient and accurate data collection.
+In FlowAgent, forms serve as a dynamic interface between the system and its users, offering a structured and interactive way to capture information. They are integral to various functionalities within FlowAgent, designed to present questions and fields that require user input. Whether it's for creating, editing, or managing data, forms play a crucial role in ensuring efficient and accurate data collection.
 
 ## Use Cases for Forms
 
-Forms in 1Relation are versatile and cater to a wide range of applications, including but not limited to:
+Forms in FlowAgent are versatile and cater to a wide range of applications, including but not limited to:
 
 - **Creating Items**: Streamlining the process of adding new entries, such as registering a new customer.
 - **Editing Items**: Offering a user-friendly interface to modify existing data, like updating customer details.
@@ -14,7 +14,7 @@ Forms in 1Relation are versatile and cater to a wide range of applications, incl
 
 ## Creating and Managing Forms
 
-To create, edit, or archive forms in 1Relation:
+To create, edit, or archive forms in FlowAgent:
 
 1. Navigate to the desired module and access the module settings.
 2. Proceed to the forms section.
@@ -25,6 +25,6 @@ To create, edit, or archive forms in 1Relation:
 
 Forms are typically activated in two ways:
 
-- **Through Apps**: Certain applications within 1Relation are designed to trigger forms, initiating specific workflows or data entry processes.
+- **Through Apps**: Certain applications within FlowAgent are designed to trigger forms, initiating specific workflows or data entry processes.
 - **Via Actionable Buttons**: Forms can be linked to actionable buttons, providing users with immediate access to the forms through a simple click, streamlining the process of data entry or modification.
 ---

@@ -1,6 +1,6 @@
 # Introduction to Modules
 
-In 1Relation, modules are the building blocks of your data organization, simplifying the way you manage information. Think of modules as customizable containers where you can store, view, and interact with your business data. They're designed to be intuitive and flexible, fitting perfectly into your daily operations.
+In FlowAgent, modules are the building blocks of your data organization, simplifying the way you manage information. Think of modules as customizable containers where you can store, view, and interact with your business data. They're designed to be intuitive and flexible, fitting perfectly into your daily operations.
 
 ## Modules in Everyday Use
 
@@ -27,4 +27,4 @@ Here's how you can dive in and start shaping your modules:
 2. **Customize to Fit Your Needs**: Add the fields you need in each module. For 'Customers', this might be 'Name', 'Contact', and 'Notes'. For 'Tasks', consider 'Title', 'Deadline', and 'Assigned To'.
 3. **Link and Relate**: Use the 'Relations' feature to connect your 'Customers' and 'Tasks'. Now, every task can be tied to a customer, making your data more interconnected and meaningful.
 
-Modules are all about making your data work for you, in the most intuitive and user-friendly way possible. Whether you're managing customers, tracking tasks, or something entirely unique to your business, modules are your foundation for building a a good 1Relation system.
+Modules are all about making your data work for you, in the most intuitive and user-friendly way possible. Whether you're managing customers, tracking tasks, or something entirely unique to your business, modules are your foundation for building a a good FlowAgent system.

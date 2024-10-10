@@ -1,6 +1,6 @@
 # Table widget
 
-The table widget in 1Relation allows you to display data in a structured and organized manner.
+The table widget in FlowAgent allows you to display data in a structured and organized manner.
 
 ## Configuring Table Widgets through UI
 

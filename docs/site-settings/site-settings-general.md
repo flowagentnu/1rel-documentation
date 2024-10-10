@@ -1,6 +1,6 @@
 # General
 
-This section of the documentation provides a detailed overview of the "General" settings within the 1Relation site. These settings are foundational to how your site operates and presents itself.
+This section of the documentation provides a detailed overview of the "General" settings within the FlowAgent site. These settings are foundational to how your site operates and presents itself.
 
 ## Accessing General Settings
 
@@ -60,7 +60,7 @@ Within the General settings, the JSON editor can be used to:
 ```json
 {
  {
-  "supportUrl": "https://1relation.atlassian.net/servicedesk/customer/portal/xx"
+  "supportUrl": "https://FlowAgent.atlassian.net/servicedesk/customer/portal/xx"
  },
  "dashboard": {
    "actionalButtons": [

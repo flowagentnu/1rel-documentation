@@ -1,10 +1,10 @@
 # Groups
 
-In 1Relation, groups are essential for managing user permissions across the system. Groups allow you to control access to various elements such as modules, items, pages, dashboards, and individual tabs. By assigning users to groups, you can ensure that they have the appropriate level of access to perform their roles effectively.
+In FlowAgent, groups are essential for managing user permissions across the system. Groups allow you to control access to various elements such as modules, items, pages, dashboards, and individual tabs. By assigning users to groups, you can ensure that they have the appropriate level of access to perform their roles effectively.
 
 ## Creating and Managing Groups
 
-Groups are collections of users, and each group is assigned specific permissions. Here’s how to manage groups within 1Relation:
+Groups are collections of users, and each group is assigned specific permissions. Here’s how to manage groups within FlowAgent:
 
 ### Accessing Groups
 

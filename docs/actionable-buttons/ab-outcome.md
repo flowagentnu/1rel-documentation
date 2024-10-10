@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The `outcome` component in Actionable Buttons within 1Relation plays a pivotal role in defining the feedback or response after an action is executed. It determines how the result of the action is communicated to the user, thereby enhancing the interactive experience through clear and immediate feedback.
+The `outcome` component in Actionable Buttons within FlowAgent plays a pivotal role in defining the feedback or response after an action is executed. It determines how the result of the action is communicated to the user, thereby enhancing the interactive experience through clear and immediate feedback.
 
 ## Structure of `outcome`
 

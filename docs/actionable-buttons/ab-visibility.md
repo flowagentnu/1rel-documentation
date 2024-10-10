@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The `visibility` component plays a pivotal role in ensuring that Actional Buttons in 1Relation appear at the right time, to the right users, and in the right context. It is primarily structured around two key properties: `visual` for defining the button's appearance, and `condition` for setting the logical rules for its display.
+The `visibility` component plays a pivotal role in ensuring that Actional Buttons in FlowAgent appear at the right time, to the right users, and in the right context. It is primarily structured around two key properties: `visual` for defining the button's appearance, and `condition` for setting the logical rules for its display.
 
 ## Top-Level Properties of `visibility`
 
