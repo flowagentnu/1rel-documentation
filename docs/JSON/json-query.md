@@ -2,7 +2,7 @@
 
 ## Introduction
 
-JSON queries in 1Relation facilitate structured data retrieval and management, enhancing efficiency and accuracy. This documentation elaborates on the construction and utilization of JSON queries, detailing the keys, operators, and values integral to formulating queries within 1Relation.
+JSON queries in FlowAgent facilitate structured data retrieval and management, enhancing efficiency and accuracy. This documentation elaborates on the construction and utilization of JSON queries, detailing the keys, operators, and values integral to formulating queries within FlowAgent.
 
 JSON queries are used in the following functionalities:
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Actions in 1Relation enable dynamic and automated interactions within your system. They allow for the execution of predefined tasks based on user interactions or specific conditions, making forms and systems more interactive and intelligent.
+Actions in FlowAgent enable dynamic and automated interactions within your system. They allow for the execution of predefined tasks based on user interactions or specific conditions, making forms and systems more interactive and intelligent.
 
 ## Purpose of Actions
 
@@ -10,7 +10,7 @@ Actions serve various purposes, including data management through CRUD operation
 
 ## Anatomy of an Action
 
-An action in 1Relation is a structured object that defines when it should be triggered (`if`) and what it should do (`then`). It's a crucial part of making your forms and systems interactive.
+An action in FlowAgent is a structured object that defines when it should be triggered (`if`) and what it should do (`then`). It's a crucial part of making your forms and systems interactive.
 
 ### Structure of an Action
 
@@ -85,7 +85,7 @@ Let's create a new section titled "CRUD Operations" in the "JSON Actions" docume
 
 ## CRUD Operations in Actions
 
-CRUD operations form the core of data management in 1Relation, allowing you to create, read, update, and delete data items. Understanding and effectively utilizing these operations is crucial for maintaining a dynamic and responsive system.
+CRUD operations form the core of data management in FlowAgent, allowing you to create, read, update, and delete data items. Understanding and effectively utilizing these operations is crucial for maintaining a dynamic and responsive system.
 
 To integrate the "dynamicdata" operation into the existing documentation seamlessly, I'll add it to the "Overview of CRUD Operations" section, ensuring it fits naturally with the existing content. Here's the revised section with the inclusion of "dynamicdata":
 
@@ -465,7 +465,7 @@ Assign a value by referencing a custom field from another item.
 
 ## Controlling Action Flow with `breakAfter`
 
-The `breakAfter` property is an essential part of the action framework in 1Relation, allowing for granular control over the execution sequence of actions. It determines whether the system should continue processing subsequent actions after the current one.
+The `breakAfter` property is an essential part of the action framework in FlowAgent, allowing for granular control over the execution sequence of actions. It determines whether the system should continue processing subsequent actions after the current one.
 
 ### Overview of `breakAfter`
 
@@ -571,4 +571,4 @@ In this sequence:
 - **Conditional Logic**: Use `breakAfter` in conjunction with conditional logic (`if`) to create dynamic, responsive action sequences that adapt based on user inputs or system states.
 - **Action Design**: Plan your action sequences carefully, considering the implications of halting the sequence at different stages based on your system's workflow requirements.
 
-By providing a dedicated control mechanism like `breakAfter`, 1Relation empowers users to design intricate and adaptive workflows, ensuring that actions are executed in a controlled, logical manner that aligns with the specific needs of each process.
+By providing a dedicated control mechanism like `breakAfter`, FlowAgent empowers users to design intricate and adaptive workflows, ensuring that actions are executed in a controlled, logical manner that aligns with the specific needs of each process.

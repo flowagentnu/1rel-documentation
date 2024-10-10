@@ -1,6 +1,6 @@
 # Files Widget
 
-The Files Widget in 1Relation is designed to enhance the management and display of files such as pictures and documents. It supports file uploads from computers and mobile devices, making it a versatile tool for users.
+The Files Widget in FlowAgent is designed to enhance the management and display of files such as pictures and documents. It supports file uploads from computers and mobile devices, making it a versatile tool for users.
 
 ## Installation of widget
 

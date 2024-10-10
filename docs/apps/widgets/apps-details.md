@@ -1,6 +1,6 @@
 # Details Widget
 
-The Details Widget in 1Relation displays custom fields from any module in the system, providing detailed information about specific items.
+The Details Widget in FlowAgent displays custom fields from any module in the system, providing detailed information about specific items.
 
 ![Alt text](image.png)
 

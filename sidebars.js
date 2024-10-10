@@ -1,17 +1,17 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   docs: [
-    'New to 1Relation/welcome-to-documentation',
+    'introduction',
     {
       type: 'category',
-      label: 'New to 1Relation',
+      label: 'Getting started',
       collapsed: true,
       items: [
-        'New to 1Relation/new-to-what-is-a-site',
+        'getting-started/about',
+        'getting-started/what-is-a-site',
       ],
       link: {
-        type: 'doc',
-        id: 'New to 1Relation/new-to-what-is-1relation',
+        type: 'generated-index',
       },
     },
     {

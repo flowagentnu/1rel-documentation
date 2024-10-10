@@ -1,7 +1,7 @@
 # Main Components
 
 ## Introduction
-This document provides a comprehensive guide on the JSON structure used for configuring Actional Buttons in 1Relation. It aims to support system designers in comprehending and implementing the diverse components and settings essential for the creation and management of Actional Buttons. The documentation is organized in a hierarchical manner, commencing with top-level components and progressing to more intricate elements, along with their properties. Each component is elucidated with its respective properties, types, and necessary values, complemented by practical JSON examples for a clearer understanding.
+This document provides a comprehensive guide on the JSON structure used for configuring Actional Buttons in FlowAgent. It aims to support system designers in comprehending and implementing the diverse components and settings essential for the creation and management of Actional Buttons. The documentation is organized in a hierarchical manner, commencing with top-level components and progressing to more intricate elements, along with their properties. Each component is elucidated with its respective properties, types, and necessary values, complemented by practical JSON examples for a clearer understanding.
 
 ## Top-Level Properties
 

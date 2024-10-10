@@ -12,12 +12,16 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
+        <Heading as="h1" className="hero__title" style={{ color: 'white' }}>
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-
+          {/* <Link
+            className="button button--secondary button--lg"
+            to="/docs/intro">
+            Get Started
+          </Link> */}
         </div>
       </div>
     </header>
@@ -28,8 +32,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title} - Tilpas FlowAgent til dine dine arbejdsgange`}
+      description="FlowAgent skære dine arbejdsgange helt ind til benet. Væk med alt det overflødige. Goddag til en platform du kan trimme og tune til dit behov.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

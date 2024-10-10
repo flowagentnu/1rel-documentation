@@ -1,11 +1,11 @@
 # Installing Apps
 
-This guide provides step-by-step instructions on how to install and implement apps in the 1Relation platform. It is intended for system designers and administrators responsible for configuring and customizing the 1Relation environment.
+This guide provides step-by-step instructions on how to install and implement apps in the FlowAgent platform. It is intended for system designers and administrators responsible for configuring and customizing the FlowAgent environment.
 
 ## Installing an App
 
 #### Step 1: Access Site Settings
-- Navigate to the 'Site Settings' in your 1Relation dashboard.
+- Navigate to the 'Site Settings' in your FlowAgent dashboard.
 
 #### Step 2: Locate the Plugins Section
 - Within Site Settings, find and select the 'Plugins' option.
@@ -43,4 +43,4 @@ This guide provides step-by-step instructions on how to install and implement ap
 ![Alt text](image-1.png)
 ---
 
-**Note**: Each app in 1Relation may have unique features and configuration requirements. Always refer to the specific documentation provided for each app for detailed guidance. For further assistance, contact our support team.
+**Note**: Each app in FlowAgent may have unique features and configuration requirements. Always refer to the specific documentation provided for each app for detailed guidance. For further assistance, contact our support team.

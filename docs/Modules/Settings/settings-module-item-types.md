@@ -8,7 +8,7 @@ For example, a module used for "orders" can have different types like:
 - Delivery
 - Waste
 
-By creating different types, it's possible to assign other 1Relation functions. These are:
+By creating different types, it's possible to assign other FlowAgent functions. These are:
 
 - Customfields
 - Tabs

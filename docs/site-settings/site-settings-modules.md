@@ -1,6 +1,6 @@
 # Modules
 
-Modules are integral components of the 1Relation platform, allowing for the customization and extension of the system's capabilities. This documentation provides guidance on configuring modules within the 1Relation system.
+Modules are integral components of the FlowAgent platform, allowing for the customization and extension of the system's capabilities. This documentation provides guidance on configuring modules within the FlowAgent system.
 
 ## Accessing Module Configuration
 
@@ -13,7 +13,7 @@ To configure a module:
 
 ## Configuring a Module
 
-Each module in 1Relation contains a set of configurations that define its properties and behavior within the system.
+Each module in FlowAgent contains a set of configurations that define its properties and behavior within the system.
 
 ### General
 
@@ -34,7 +34,7 @@ After making the necessary changes, click on the **"SAVE"** button in the top ri
 
 ## Options - JSON Editor
 
-Similar to other JSON configuration sections in 1Relation, the JSON editor here allows for additional, more technical settings that are not managed through the UI.
+Similar to other JSON configuration sections in FlowAgent, the JSON editor here allows for additional, more technical settings that are not managed through the UI.
 
 ```json
 {
