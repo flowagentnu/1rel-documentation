@@ -4,7 +4,7 @@ The Files Widget in FlowAgent is designed to enhance the management and display 
 
 ## Installation of widget
 
-The Files widget is a separate app and needs to be installed before being available for use. Plase refer to the documentation for [installing apps](/docs/apps/apps-install-apps).
+The Files widget is a separate app and needs to be installed before being available for use.
 
 ## Add files widget to a tab
 

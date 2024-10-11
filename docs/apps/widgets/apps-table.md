@@ -241,7 +241,7 @@ In this configuration for forms options, users are provided with the ability to 
 
 ## Actionable Buttons
 
-Enhance your table widget with actionable buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actionable buttons, refer to [Actionable Buttons Introduction](/docs/actionable-buttons/ab-intro-to-ab).
+Enhance your table widget with actionable buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actionable buttons, refer to [Actionable Buttons Introduction](/docs/site-settings/actionable-buttons/ab-intro-to-ab).
 
 | Property          | Type    | Required | Options     | Description                                                                                      |
 | ----------------- | ------- | -------- | ----------- | ------------------------------------------------------------------------------------------------ |
