@@ -73,7 +73,7 @@ Within the General settings, the JSON editor can be used to:
 ```
 In this example, a support portal URL is added to the site. This can be accessed by choosing the `user icon` in the top navigation bar, and then `Support`
 
-A buttons is added to the main dashboard, for the users to interact with. 
+A buttons is added to the main dashboard, for the users to interact with..
 
 :::warning Incomplete Documentation
 The documentation is missing screenshots for support and buttons.
