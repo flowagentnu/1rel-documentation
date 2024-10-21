@@ -239,9 +239,9 @@ Enhance your table widget with functionality for filling out forms directly from
 
 In this configuration for forms options, users are provided with the ability to access and fill out forms identified by IDs 12 and 14 directly from the table widget. This feature enhances interactivity and efficiency by allowing form completion within the context of the table's data.
 
-## Actionable Buttons
+## Actional Buttons
 
-Enhance your table widget with actionable buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actionable buttons, refer to [Actionable Buttons Introduction](/docs/site-settings/actionable-buttons/ab-intro-to-ab).
+Enhance your table widget with actional buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actional buttons, refer to [Actional buttons Introduction](/docs/site-settings/actional-buttons/ab-intro-to-ab).
 
 | Property          | Type    | Required | Options     | Description                                                                                      |
 | ----------------- | ------- | -------- | ----------- | ------------------------------------------------------------------------------------------------ |
@@ -254,7 +254,7 @@ Enhance your table widget with actionable buttons that perform specific tasks. T
 Buttons are displayed at the top right of the table widget by default. When the `placement` is set to "row", they appear within each row. When used with `allowRowSelect`,(under `powerSearch`) they can also manage actions across multiple selected rows.
 There can be multiple `Actional Buttons` in each table widget. Even combinations of `top`, `row` and `multi` buttons.
 
-#### Example: Actionable Buttons in Table Widget
+#### Example: Actional Buttons in Table Widget
 
 ```json
 {
@@ -292,7 +292,7 @@ There can be multiple `Actional Buttons` in each table widget. Even combinations
 }
 ```
 
-In this JSON example, three actionable buttons are configured for the table widget. The first button, 'ab_simple_example', is displayed at the top right of the table with only its icon visible. The second button, 'ab_example_key', is similarly displayed with only its icon but is placed on each row. The third button, 'ab_member-new-supplier-agreement', also displays only the icon and is configured to handle multiple items, in coordination with the row selection feature of the power search.
+In this JSON example, three actional buttons are configured for the table widget. The first button, 'ab_simple_example', is displayed at the top right of the table with only its icon visible. The second button, 'ab_example_key', is similarly displayed with only its icon but is placed on each row. The third button, 'ab_member-new-supplier-agreement', also displays only the icon and is configured to handle multiple items, in coordination with the row selection feature of the power search.
 
 ---
 

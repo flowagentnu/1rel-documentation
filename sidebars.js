@@ -30,18 +30,18 @@ const sidebars = {
 
         {
           type: 'category',
-          label: 'Actionable buttons',
+          label: 'Actional buttons',
           collapsed: true,
           items: [
-            'site-settings/actionable-buttons/ab-main-components',
-            'site-settings/actionable-buttons/ab-items',
-            'site-settings/actionable-buttons/ab-visibility',
-            'site-settings/actionable-buttons/ab-actions',
-            'site-settings/actionable-buttons/ab-outcome',
+            'site-settings/actional-buttons/ab-main-components',
+            'site-settings/actional-buttons/ab-items',
+            'site-settings/actional-buttons/ab-visibility',
+            'site-settings/actional-buttons/ab-actions',
+            'site-settings/actional-buttons/ab-outcome',
           ],
           link: {
             type: 'doc',
-            id: 'site-settings/actionable-buttons/ab-intro-to-ab',
+            id: 'site-settings/actional-buttons/ab-intro-to-ab',
           },
         },
       ],

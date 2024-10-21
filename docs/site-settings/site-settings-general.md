@@ -53,7 +53,7 @@ After making the necessary changes, click on the **"SAVE"** button in the top ri
 Within the General settings, the JSON editor can be used to:
 
 - **Support portal**: Set a URL for a site dedicated support portal. This can be used to direct users to a support portal that is specific to the site's needs.
-- **Actionable Buttons**: You can specify custom buttons that perform actions defined by the user, enhancing the site's interactivity and functionality.
+- **Actional buttons**: You can specify custom buttons that perform actions defined by the user, enhancing the site's interactivity and functionality.
 
 ### Example ###
 
