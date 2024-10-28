@@ -26,5 +26,5 @@ To create, edit, or archive forms in FlowAgent:
 Forms are typically activated in two ways:
 
 - **Through Apps**: Certain applications within FlowAgent are designed to trigger forms, initiating specific workflows or data entry processes.
-- **Via Actionable Buttons**: Forms can be linked to actionable buttons, providing users with immediate access to the forms through a simple click, streamlining the process of data entry or modification.
+- **Via Actional buttons**: Forms can be linked to actional buttons, providing users with immediate access to the forms through a simple click, streamlining the process of data entry or modification.
 ---

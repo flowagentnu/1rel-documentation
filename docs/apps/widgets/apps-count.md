@@ -179,6 +179,7 @@ The `tapActions` property allows you to configure what happens when the user tap
       "value": "customerstab_projects"
     }
   }
+}
 ```
 
 *Explanation:* This example demonstrates how to configure a tap action that opens a specific tab when the Count Widget is tapped. The `value` property specifies the tab to open by using the last part of the tab's URL.

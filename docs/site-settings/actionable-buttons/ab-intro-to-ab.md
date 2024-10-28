@@ -1,4 +1,4 @@
-# Intro to Actional Buttons
+# Intro to Actional buttons
 
 In FlowAgent, Actional Buttons act as dynamic triggers, facilitating seamless interactions within the system by enabling users to execute predefined actions with a single click. 
 These buttons are not just mere elements of the user interface but are powerful tools that can perform a wide array of functions such as automations, displaying forms, or managing data (CRUD operations) dynamically. 

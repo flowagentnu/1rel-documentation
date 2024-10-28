@@ -30,7 +30,7 @@ const sidebars = {
 
         {
           type: 'category',
-          label: 'Actionable buttons',
+          label: 'Actional buttons',
           collapsed: true,
           items: [
             'site-settings/actionable-buttons/ab-main-components',
@@ -134,6 +134,7 @@ const sidebars = {
         'apps/widgets/apps-count',
         'apps/widgets/apps-pos',
         'apps/widgets/apps-sum',
+        'apps/widgets/apps-chart',
         'apps/integrations/integrations-optimo-route',
       ],
       link: {

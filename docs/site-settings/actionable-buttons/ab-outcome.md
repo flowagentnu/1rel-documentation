@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The `outcome` component in Actionable Buttons within FlowAgent plays a pivotal role in defining the feedback or response after an action is executed. It determines how the result of the action is communicated to the user, thereby enhancing the interactive experience through clear and immediate feedback.
+The `outcome` component in Actional buttons within FlowAgent plays a pivotal role in defining the feedback or response after an action is executed. It determines how the result of the action is communicated to the user, thereby enhancing the interactive experience through clear and immediate feedback.
 
 ## Structure of `outcome`
 
@@ -112,5 +112,5 @@ Here, the button is disabled after the action, indicating that the task is compl
 
 In this example the `widgetsUpdate` property is set to an array specifying whych widgets on the page should be updated.
 
-By configuring the `outcome` component effectively, you can ensure that Actionable Buttons provide meaningful feedback and guide users efficiently through their tasks within the system. The `outcome` component's flexibility in design allows for a responsive and user-friendly application, enhancing the overall user experience.
+By configuring the `outcome` component effectively, you can ensure that Actional buttons provide meaningful feedback and guide users efficiently through their tasks within the system. The `outcome` component's flexibility in design allows for a responsive and user-friendly application, enhancing the overall user experience.
 
