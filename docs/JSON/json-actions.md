@@ -19,7 +19,7 @@ An action in FlowAgent is a structured object that defines when it should be tri
 | `name`   | string | Yes      | Identifies the action for easier management and understanding. |
 | `if`     | array  | No       | Specifies the conditions under which the action is triggered. |
 | `then`   | object | Yes      | Outlines the tasks to be executed when the conditions are met. |
-| `breakAfter` | boolean | No | A flag to control the flow of subsequent actions. If set to `false`, the flow continues to the next action, if the current one is executed sucessfully. |
+| `breakAfter` | boolean | No | A flag to control the flow of subsequent actions. If set to `false`, the flow continues to the next action, if the current one is executed successfully. |
 
 ### Example Action
 
@@ -56,7 +56,7 @@ An action in FlowAgent is a structured object that defines when it should be tri
 ## Defining Conditions (`if`)
 
 Setting conditions is like setting the rules of the game. They determine when an action should kick into gear.
-It uses a structured query format as described in the [JSON Query Documentation](/docs/JSON/json-query)..
+It uses a structured query format as described in the [JSON Query Documentation](/docs/JSON/json-query).
 
 | Property | Type   | Required | Options | Description |
 |----------|--------|----------|---------|-------------|
@@ -77,17 +77,14 @@ It uses a structured query format as described in the [JSON Query Documentation]
 
 When conditions are met, the `then` part defines what happens next. It's where the action truly happens.
 
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `crud`   | object | No       | Perform CRUD operations, manipulating data as needed. |
-
-Let's create a new section titled "CRUD Operations" in the "JSON Actions" document. This section will include an introduction, a properties table for each CRUD operation (insert, update, delete, relate), and a comprehensive example showcasing all four operations.
+| Property   | Type   | Required | Description |
+|------------|--------|----------|-------------|
+| `crud`     | object | No       | Perform CRUD operations, manipulating data as needed. |
+| `sendEmail`| object | No       | Sends an email based on specified parameters. |
 
 ## CRUD Operations in Actions
 
 CRUD operations form the core of data management in FlowAgent, allowing you to create, read, update, and delete data items. Understanding and effectively utilizing these operations is crucial for maintaining a dynamic and responsive system.
-
-To integrate the "dynamicdata" operation into the existing documentation seamlessly, I'll add it to the "Overview of CRUD Operations" section, ensuring it fits naturally with the existing content. Here's the revised section with the inclusion of "dynamicdata":
 
 ### Overview of CRUD Operations
 
@@ -100,16 +97,17 @@ CRUD operations, along with dynamic data handling, ensure that your system can r
 | `delete`       | array  | No       | Removes data items from the system. |
 | `relate`       | array  | No       | Defines or updates relationships between data items. |
 | `dynamicdata`  | object | No       | Handles operations involving data that needs to be processed dynamically before further action. |
+| `sendEmail`    | object | No       | Sends an email with specified subject, body, and other details. |
 
-### Example of CRUD Operations
+### Example of Insert Operation
 
-In this example, we showcase how to perform insert, update, delete, relate, and dynamic data operations within a single action.
+The following example demonstrates how to use the `insert` operation to add a new item to the system.
 
 ```json
 {
   "actions": [
     {
-      "name": "Manage Data",
+      "name": "Insert New Item",
       "then": {
         "crud": {
           "insert": {
@@ -121,7 +119,25 @@ In this example, we showcase how to perform insert, update, delete, relate, and 
                 "cf101": "post[value2]"
               }
             }
-          },
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+### Example of Update Operation
+
+The following example shows how to use the `update` operation to modify an existing item.
+
+```json
+{
+  "actions": [
+    {
+      "name": "Update Existing Item",
+      "then": {
+        "crud": {
           "update": {
             "existingItem": {
               "moduleitemtype_id": "112",
@@ -130,10 +146,46 @@ In this example, we showcase how to perform insert, update, delete, relate, and 
                 "cf103": "post[value4]"
               }
             }
-          },
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
+### Example of Delete Operation
+
+The following example demonstrates how to use the `delete` operation to remove an item from the system.
+
+```json
+{
+  "actions": [
+    {
+      "name": "Delete Item",
+      "then": {
+        "crud": {
           "delete": [
             "itemToDelete"
-          ],
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+### Example of Relate Operation
+
+The following example demonstrates how to use the `relate` operation to define or update relationships between data items.
+
+```json
+{
+  "actions": [
+    {
+      "name": "Relate Items",
+      "then": {
+        "crud": {
           "relate": [
             {
               "child": "childItemKey",
@@ -141,14 +193,32 @@ In this example, we showcase how to perform insert, update, delete, relate, and 
               "relationid": 123,
               "unlink": false
             }
-          ],
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+### Example of Dynamic Data Operation
+
+The following example demonstrates how to use the `dynamicdata` operation to handle data that needs to be processed dynamically before further action.
+
+```json
+{
+  "actions": [
+    {
+      "name": "Handle Dynamic Data",
+      "then": {
+        "crud": {
           "dynamicdata": {
             "module_id": 60,
             "where": [
               [
                 "moduleitemtype_id",
                 "=",
-                "132"
+                132
               ],
               [
                 "cf610.string",
@@ -180,186 +250,29 @@ In this example, we showcase how to perform insert, update, delete, relate, and 
 }
 ```
 
-In this comprehensive example:
+### Example of Send Email Operation
 
-- **Insert**: A new item is added to the system with specific custom field values.
-- **Update**: An existing item's custom fields are updated with new values.
-- **Delete**: A specific item is removed from the system.
-- **Relate**: A relationship is defined or updated between two items, potentially linking them together without unlinking.
-- **Dynamic Data**: Data is dynamically retrieved and processed, then used in subsequent operations, showcasing the versatility and adaptability of the system to handle complex, data-driven scenarios.
-
-### Insert Property
-
-Insert operations add new data items to the system.
-
-#### Properties of Insert
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `moduleid` | number | Yes | Specifies the module where the new item will be added. |
-| `moduleitemtype_id` | number | Yes | Defines the module item type for the new item. |
-| `customfield` | object | Yes | Sets the custom fields and their values for the new item. |
-
-#### Example of Insert Operation
-
-```json
-"insert": {
-  "customer": {
-    "moduleid": 50,
-    "moduleitemtype_id": "111",
-    "customfield": {
-      "cf100": "John Doe",
-      "cf101": "1234567890"
-    }
-  }
-}
-```
-
-### Update Property
-
-Update operations modify existing data items.
-
-#### Properties of Update
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `moduleitemtype_id` | number | No | Identifies the module item type for the item being updated. |
-| `customfield` | object | Yes | Determines the custom fields and their new values for the item. |
-
-#### Example of Update Operation
-
-```json
-"update": {
-  "customer": {
-    "moduleitemtype_id": "111",
-    "customfield": {
-      "cf100": "Jane Doe",
-      "cf101": "0987654321"
-    }
-  }
-}
-```
-
-### Relate Property
-
-Relate operations define or update the relationships between data items.
-
-#### Properties of Relate
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `child` | string | Yes | Indicates the child item in the relationship. |
-| `parent` | string | Yes | Specifies the parent item in the relationship. |
-| `relationid` | number | No | Provides the ID of the relation type. |
-| `unlink` | boolean | No | Determines if the specified relationship should be unlinked. |
-
-#### Example of Relate Operation
-
-```json
-"relate": [
-  {
-    "child": "kunde",
-    "parent": "kampagne",
-    "relationid": 76,
-    "unlink": true
-  }
-]
-```
-
-### Delete Property
-
-Delete operations remove data items from the system.
-
-#### Properties of Delete
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `itemKey` | string | Yes | Defines the key of the item to be deleted. |
-
-#### Example of Delete Operation
-
-```json
-"delete": [
-  "salgstur"
-]
-```
-## Dynamic Data Operations in Actions
-
-Dynamic data operations allow for real-time data manipulation and interaction, ensuring that your system can adapt to changing data and user needs dynamically.
-
-### Overview of Dynamic Data Operations
-
-Dynamic data operations are designed to handle complex scenarios where data needs to be retrieved, processed, or transformed before being used in CRUD operations or other action sequences.
-
-| Operation      | Type   | Required | Description |
-|----------------|--------|----------|-------------|
-| `dynamicdata`  | object | No       | Handles operations involving data that needs to be processed dynamically before further action. |
-
-### Example of Dynamic Data Operation
-
-This example illustrates a dynamic data operation where data is dynamically retrieved and processed, then used in a subsequent insert and relate operation.
+The following example demonstrates how to use the `sendEmail` operation to send an email with specified details.
 
 ```json
 {
   "actions": [
     {
-      "name": "opret salgstur",
+      "name": "Send Email",
       "then": {
         "crud": {
-          "insert": {
-            "salgstur": {
-              "moduleid": 74,
-              "moduleitemtype_id": 131,
-              "customfield": {
-                "cf606": "Salgstur",
-                "cf609": "selfitem[cf323]"
-              }
-            }
-          },
-          "relate": [
-            {
-              "child": "salgstur",
-              "parent": "selfitem"
-            },
-            {
-              "child": "salgstur",
-              "parent": "kampagne"
-            },
-            {
-              "child": "selfitem",
-              "parent": "kampagne"
-            }
-          ],
-          "dynamicdata": {
-            "module_id": 60,
-            "where": [
-              [
-                "moduleitemtype_id",
-                "=",
-                "132"
-              ],
-              [
-                "cf610.string",
-                "=",
-                "option_818"
-              ]
-            ],
-            "createInModule": {
-              "moduleitemtype_id": 103,
-              "module_id": 60,
-              "customfield": {
-                "cf460": "dynamicdata[cf460]",
-                "cf645": "dynamicdata[cf645]",
-                "cf463": "dynamicdata[cf463]",
-                "cf461": "selfitem[cf323]"
-              },
-              "relate": [
-                {
-                  "parent": "salgstur",
-                  "child": "dynamicitem"
-                }
-              ]
-            }
+          "sendEmail": {
+            "subjectLine": "This is my subject line",
+            "previewText": "This is my preview text",
+            "templateTitle": "This is my body title",
+            "templateBody": "Hello world, this is my body!",
+            "templateHasButton": true,
+            "templateButtonText": "Hi, click me!",
+            "templateButtonUrl": "https://flowagent.nu/",
+            "toName": "Emil Andreæ",
+            "toEmail": "emil@flowagent.nu",
+            "fromName": "[user.name]",
+            "fromEmail": "[user.email]"
           }
         }
       }
@@ -368,30 +281,94 @@ This example illustrates a dynamic data operation where data is dynamically retr
 }
 ```
 
-In this example, the `dynamicdata` operation is utilized to:
+### Example of Send Email Using a Document
 
-- Retrieve data based on specific conditions (`where` clause).
-- Process and transform the retrieved data (`createInModule`), allowing for the creation of new items with dynamically assigned custom fields.
-- Establish relations between newly created items and existing ones (`relations`).
+In this example, instead of writing the entire email content within the action itself, a pre-defined document template is used. The document is referenced from the modules settings/documents section where HTML documents with replaceable fields can be created.
 
-### Properties of Dynamic Data Operation
+```json
+{
+  "actions": [
+    {
+      "name": "Email document",
+      "then": {
+        "sendEmail": {
+          "documentKeyName": "mltiderdoc_dette-er-min-document-email",
+          "toName": "[user.name]",
+          "toEmail": "[user.email]"
+        }
+      }
+    }
+  ]
+}
+```
 
-| Property          | Type   | Required | Description |
-|-------------------|--------|----------|-------------|
-| `module_id`       | number | Yes      | Specifies the module from which the dynamic data is retrieved. |
-| `where`           | array  | Yes      | Sets the conditions for retrieving dynamic data. |
-| `createInModule`  | object | Yes      | Defines how the retrieved dynamic data is processed and how new items are created. |
+## Multiple Actions on Items
 
-#### `createInModule` Properties
+In some scenarios, it is necessary to perform actions on multiple items at once. FlowAgent supports batch operations, allowing you to update, delete, or relate multiple items in a single action. This feature is especially useful when you need to modify multiple records simultaneously to maintain consistency across your system.
 
-| Property       | Type   | Required | Description |
-|----------------|--------|----------|-------------|
-| `moduleitemtype_id` | number | Yes | Specifies the module item type for the new item to be created. |
-| `module_id`    | number | Yes      | Specifies the module where the new item will be created. |
-| `customfield`  | object | Yes      | Sets the custom fields and their dynamic values for the new item. |
-| `relate`    | array  | No       | Defines relationships between the newly created item and existing items. |
+### Example of Multiple Actions
 
----
+The following example demonstrates how to perform update and delete actions on multiple items within the same action sequence.
+
+```json
+{
+  "items": {
+    "projects": [
+      [
+        "id",
+        "=",
+        "[itemid]"
+      ]
+    ],
+    "tasks[]": [
+      [
+        "id",
+        "IN",
+        "[relation80]"
+      ]
+    ]
+  },
+  "visibility": {
+    "visual": {
+      "text": "Update and delete",
+      "textColor": "white",
+      "bgColor": "danger",
+      "icon": "warning",
+      "displayIconOnly": false
+    }
+  },
+  "actions": [
+    {
+      "name": "Update and delete multiple items",
+      "then": {
+        "crud": {
+          "update": {
+            "projects[]": {
+              "customfield": {
+                "cf649": "option_863"
+              }
+            }
+          },
+          "delete": [
+            "tasks[]"
+          ]
+         }
+       }
+     }
+  ]
+}
+```
+
+### Explanation of Multiple Actions
+
+In the above example, the action performs updates on multiple projects and deletes multiple tasks:
+
+- **Items**: The `items` section defines the target items for the actions. In this case, it targets `projects` with a specific ID and `tasks` related to `relation80`.
+- **Update**: The `update` operation modifies a custom field (`cf649`) for all projects matching the specified condition.
+- **Delete**: The `delete` operation removes all tasks matching the specified condition.
+- **Visibility**: The `visibility` section provides a visual indicator for the action, which helps in identifying the nature of the action in the user interface.
+
+This approach allows for efficient management of multiple items, reducing the need for repetitive actions and ensuring consistency across your system.
 
 ## Custom Fields in Actions
 
@@ -407,62 +384,6 @@ Custom fields allow for dynamic data assignment in actions, enhancing flexibilit
 | Dropdown Option          | string | Yes      | Assigns a value from a dropdown custom field using "option_xxx". |
 | Referenced Custom Field  | string | Yes      | Assigns a value by referencing another item's custom field. |
 
-## Examples of Assigning Values to Custom Fields
-
-### Fixed Value
-
-Assign a static value directly to the custom field.
-
-```json
-"customfield": {
-  "cf100": "Red"
-}
-```
-
-### Form Field Value
-
-Use a value entered by the user in a form field.
-
-```json
-"customfield": {
-  "cf101": "post[color]"
-}
-```
-
-### Form Field with Strip Option
-
-Strip a specific pattern from a form field value, commonly used for processing dropdowns, radios, or checkboxes.
-
-```json
-"customfield": {
-  "cf102": "post[visitFrequency]|strip_option"
-}
-```
-
-:::info
-The `strip_option` option is used to remove the `option_` prefix from the form field value, ensuring that the actual value is assigned to the custom field. This is useful when option ids are strings you need to input into a normal text field.
-:::
-
-### Dropdown Option
-
-Use an option ID for assigning a value from a dropdown custom field.
-
-```json
-"customfield": {
-  "cf103": "option_123"
-}
-```
-
-### Referenced Custom Field
-
-Assign a value by referencing a custom field from another item.
-
-```json
-"customfield": {
-  "cf104": "customer.cf445"
-}
-```
-
 ## Controlling Action Flow with `breakAfter`
 
 The `breakAfter` property is an essential part of the action framework in FlowAgent, allowing for granular control over the execution sequence of actions. It determines whether the system should continue processing subsequent actions after the current one.
@@ -475,100 +396,3 @@ The `breakAfter` property is used within an action to specify whether subsequent
 
 The `breakAfter` property is typically used in complex workflows where certain conditions or outcomes necessitate a halt in the sequence of actions. By setting `breakAfter` to `true`, you ensure that no further actions are processed after the current action, allowing for conditional branching or early termination of the action sequence, which is also the default behavior.
 
-#### Example Usage of `breakAfter`
-
-```json
-{
-  "actions": [
-    {
-      "name": "Update and Insert Data",
-      "then": {
-        "crud": {
-          "update": {
-            "existingData": {
-              "moduleid": 30,
-              "moduleitemtype_id": "222",
-              "customfield": {
-                "cf200": "updatedValue"
-              }
-            }
-          },
-          "insert": {
-            "newData": {
-              "moduleid": 40,
-              "moduleitemtype_id": "333",
-              "customfield": {
-                "cf300": "newValue"
-              }
-            }
-          }
-        }
-      },
-      "breakAfter": false  // Continue processing subsequent actions
-    },
-    {
-      "name": "Conditional Insert",
-      "if": [
-        ["item.condition", "=", "specificValue"]
-      ],
-      "then": {
-        "crud": {
-          "insert": {
-            "conditionalData": {
-              "moduleid": 50,
-              "moduleitemtype_id": "444",
-              "customfield": {
-                "cf400": "conditionalValue"
-              }
-            }
-          }
-        }
-      },
-      "breakAfter": false  // Continue processing subsequent actions
-    },
-    {
-      "name": "Conditional Relate",
-      "if": [
-        ["user.status", "=", "active"]
-      ],
-      "then": {
-        "crud": {
-          "relate": [
-            {
-              "child": "childItemKey",
-              "parent": "parentItemKey",
-              "relationid": 567,
-              "unlink": false
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-In this sequence:
-
-1. **Update and Insert Data**:
-   - The first action performs both an update and an insert operation as part of the same `crud`.
-   - Existing data is updated, and new data is inserted into the system.
-   - `breakAfter` is set to `false`, allowing the action sequence to continue.
-
-2. **Conditional Insert**:
-   - The second action checks a condition (`item.condition = specificValue`).
-   - If the condition is met, a new item is inserted with conditional data.
-   - `breakAfter` is set to `false`, allowing the next action to be processed.
-
-3. **Conditional Relate**:
-   - The third action checks another condition (`user.status = active`).
-   - If the user status is active, a `relate` operation is performed to define or update relationships between data items.
-   - There are no further actions, so `breakAfter` doesn't need to be specified.
-
-### Considerations for `breakAfter`
-
-- **Default Behavior**: The default setting for `breakAfter` is `true`, which means that, unless explicitly set to `false`, the system will naturally halt the action sequence after executing an action.
-- **Conditional Logic**: Use `breakAfter` in conjunction with conditional logic (`if`) to create dynamic, responsive action sequences that adapt based on user inputs or system states.
-- **Action Design**: Plan your action sequences carefully, considering the implications of halting the sequence at different stages based on your system's workflow requirements.
-
-By providing a dedicated control mechanism like `breakAfter`, FlowAgent empowers users to design intricate and adaptive workflows, ensuring that actions are executed in a controlled, logical manner that aligns with the specific needs of each process.

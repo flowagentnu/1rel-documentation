@@ -1,4 +1,4 @@
-# Table widget
+# Table Widget
 
 The table widget in FlowAgent allows you to display data in a structured and organized manner.
 
@@ -17,7 +17,7 @@ Follow these steps to configure your table widget:
 
 To set up a table widget, we need to configure the widget with JSON.
 
-## 1. Widget Module Data
+### 1. Widget Module Data
 
 The table widget will show data from a specific module. The JSON file starts with the ID of the module we want to present data from.
 
@@ -62,7 +62,7 @@ Define the relationships between different modules within your widget:
 | `parent`       | integer | Yes      | N/A     | The ID of the parent module in the relation.                                          |
 | `child`        | integer | Yes      | N/A     | The ID of the child module in the relation.                                           |
 | `relationid`   | integer | No       | N/A     | The ID of the specific relation, if multiple relations exist between the two modules. |
-| `relationtype` | string  | No       | N/A     | The type of relation between the two modules.                                         |
+| `relationtype` | string  | No       | N/A     | The type of relation between the two modules. `child` or `parent`                     |
 | `parent_id`    | integer | No       | N/A     | The ID of the parent item in the relation.                                            |
 | `child_id`     | integer | No       | N/A     | The ID of the child item in the relation.                                             |
 
@@ -151,11 +151,20 @@ In this query configuration, the widget is set to display data filtered based on
 
 Configure additional features for the widget:
 
+| Property            | Type    | Required | Options                      | Description                                                                                 |
+| ------------------- | ------- | -------- | ---------------------------- | ------------------------------------------------------------------------------------------- |
+| `clickable`         | string/array | No    | "none", array of cfkeys    | Defines clickability of table rows: `none` for no clickable columns, or an array of specific fields that are clickable. If not defined, the default behavior selects all title columns as clickable.  |
+| `orderby`           | array   | No       | Array of sorting             | Specifies the column(s) and order (ASC/DESC) for sorting table data.                        |
+| `allowInlineEdit`   | boolean | No       | true, false                  | Allows users to edit certain fields directly from the table without opening a separate form.|
+| `allowInlineEditFields` | array | No     | Array of fields              | Defines which fields can be edited inline when `allowInlineEdit` is enabled.                |
+| `allowCreateButton` | boolean | No       | true, false                  | Adds a button to allow users to create new items directly from the table widget.            |
+| `group`             | object  | No       | Key-value pairs              | Groups data based on the specified field and provides a count or other aggregation metric.  |
+
 #### Example 5: Table Configuration
 
 ```json
 {
-  "clickable": "cf237",
+  "clickable": "none",
   "orderby": [["cf12.string", "DESC"]],
   "allowInlineEdit": true,
   "allowInlineEditFields": ["cf1", "cf2", "cf3"],
@@ -164,7 +173,23 @@ Configure additional features for the widget:
 }
 ```
 
-## Table UI Options
+Another example, where only specific fields are clickable:
+
+```json
+{
+  "clickable": [
+    "cf1234",
+    "cf4321"
+  ],
+  "orderby": [["cf12.string", "DESC"]],
+  "allowInlineEdit": true,
+  "allowInlineEditFields": ["cf1", "cf2", "cf3"],
+  "allowCreateButton": true,
+  "group": {"cf237": "count"}
+}
+```
+
+## Table UI Options - Powersearch
 
 Manage the behavior and layout of the table with these options:
 
@@ -219,26 +244,6 @@ Manage the behavior and layout of the table with these options:
 
 This configuration for the table UI options includes enabling power searches, search functionality, filter and column selection buttons, options for downloading the table data as Excel or printing it, and settings for row selection and ordering. The configuration also adjusts the mobile view, enabling card and chips views and setting a threshold for using chips after 4 items. Additionally, it includes a `lists` option that provides a dropdown with different filtering options based on power searches.
 
-## Forms Options
-
-OBS. This functionality has been made obsolete by the introduction of actional buttons.
-
-Enhance your table widget with functionality for filling out forms directly from it:
-
-| Property | Type  | Required | Options | Description                                                                           |
-| -------- | ----- | -------- | ------- | ------------------------------------------------------------------------------------- |
-| `forms`  | array | No       | N/A     | An array of IDs for the forms that users can complete directly from the table widget. |
-
-#### Example 7: Forms Options
-
-```json
-{
-  "forms": [12, 14]
-}
-```
-
-In this configuration for forms options, users are provided with the ability to access and fill out forms identified by IDs 12 and 14 directly from the table widget. This feature enhances interactivity and efficiency by allowing form completion within the context of the table's data.
-
 ## Actional Buttons
 
 Enhance your table widget with actional buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actional buttons, refer to [Actional buttons Introduction](/docs/site-settings/actionable-buttons/ab-intro-to-ab).
@@ -251,7 +256,7 @@ Enhance your table widget with actional buttons that perform specific tasks. The
 | `placement`       | string  | No       | "row"       | Determines where the button is placed. Default is top of the table; "row" places it on each row. |
 | `displayIconOnly` | boolean | No       | true, false | If true, only the icon is displayed; otherwise, the button is shown with text.                   |
 
-Buttons are displayed at the top right of the table widget by default. When the `placement` is set to "row", they appear within each row. When used with `allowRowSelect`,(under `powerSearch`) they can also manage actions across multiple selected rows.
+Buttons are displayed at the top right of the table widget by default. When the `placement` is set to "row", they appear within each row. When used with `allowRowSelect`, (under `powerSearch`) they can also manage actions across multiple selected rows.
 There can be multiple `Actional Buttons` in each table widget. Even combinations of `top`, `row` and `multi` buttons.
 
 #### Example: Actional Buttons in Table Widget
@@ -292,8 +297,4 @@ There can be multiple `Actional Buttons` in each table widget. Even combinations
 }
 ```
 
-In this JSON example, three actional buttons are configured for the table widget. The first button, 'ab_simple_example', is displayed at the top right of the table with only its icon visible. The second button, 'ab_example_key', is similarly displayed with only its icon but is placed on each row. The third button, 'ab_member-new-supplier-agreement', also displays only the icon and is configured to handle multiple items, in coordination with the row selection feature of the power search.
-
----
-
-As we go forward, I'll provide specific updates, such as new features, additional examples, or notes that need to be included. You can then edit the corresponding sections accordingly.
+In this JSON example, three actional buttons are configured for the table widget. The first button, 'ab_simple_example', is displayed at the top right of the table with only its icon visible. The second button, 'ab_example_key', is similarly displayed with only its icon but is placed on each row. The third button, 'ab_member-new-supplier-agreement', also displays only the icon and is configured to handle multiple items, in coordination with the row selection featu

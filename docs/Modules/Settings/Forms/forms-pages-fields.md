@@ -728,7 +728,7 @@ These fields allow users to select a user, a group, or either from a list. Metad
     "name": "Projectleader",
     "required": false,
     "cftype_id": 308,
-    "defaultValue": "[userid]"
+    "defaultValue": "[user]"
   }
 }
 ```
@@ -1087,6 +1087,29 @@ Query fields allow users to search for and select an existing item from the syst
 }
 ```
 *The user will see the dropdown field labeled "Project customer" preselected with the value from the custom field `cf1248` of the project.*
+
+#### Query Field with Module Restriction
+
+```json
+{
+  "key": {
+    "id": "customers-active",
+    "name": "Active customers",
+    "required": true,
+    "cftype_id": 209,
+    "defaultValue": "[customer.cf617]",
+    "metadata": {
+      "moduleid": 76,
+      "moduleitemtype_id": 228
+    }
+  }
+}
+```
+*The user will see a dropdown field labeled "Active customers" where only items (customers) from module 76 with module item type 228 can be selected. The field is required, and it is preselected with the value from the custom field `cf617` of the customer.*
+
+:::tip
+Query items selected by the user in the form or as a default value, can be used as `items` in the form actions [Form Actions documentation](/docs/Modules/Settings/Forms/forms-pages-submit&cancel-triggers).
+:::
 
 ## HTML Fields
 
