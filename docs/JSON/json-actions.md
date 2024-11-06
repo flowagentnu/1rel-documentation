@@ -97,7 +97,6 @@ CRUD operations, along with dynamic data handling, ensure that your system can r
 | `delete`       | array  | No       | Removes data items from the system. |
 | `relate`       | array  | No       | Defines or updates relationships between data items. |
 | `dynamicdata`  | object | No       | Handles operations involving data that needs to be processed dynamically before further action. |
-| `sendEmail`    | object | No       | Sends an email with specified subject, body, and other details. |
 
 ### Example of Insert Operation
 
@@ -250,31 +249,31 @@ The following example demonstrates how to use the `dynamicdata` operation to han
 }
 ```
 
+## Send Email Action
+
+The `sendEmail` action allows you to send an email with specified details. This action can be used to trigger email notifications or other email-based interactions.
+
 ### Example of Send Email Operation
 
-The following example demonstrates how to use the `sendEmail` operation to send an email with specified details.
+The following example demonstrates how to use the `sendEmail` action to send an email with specified details.
 
 ```json
 {
   "actions": [
     {
       "name": "Send Email",
-      "then": {
-        "crud": {
-          "sendEmail": {
-            "subjectLine": "This is my subject line",
-            "previewText": "This is my preview text",
-            "templateTitle": "This is my body title",
-            "templateBody": "Hello world, this is my body!",
-            "templateHasButton": true,
-            "templateButtonText": "Hi, click me!",
-            "templateButtonUrl": "https://flowagent.nu/",
-            "toName": "Emil Andreæ",
-            "toEmail": "emil@flowagent.nu",
-            "fromName": "[user.name]",
-            "fromEmail": "[user.email]"
-          }
-        }
+      "sendEmail": {
+        "subjectLine": "This is my subject line",
+        "previewText": "This is my preview text",
+        "templateTitle": "This is my body title",
+        "templateBody": "Hello world, this is my body!",
+        "templateHasButton": true,
+        "templateButtonText": "Hi, click me!",
+        "templateButtonUrl": "https://flowagent.nu/",
+        "toName": "Emil Andreæ",
+        "toEmail": "emil@flowagent.nu",
+        "fromName": "[user.name]",
+        "fromEmail": "[user.email]"
       }
     }
   ]
@@ -290,12 +289,10 @@ In this example, instead of writing the entire email content within the action i
   "actions": [
     {
       "name": "Email document",
-      "then": {
-        "sendEmail": {
-          "documentKeyName": "mltiderdoc_dette-er-min-document-email",
-          "toName": "[user.name]",
-          "toEmail": "[user.email]"
-        }
+      "sendEmail": {
+        "documentKeyName": "mltiderdoc_dette-er-min-document-email",
+        "toName": "[user.name]",
+        "toEmail": "[user.email]"
       }
     }
   ]
