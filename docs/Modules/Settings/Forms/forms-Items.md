@@ -127,12 +127,12 @@ The commands used to define items are detailed below:
             "update": {
               "project": {
                 "customfield": {
-                  "cf1234": "post[project_name]"
+                  "cf1234": "[post.project_name]"
                 }
               },
               "subtasks[]": {
                 "customfield": {
-                  "cf5678": "post[customer_contact]"
+                  "cf5678": "[post.customer_contact]"
                 }
               }
             }

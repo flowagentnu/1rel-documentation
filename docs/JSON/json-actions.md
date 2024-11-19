@@ -38,10 +38,10 @@ An action in FlowAgent is a structured object that defines when it should be tri
               "moduleid": 50,
               "moduleitemtype_id": "111",
               "customfield": {
-                "cf100": "post[name]",
-                "cf101": "post[phonenumber]",
-                "cf102": "post[email]",
-                "cf103": "post[role]",
+                "cf100": "[post.name]",
+                "cf101": "[post.phonenumber]",
+                "cf102": "[post.email]",
+                "cf103": "[post.role]",
                 "cf104": "blue"
               }
             }
@@ -114,8 +114,8 @@ The following example demonstrates how to use the `insert` operation to add a ne
               "moduleid": 50,
               "moduleitemtype_id": "111",
               "customfield": {
-                "cf100": "post[value1]",
-                "cf101": "post[value2]"
+                "cf100": "[post.value1]",
+                "cf101": "[post.value2]"
               }
             }
           }
@@ -141,8 +141,8 @@ The following example shows how to use the `update` operation to modify an exist
             "existingItem": {
               "moduleitemtype_id": "112",
               "customfield": {
-                "cf102": "post[value3]",
-                "cf103": "post[value4]"
+                "cf102": "[post.value3]",
+                "cf103": "[post.value4]"
               }
             }
           }
@@ -232,7 +232,7 @@ The following example demonstrates how to use the `dynamicdata` operation to han
                 "cf460": "dynamicdata[cf460]",
                 "cf645": "dynamicdata[cf645]",
                 "cf463": "dynamicdata[cf463]",
-                "cf461": "selfitem[cf323]"
+                "cf461": "[selfitem.cf323]"
               },
               "relations": [
                 {
