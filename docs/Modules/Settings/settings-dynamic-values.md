@@ -61,4 +61,4 @@ There are multiple types of rules, each with its own set of parameters. A combin
   ]
 }
 ```
-Format, stepSizeType and start accepts valid PHP date formats. For more information, please visit [PHP Date Formats](https://www.php.net/manual/en/datetime.formats.php)
+Format, stepSizeType and start accepts valid PHP date formats. For more information, please visit [PHP Date Formats](https://www.php.net/manual/en/datetime.format.php)
