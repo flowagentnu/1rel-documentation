@@ -299,6 +299,27 @@ In this example, instead of writing the entire email content within the action i
 }
 ```
 
+### Example of Send Email Using User References
+
+The following example demonstrates how to use the sendEmail action to send an email from and to users represented in custom fields of type "user".
+
+```json
+{
+  "actions": [
+    {
+      "name": "Email document",
+      "sendEmail": {
+        "documentKeyName": "mltiderdoc_dette-er-min-document-email",
+        "fromUser": "[user]",
+        "toUser": "[sag.cf1274]"
+      }
+    }
+  ]
+}
+```
+
+In this example, the email is sent by the user performing the action (fromUser) and is sent to a user contained in the custom field cf1274 on the item sag (toUser).
+
 ## Multiple Actions on Items
 
 In some scenarios, it is necessary to perform actions on multiple items at once. FlowAgent supports batch operations, allowing you to update, delete, or relate multiple items in a single action. This feature is especially useful when you need to modify multiple records simultaneously to maintain consistency across your system.
