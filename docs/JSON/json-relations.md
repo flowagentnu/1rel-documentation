@@ -10,8 +10,8 @@ Relations are used to get access to fields from other modules. This is useful wh
 | `child`      | integer | Yes      | N/A        | The ID of the child module in the relation. |
 | `relationid` | integer | Yes       | N/A        | The ID of the specific relation, if multiple relations exist between the two modules. |
 | `relationtype` | string | No       | child/parent        | The type of relation, typically defined automatically. |
-| `parent_id`  | integer | No       | N/A        | Forcefully set the parent item of the relation. |
-| `child_id`   | integer | No       | N/A        | Forcefully set the child item of the relation. |
+| `parent_id`  | integer | No       | N/A        | Forcefully set the parent item of the relation. Normally you should never use this. |
+| `child_id`   | integer | No       | N/A        | Forcefully set the child item of the relation. Normally you should never use this. |
 
 ## Naming of each relation object
 
