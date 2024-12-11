@@ -124,18 +124,66 @@ const sidebars = {
       label: 'Apps',
       collapsed: true,
       items: [
-        'apps/widgets/apps-table',
-        'apps/widgets/apps-details',
-        'apps/integrations/integrations-365-sync',
-        'apps/widgets/apps-files',
-        'apps/widgets/apps-maps',
-        'apps/widgets/apps-asset-booking',
-        'apps/widgets/apps-calendar-timeline',
-        'apps/widgets/apps-count',
-        'apps/widgets/apps-pos',
-        'apps/widgets/apps-sum',
-        'apps/widgets/apps-chart',
-        'apps/integrations/integrations-optimo-route',
+        {
+          type: 'category',
+          label: 'Intergrations',
+          collapsed: true,
+          items: [
+            'apps/integrations/integrations-365-sync',
+            'apps/integrations/integrations-optimo-route',
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Plugins',
+          collapsed: true,
+          items: [
+            'apps/plugins/fields',
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Widget',
+          collapsed: true,
+          items: [
+            {
+              type: 'category',
+              label: 'Common',
+              collapsed: true,
+              link: {
+                type: 'doc',
+                id: 'apps/widgets/common-properties',
+              },
+              items: [
+                'apps/widgets/apps-asset-booking',
+                'apps/widgets/apps-count',
+                'apps/widgets/apps-sum',
+                // number
+                'apps/widgets/apps-table',
+                'apps/widgets/apps-details',
+                // image
+                // iframe
+                'apps/widgets/apps-maps',
+                // audithistory
+                // actionalbutton
+                'apps/widgets/apps-chart',
+                // note
+                // comments
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Installed',
+              collapsed: true,
+              items: [
+                // calendar
+                'apps/widgets/apps-calendar-timeline',
+                'apps/widgets/apps-files',
+                'apps/widgets/apps-pos',
+              ],
+            },
+          ],
+        },
       ],
       link: {
         type: 'doc',

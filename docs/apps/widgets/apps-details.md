@@ -2,7 +2,7 @@
 
 The Details Widget displays custom fields from any module in the system, providing detailed information about specific items.
 
-![Alt text](apps-details.png)
+![Alt text](images/apps-details.png)
 
 ## JSON Configuration
 
@@ -12,13 +12,15 @@ The Details Widget displays custom fields from any module in the system, providi
 |--------------------------|---------|----------|----------------|----------------|-----------------------------------------------------------------------------|
 | `allowInlineEdit`        | boolean | No       | false          | true, false    | Toggle field editing through an added edit icon.                            |
 | `disableInlineEditLogic` | array   | No       | N/A            | N/A            | Logic to deactivate field editing when certain custom field values are set. |
-| `clickable`              | string  | No       | N/A            | N/A            | The ID of the custom field that should be clickable.                        |
-| `moduleid`               | integer | Yes      | Current Module | N/A            | The ID of the module to display.                                            |
-| `query`                  | array   | Yes      | [["id", "=", "[itemid]"]] | N/A | [JSON Query](/docs/JSON/json-query.md)                                      |
+| `clickable`              | string  | No       | N/A            | N/A            | Array of customfields that should be clickable.                             |
+| `moduleid`               | integer | Yes      | Current Module | N/A            | The ID of the module to display data from.                                  |
+| `query`                  | array   | Yes      | `[["id", "=", "[itemid]"]]` | N/A | [JSON Query](/docs/JSON/json-query.md)                                    |
 | `relations`              | object  | No       | N/A            | N/A            | [JSON Relations](/docs/JSON/json-relations.md)                              |
 
 
-## Example 1: Set inline editing to true and disable editing when the custom field value is "Closed" or "Done".
+## Examples
+
+### Example 1: Set inline editing to true and disable editing when the custom field value is "Closed" or "Done".
 
 ```json
 {
@@ -36,7 +38,7 @@ The Details Widget displays custom fields from any module in the system, providi
 }
 ```
 
-## Example 2: Show details about a parent relation.
+### Example 2: Show details about a parent relation.
 In this example, we are on module 2, and we want to show details about the parent relation on module 1.
 We need to use the relation id between module 1 and module 2 which is 123.
 
