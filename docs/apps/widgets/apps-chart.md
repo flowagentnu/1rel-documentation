@@ -1,41 +1,34 @@
 # Chart Widget
 
-![alt text](app.chart.header.png)
+The Chart Widget provides a graphical representation of data, allowing users to visualize key metrics in a clear and concise way. This widget is highly customizable to suit various use cases, such as displaying financial metrics like sales and costs.
 
-The Chart Widget is used to display a graphical representation of various values within the system. For example, it can effectively visualize the sales value and cost value of a project, providing an easy-to-understand overview of financial metrics.
+![Alt text](images/apps-chart.png)
 
----
+## JSON Configuration
 
-## How to Access the Chart Widget
+[Common Widget Properties](/docs/apps/widgets/common-properties.md)
 
-Navigate to **Module > Module settings > Widgets** to find and set up the Chart Widget. Alternatively, you can access Chart Widgets through the **Tab Widgets** option from a dashboard.
+| Property             | Type    | Required | Default Value | Options        | Description                                                                 |
+|----------------------|---------|----------|---------------|----------------|-----------------------------------------------------------------------------|
+| `chart`              | object  | Yes      | N/A           | N/A            | Defines the chart's settings, including type, labels, data, and colors.    |
+| `moduleid`           | integer | Yes      | Current Module| N/A            | The ID of the module to fetch data from.                                   |
+| `query`              | array   | Yes      | N/A           | N/A            | Specifies the filtering criteria for fetching data.                        |
+| `group`              | object  | No       | N/A           | N/A            | Defines how data is aggregated (e.g., sum or count).                       |
 
----
+### Chart Object Properties
 
-## Configuring the Chart Widget through the UI
+| Property        | Type    | Required | Default Value | Options        | Description                                                                 |
+|-----------------|---------|----------|---------------|----------------|-----------------------------------------------------------------------------|
+| `type`          | string  | Yes      | N/A           | "pie", "bar" | Specifies the type of chart to display.                                    |
+| `label`         | string  | Yes      | N/A           | N/A            | The title of the chart displayed to users.                                 |
+| `labels`        | string/array | Yes      | N/A           | Custom field reference, array of strings | The labels for each segment of the chart. Can reference a single custom field or be a predefined list of strings. |
+| `data`          | string/array | Yes      | N/A           | Custom field reference, array of numbers, or "query" | Data values corresponding to each label. Can reference a single custom field, be a predefined list of numbers, or dynamically fetch data using `"query"`. |
+| `backgroundColor`| array  | Yes      | N/A           | N/A            | Specifies colors for each data segment.                                    |
 
-To configure the Chart Widget through the FlowAgent UI, follow these steps:
+## Examples
 
-- **Name**: Enter a name for the widget to identify it on the dashboard.
-- **Label**: Enter a label for the widget.
-- **Type**: Select 'Chart' from the dropdown to choose the widget type.
-- **Sort**: Specify the position of the widget on the dashboard.
-- **Size**: Set the size of the widget (between 1 and 12).
-- **Tabs**: Select the tabs where this widget should be displayed.
-- **Columns**: This setting is not relevant for the Chart Widget.
-- **Query**: Provide a JSON query to filter the data that will be visualized.
-
-Note: The "Create items in module" option is not relevant for this functionality.
-
-You can configure the Chart Widget using JSON to further customize its settings. Each property allows for specific customizations to ensure the chart behaves and displays data in a manner that best suits user needs.
-
-![alt text](apps-chart-setup.png)
-
----
-
-## JSON Configuration (If Applicable)
-
-### Full JSON Example
+### Example 1: Pie Chart for Financial Metrics
+This example creates a pie chart titled "Economy" with two data points: Sales and Cost.
 
 ```json
 {
@@ -54,57 +47,12 @@ You can configure the Chart Widget using JSON to further customize its settings.
       "green",
       "orange"
     ]
-  },
-  "height": 250,
-  "showWidgetHeader": false
+  }
 }
 ```
 
-**Explanation:**
-
-The JSON configuration above represents a pie chart titled "Economy" with two data points: "Salesvalue" and "Cost." Each data point is represented by a unique identifier and color. The property `height` defines the height of the chart, and `showWidgetHeader` determines whether the widget header is displayed.
-
----
-
-### JSON Structure Breakdown
-
-#### Chart Properties
-
-The main properties of the chart configuration are described below:
-
-##### Properties:
-
-| Property         | Type    | Required | Description                                                   |
-| ---------------- | ------- | -------- | ------------------------------------------------------------- |
-| chart            | object  | Yes      | Defines the chart settings, including type, labels, and data. |
-| height           | number  | No       | Specifies the height of the chart in pixels.                  |
-| showWidgetHeader | boolean | No       | Indicates if the widget header should be shown.               |
-
-**Example:**
-
-```json
-{
-  "chart": {},
-  "height": 500,
-  "showWidgetHeader": true
-}
-```
-
-**Explanation:**
-
-This example includes the three main properties: `chart`, which defines the chart settings; `height`, which specifies the height of the chart in pixels; and `showWidgetHeader`, which determines if the widget header should be shown.
-
-**Chart Object Properties:**
-
-| Property        | Type   | Required | Description                                                                                                    |
-| --------------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------- |
-| type            | string | Yes      | The type of chart to display (e.g., "pie").                                                                    |
-| label           | string | Yes      | The title of the chart displayed to users.                                                                     |
-| labels          | array  | Yes      | The labels for each segment of the chart.                                                                      |
-| data            | array  | Yes      | The data values corresponding to each label. can either be a fixed value or [cfxxx] to reference a customfield |
-| backgroundColor | array  | Yes      | The colors used for each segment of the chart.                                                                 |
-
-**Example:**
+### Example 2: Bar Chart for Financial Metrics
+This example creates a bar chart titled "Economy" with the same data as the previous example.
 
 ```json
 {
@@ -120,17 +68,88 @@ This example includes the three main properties: `chart`, which defines the char
       "[cf1271]"
     ],
     "backgroundColor": [
+      "blue",
+      "red"
+    ]
+  }
+}
+```
+
+### Example 3: Query-Based Data Chart
+This example demonstrates how to use a query to fetch data for the chart. The `data` property is set to `"query"`, which instructs the system to dynamically retrieve and aggregate data based on the specified query and group settings.
+
+The `labels` property points to a custom field containing label information, while the `query` and `group` properties handle data filtering and aggregation.
+
+![Alt text](images/apps-chart-example-3.png)
+
+```json
+{
+  "moduleid": 40,
+  "chart": {
+    "type": "bar",
+    "label": "Data",
+    "labels": "cf223",
+    "data": "query",
+    "backgroundColor": [
       "green",
       "orange"
     ]
   },
-  "height": 500,
-  "showWidgetHeader": true
+  "query": [
+    [
+      "cf214",
+      ">",
+      0
+    ]
+  ],
+  "group": {
+    "cf214": "sum"
+  }
+}
+```
+
+### Example 4: Query-Based Chart with Multiple Summed Columns
+This example shows how to fetch data using a query and group it based on two columns, summing their values. This configuration is ideal for visualizing datasets where multiple metrics are aggregated.
+
+![Alt text](images/apps-chart-example-4.png)
+
+```json
+{
+  "chart": {
+    "type": "pie",
+    "label": "Economy",
+    "data": "query",
+    "backgroundColor": [
+      "green",
+      "orange"
+    ]
+  },
+  "relations": {
+    "module77": {
+      "parent": 75,
+      "child": 77,
+      "relationid": 79
+    }
+  },
+  "query": [
+    [
+      "cf1270",
+      ">",
+      0
+    ]
+  ],
+  "group": {
+    "cf1270": "sum",
+    "cf1271": "sum"
+  }
 }
 ```
 
 **Explanation:**
+- `chart`: Defines the chart's type and appearance.
+- `data`: Set to `"query"` to dynamically fetch data.
+- `relations`: Specifies relationships between modules for data retrieval.
+- `query`: Filters the data to include only values greater than 0 in `cf1270`.
+- `group`: Aggregates the filtered data, summing up values in both `cf1270` and `cf1271`.
+- `backgroundColor`: Specifies colors for the chart segments.
 
-This example configures a bar chart titled "Economy" with two data points: "Salesvalue" and "Cost." Each data point comes from a different custom field, represented by `[cf1270]` for "Salesvalue" and `[cf1271]` for "Cost." The `backgroundColor` property is used to set the colors for each data point, with "green" for "Salesvalue" and "orange" for "Cost." The `height` property defines the height of the chart in pixels, set to 500 in this example. The `showWidgetHeader` property is set to `true`, which means the widget header will be displayed.
-
----

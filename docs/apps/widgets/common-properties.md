@@ -13,3 +13,5 @@ Customize the appearance of your widget with these main properties:
 | `iconBackgroundColor`    | string  | N/A            | Hex color code | Background color of the icon. Use a hex color code.                         |
 | `actionalButtons`        | array   | N/A            | N/A            | Add buttons to the widget.                                                  |
 | `height`                 | integer | N/A            | N/A            | The height of the widget in pixels (max 500).                               |
+| `showWidgetHeader`       | boolean | true           | true, false    | Show or hide the widget header.                                             |
+| `hasMargin`              | boolean | true           | true, false    | Add margin to the widget.                                                   |
