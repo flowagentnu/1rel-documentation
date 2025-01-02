@@ -32,3 +32,22 @@ The naming of a relation object is crucial as it determines how the relation is 
 }
 ```
 In this relation configuration, the parent module is identified as module 43, and the child module as module 41. The relationid is set to 22, indicating the specific relation used if multiple relations exist between these two modules.
+
+### Example 2: Get relation's relation
+```json
+{
+  "relations": {
+    "module77": {
+      "parent": 77,
+      "child": 123,
+      "relationid": 133
+    },
+    "module75": {
+      "parent": 75,
+      "child": 77,
+      "relationid": 79,
+      "child_id": "module77Item.id"
+    }
+  }
+}
+```
