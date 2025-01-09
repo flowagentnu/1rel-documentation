@@ -51,6 +51,7 @@ The `latField` and `lngField` properties are used in combination with a query to
 | `lng`      | string | Yes      | Longitude value for the location, which can be dynamically set using placeholders (e.g., `[cf1155]`). |
 | `latField` | string | Yes      | Field used to determine the latitude of items on the map.                                             |
 | `lngField` | string | Yes      | Field used to determine the longitude of items on the map.                                            |
+| `zoom`     | integer | No      | Zoom level of the map. You can also use `fit`, to make sure all items are fitted within the zoom.     |
 
 ##### Example
 
