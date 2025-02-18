@@ -6,7 +6,7 @@ The Chart Widget provides a graphical representation of data, allowing users to 
 
 ## JSON Configuration
 
-[Common Widget Properties](/docs/apps/widgets/common-properties.md)
+[Common Widget Properties](/docs/apps/widgets/common-properties)
 
 | Property             | Type    | Required | Default Value | Options        | Description                                                                 |
 |----------------------|---------|----------|---------------|----------------|-----------------------------------------------------------------------------|

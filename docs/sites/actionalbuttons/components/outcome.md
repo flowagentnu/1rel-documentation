@@ -6,17 +6,18 @@ The `outcome` component in Actional buttons within FlowAgent plays a pivotal rol
 
 ## Structure of `outcome`
 
-The `outcome` object outlines the type of response presented to the user after an action is performed. This can range from visual feedback and messages to redirection or other post-action behaviors.
+The `outcome` object outlines the type of response presented to the user after an action is performed.
 
 | Property    | Type    | Required | Options               | Description |
 |-------------|---------|----------|-----------------------|-------------|
 | `type`      | string  | Yes      | `toast`, `redirect`, `none`, `tab` | Specifies the type of outcome or feedback to present. |
-| `visual`    | object  | No       |                       | Defines the visual properties of the outcome, such as disabling or hiding the button post-action. |
 | `title`     | string  | No       |                       | The title of the toast, if a toast is used for the outcome. |
 | `message`   | string  | No       |                       | The content of the message or feedback to the user. |
 | `uri`       | string  | No       |                       | The URI for redirection if specified as the outcome. |
 | `tabKeyName`| string  | No       |                       | The key name of the tab to be opened, if `tab` is specified as the outcome. |
 | `widgetsUpdate` | array | No    |                       | Specifies which widgets should be updated post-action. |
+| `widgetsAllowSoftUpdate` | bool | No | `true` (defualt) or `false` | Decides if widget can be updated if data changes. |
+| `dismissActionToast` | bool | No | `true` or `false` (default) | Decides if toast from actions should be hidden. |
 
 ### Outcome Types and Configurations
 
@@ -41,14 +42,6 @@ Used to open a specific tab in the system as an outcome.
 | Property    | Type   | Required | Description |
 |-------------|--------|----------|-------------|
 | `tabKeyName`| string | Yes      | The key name of the tab to be opened after the action. |
-
-#### Visual Feedback
-Used to alter the visual state of the button post-action.
-
-| Property    | Type    | Required | Description |
-|-------------|---------|----------|-------------|
-| `disabled`  | boolean | No       | If true, disables the button post-action. |
-| `hide`      | boolean | No       | If true, hides the button post-action. |
 
 ### Widget Update
 
@@ -106,33 +99,14 @@ In this example, the redirection outcome is used to open an external URL (`www.g
 {
   "outcome": {
     "type": "tab",
-    "tabKeyName": "projekttab_sagsinfo",
-    "visual": {
-      "disable": false,
-      "hide": true
-    }
+    "tabKeyName": "projekttab_sagsinfo"
   }
 }
 ```
 
 In this example, pressing the button opens a specific tab (`projekttab_sagsinfo`) in the system, providing a direct and efficient way for users to access relevant information.
 
-#### Example 5: Visual Feedback Outcome
-```json
-{
-  "outcome": {
-    "type": "none",
-    "visual": {
-      "disabled": true,
-      "hide": false
-    }
-  }
-}
-```
-
-Here, the button is disabled after the action, indicating that the task is complete or unavailable. This visual feedback is crucial for preventing redundant actions and maintaining the clarity of the user interface.
-
-#### Example 6: Widget Update
+#### Example 5: Widget Update
 
 ```json
 {

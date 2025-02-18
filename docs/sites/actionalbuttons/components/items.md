@@ -30,7 +30,7 @@ The `items` object consists of arrays, where the key defined for each array is t
     "equipment[]": [
       ["module58Item.id", "=", "[itemid]"],
       ["module_id", "=", 60],
-      ["moduleitemtype_id", "=", "158"],
+      ["moduleitemtype_id", "=", 158],
       ["cf123", "=", "option_1000"] // Applies additional filters for equipment
     ]
   }

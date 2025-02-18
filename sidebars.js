@@ -7,8 +7,9 @@ const sidebars = {
       label: 'Getting started',
       collapsed: true,
       items: [
-        'getting-started/about',
-        'getting-started/what-is-a-site',
+        'getting-started/structure',
+        'getting-started/configuration',
+        'getting-started/documentation',
       ],
       link: {
         type: 'generated-index',
@@ -16,38 +17,47 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Site settings',
+      label: 'Sites',
       collapsed: true,
       items: [
-        'site-settings/site-settings-general',
-        'site-settings/site-settings-modules',
-        'site-settings/site-settings-groups',
-        'site-settings/site-settings-users',
-        'site-settings/site-settings-cronjobs',
-        'site-settings/site-settings-fields',
-        'site-settings/site-settings-marketplace',
-        'site-settings/site-settings-solutions',
-
+        'sites/general',
+        'sites/users',
+        'sites/groups',
+        'sites/organisations',
+        'sites/modules',
         {
           type: 'category',
-          label: 'Actional buttons',
+          label: 'Actional Buttons',
           collapsed: true,
           items: [
-            'site-settings/actionable-buttons/ab-main-components',
-            'site-settings/actionable-buttons/ab-items',
-            'site-settings/actionable-buttons/ab-visibility',
-            'site-settings/actionable-buttons/ab-actions',
-            'site-settings/actionable-buttons/ab-outcome',
+            'sites/actionalbuttons/introduction',
+            'sites/actionalbuttons/how-to-use',
+            {
+              type: 'category',
+              label: 'Components',
+              link: {
+                type: 'doc',
+                id: 'sites/actionalbuttons/components/components'
+              },
+              items: [
+                'sites/actionalbuttons/components/items',
+                'sites/actionalbuttons/components/visibility',
+                'sites/actionalbuttons/components/actions',
+                'sites/actionalbuttons/components/outcome'
+              ]
+            }
           ],
           link: {
             type: 'doc',
-            id: 'site-settings/actionable-buttons/ab-intro-to-ab',
+            id: 'sites/actionalbuttons/introduction',
           },
         },
+        'sites/marketplace',
+        'sites/automations',
+        'sites/solutions',
       ],
       link: {
-        type: 'doc',
-        id: 'site-settings/site-settings-introduction',
+        type: 'generated-index'
       },
     },
     {
@@ -184,10 +194,26 @@ const sidebars = {
             },
           ],
         },
+        {
+          type: 'category',
+          label: 'Resource Planning',
+          items: [
+            'apps/resourceplanning/introduction',
+            'apps/resourceplanning/configuration'
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Price Group',
+          items: [
+            'apps/pricegroup/introduction',
+            'apps/pricegroup/configuration'
+          ]
+        }
       ],
       link: {
         type: 'doc',
-        id: 'apps/apps-intro-to-apps',
+        id: 'apps/intro-to-apps',
       },
     },
     {

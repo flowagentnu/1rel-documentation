@@ -6,7 +6,7 @@ The Details Widget displays custom fields from any module in the system, providi
 
 ## JSON Configuration
 
-[Common Widget Properties](/docs/apps/widgets/common-properties.md)
+[Common Widget Properties](/docs/apps/widgets/common-properties)
 
 | Property                 | Type    | Required | Default Value  | Options        | Description                                                                 |
 |--------------------------|---------|----------|----------------|----------------|-----------------------------------------------------------------------------|
@@ -14,8 +14,8 @@ The Details Widget displays custom fields from any module in the system, providi
 | `disableInlineEditLogic` | array   | No       | N/A            | N/A            | Logic to deactivate field editing when certain custom field values are set. |
 | `clickable`              | string  | No       | N/A            | N/A            | Array of customfields that should be clickable.                             |
 | `moduleid`               | integer | Yes      | Current Module | N/A            | The ID of the module to display data from.                                  |
-| `query`                  | array   | Yes      | `[["id", "=", "[itemid]"]]` | N/A | [JSON Query](/docs/JSON/json-query.md)                                    |
-| `relations`              | object  | No       | N/A            | N/A            | [JSON Relations](/docs/JSON/json-relations.md)                              |
+| `query`                  | array   | Yes      | `[["id", "=", "[itemid]"]]` | N/A | [JSON Query](/docs/JSON/json-query)                                    |
+| `relations`              | object  | No       | N/A            | N/A            | [JSON Relations](/docs/JSON/json-relations)                              |
 
 
 ## Examples

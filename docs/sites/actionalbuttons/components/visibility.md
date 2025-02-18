@@ -13,6 +13,7 @@ The `visibility` object is composed of the following top-level properties, each 
 | `visual`    | object | Yes      | Contains properties that define the button's visual presentation. It includes settings for the button's text, color, icon, and display preferences. |
 | `condition` | array  | No       | An array of conditions that dictate when the button is visible. It involves a set of logical expressions evaluated against specific item attributes or user contexts. |
 | `popconfirm`| object | No       | An optional confirmation dialog that prompts the user to confirm an action before proceeding. This object includes properties to customize the confirmation message, as well as the labels for the confirm and cancel buttons. |
+| `actionalButtons` | object | No | Ability to show other Actional Buttons in a modal when this button has been clicked. |
 
 ## Visual Configuration
 
@@ -93,6 +94,12 @@ The `popconfirm` object within the `visibility` component introduces an addition
 }
 ```
 
+## Properties of `actionalButtons`
+
+You can show other Actional Buttons in a modal eg. if you want to allow user to change status to multiple different states.
+
+Detailed information about how to fill in the `actionalButtons` property is described on [how to use](/docs/sites/actionalbuttons/how-to-use).
+
 ## Overall Visibility Configuration
 
 Combining `visual` and `condition` settings, the `visibility` component as a whole controls when and how an Actional Button is displayed.
@@ -124,6 +131,4 @@ In this configuration:
 
 By configuring the `visibility` component thoughtfully, you can create Actional Buttons that are both aesthetically pleasing and functionally precise, guiding users effectively through their interactions with your system.
 
-
-
-Details the conditions or parameters for interacting with the item. Includes item IDs, parent item IDs, or other relationships as specified in the [JSON Query Documentation](/docs/JSON/json-query)..
+Details the conditions or parameters for interacting with the item. Includes item IDs, parent item IDs, or other relationships as specified in the [JSON Query Documentation](/docs/JSON/json-query).
