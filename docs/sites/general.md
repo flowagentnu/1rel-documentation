@@ -51,9 +51,9 @@ To upgrade storage, please contact FlowAgent.
 | `login`                  | object  | null           | N/A            | Customize the login screen to your need. See [Custom login screen](/docs/misc/custom-login-screen). |
 | `mail`                   | object  | null           | N/A            | Customize the mails sent by the system. See [Custom mail templates](/docs/misc/custom-mail-templates). |
 | `dashboard`              | object  | null           | N/A            | Customize dashboard settings (see next row(s)). |
-| `dashboard.actionalButtons` | object | null         | N/A            | Show actional buttons on the dashboard in the navbar. See [how to show actional buttons](sites/actionalbuttons/how-to-use). |
+| `dashboard.actionalButtons` | object | null         | N/A            | Show actional buttons on the dashboard in the navbar. See [how to show actional buttons](/docs/sites/actionalbuttons/how-to-use). |
 | `pricegroup`             | object  | null           | N/A            | Configure how pricegroup should work. See [Price Group documentation](/docs/apps/pricegroup/introduction). |
-| `resourceplanning`       | object  | null           | N/A            | Configure how resource planning should work. See [Resource Planning documentation](docs/apps/pricegroup/introduction). |
+| `resourceplanning`       | object  | null           | N/A            | Configure how resource planning should work. See [Resource Planning documentation](/docs/apps/pricegroup/introduction). |
 
 
 ## Examples

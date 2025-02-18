@@ -246,7 +246,7 @@ This configuration for the table UI options includes enabling power searches, se
 
 ## Actional Buttons
 
-Enhance your table widget with actional buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actional buttons, refer to [Actional buttons Introduction](/docs/site-settings/actionable-buttons/ab-intro-to-ab).
+Enhance your table widget with actional buttons that perform specific tasks. These buttons can be configured for various actions and placed in different areas of the widget. For a detailed guide on setting up actional buttons, refer to [Actional buttons Introduction](/docs/sites/actionalbuttons/introduction).
 
 | Property          | Type    | Required | Options     | Description                                                                                      |
 | ----------------- | ------- | -------- | ----------- | ------------------------------------------------------------------------------------------------ |

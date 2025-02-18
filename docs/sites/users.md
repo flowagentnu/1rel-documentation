@@ -28,7 +28,7 @@ This step requires your site to have a registered domain before you can create u
 :::
 
 1. Click on the **"Create"** button.
-2. Enter the user's name and email address and assign them to one or more groups. Refer to the [Groups documentation](/docs/site-settings/site-settings-groups) for details on user group permissions.
+2. Enter the user's name and email address and assign them to one or more groups. Refer to the [Groups documentation](/docs/sites/groups) for details on user group permissions.
 3. Decide if the user should be notified about their account being created in the "send email" toggle.
 3. Click **"SEND"** to create the user.
 
@@ -37,7 +37,7 @@ Once created, user will appear in the **"Active"** tab.
 ### Inviting external user.
 
 1. Click on the **"INVITE"** button.
-2. Enter the user's email address and assign them to one or more groups. Refer to the [Groups documentation](/docs/site-settings/site-settings-groups) for details on user group permissions.
+2. Enter the user's email address and assign them to one or more groups. Refer to the [Groups documentation](/docs/sites/groups) for details on user group permissions.
 3. Click **"SEND"** to invite the user.
 
 Once invited, user will appear in the **"Invites"** tab. Upon completing their account setup, they will move to the **"Active"** tab.

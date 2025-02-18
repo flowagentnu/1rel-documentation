@@ -10,5 +10,5 @@ To configure a module:
 2. Select the module you wish to configure or click **"Create"** to add a new module.
 
 :::note
-Modules have their own documentation. To understand the fields and how to setup a module, please read [module general settings](/docs/modules/settings/general).
+Modules have their own documentation. To understand the fields and how to setup a module, please read [module general settings](/docs/Modules/modules-Intro-to-modules.md).
 :::
