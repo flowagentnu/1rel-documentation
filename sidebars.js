@@ -60,7 +60,63 @@ const sidebars = {
         type: 'generated-index'
       },
     },
-    
+    {
+      type: 'category',
+      label: 'Modules',
+      collapsed: true,
+      items: [
+        'modules/general',
+        'modules/dynamic-values',
+        'modules/module-item-types',
+        'modules/customfields',
+        'modules/relations',
+        'modules/documents',
+        'modules/import',
+        'modules/powersearch',
+        'modules/tabs',
+        'modules/trash',
+        'modules/widgets',
+        {
+          type: 'category',
+          label: 'Forms',
+          collapsed: true,
+          items: [
+            'modules/forms/forms-main-components',
+            'modules/forms/forms-items',
+            {
+              type: 'category',
+              label: 'Pages',
+              link: {
+                type: 'doc',
+                id: 'modules/forms/forms-pages',
+              },
+              items: [
+                'modules/forms/forms-pages-fields',
+                {
+                  type: 'category',
+                  label: 'Submit & Cancel',
+                  link: {
+                    type: 'doc',
+                    id: 'modules/forms/forms-pages-submit-cancel',
+                  },
+                  items: [
+                    'modules/forms/forms-pages-submit-cancel-triggers',
+                  ],
+                },
+                'modules/forms/forms-endflow',
+              ],
+            },
+          ],
+          link: {
+            type: 'doc',
+            id: 'modules/forms/forms-introduction',
+          },
+        },
+      ],
+      link: {
+        type: 'generated-index'
+      },
+    },
     {
       type: 'category',
       label: 'Apps',
@@ -179,7 +235,18 @@ const sidebars = {
         id: 'JSON/json-intro-to-json',
       },
     },
-    
+    {
+      'type': 'category',
+      'label': 'Miscellaneous',
+      'collapsed': true,
+      items: [
+        'misc/languages',
+        'misc/replaceables',
+      ],
+      link: {
+        type: 'generated-index'
+      },
+    }
   ],
 };
 

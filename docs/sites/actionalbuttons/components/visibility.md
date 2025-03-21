@@ -23,13 +23,16 @@ The `visual` object within the `visibility` component defines the aesthetic aspe
 
 | Property          | Type    | Required | Default Value | Description |
 |-------------------|---------|----------|-------------|-------------|
-| `text`            | string  | Yes       |  | The text displayed on the button. |
+| `label`            | string  | Yes       |  | The label displayed on the button. |
+| `labels`           | object  | No       |  | Translated versions of label. See page about [languages](/docs/mics/languages) |
 | `textColor`       | string  | No       | white | The color of the button text. |
 | `bgColor`         | string  | No       | primary | The background color of the button. |
 | `icon`            | string  | No       |  | The icon displayed on the button. See page about [Icons](/docs/icons). |
 | `displayIconOnly` | boolean | No       | false | Indicates if only the icon is displayed, hiding the button text. |
 | `allowMultipleItems` | boolean | No | false | Indicates if the button should be enabled when multiple items are selected. Otherwise it will be disabled. |
 | `placement`       | string  | No       | widget | The placement of the button. Possible values are `widget` and `row`. |
+| `description`     | string  | No       |  | A description of the button's purpose or functionality. |
+| `descriptions`    | object  | No       |  | Translated versions of description. See page about [languages](/docs/mics/languages) |
 
 ### JSON Example for `visual`
 

@@ -21,18 +21,18 @@ Actions in Actional buttons are designed to:
 Actions are consists of conditions (`if`) and the tasks to be executed (`then`).
 [JSON Actions](/docs/JSON/json-actions) are a standard concept in the Flow Platform and are used also in Forms. Below we will show what actions can be performed for Actional Buttons.
 
-## Actions available for Actional Buttons
-Actional Button has a `then` object that contains the tasks or operations to be performed when the action is triggered. This can include CRUD operations, opening forms, and more.
 
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `crud`                   | object  | null           | N/A            | Perform CRUD operations like insert, update, relate, and delete. See [CRUD Operations](/docs/JSON/actions-crud) |
-| `showForm`               | object  | null           | N/A            | Show a form to the user. See [Show Form Action](/docs/JSON/actions-show-form) |
-| `showRelevantForms`      | object  | null           | N/A            | Show relevant forms to the user. See [Show Relevant Forms Action](/docs/JSON/actions-show-relevant-forms) |
-| `sendToast`              | object  | null           | N/A            | Send a toast message to the user. See [Send Toast Action](/docs/JSON/actions-send-toast) |
-| `webhook`                | object  | null           | N/A            | Call an external webhook. See [Webhook Action](/docs/JSON/actions-webhook) |
-| `openLocation`           | object  | null           | N/A            | Open a location in a new window. See [Open Location Action](/docs/JSON/actions-open-location) |
-| `sendEmail`              | object  | null           | N/A            | Send an email to a user. See [Send Email Action](/docs/JSON/actions-send-email) |
+| Property                 | Type    | Description                                                                 |
+|--------------------------|---------|-----------------------------------------------------------------------------|
+| `crud`                   | object  | Perform CRUD operations like insert, update, relate, and delete. See [CRUD Operations](/docs/JSON/actions-crud) |
+| `showForm`               | object  | Show a form to the user. See [Show Form Action](/docs/JSON/actions-show-form) |
+| `showRelevantForms`      | object  | Show relevant forms to the user. See [Show Relevant Forms Action](/docs/JSON/actions-show-relevant-forms) |
+| `sendToast`              | object  | Send a toast message to the user. See [Send Toast Action](/docs/JSON/actions-send-toast) |
+| `webhook`                | object  | Call an external webhook. See [Webhook Action](/docs/JSON/actions-webhook) |
+| `openLocation`           | object  | Open a location in a new window. See [Open Location Action](/docs/JSON/actions-open-location) |
+| `sendEmail`              | object  | Send an email to a user. See [Send Email Action](/docs/JSON/actions-send-email) |
+
+
 
 ## Examples
 
