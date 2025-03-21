@@ -18,7 +18,7 @@ Within each page of the form, the `fields` component is essential, defining the 
 |----------------|---------|----------|-------------|
 | `id`           | string  | Yes      | Unique identifier for the field. |
 | `label`   | string | Yes      | Display name of the field. |
-| `labels`  | object | No      | Translated versions of label. See page about [languages](/docs/mics/languages) |
+| `labels`  | object | No      | Translated versions of label. See page about [languages](/docs/misc/languages) |
 | `required`     | boolean | No       | Specifies if the field is mandatory for form submission. |
 | `fieldtype`    | string | Yes      | The field to be used. |
 | `defaultValue` | string  | No       | Default value of the field. Can reference a custom field, a post value, or be a fixed string. |
@@ -334,7 +334,7 @@ Option fields include dropdowns, radio buttons, and checkboxes, providing a list
 |----------|---------|----------|-------------|
 | `id`     | string  | Yes      | Unique identifier for the option, used for referencing and selection logic. |
 | `label`   | string | Yes      | Display text of the option that the user will see and select. |
-| `labels`  | object | No      | Translated versions of label. See page about [languages](/docs/mics/languages) |
+| `labels`  | object | No      | Translated versions of label. See page about [languages](/docs/misc/languages) |
 
 ### Dropdown Field
 
@@ -910,7 +910,7 @@ Address lookup fields are integrated with a location service to assist users in 
 |--------------------------|---------|----------|-------------|
 | `id`                     | string  | Yes      | Unique identifier for the field. |
 | `label`                   | string  | Yes      | Display name of the field. |
-| `labels`                  | object | No       | Translated versions of label. See page about [languages](/docs/mics/languages) |
+| `labels`                  | object | No       | Translated versions of label. See page about [languages](/docs/misc/languages) |
 | `required`               | boolean | No       | Specifies if the field is mandatory for form submission. |
 | `fieldtype`              | integer | Yes      | Custom field type identifier. |
 | `defaultValue`           | string  | No       | Default value of the field. Can reference a custom field or be a fixed string. |
@@ -1107,7 +1107,7 @@ Query fields allow users to search for and select an existing item from the syst
 *The user will see a dropdown field labeled "Active customers" where only items (customers) from module 76 with module item type 228 can be selected. The field is required, and it is preselected with the value from the custom field `cf617` of the customer.*
 
 :::tip
-Query items selected by the user in the form or as a default value, can be used as `items` in the form actions [Form Actions documentation](/docs/Modules/Settings/Forms/forms-pages-submit&cancel-triggers).
+Query items selected by the user in the form or as a default value, can be used as `items` in the form actions [Form Actions documentation](/docs/modules/forms/forms-pages-submit-cancel-triggers).
 :::
 
 ## HTML Fields

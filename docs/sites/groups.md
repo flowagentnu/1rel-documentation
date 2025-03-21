@@ -1,6 +1,6 @@
 # Groups
 
-In the Flow platform groups controls what permissions a user has (Create, Update, Read, Delete). Indirectly are they also used to decide what tabs a user has (this is setup on the tab settings for [items](/docs/Modules/Settings/settings-tabs.md) and dashboard.
+In the Flow platform groups controls what permissions a user has (Create, Update, Read, Delete). Indirectly are they also used to decide what tabs a user has (this is setup on the tab settings for [items](/docs/modules/tabs) and dashboard.
 
 Groups are also help to understand what roles a user has in a company.
 

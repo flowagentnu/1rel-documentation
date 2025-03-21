@@ -13,7 +13,7 @@ Each page within the `pages` object is identified by a sequential key (usually a
 | Property | Type   | Required | Description |
 |----------|--------|----------|-------------|
 | `label`   | string | Yes      | The title of the page. |
-| `labels`  | object | No      | Translated versions of label. See page about [languages](/docs/mics/languages) |
+| `labels`  | object | No      | Translated versions of label. See page about [languages](/docs/misc/languages) |
 | `fields` | array  | Yes      | An array of complex field objects defining the input fields and display elements on the page. |
 | `submit` | object | No       | An object defining the submit action of the page, including button text, triggers for form processing, and navigation steps. |
 | `cancel` | object | No       | An object defining the cancel action of the page, including button text and optional triggers or navigation steps. |

@@ -11,7 +11,7 @@ These components consist of properties that define their behavior, appearance, a
 | Property   | Type   | Required | Description |
 |------------|--------|----------|-------------|
 | `label`     | string | Yes      | The label displayed on the submit or cancel button. |
-| `labels`    | object | No       | Translated versions of the label. See the page about [languages](/docs/mics/languages). |
+| `labels`    | object | No       | Translated versions of the label. See the page about [languages](/docs/misc/languages). |
 | `triggers` | array  | No       | An array of action triggers that are executed when the button is clicked. Triggers can include conditions, actions, and endflow configurations. |
 | `default`  | array  | No       | Default actions that are executed when the button is clicked, in addition to any specified triggers. |
 | `uri`      | string | No       | A specific URL to redirect the user upon action completion. This property is applicable for both submit and cancel actions. |

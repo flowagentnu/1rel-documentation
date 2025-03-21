@@ -11,7 +11,7 @@ The JSON structure for forms is primarily divided into three top-level component
 | Component | Type   | Required | Description |
 |-----------|--------|----------|-------------|
 | `label`   | string | Yes      | The title of the form. |
-| `labels`  | object | No      | Translated versions of label. See page about [languages](/docs/mics/languages) |
+| `labels`  | object | No      | Translated versions of label. See page about [languages](/docs/misc/languages) |
 | `items`   | object | No       | Defines the items that are associated with the form. This could include any data items that the form will interact with or manipulate. |
 | `pages`   | object | Yes      | Contains the pages of the form. Each page can have its own set of fields, as well as submit and cancel actions. |
 | `endflow` | object | No       | Specifies the behavior at the end of the form process, such as redirection or other post-submission actions. |
