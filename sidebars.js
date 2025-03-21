@@ -60,75 +60,7 @@ const sidebars = {
         type: 'generated-index'
       },
     },
-    {
-      type: 'category',
-      label: 'Modules',
-      collapsed: true,
-      items: [
-        {
-          type: 'category',
-          label: 'Settings',
-          link: {
-            type: 'generated-index',
-            title: 'Module Settings',
-            slug: 'modules/settings',
-          },
-          items: [
-            'Modules/Settings/settings-general',
-            'Modules/Settings/settings-dynamic-values',
-            'Modules/Settings/settings-module-item-types',
-            'Modules/Settings/settings-customfields',
-            'Modules/Settings/settings-relations',
-            'Modules/Settings/settings-documents',
-            'Modules/Settings/settings-import',
-            'Modules/Settings/settings-powersearch',
-            'Modules/Settings/settings-tabs',
-            'Modules/Settings/settings-trash',
-            'Modules/Settings/settings-widgets',
-            {
-              type: 'category',
-              label: 'Forms',
-              collapsed: true,
-              items: [
-                'Modules/Settings/Forms/forms-main-components',
-                'Modules/Settings/Forms/forms-Items',
-                {
-                  type: 'category',
-                  label: 'Pages',
-                  link: {
-                    type: 'doc',
-                    id: 'Modules/Settings/Forms/forms-pages',
-                  },
-                  items: [
-                    'Modules/Settings/Forms/forms-pages-fields',
-                    {
-                      type: 'category',
-                      label: 'Submit & Cancel',
-                      link: {
-                        type: 'doc',
-                        id: 'Modules/Settings/Forms/forms-pages-submit&cancel',
-                      },
-                      items: [
-                        'Modules/Settings/Forms/forms-pages-submit&cancel-triggers',
-                      ],
-                    },
-                    'Modules/Settings/Forms/forms-endflow',
-                  ],
-                },
-              ],
-              link: {
-                type: 'doc',
-                id: 'Modules/Settings/Forms/forms-introduction',
-              },
-            },
-          ],
-        },
-      ],
-      link: {
-        type: 'doc',
-        id: 'Modules/modules-Intro-to-modules',
-      },
-    },
+    
     {
       type: 'category',
       label: 'Apps',
@@ -222,7 +154,24 @@ const sidebars = {
       collapsed: true,
       items: [
         'JSON/json-query',
-        'JSON/json-actions',
+        {
+          type: 'category',
+          label: 'JSON Actions',
+          collapsed: true,
+          items: [
+            'JSON/actions-crud',
+            'JSON/actions-open-location',
+            'JSON/actions-send-email',
+            'JSON/actions-send-toast',
+            'JSON/actions-show-form',
+            'JSON/actions-show-relevant-forms',
+            'JSON/actions-webhook',
+          ],
+          link: {
+            type: 'doc',
+            id: 'JSON/json-actions',
+          },
+        },
         'JSON/json-relations',
       ],
       link: {
