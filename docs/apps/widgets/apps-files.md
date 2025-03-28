@@ -38,7 +38,9 @@ The Files widget needs to be configures with JSON. The settings allow for detail
 |-------------------------|---------|---------------------------------------------------------------|
 | `getWithTags`           | array   | Tags for displaying files in the widget.                      |
 | `createWithTags`        | array   | Tags automatically added when a file is uploaded.             |
-| `additionalCreateTags`  | array   | Tags presented to the user when uploading a file.             |
+| `allowFilterOnTags`     | array   | Additional tags that can be used to filter files (theese tags will not be used with the getWithTagsRule). |
+| `getWithTagsRule`       | string  | Rule for displaying files in the widget. Options are `all`, `any` and `exact` |
+| `forcedView`            | string  | Set a specific view that overrules the users preferred view. Options are `list` or `grid` |
 
 #### JSON Example
 

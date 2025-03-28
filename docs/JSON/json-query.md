@@ -135,39 +135,8 @@ Query values are the data or conditions against which the query keys are compare
 
 ## Replaceables
 
-Replaceables are special placeholders that are replaced with actual values during query execution.
-
-### Common Replaceables
-
-| Replaceable     | Description |
-|-----------------|-------------|
-| `[itemid]`      | The ID of the current item. |
-| `[relationxxx]` | The ID of the related item, where `xxx` should be replaced with the actual relation ID. |
-| `[datenow]`     | Today's date. |
-| `[datetomorrow]`| Tomorrow's date. |
-| `[dateyesterday]`| Yesterday's date. |
-| `[dateweek]`    | The first day of the current week (Monday). |
-| `[datemonth]`   | The first day of the current month. |
-| `[userid]`      | The ID of the current user. |
-| `[user_23]`     | A specific user with ID `23`. |
-
-#### JSON Example
-
-```json
-{
-  "query": [
-    ["id", "=", "[itemid]"],
-    ["id", "=", "[relation80]"],
-    ["cf101.string", "=", "[datenow]"],
-    ["cf101.string", "=", "[datetomorrow]"],
-    ["cf101.string", "=", "[dateyesterday]"],
-    ["cf101.string", "=", "[dateweek]"],
-    ["cf101.string", "=", "[datemonth]"],
-    ["cf101.string", "=", "[userid]"],
-    ["cf101.string", "=", "[user_23]"]
-  ]
-}
-```
+Replaceables are placeholders that can be replaced with specific values when constructing queries.
+Read more about them [here](/docs/misc/replaceables).
 
 ## Query Combinations
 

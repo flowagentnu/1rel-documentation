@@ -33,6 +33,7 @@ The syntax for a replaceable is `[variableName]`.
 |---------|-------------|--------------|
 | `[datenow]` | The current date. | 2021-01-01 |
 | `[timenow]` | The current time. | 12:00 |
+| `[datetimenow]` | The current date and time. | 2021-01-01 12:00 |
 | `[datetomorrow]` | The date of tomorrow. | 2021-01-02 |
 | `[dateyesterday]` | The date of yesterday. | 2021-01-01 |
 | `[dateweek]` | The date of the start of the current week. | 2021-01-01 |
