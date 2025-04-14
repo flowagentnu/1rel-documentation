@@ -2,11 +2,9 @@
 
 The Details Widget displays custom fields from any module in the system, providing detailed information about specific items.
 
-![Alt text](images/apps-details.png)
-
 ## JSON Configuration
 
-[Common Widget Properties](/docs/apps/widgets/common-properties)
+[Common Widget Properties](/docs/modules/widgets/common-properties)
 
 | Property                 | Type    | Required | Default Value  | Options        | Description                                                                 |
 |--------------------------|---------|----------|----------------|----------------|-----------------------------------------------------------------------------|
@@ -20,25 +18,7 @@ The Details Widget displays custom fields from any module in the system, providi
 
 ## Examples
 
-### Example 1: Set inline editing to true and disable editing when the custom field value is "Closed" or "Done".
-
-```json
-{
-  "allowInlineEdit": true,
-  "disableInlineEditLogic": [  
-    {
-      "field": "[cf94]",
-      "value": "Closed" 
-    },
-    {
-      "field": "[cf94]",
-      "value": "Done" 
-    }
-  ]
-}
-```
-
-### Example 2: Show details about a parent relation.
+### Example 1: Show details about a parent relation.
 In this example, we are on module 2, and we want to show details about the parent relation on module 1.
 We need to use the relation id between module 1 and module 2 which is 123.
 

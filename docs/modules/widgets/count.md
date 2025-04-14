@@ -1,7 +1,5 @@
 # Count Widget
 
-![alt text](apps-count-overview.png)
-
 The Count Widget in FlowAgent allows you to display aggregated numerical data on your dashboard, providing a quick summary of key metrics or counts of items within a particular module. By tapping on the widget, a subpage can be opened where details related to the count can be seen by the user.
 
 Navigate to **Module > Module settings > Widgets** to find and set up the Count Widget. Alternatively, you can access Count Widgets through the **Tab Widgets** option from a dashboard.
@@ -186,13 +184,11 @@ The `tapActions` property allows you to configure what happens when the user tap
 
 ### 3.6 Variant Configuration
 
-![alt text](apps-count-variant.png)
-
 The `variant` property allows you to select between different visual styles for the Count Widget.
 
 | Property   | Type    | Required | Description                                             |
 | ---------- | ------- | -------- | ------------------------------------------------------- |
-| `variant`  | integer | No       | Specifies the visual style of the widget. Available values are: 1 (default), 2 (soft), 3 (full). |
+| `variant`  | integer | No       | Specifies the visual style of the widget. Available values are: 1 (default) and 2 (soft) |
 
 #### Example
 

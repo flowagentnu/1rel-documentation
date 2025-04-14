@@ -25,7 +25,7 @@ In the **General** tab, click on **Connect to Microsoft**.
 Log into your Microsoft account and approve the connection to complete the integration.
 
 ## Integration with FlowAgent Apps
-Once the sync is set up, events can be displayed and managed in compatible FlowAgent apps, such as the [calendar app](/docs/apps/widgets/apps-calendar).
+Once the sync is set up, events can be displayed and managed in compatible FlowAgent apps, such as the [Calendar Widget](/docs/modules/widgets/calendar).
 
 ---
 

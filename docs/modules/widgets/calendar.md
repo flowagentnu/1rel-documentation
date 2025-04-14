@@ -29,6 +29,12 @@
             "DIV",
             "Ejerskifte"
         ],
+        "bodySuggestions": [
+            {
+                "label": "Document 1",
+                "keyName": "customersdoc_velkomst-email"
+            }
+        ],
         "eventShowRelatedOnly": false
     },
     "columns": []

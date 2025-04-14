@@ -1,7 +1,5 @@
 # Timeline Widget
 
-![alt text](apps-calendar-timeline-overview.png)
-
 The Timeline Widget in FlowAgent allows users to visualize and track calendar events in a chronological list view. This feature helps users quickly understand when certain meetings or events have occurred, such as meetings with a specific customer. The widget provides a clean and easy-to-follow timeline, ideal for getting an overview of customer interactions and appointments.
 
 Navigate to **Module > Module settings > Widgets** to find and set up the Timeline Widget. Alternatively, you can access Timeline Widgets through the **Tab Widgets** option from a dashboard.
@@ -16,8 +14,6 @@ To configure the Timeline Widget through the FlowAgent UI, follow these steps:
 - **Tabs**: Select the tabs where this widget should be displayed.
 
 You can further configure the Timeline Widget using JSON to customize its settings. Each property allows for specific customizations to ensure the timeline fits the user needs.
-
-![alt text](apps-calendar-timeline-setup.png)
 
 ## JSON Configuration Properties
 

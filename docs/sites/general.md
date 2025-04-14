@@ -45,7 +45,6 @@ To upgrade storage, please contact FlowAgent.
 
 | Property                 | Type    | Default Value  | Options        | Description                                                                 |
 |--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `hideDocumentsButtons`   | bool    | false          | `true` or `false` | Hide default buttons for downloading documents (legacy). |
 | `defaultOrganisation`    | keyname | (empty)        | N/A            | Set a default organisation that should always be applied to new organisation users. |
 | `supportUrl`             | string  | (empty)        | N/A            | Shows a support link in the navbar for super users. |
 | `login`                  | object  | null           | N/A            | Customize the login screen to your need. See [Custom login screen](/docs/misc/custom-login-screen). |
@@ -62,7 +61,6 @@ To upgrade storage, please contact FlowAgent.
 
 ```json
 {
-  "hideDocumentButtons": false,
   "supportUrl": "",
   "login": {
     
@@ -88,13 +86,5 @@ To upgrade storage, please contact FlowAgent.
 ```json
 {
   "supportUrl": "https://flowagent.nu/kontakt"
-}
-```
-
-### Example 3: Hide document buttons.
-
-```json
-{
-  "hideDocumentButtons": true
 }
 ```

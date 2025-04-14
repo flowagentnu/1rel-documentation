@@ -2,11 +2,9 @@
 
 The Chart Widget provides a graphical representation of data, allowing users to visualize key metrics in a clear and concise way. This widget is highly customizable to suit various use cases, such as displaying financial metrics like sales and costs.
 
-![Alt text](images/apps-chart.png)
-
 ## JSON Configuration
 
-[Common Widget Properties](/docs/apps/widgets/common-properties)
+[Common Widget Properties](/docs/modules/widgets/common-properties)
 
 | Property             | Type    | Required | Default Value | Options        | Description                                                                 |
 |----------------------|---------|----------|---------------|----------------|-----------------------------------------------------------------------------|
@@ -80,8 +78,6 @@ This example demonstrates how to use a query to fetch data for the chart. The `d
 
 The `labels` property points to a custom field containing label information, while the `query` and `group` properties handle data filtering and aggregation.
 
-![Alt text](images/apps-chart-example-3.png)
-
 ```json
 {
   "moduleid": 40,
@@ -110,8 +106,6 @@ The `labels` property points to a custom field containing label information, whi
 
 ### Example 4: Query-Based Chart with Multiple Summed Columns
 This example shows how to fetch data using a query and group it based on two columns, summing their values. This configuration is ideal for visualizing datasets where multiple metrics are aggregated.
-
-![Alt text](images/apps-chart-example-4.png)
 
 ```json
 {

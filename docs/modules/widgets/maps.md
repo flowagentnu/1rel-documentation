@@ -2,8 +2,6 @@
 
 The Maps Widget in FlowAgent allows you to display and interact with the geographical location of items from the system on your dashboard. It provides a visual representation of data, making it easier to understand the spatial distribution of various entities.
 
-![alt text](apps-maps-main.png)
-
 Navigate to **Module > Module settings > Widgets** to find and set up the Maps Widget. Alternatively, you can access Maps Widgets through the **Tab Widgets** option from a dashboard.
 
 To configure the Maps Widget through the FlowAgent UI, follow these steps:

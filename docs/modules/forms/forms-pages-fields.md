@@ -26,6 +26,7 @@ Each form page contains a `fields` component that defines user input areas. Each
 | `required`     | boolean | No       | Specifies if the field is mandatory for form submission. |
 | `fieldtype`    | string | Yes      | The field to be used. |
 | `defaultValue` | string  | No       | Default value of the field. Can reference a custom field, a post value, or be a fixed string. |
+| `getOptionsFrom` | string | No | Fetches options from a specific field. |
 
 ## Field Types & Configuration
 

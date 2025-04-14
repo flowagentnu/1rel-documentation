@@ -1,7 +1,5 @@
 # Sum Widget
 
-![alt text](apps-sum-overview.png)
-
 The Sum Widget in FlowAgent allows you to display aggregated numerical data by summing the values of a query on your dashboard, providing a quick summary of key metrics or totals of items within a particular module. By tapping on the widget, a subpage can be opened where details related to the sum can be seen by the user.
 
 Navigate to **Module > Module settings > Widgets** to find and set up the Sum Widget. Alternatively, you can access Sum Widgets through the **Tab Widgets** option from a dashboard.
@@ -18,8 +16,6 @@ To configure the Sum Widget through the FlowAgent UI, follow these steps:
 - **Query**: Provide a JSON query to filter the data that will be summed.
 
 You can configure the Sum Widget using JSON to further customize its settings. Each property allows for specific customizations to ensure the sum behaves and displays data in a manner that best suits user needs.
-
-![alt text](apps-sum-setup.png)
 
 ## JSON Configuration Properties
 
@@ -185,13 +181,11 @@ The `tapActions` property allows you to configure what happens when the user tap
 
 ### 3.6 Variant Configuration
 
-![alt text](apps-count-variant.png)
-
 The `variant` property allows you to select between different visual styles for the Sum Widget.
 
 | Property   | Type    | Required | Description                                             |
 | ---------- | ------- | -------- | ------------------------------------------------------- |
-| `variant`  | integer | No       | Specifies the visual style of the widget. Available values are: 1 (default), 2 (soft), 3 (full). |
+| `variant`  | integer | No       | Specifies the visual style of the widget. Available values are: 1 (default) and 2 (soft) |
 
 #### Example
 

@@ -66,22 +66,34 @@ const sidebars = {
       collapsed: true,
       items: [
         'modules/general',
-        'modules/dynamic-values',
-        'modules/module-item-types',
         'modules/customfields',
+        'modules/module-item-types',
         'modules/relations',
-        'modules/documents',
-        'modules/import',
-        'modules/powersearch',
         'modules/tabs',
-        'modules/trash',
-        'modules/widgets',
+        {
+          type: 'category',
+          label: 'Widgets',
+          collapsed: true,
+          items: [
+            'modules/widgets/common-properties',
+            'modules/widgets/count',
+            'modules/widgets/sum',
+            'modules/widgets/table',
+            'modules/widgets/details',
+            'modules/widgets/maps',
+            'modules/widgets/chart',
+            'modules/widgets/calendar-timeline',
+            'modules/widgets/files',
+          ]
+        },
+        'modules/documents',
         {
           type: 'category',
           label: 'Forms',
           collapsed: true,
           items: [
             'modules/forms/forms-main-components',
+            'modules/forms/forms-visibility',
             'modules/forms/forms-items',
             {
               type: 'category',
@@ -112,6 +124,10 @@ const sidebars = {
             id: 'modules/forms/forms-introduction',
           },
         },
+        'modules/import',
+        'modules/powersearch',
+        'modules/dynamic-values',
+        'modules/trash',
       ],
       link: {
         type: 'generated-index'
@@ -130,57 +146,6 @@ const sidebars = {
             'apps/integrations/integrations-365-sync',
             'apps/integrations/integrations-optimo-route',
           ]
-        },
-        {
-          type: 'category',
-          label: 'Plugins',
-          collapsed: true,
-          items: [
-            'apps/plugins/fields',
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Widget',
-          collapsed: true,
-          items: [
-            {
-              type: 'category',
-              label: 'Common',
-              collapsed: true,
-              link: {
-                type: 'doc',
-                id: 'apps/widgets/common-properties',
-              },
-              items: [
-                'apps/widgets/apps-asset-booking',
-                'apps/widgets/apps-count',
-                'apps/widgets/apps-sum',
-                // number
-                'apps/widgets/apps-table',
-                'apps/widgets/apps-details',
-                // image
-                // iframe
-                'apps/widgets/apps-maps',
-                // audithistory
-                // actionalbutton
-                'apps/widgets/apps-chart',
-                // note
-                // comments
-              ],
-            },
-            {
-              type: 'category',
-              label: 'Installed',
-              collapsed: true,
-              items: [
-                // calendar
-                'apps/widgets/apps-calendar-timeline',
-                'apps/widgets/apps-files',
-                'apps/widgets/apps-pos',
-              ],
-            },
-          ],
         },
         {
           type: 'category',
@@ -242,6 +207,7 @@ const sidebars = {
       items: [
         'misc/languages',
         'misc/replaceables',
+        'misc/conditionals',
       ],
       link: {
         type: 'generated-index'

@@ -6,7 +6,31 @@ Custom fields are essential to the system when using a module to store items suc
 
 ## The Different Custom Fields
 
-Custom fields vary in appearance and behavior. They are listed in the fields menu and can be installed from a [fields app](/docs/apps/plugins/fields). New fields can be added, and existing ones can be edited as needed.
+The following fields are available in the system:
+* text
+* address_lookup
+* checkbox
+* clock
+* date
+* datetime
+* dropdown
+* email
+* finance
+* float
+* group
+* hour_time_select
+* image_element
+* number
+* organisation
+* organisation_user
+* phone
+* query
+* radio
+* textarea
+* user
+* usergroup
+* percentage
+* files
 
 ## Create and Edit Custom Fields
 
