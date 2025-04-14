@@ -124,9 +124,14 @@ Integrated with map services and allows toggling specific address parts.
 ### Show/Hide Related Fields
 ```json
 "metadata": {
-  "showFieldCity": true,
-  "showFieldStreet": false
-}
+    "showFieldLatitude": false,
+    "showFieldLongitude": false,
+    "showFieldCountry": false,
+    "showFieldCity": false,
+    "showFieldZip": false,
+    "showFieldStreet": false,
+    "showFieldFormattedAddress": false
+},
 ```
 
 ### Prefilled Values
