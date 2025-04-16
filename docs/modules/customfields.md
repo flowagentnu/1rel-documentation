@@ -19,6 +19,7 @@ The following fields are available in the system:
 * float
 * group
 * hour_time_select
+* time_select
 * image_element
 * number
 * organisation
