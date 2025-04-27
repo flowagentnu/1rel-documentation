@@ -1,4 +1,4 @@
-# Upsert Note
+# Note
 
 Ability to upsert or append a note. Upsert means to insert a new note or update an existing one if it already exists by overwriting the existing note.
 
