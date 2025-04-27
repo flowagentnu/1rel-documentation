@@ -187,6 +187,9 @@ const sidebars = {
             'JSON/actions-show-form',
             'JSON/actions-show-relevant-forms',
             'JSON/actions-webhook',
+            'JSON/actions-note',
+            'JSON/actions-files',
+            'JSON/actions-item-image',
           ],
           link: {
             type: 'doc',

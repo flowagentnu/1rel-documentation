@@ -51,3 +51,111 @@ In this relation configuration, the parent module is identified as module 43, an
   }
 }
 ```
+
+### Example 3: Get Relations relation
+In this scenario we have the following modules and relations.
+
+| Module Id | Name     |
+|-----------|----------|
+| 33        | Lokation |
+| 34        | Udstyr   |
+| 35        | Booking  |
+
+When an Udstyr is Booked, a relation is created between Udstyr->Booking and between Lokation->Booking
+
+| Relation Id | Parent Module | Child Module |
+|-------------|---------------|--------------|
+| 21          | 34 Udstyr     | 35 Booking   |
+| 22          | 33 Sag        | 35 Booking   |
+
+We would like to show a table, displaying all Booked udstyr with their booking details and the name of the lokation.
+
+To do this, we need to:
+
+From Udstyr, get the booking
+
+```json
+{
+  "module35": {
+    "parent": 34,
+    "child": 35,
+    "relationid": 21
+  }
+}
+```
+
+From Booking, we need to get Lokation (as there are no relation between Udstyr and Lokation)
+What is speciel here, is that we are able to define what item this relation should depend on eg. by using “child_id”. Here we specify that it should use module35 child id (item).
+
+```json
+{
+  "module33": {
+    "parent": 33,
+    "child": 35,
+    "relationid": 22,
+    "child_id": "module35.child_id"
+  }
+}
+```
+
+Now we are able to get the both direct relations and related relations.
+
+### Example 4: Filter on a parent relation.
+In this case we want to get all product use lines on all tasks related to the project user is currently vieweing.
+
+| Module Id | Name     |
+|-----------|----------|
+| 168       | Project  |
+| 169       | Task     |
+| 171       | Product Use  |
+| 172       | Product  |
+
+Our relations looks like the followingen:
+
+| Relation Id | Parent Module | Child Module |
+|-------------|---------------|--------------|
+| 195         | 168 Project   | 169 Task     |
+| 197         | 169 Task      | 171 Product Use |
+| 199         | 172 Product | 171 Product Use  |
+
+Our json looks like this:
+
+```json
+{
+  "moduleid": 171,
+  "relations": {
+    "module169": {
+      "parent": 169,
+      "child": 171,
+      "relationid": 197
+    },
+    "module168": {
+      "parent": 168,
+      "child": 169,
+      "relationid": 195,
+      "child_id": "module169Item.id"
+    },
+    "module172": {
+      "parent": 172,
+      "child": 171,
+      "relationid": 199
+    }
+  },
+  "query": [
+    [
+      "module168Item.id",
+      "=",
+      "[itemid]"
+    ]
+  ],
+}
+```
+
+To explain this:
+1. This is a table widget on the Project (meaning our [itemid] is the project id).
+2. Fetch data from Product Use (moduleid 171)
+3. Get the task related to the product use (in order to know which project it belongs to). ```"module169": {```
+4. Get the project related to the task ```"module168": {```
+5. Filter on the project id ```"query": [ ["module168Item.id", "=", "[itemid]"] ]```
+6. Get the product related to the product use ```"module172": {```
+7. The query will now return all product use lines on all tasks related to the project user is currently viewing.

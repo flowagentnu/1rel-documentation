@@ -1,6 +1,6 @@
 # Upsert Note
 
-Ability to upsert a note.
+Ability to upsert or append a note. Upsert means to insert a new note or update an existing one if it already exists by overwriting the existing note.
 
 | Property                 | Type    | Default Value  | Options        | Description                                                                 |
 |--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
@@ -17,7 +17,18 @@ Ability to upsert a note.
     "upsert": {
         "title": "This is my note title",
         "text": "This is my note text",
-        "itemKey": "[item]"
+        "itemKey": "item"
+    }
+}
+```
+
+### Example 1: Append a note
+```json
+{
+    "append": {
+        "title": "This is my note title",
+        "text": "This is my note text",
+        "itemKey": "item"
     }
 }
 ```

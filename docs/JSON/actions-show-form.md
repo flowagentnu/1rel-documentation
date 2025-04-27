@@ -10,7 +10,7 @@ To show a form, you must use the command "showForm", that have following propert
 
 ## Examples
 
-### Example 1: Show Form Action
+### Example 1: Show form action
 The following example demonstrates how to use the `showForm` action to display a form with specified details.
 
 ```json
@@ -20,7 +20,7 @@ The following example demonstrates how to use the `showForm` action to display a
       "name": "Open Feedback Form",
       "then": {
         "showForm": {
-          "formId": 456,
+          "formId": "formkeyname",
           "itemKey": "feedback",
           "items": [
             "customer",
