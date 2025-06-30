@@ -53,12 +53,6 @@ Configure the permissions of the module.
 | `featureFlags`        | array  | null           | N/A            | Enable or disable features for the module. See list below of possible features |
 | `permissionFields`    | array  | null           | N/A            | Define which fields are required for the user to have access to the module. |
 
-### Feature Flags
-
-Feature flags are used to enable or disable features that are not yet fully implemented or tested. The following feature flags are available:
-
-- `subtitlesFactBox` - Show subtitles in the fact box.
-
 ### Permission Fields
 Permission fields are used to define which fields are required for the user to have access to the module. If the user does not have access to the required fields, the module will not be visible to the user.
 :::note
