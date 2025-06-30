@@ -42,6 +42,7 @@ Endflow can also be set within a trigger, overriding the global endflow. This is
 |`endflow`	        |false	|Ends the form when the trigger is activated and calls endflow_redirect if defined.
 |`endflow_redirect`	|N/A	|Specifies the redirection target for the trigger-specific endflow.
 |`closeModal`	        |false	|Closes the modal upon form completion. Other endflow commands will be ignored.
+|`relevantFOrItems`	|N/A	|[JSON Query](/docs/JSON/json-query) to determine which items are relevant for the endflow. If not specified, all items are considered relevant.|
 
 #### Example - Trigger Endflow and Redirection
 

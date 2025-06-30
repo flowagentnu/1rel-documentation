@@ -70,6 +70,15 @@ Item commands start with `[` the item name, then `.`, the field name, and end wi
 | `[item1.type]` | The name of the type of the item. | type1 |
 | `[item1.cf1234]` | The value of the field in the item. | value |
 
+### Power Search
+Power Search commands start with `[powersearch.` and end with `]`, and have `keyname` within the brackets to specify the key of the power search value.
+
+| Command | Description |
+|---------|-------------|
+| `[powersearch.keyname]` | The ID of the item in the power search. |
+
+Power Search commands will return the table with content of the power search results.
+
 ### Price Group Command
 :::note
 This command is not public available yet.

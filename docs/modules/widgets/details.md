@@ -6,15 +6,12 @@ The Details Widget displays custom fields from any module in the system, providi
 
 [Common Widget Properties](/docs/modules/widgets/common-properties)
 
-| Property                 | Type    | Required | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------|----------------|----------------|-----------------------------------------------------------------------------|
-| `allowInlineEdit`        | boolean | No       | false          | true, false    | Toggle field editing through an added edit icon.                            |
-| `disableInlineEditLogic` | array   | No       | N/A            | N/A            | Logic to deactivate field editing when certain custom field values are set. |
-| `clickable`              | string  | No       | N/A            | N/A            | Array of customfields that should be clickable.                             |
-| `moduleid`               | integer | Yes      | Current Module | N/A            | The ID of the module to display data from.                                  |
-| `query`                  | array   | Yes      | `[["id", "=", "[itemid]"]]` | N/A | [JSON Query](/docs/JSON/json-query)                                    |
-| `relations`              | object  | No       | N/A            | N/A            | [JSON Relations](/docs/JSON/json-relations)                              |
-
+| Property    | Type    | Required | Default Value                     | Description                                                    |
+|-------------|---------|----------|-----------------------------------|----------------------------------------------------------------|
+| `moduleid`  | integer | Yes      | Current Module                    | The ID of the module to display data from.                     |
+| `query`     | array   | Yes      | `[["id", "=", "[itemid]"]]`       | [JSON Query](/docs/JSON/json-query) for filtering items.       |
+| `relations` | object  | No       | N/A                               | [JSON Relations](/docs/JSON/json-relations) for related data.  |
+| `colSize`   | integer | No       | auto-calculated                   | Overrides the column size for displaying fields. If not set, it is calculated based on the number of columns in the widget. |
 
 ## Examples
 
