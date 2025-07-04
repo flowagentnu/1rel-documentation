@@ -1,32 +1,18 @@
-# The Structure of Flow platform
+# Platform Structure
 
-Learn about how FlowAgent platform is structured to better understand what you will need to know and what the posibilities are.
+A brief overview of how the FlowAgent platform is organized, so you can quickly understand its main building blocks.
 
-## Site
+## When to Use
+Read this page to get a high-level understanding of the platform’s structure before diving into specific features.
 
-Sites are the top "folder" of the Flow platform. It all starts here. When a company want to start using FlowAgent, they will create a site.
-The name 'site' is typically not known for the user/customer, but its important to know if you work with multiple customers or one customer have multiple sites.
+## How It Works
+- **Sites:** The top-level container. Each company or department can have one or more sites. Sites hold company info, users, plugins, solutions, and general settings.
+  - Example: A company with two independent departments might have two separate sites.
+- **Modules:** Like folders or database tables, modules store items (data records) such as customers, orders, or time registrations.
+  - Example: The “Customers” module stores all customer records; the “Orders” module stores orders.
+- **Dashboards:** The starting point for users. Dashboards display key information and workflows relevant to the user’s role.
 
-:::info
-A company can have multiple sites if they have different departments that do not directly work together and thus wish to seperate the two departments totally.
-:::
-
-Each site contains information about the company, its users, plugins, solutuons and its general settings.
-
-## Modules
-
-Modules are the exciting part of the Flow platform. Modules are just like folders used store items with contains the value you need to store. 
-
-:::info
-If you are familiary with databases, then think of modules like tables and items like rows.
-:::
-
-Modules are used to for all data storage ranging from customers, contact persons, orders, invoices, time registrations, material use, deviations and everything else you could have the need to store.
-
-## Dashboards
-
-Dashboards are where the workday start for users. They represent information the user needs to start or continue a workflow.
-
-## Continue reading
-
-We are just sratching the surface. Dive deeper into the platform to get to know more about sites and modules.
+## Usage Example
+**Site/Module Analogy:**
+- If you know databases: Sites = databases, Modules = tables, Items = rows.
+- If you know file systems: Sites = root folders, Modules = subfolders, Items = files.
