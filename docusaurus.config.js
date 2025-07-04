@@ -20,7 +20,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: '1relation', // Usually your GitHub org/user name.
+  organizationName: 'flowagentnu', // Usually your GitHub org/user name.
   projectName: '1rel-documentation', // Usually your repo name.
   trailingSlash: false,
 
@@ -45,7 +45,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/1relation/1rel-documentation/tree/main/',
+            'https://github.com/flowagentnu/1rel-documentation/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -116,7 +116,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/1relation/1rel-documentation',
+                href: 'https://github.com/flowagentnu/1rel-documentation',
               },
             ],
           },
