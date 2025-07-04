@@ -1,21 +1,17 @@
-# Item Image
+# Item Image Actions
 
-Ability to upsert or delete a "profile" image for an item.
+A guide to managing item images in FlowAgent automations.
 
-## Upsert
+## When to Use
+Use this page when you want to upsert or delete a profile image for an item.
 
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `image`                  | string  | (empty)        | N/A            | The reference to the field that holds the image.                           |
+## How It Works
+- Use `upsert` to add or update an image.
+- Use `delete` to remove an image.
+- Reference the field that holds the image.
 
-## Delete
-
-You have the ability to set the `delete` property to `true` to delete the image.
-
-## Examples 
-
-### Example 1: Upsert an Image
-
+## Usage Example
+**Upsert an image:**
 ```json
 {
   "upsert": {
@@ -24,10 +20,12 @@ You have the ability to set the `delete` property to `true` to delete the image.
 }
 ```
 
-### Example 2: Delete an Image
-
+**Delete an image:**
 ```json
 {
   "delete": true
 }
 ```
+
+## Tips
+- Use the correct field key for your image field.

@@ -1,37 +1,40 @@
 # Dynamic Values
 
-## What are Dynamic Values?
+Dynamic Values let you automatically generate values for custom fields based on a set of rules—such as static text, numbers, dates, or relations.
 
-Dynamic Values are a set of rules that generate a value based on the rules defined. These rules can be static, number, date, or relation field. The generated value can be used on Custom Fields in order to generate a pre-defined value.
+## When to Use
+Use Dynamic Values when you need to auto-generate things like customer numbers, invoice numbers, or any value that follows a pattern or sequence.
 
-## What can Dynamic Values do?
+## How It Works
+- Define a set of rules (static, number, date, relation, etc.).
+- The value is generated and updated automatically based on these rules.
+- Can be used in custom fields to pre-fill or increment values.
 
-Dynamic Values can be used to create customer numbers, invoice numbers, or any other value that needs to be generated based on a set of rules.
+## What Can Dynamic Values Do?
+- Create customer numbers, invoice numbers, or any value that needs to be generated based on a set of rules.
+- Combine multiple rules for unique, dynamic outputs.
 
-## Dynamic Value Object
+## Dynamic Value Object Structure
+A Dynamic Value object can include:
+- `rules` (array): The rules that define how the value is generated.
+- `meta` (array, optional): Metadata for the value.
+- `lastOutput` (string, optional): The last generated value (for reference only).
 
-| Property    | Type   | Description                                                          |
-|-------------|--------|----------------------------------------------------------------------|
-| `rules`     | Array  | An array of strings storing the value each rule generated last time  |
-| `meta`      | Array  | -                                                                    |
-| `lastOutput`| string | The last generated value is stored for reference; it has no functional meaning |
+## Rule Types & Examples
+You can combine multiple rule types for advanced patterns.
 
-### Rules
-There are multiple types of rules, each with its own set of parameters. A combination of rules allows for the creation of unique Dynamic Values.
-
-#### Static
+### Static
+Generates a fixed value.
 ```json
 {
   "rules": [
-    {
-      "type": "static",
-      "value": "Any freetext value"
-    }
+    { "type": "static", "value": "Any freetext value" }
   ]
 }
 ```
 
-#### Number
+### Number
+Generates a sequence of numbers.
 ```json
 {
   "rules": [
@@ -46,7 +49,8 @@ There are multiple types of rules, each with its own set of parameters. A combin
 }
 ```
 
-#### Date
+### Date
+Generates a date value, optionally incremented.
 ```json
 {
   "rules": [
@@ -61,4 +65,8 @@ There are multiple types of rules, each with its own set of parameters. A combin
   ]
 }
 ```
-Format, stepSizeType and start accepts valid PHP date formats. For more information, please visit [PHP Date Formats](https://www.php.net/manual/en/datetime.format.php)
+Format, stepSizeType, and start accept valid PHP date formats. For more information, see [PHP Date Formats](https://www.php.net/manual/en/datetime.format.php).
+
+## Tips
+- Combine static, number, and date rules for advanced patterns (e.g., `INV-2025-0001`).
+- Use in custom fields to automate numbering and labeling.

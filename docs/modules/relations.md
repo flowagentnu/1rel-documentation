@@ -1,36 +1,33 @@
 # Relations
 
-## Introduction
+Relations let you connect items between modules, creating parent/child relationships and enabling linked workflows.
 
-"Relations" in our system provide the functionality to establish connections between different modules, allowing for the formation of parent/child relationships. This feature is especially beneficial for collaboration between modules. For instance, in the scenario involving "Customer" and "Tasks" modules, "Relations" can designate "Customer" as a parent to the "Tasks" module. This connection allows tasks to be created in relation to specific customers, streamlining task management and enhancing organizational efficiency.
+## When to Use
+Use relations when you want to link items (e.g., customers to tasks) or create dependencies between modules.
 
-## How to Create Relations
+## How It Works
+- Define relations in module settings ("Relations" tab).
+- Choose parent/child direction and specify which item types are valid.
+- Use type selectors to create distinct or intra-module relations.
 
-To set up a new relation between modules, follow these steps:
+## Usage Example
+Suppose you want to relate tasks to customers:
 
-1. Choose one of the modules you wish to relate.
-2. Navigate to "Settings".
-3. Select the "Relations" option.
-4. Click on "Create" to start defining a new relation.
+```json
+{
+  "relation": {
+    "name": "Customer-Task",
+    "module": "Tasks",
+    "relationType": "1:n",
+    "parent": "Customer",
+    "child": "Task"
+  }
+}
+```
 
-## Configuring Relation Options
-
-When creating a new relation, you'll be prompted to specify several important details:
-
-- **Name**: Assign a name to the relation for easy identification.
-- **Module**: Select the module that you want to establish a relationship with.
-- **Relation**: Determine the nature of the relationship, opting for either "Parent" or "Child".
-- **Valid for types**: Specify the Item Types for which this relation will be valid (applicable for Parent).
-- **Filtered on types**: Define the Item Types for which the relation will be valid (applicable for Child).
-- **Relation type**: Decide on the type of relation. The options are:
-  - **1:1 (One to one)**: Limits the relationship such that an item can relate to only one other item.
-  - **1:n (One to many)**: Allows an item to be associated with multiple items.
-
-### Utilizing Type Selectors
-
-Type selectors are versatile tools that can be used in the following ways:
-
-- To create distinct relations between the same modules but for different types.
-- To establish relations within the same module but for varying types.
-
-This flexibility ensures that the relational structure can be tailored to fit the specific needs of your organizational model, thereby enhancing the system's utility and effectiveness in managing complex inter-module relationships.
+## Options/Parameters
+- **Name**: Name for the relation
+- **Module**: Module to relate
+- **Relation**: Parent or Child
+- **Valid for types**: Restrict to certain item types
+- **Relation type**: 1:1 or 1:n

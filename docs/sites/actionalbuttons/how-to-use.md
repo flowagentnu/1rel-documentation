@@ -1,8 +1,17 @@
-# How to show Actional Buttons
+# How to Use Actional Buttons
 
-Actional Button is set up globally on site settings, but can be used in different contexts, such as in a Power Search Table, as a Row Button, or in a Form, as a Form Button. The JSON structure for Actional Buttons is the same across all contexts, but the context in which the button is used may affect the available items and conditions.
+A guide to displaying and configuring Actional Buttons in different contexts.
 
-The method for using Actional Buttons is by calling it with the followingen JSON:
+## When to Use
+Read this page when you want to show Actional Buttons in tables, forms, dashboards, or other UI elements.
+
+## How It Works
+- Actional Buttons are set up globally in Site Settings, but can be used in Power Search Tables, as Row Buttons, or as Form Buttons.
+- The JSON structure is the same in all contexts, but available items/conditions may differ.
+- Use the `keyName` to reference a button's configuration.
+
+## Usage Example
+**Show a button in a table row:**
 ```json
 {
   "actionalButtons": [
@@ -13,9 +22,7 @@ The method for using Actional Buttons is by calling it with the followingen JSON
 }
 ```
 
-The `keyName` is the unique identifier for the Actional Button, and is used to fetch the configuration from the site settings.
-You can in here also manipulate the configuration by adding or removing items, conditions, actions, and outcome.
-
+**Customize button appearance and placement:**
 ```json
 {
   "actionalButtons": [
@@ -26,7 +33,7 @@ You can in here also manipulate the configuration by adding or removing items, c
           "displayIconOnly": true,
           "placement": "row",
           "icon": "edit",
-          "bgColor": "primary",
+          "bgColor": "primary"
         }
       }
     }
@@ -34,49 +41,14 @@ You can in here also manipulate the configuration by adding or removing items, c
 }
 ```
 
-### Display on dashboard
-Dashboards can have Actional Buttons in the navigation bar, by going to Site Settings > General, in the configuration:
+## Tips
+- Use the dashboard configuration in Site Settings > General to add Actional Buttons to the navigation bar.
+- The `keyName` must match the button's unique identifier in Site Settings.
 
-```json
-{
-  "dashboard": {
-    "actionalButtons": [
-      {
-        "keyName": "ab_medlem---opret-lead"
-      }
-    ]
-  }
-}
-```
+## Related Links
+- [Introduction to Actional Buttons](introduction.md)
+- [Main Components](components/components.md)
 
+---
 
-### Display on widget
-Widgets can have Actional Buttons in their card header, by going to the Widget's settings, in the configuration:
-
-```json
-{
-  "actionalButtons": [
-    {
-      "keyName": "ab_medlem---opret-lead"
-    }
-  ]
-}
-```
-
-### Display in Power Search table row
-Power Search Table can have Actional Buttons in the table rows, by going to Widget's settings, in the configuration:
-
-```json
-{
-  "actionalButtons": [
-    {
-      "keyName": "ab_medlem---opret-lead",
-      "visibility": {
-        "visual": {
-          "placement": "row"
-        }
-      }
-    }
-  ]
-}
-```
+For more on advanced configuration, see the Main Components documentation.

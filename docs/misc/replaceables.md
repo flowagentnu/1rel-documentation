@@ -1,14 +1,13 @@
 # Replaceables
+
 Replaceables are a way to define a placeholder in a string that can be replaced with a value. This is useful for defining templates that can be reused with different values.
 
 ## Syntax
-
 The syntax for a replaceable is `[variableName]`.
 
 ## Commands
 
-### User related
-
+### User Related
 | Command | Description | Return Example |
 |---------|-------------|--------------|
 | `[user]` | A reference to the current user. | user_1 |
@@ -20,15 +19,13 @@ The syntax for a replaceable is `[variableName]`.
 | `[user.personalphonenumber]` | The personal phone number of the current user. | 12345678 |
 | `[user.gps]` | The GPS location of the current user. | 12.345678,12.345678 |
 
-### Item related
-
+### Item Related
 | Command | Description | Return Example |
 |---------|-------------|--------------|
 | `[itemid]` | A reference to the current item. | 1 |
 | `[parentitemid]` | The ID of the parent item. | 2 |
 
-### Date and time related
-
+### Date and Time Related
 | Command | Description | Return Example |
 |---------|-------------|--------------|
 | `[datenow]` | The current date. | 2021-01-01 |
@@ -39,17 +36,14 @@ The syntax for a replaceable is `[variableName]`.
 | `[dateweek]` | The date of the start of the current week. | 2021-01-01 |
 | `[datemonth]` | The date of the start of the current month. | 2021-01-01 |
 
-### POST values
-
-Post commands start with `[post.` and end with `]`.
-The value between the dots is the key of the post value.
+### POST Values
+Post commands start with `[post.` and end with `]`. The value between the dots is the key of the post value.
 
 | Command | Description | Return Example |
 |---------|-------------|--------------|
 | `[post.key]` | The value of the key in the post. | value |
 
 ### Relation Values
-
 Relation commands start with `[relation` the relation id `.`, the field name, and end with `]`.
 
 | Command | Description | Return Example |
@@ -60,7 +54,6 @@ Relation commands start with `[relation` the relation id `.`, the field name, an
 | `[relation1.cf1234]` | The value of the field in the related item. | value |
 
 ### Item Values
-
 Item commands start with `[` the item name, then `.`, the field name, and end with `]`.
 
 | Command | Description | Return Example |
@@ -84,8 +77,19 @@ Power Search commands will return the table with content of the power search res
 This command is not public available yet.
 :::
 
-### Strip option
-
+### Strip Option
 This is not a replaceable, but an ability to strip `option_` part of a returned value.
 
 Example: Where `[item1.cf1234]` will return `option_1234`, you can use `[item1.cf1234]|strip_option` to return `1234`.
+
+## Tips
+- Use replaceables to personalize messages and automate workflows.
+- Always use square brackets for variable names.
+
+## Related Links
+- [Custom Mail Templates](custom-mail-templates.md)
+- [Automations](../sites/automations.md)
+
+---
+
+For more on dynamic content, see the Automations and Mail Templates documentation.

@@ -1,41 +1,39 @@
-# CRUD operations
+# CRUD Operations
 
-CRUD operations form the core of data management in FlowAgent, allowing you to create, read, update, and delete data items. Understanding and effectively utilizing these operations is crucial for maintaining a dynamic and responsive system.
+A guide to using CRUD (Create, Read, Update, Delete) actions in FlowAgent.
 
-## Overview of CRUD Operations
+## When to Use
+Use this page when you want to automate data management: creating, updating, deleting, or relating items.
 
-CRUD operations, along with dynamic data handling, ensure that your system can respond to user inputs and scenarios by manipulating data as needed.
+## How It Works
+- CRUD actions are used in automations, forms, and buttons.
+- Supports batch operations for multiple items.
+- Custom fields can be set with fixed values, form values, or references.
 
-| Operation      | Type   | Required | Description |
-|----------------|--------|----------|-------------|
-| `insert`       | object | No       | Adds new data items to the system. |
-| `update`       | object | No       | Modifies existing data items. |
-| `delete`       | array  | No       | Removes data items from the system. |
-| `relate`       | array  | No       | Defines or updates relationships between data items. |
-| `dynamicdata`  | object | No       | Handles operations involving data that needs to be processed dynamically before further action. |
+## Available CRUD Operations
+You can use the following operations in your `crud` action:
 
-## Multiple items in CRUD actions
-
-In some scenarios, it is necessary to perform actions on multiple items at once. FlowAgent supports batch operations, allowing you to update, delete, or relate multiple items in a single action. This feature is especially useful when you need to modify multiple records simultaneously to maintain consistency across your system.
+- **insert** (object): Adds new data items to the system.
+- **update** (object): Modifies existing data items.
+- **delete** (array): Removes data items from the system.
+- **relate** (array): Defines or updates relationships between data items.
+- **dynamicdata** (object): Handles operations involving data that needs to be processed dynamically before further action.
 
 ## Custom Fields in CRUD Operations
+When assigning values to custom fields in CRUD actions, you can use:
 
-Custom fields allow for dynamic data assignment in actions, enhancing flexibility and adaptability.
+- **Fixed Value**: Assign a fixed value directly to the custom field.
+- **Form Field Value**: Use a value entered by the user in a form field (e.g., `[post.name]`).
+- **Form Field with Strip Option**: Strip the `option_` prefix from dropdown values if needed.
+- **Dropdown Option**: Assign a value from a dropdown custom field using `option_xxx`.
+- **Referenced Custom Field**: Reference another item's custom field (e.g., `[selfitem.cf323]`).
 
-| Method                   | Type   | Required | Description |
-|--------------------------|--------|----------|-------------|
-| Fixed Value              | string | Yes      | Assigns a fixed value directly to the custom field. |
-| Form Field Value         | string | Yes      | Utilizes a value entered by the user in a form field. |
-| Form Field with Strip Option | string | Yes      | Strips prefixed option_ from option values. |
-| Dropdown Option          | string | Yes      | Assigns a value from a dropdown custom field using "option_xxx". |
-| Referenced Custom Field  | string | Yes      | Assigns a value by referencing another item's custom field. |
+## Batch Operations
+You can perform actions on multiple items at once (batch operations) for update, delete, or relate. This is useful for modifying or cleaning up many records in a single action.
 
-## Examples
+## Usage Examples
 
 ### Example 1: Insert Operation
-
-The following example demonstrates how to use the `insert` operation to add a new item to the system.
-
 ```json
 {
   "actions": [
@@ -61,9 +59,6 @@ The following example demonstrates how to use the `insert` operation to add a ne
 ```
 
 ### Example 2: Update Operation
-
-The following example shows how to use the `update` operation to modify an existing item.
-
 ```json
 {
   "actions": [
@@ -88,9 +83,6 @@ The following example shows how to use the `update` operation to modify an exist
 ```
 
 ### Example 3: Delete Operation
-
-The following example demonstrates how to use the `delete` operation to remove an item from the system.
-
 ```json
 {
   "actions": [
@@ -109,9 +101,6 @@ The following example demonstrates how to use the `delete` operation to remove a
 ```
 
 ### Example 4: Relate Operation
-
-The following example demonstrates how to use the `relate` operation to define or update relationships between data items.
-
 ```json
 {
   "actions": [
@@ -135,9 +124,6 @@ The following example demonstrates how to use the `relate` operation to define o
 ```
 
 ### Example 5: Dynamic Data Operation
-
-The following example demonstrates how to use the `dynamicdata` operation to handle data that needs to be processed dynamically before further action.
-
 ```json
 {
   "actions": [
@@ -184,8 +170,6 @@ The following example demonstrates how to use the `dynamicdata` operation to han
 ```
 
 ### Example 6: Multiple Items in CRUD Actions
-The following example demonstrates how to perform update and delete actions on multiple items within the same action sequence.
-
 ```json
 {
   "items": {
@@ -243,3 +227,14 @@ In the above example, the action performs updates on multiple projects and delet
 - **Visibility**: The `visibility` section provides a visual indicator for the action, which helps in identifying the nature of the action in the user interface.
 
 This approach allows for efficient management of multiple items, reducing the need for repetitive actions and ensuring consistency across your system.
+
+## Tips
+- Use batch operations to update or delete multiple items at once.
+- Reference custom fields by their key (e.g., `cf100`).
+
+## Related Links
+- [JSON Actions](json-actions.md)
+
+---
+
+For more on advanced CRUD, see the JSON Actions documentation.

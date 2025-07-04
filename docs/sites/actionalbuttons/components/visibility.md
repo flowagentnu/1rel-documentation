@@ -1,137 +1,45 @@
-# Visibility
+# Visibility Component
 
-## Introduction
+A guide to the `visibility` component for Actional Buttons in FlowAgent.
 
-The `visibility` component plays a pivotal role in ensuring that Actional Buttons appear at the right time, to the right users, and in the right context. It is primarily structured around two key properties: `visual` for defining the button's appearance, and `condition` for setting the logical rules for its display.
+## When to Use
+Use this page when you want to control when and how an Actional Button is shown.
 
-## Top-Level Properties of `visibility`
+## How It Works
+- The `visibility` object controls both the appearance and the logic for when a button is visible.
+- Top-level properties:
+  - `visual`: (required) Defines label, color, icon, placement, etc.
+  - `condition`: (optional) Array of conditions for display logic.
+  - `popconfirm`: (optional) Confirmation dialog before action.
+  - `actionalButtons`: (optional) Show other buttons in a modal after click.
+- See the table below for all properties.
 
-The `visibility` object is composed of the following top-level properties, each contributing to the button's display logic and appearance:
-
-| Property    | Type   | Required | Description |
-|-------------|--------|----------|-------------|
-| `visual`    | object | Yes      | Contains properties that define the button's visual presentation. It includes settings for the button's text, color, icon, and display preferences. |
-| `condition` | array  | No       | An array of conditions that dictate when the button is visible. It involves a set of logical expressions evaluated against specific item attributes or user contexts. |
-| `popconfirm`| object | No       | An optional confirmation dialog that prompts the user to confirm an action before proceeding. This object includes properties to customize the confirmation message, as well as the labels for the confirm and cancel buttons. |
-| `actionalButtons` | object | No | Ability to show other Actional Buttons in a modal when this button has been clicked. |
-
-## Visual Configuration
-
-The `visual` object within the `visibility` component defines the aesthetic aspects of the Actional Button.
-
-### Properties of `visual`
-
-| Property          | Type    | Required | Default Value | Description |
-|-------------------|---------|----------|-------------|-------------|
-| `label`            | string  | Yes       |  | The label displayed on the button. |
-| `labels`           | object  | No       |  | Translated versions of label. See page about [languages](/docs/misc/languages) |
-| `textColor`       | string  | No       | white | The color of the button text. |
-| `bgColor`         | string  | No       | primary | The background color of the button. |
-| `icon`            | string  | No       |  | The icon displayed on the button. See page about [Icons](/docs/icons). |
-| `displayIconOnly` | boolean | No       | false | Indicates if only the icon is displayed, hiding the button text. |
-| `allowMultipleItems` | boolean | No | false | Indicates if the button should be enabled when multiple items are selected. Otherwise it will be disabled. |
-| `placement`       | string  | No       | widget | The placement of the button. Possible values are `widget` and `row`. |
-| `description`     | string  | No       |  | A description of the button's purpose or functionality. |
-| `descriptions`    | object  | No       |  | Translated versions of description. See page about [languages](/docs/misc/languages) |
-
-### JSON Example for `visual`
-
-```json
-"visual": {
-  "text": "Complete Task",
-  "textColor": "white",
-  "bgColor": "success",
-  "icon": "check_circle",
-  "displayIconOnly": false
-}
-```
-## Condition Configuration
-
-The `condition` array within the `visibility` component determines the logical rules for when the Actional Button should be displayed.
-
-### Properties of `condition`
-
-A set of conditions that control the visibility of the button. Each condition is an array of three values: the key, operator, and value to be evaluated. Conditions are documented separeately [JSON Query Documentation](/docs/JSON/json-query)
-
-### JSON Example for `condition`
-
-```json
-"condition": [
-  ["task.cf433", "!=", "option_844"],
-  ["group", "IN", "Sales"]
-]
-```
-
-## Pop Confirm Configuration
-
-The `popconfirm` object within the `visibility` component introduces an additional layer of user interaction by prompting the user to confirm an action before it proceeds. This functionality is critical for actions that have significant effects or cannot be easily undone, ensuring that the user has explicitly consented to the action.
-
-### Properties of `popconfirm`
-
-| Property | Type    | Required | Description                                       |
-|----------|---------|----------|---------------------------------------------------|
-| `text`   | string  | Yes      | The message displayed in the confirmation dialog. |
-| `no`     | string  | No       | The text for the cancellation button. Default is "Cancel". |
-| `yes`    | string  | No       | The text for the confirmation button. Default is "Confirm". |
-| `show`   | boolean | Yes      | Controls whether the confirmation prompt should be displayed when the button is pressed. |
-
-### JSON Example for `popconfirm`
-
+## Usage Example
 ```json
 {
   "visibility": {
     "visual": {
-      "text": "Close task",
-      "textColor": "white",
-      "bgColor": "success",
-      "icon": "add",
-      "displayIconOnly": false
+      "label": "Edit",
+      "icon": "fa-edit",
+      "bgColor": "primary",
+      "displayIconOnly": false,
+      "placement": "row"
     },
-    "popconfirm": {
-      "text": "Confirm that the task is done",
-      "no": "Cancel",
-      "yes": "Confirm",
-      "show": true
-    }
+    "condition": [ ["status", "=", "active"] ]
   }
 }
 ```
 
-## Properties of `actionalButtons`
+## Tips
+- Use `condition` to show/hide buttons based on item or user context.
+- Use `popconfirm` for actions that need confirmation.
+- Reference the [Icons documentation](../../../icons.md) for icon names.
 
-You can show other Actional Buttons in a modal eg. if you want to allow user to change status to multiple different states.
+## Related Links
+- [Main Components](components.md)
+- [Icons](../../../icons.md)
+- [Languages](../../../misc/languages.md)
 
-Detailed information about how to fill in the `actionalButtons` property is described on [how to use](/docs/sites/actionalbuttons/how-to-use).
+---
 
-## Overall Visibility Configuration
-
-Combining `visual` and `condition` settings, the `visibility` component as a whole controls when and how an Actional Button is displayed.
-
-### JSON Example for `visibility`
-
-```json
-{
-  "visibility": {
-    "visual": {
-      "text": "Complete Task",
-      "textColor": "white",
-      "bgColor": "success",
-      "icon": "check_circle",
-      "displayIconOnly": false
-    },
-    "condition": [
-      ["task.cf433", "!=", "option_844"],
-      ["group", "IN", "Sales"]
-    ]
-  }
-}
-```
-
-In this configuration:
-
-- The `visual` settings define the button's appearance, making it visually identifiable and aligned with the application's design.
-- The `condition` settings ensure that the button appears only under specific circumstances, enhancing the user experience by presenting contextually relevant options.
-
-By configuring the `visibility` component thoughtfully, you can create Actional Buttons that are both aesthetically pleasing and functionally precise, guiding users effectively through their interactions with your system.
-
-Details the conditions or parameters for interacting with the item. Includes item IDs, parent item IDs, or other relationships as specified in the [Conditions](/docs/misc/replaceables).
+For more on conditions and visual options, see the subpages above.

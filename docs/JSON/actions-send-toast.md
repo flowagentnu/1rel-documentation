@@ -1,19 +1,17 @@
-# Send toast
-In some cases we need to show a toast message to the user, telling them about what happened or what to do.
+# Send Toast Action
 
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `type`                   | string  | success        | `danger`, `info` or `success` | What type of message to be displayed. Will affect the toast look. |
-| `title`                  | string  | (empty)        | N/A            | Sets the title of the toast |
-| `text`                   | string  | (empty)        | N/A            | Detailed description or message to be displayed to the user. Supports replaceables. |
+A guide to showing toast messages to users via automation in FlowAgent.
 
-:::note
-Toast are only displayed if user stays on same page and not navigated away.
-:::
+## When to Use
+Use this page when you want to notify users of success, info, or errors after an action.
 
-## Examples
+## How It Works
+- Use `type` to set the toast style: `success`, `info`, or `danger`.
+- Set `title` and `text` for the message.
+- Toasts only display if the user stays on the same page.
 
-### Example 1: Show a success message
+## Usage Example
+**Show a success message:**
 ```json
 {
   "type": "success",
@@ -22,7 +20,7 @@ Toast are only displayed if user stays on same page and not navigated away.
 }
 ```
 
-### Example 2: Show an info message
+**Show an info message:**
 ```json
 {
   "type": "info",
@@ -31,7 +29,7 @@ Toast are only displayed if user stays on same page and not navigated away.
 }
 ```
 
-### Example 3: Show an error message
+**Show an error message:**
 ```json
 {
   "type": "danger",
@@ -39,3 +37,6 @@ Toast are only displayed if user stays on same page and not navigated away.
   "text": "The task could not be completed. Please try again."
 }
 ```
+
+## Tips
+- Use `danger` for errors, `info` for warnings, `success` for confirmations.

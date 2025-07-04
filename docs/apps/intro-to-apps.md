@@ -1,18 +1,32 @@
 # Introduction to Apps
 
-## Overview
+A guide to what Apps are and how they extend FlowAgent’s functionality.
 
-This document introduces the concept of Apps within the FlowAgent platform, highlighting their essential role in enhancing the system's functionality and flexibility.
+## When to Use
+Read this page if you want to understand what Apps are, why to use them, or how to get started.
 
-### What are Apps?
+## How It Works
+- **Apps = Extensions:**
+  - Apps add new features, integrations, or workflows to FlowAgent.
+  - Examples: resource planning, price groups, integrations with external systems, custom automations.
+- **Installation:**
+  - Apps are installed from the Marketplace or via your FlowAgent administrator.
+  - Each app may have its own configuration and setup steps.
 
-Apps are integral components of the FlowAgent system, designed to extend its capabilities and customize its functionality. They are pivotal in ensuring that FlowAgent remains adaptable and able to support a wide range of business scenarios and needs.
+## Usage Example
+**Install an app from the Marketplace:**
+1. Go to the Marketplace in FlowAgent.
+2. Search for the app you need (e.g., Resource Planning).
+3. Click Install and follow the setup instructions.
 
-#### Core Functionality
+## Tips
+- Check the documentation for each app for specific setup and usage details.
+- Apps can be enabled or disabled as your needs change.
 
-- Apps in FlowAgent serve various purposes, from enhancing user experience to integrating with external systems.
-- Each app, regardless of its specific function, contributes to the overall versatility and effectiveness of the FlowAgent platform.
+## Related Links
+- [Marketplace](../sites/marketplace.md)
+- [Resource Planning App](pricegroup/introduction.md)
 
-### Installation and Setup
+---
 
-For detailed instructions on installing and setting up Apps in FlowAgent, please refer to the respective documentation sections. These guidelines will provide you with step-by-step procedures and essential information to effectively utilize Apps within the FlowAgent ecosystem.
+For more on specific apps, see the app’s own documentation section.

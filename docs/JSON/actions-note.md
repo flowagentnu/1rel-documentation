@@ -1,34 +1,38 @@
-# Note
+# Note Actions
 
-Ability to upsert or append a note. Upsert means to insert a new note or update an existing one if it already exists by overwriting the existing note.
+A guide to adding or updating notes via automation in FlowAgent.
 
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `title`                  | string  | (empty)        | N/A            | The title of the note. |
-| `text`                | string  | (empty)        | N/A            | The content of the note. |
-| `itemKey`               | string  | (empty)        | N/A            | The key of the item to relate the note to. |
+## When to Use
+Use this page when you want to upsert or append notes to items automatically.
 
+## How It Works
+- Use `upsert` to insert or update a note.
+- Use `append` to add a new note without overwriting existing ones.
+- Specify title, text, and item key.
 
-## Examples
-
-### Example 1: Upsert a note
+## Usage Example
+**Upsert a note:**
 ```json
 {
-    "upsert": {
-        "title": "This is my note title",
-        "text": "This is my note text",
-        "itemKey": "item"
-    }
+  "upsert": {
+    "title": "This is my note title",
+    "text": "This is my note text",
+    "itemKey": "item"
+  }
 }
 ```
 
-### Example 1: Append a note
+**Append a note:**
 ```json
 {
-    "append": {
-        "title": "This is my note title",
-        "text": "This is my note text",
-        "itemKey": "item"
-    }
+  "append": {
+    "title": "This is my note title",
+    "text": "This is my note text",
+    "itemKey": "item"
+  }
 }
 ```
+
+## Tips
+- Use `upsert` to avoid duplicate notes.
+- Use `append` to always add a new note.

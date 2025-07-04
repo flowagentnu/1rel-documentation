@@ -1,34 +1,30 @@
-# Show relevant forms
+# Show Relevant Forms Action
 
-Sometimes we don´t know what form to be displayed, as this is setup as a "relvant form". This is a form that is relevant to the current item, and is setup in the form configuration. This is a way to show the relevant form.
+A guide to displaying relevant forms via automation in FlowAgent.
 
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `itemKey`| string | No       | The key of the item to be used in the form as the main item. |
-| `items`  | array  | No       | In some situations, you need to pass an item you need, but cannot get outside the Actional Button context. In this array you can pass any items you need |	
+## When to Use
+Use this page when you want to show a form that is dynamically determined by item context.
 
-## Examples
+## How It Works
+- Use the `showRelevantForms` action with an item key and optional items array.
+- The relevant form is determined by the item’s configuration.
 
-### Example 1: Show Relevant Forms Action
-
+## Usage Example
+**Show a relevant form for a customer:**
 ```json
 {
   "actions": [
     {
-      "name": "Open Feedback Form",
-      "if": [
-        ["userRole", "=", "Customer"]
-      ],
       "then": {
         "showRelevantForms": {
-          "itemKey": "feedback",
-          "items": [
-            "customer",
-            "project"
-          ]
+          "itemKey": "customer",
+          "items": ["project"]
         }
       }
     }
   ]
 }
 ```
+
+## Tips
+- Use the correct item key for your context.

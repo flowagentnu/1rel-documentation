@@ -1,63 +1,47 @@
-# Outcome
+# Outcome Component
+
+A guide to the `outcome` component for Actional Buttons in FlowAgent.
 
 ## Introduction
+The `outcome` component defines the feedback or response after an action is executed. It controls how the result is communicated to the user—such as showing a toast, redirecting, or opening a tab.
 
-The `outcome` component in Actional buttons within FlowAgent plays a pivotal role in defining the feedback or response after an action is executed. It determines how the result of the action is communicated to the user, thereby enhancing the interactive experience through clear and immediate feedback.
+## How It Works
+The `outcome` object is added to your action configuration. It supports several properties:
 
-## Structure of `outcome`
+- **type** (string, required):
+  - What kind of feedback to present. Options: `toast`, `redirect`, `none`, `tab`.
+- **title** (string, optional):
+  - The title of the toast (if using `type: toast`).
+- **message** (string, optional):
+  - The message or feedback to the user (for toast).
+- **uri** (string, optional):
+  - The URI to redirect to (for `type: redirect`).
+- **tabKeyName** (string, optional):
+  - The key name of the tab to open (for `type: tab`).
+- **widgetsUpdate** (array, optional):
+  - List of widget key names to update after the action. If not set, all widgets on the page are updated.
+- **widgetsAllowSoftUpdate** (bool, optional):
+  - Allow widgets to update if data changes. Default: `true`.
+- **dismissActionToast** (bool, optional):
+  - Hide toast from actions. Default: `false`.
 
-The `outcome` object outlines the type of response presented to the user after an action is performed.
-
-| Property    | Type    | Required | Options               | Description |
-|-------------|---------|----------|-----------------------|-------------|
-| `type`      | string  | Yes      | `toast`, `redirect`, `none`, `tab` | Specifies the type of outcome or feedback to present. |
-| `title`     | string  | No       |                       | The title of the toast, if a toast is used for the outcome. |
-| `message`   | string  | No       |                       | The content of the message or feedback to the user. |
-| `uri`       | string  | No       |                       | The URI for redirection if specified as the outcome. |
-| `tabKeyName`| string  | No       |                       | The key name of the tab to be opened, if `tab` is specified as the outcome. |
-| `widgetsUpdate` | array | No    |                       | Specifies which widgets should be updated post-action. |
-| `widgetsAllowSoftUpdate` | bool | No | `true` (defualt) or `false` | Decides if widget can be updated if data changes. |
-| `dismissActionToast` | bool | No | `true` or `false` (default) | Decides if toast from actions should be hidden. |
-
-### Outcome Types and Configurations
-
-#### Toast
-Used to display a toast message as an outcome.
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `title`  | string | Yes      | The heading or title of the toast message. |
-| `message`| string | Yes      | The detailed message or content within the toast. |
-
-#### Redirect
-Used to redirect the user to another page or URI.
-
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `uri`    | string | Yes      | The target URI for redirection after the action. |
-
-#### Tab
-Used to open a specific tab in the system as an outcome.
-
-| Property    | Type   | Required | Description |
-|-------------|--------|----------|-------------|
-| `tabKeyName`| string | Yes      | The key name of the tab to be opened after the action. |
+### Outcome Types
+- **toast**: Show a toast message to the user.
+  - Needs `title` and `message`.
+- **redirect**: Redirect the user to another page or URI.
+  - Needs `uri`.
+- **tab**: Open a specific tab in the system.
+  - Needs `tabKeyName`.
+- **none**: No feedback is shown.
 
 ### Widget Update
-
-Actional Button should control which widgets to be updated on the page. If none is provided, it defaults to updating all widgets on a given page.
-
-Following options are available for the `widgetsUpdate` property:
-
-| Property    | Type  | Required | Description                                                             |
-|-------------|-------|----------|-------------------------------------------------------------------------|
-| `array`     |       |          | Updates keynames found in the array, if they exist on the page.         |
-
-Note: Per default, a table row actional button will always update - as it's almost always expected that a button placed on a row will update something related to that row.
+- Use `widgetsUpdate` to specify which widgets should update after the action.
+- By default, all widgets on the page are updated.
+- For table row buttons, the related row/widget is always updated by default.
 
 ## JSON Examples
 
-#### Example 1: Toast Outcome
+**Show a toast after an action:**
 ```json
 {
   "outcome": {
@@ -68,9 +52,7 @@ Note: Per default, a table row actional button will always update - as it's almo
 }
 ```
 
-In this example, a toast message is presented as feedback, offering clear and immediate communication about the action's result.
-
-#### Example 2: Redirect Outcome (Internal URI)
+**Redirect to an internal page:**
 ```json
 {
   "outcome": {
@@ -80,9 +62,7 @@ In this example, a toast message is presented as feedback, offering clear and im
 }
 ```
 
-This example demonstrates redirection as the outcome, guiding the user to the dashboard after the action is executed, ensuring a seamless transition in the user's workflow.
-
-#### Example 3: Redirect Outcome (External URL)
+**Redirect to an external URL:**
 ```json
 {
   "outcome": {
@@ -92,9 +72,7 @@ This example demonstrates redirection as the outcome, guiding the user to the da
 }
 ```
 
-In this example, the redirection outcome is used to open an external URL (`www.google.com`), allowing the user to navigate to an external resource after the action is completed.
-
-#### Example 4: Tab Outcome
+**Open a specific tab:**
 ```json
 {
   "outcome": {
@@ -104,10 +82,7 @@ In this example, the redirection outcome is used to open an external URL (`www.g
 }
 ```
 
-In this example, pressing the button opens a specific tab (`projekttab_sagsinfo`) in the system, providing a direct and efficient way for users to access relevant information.
-
-#### Example 5: Widget Update
-
+**Update specific widgets:**
 ```json
 {
   "outcome": {
@@ -119,7 +94,5 @@ In this example, pressing the button opens a specific tab (`projekttab_sagsinfo`
 }
 ```
 
-In this example the `widgetsUpdate` property is set to an array specifying which widgets on the page should be updated.
-
-By configuring the `outcome` component effectively, you can ensure that Actional buttons provide meaningful feedback and guide users efficiently through their tasks within the system. The `outcome` component's flexibility in design allows for a responsive and user-friendly application, enhancing the overall user experience.
+By configuring the `outcome` component, you can ensure Actional buttons provide meaningful feedback and guide users efficiently through their tasks. The flexibility of `outcome` allows for a responsive and user-friendly experience.
 

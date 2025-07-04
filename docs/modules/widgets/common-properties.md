@@ -1,18 +1,27 @@
-# Common properties
+# Common Properties
 
-The following properties are common to all widgets:
+These properties are available for all widgets. Use them to customize appearance and behavior.
 
 ## JSON Configuration
 
-Customize the appearance of your widget with these main properties:
+- **icon** (string): Widget icon. Use any Google Fonts icon name.
+- **iconColor** (string): Icon color (e.g., `#634DA3`).
+- **iconBackgroundColor** (string): Icon background color (hex code).
+- **actionalButtons** (array): Add Actional Buttons for quick actions.
+- **formButtons** (array): Add Form Buttons for form widgets.
+- **height** (integer, 1–500): Fixed widget height in pixels.
+- **minHeight** (integer, 1–500): Minimum widget height in pixels.
+- **maxHeight** (integer, 1–500): Maximum widget height in pixels.
 
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `icon`                   | string  | N/A            | N/A            | Icon for the widget. Visit Google Fonts Icons for options.                  |
-| `iconColor`              | string  | N/A            | Hex color code | Color of the icon. Use a hex color code.                                    |
-| `iconBackgroundColor`    | string  | N/A            | Hex color code | Background color of the icon. Use a hex color code.                         |
-| `actionalButtons`        | array   | N/A            | N/A            | Add Actional Buttons to the widget.                                         |
-| `formButtons`            | array   | N/A            | N/A            | Add Form Buttons to the widget.                                             |
-| `height`                 | integer | N/A            | N/A            | The height of the widget in pixels (max 500).                               |
-| `showWidgetHeader`       | boolean | true           | true, false    | Show or hide the widget header.                                             |
-| `hasMargin`              | boolean | true           | true, false    | Add margin to the widget.                                                   |
+**Example:**
+
+```json
+{
+  "icon": "table_chart",
+  "iconColor": "#634DA3",
+  "iconBackgroundColor": "#fff",
+  "height": 300,
+  "minHeight": 200,
+  "maxHeight": 400
+}
+```

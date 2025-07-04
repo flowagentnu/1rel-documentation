@@ -84,26 +84,6 @@ The `popupTitleField` and `popupContentField` properties are used to configure t
 
 *Explanation:* This example shows how to set up the popup content when a marker is clicked, allowing users to display relevant information about each location.
 
-#### 3.4 Widget Display Configuration
-
-The `showWidgetHeader` and `height` properties allow you to customize the appearance of the map widget.
-
-| Property           | Type    | Required | Description                                                                   |
-| ------------------ | ------- | -------- | ----------------------------------------------------------------------------- |
-| `showWidgetHeader` | boolean | No       | Determines whether the widget header should be displayed (`true` or `false`). |
-| `height`           | integer | No       | Height of the map in pixels.                                                  |
-
-##### Example
-
-```json
-{
-  "showWidgetHeader": false,
-  "height": 400
-}
-```
-
-*Explanation:* This example demonstrates how to adjust the widget's appearance, such as hiding the widget header and setting the height in pixels.
-
 #### 3.5 Data Filtering with Queries
 
 The `query` property is used to filter the data that is displayed on the map. It is an array of conditions.

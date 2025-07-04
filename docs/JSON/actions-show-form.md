@@ -1,33 +1,31 @@
-# Show form
-Actional Button can be configured to display a form based on specific conditions.
-To show a form, you must use the command "showForm", that have following properties:
+# Show Form Action
 
-| Property | Type   | Required | Description |
-|----------|--------|----------|-------------|
-| `formId` | number | Yes      | The ID of the form to be displayed. |
-| `itemKey`| string | No       | The key of the item to be used in the form as the main item. |
-| `items`  | array  | No       | In some situations, you need to pass an item you need, but cannot get outside the Actional Button context. In this array you can pass any items you need |
+A guide to displaying forms via automation in FlowAgent.
 
-## Examples
+## When to Use
+Use this page when you want to show a form based on a user action or condition.
 
-### Example 1: Show form action
-The following example demonstrates how to use the `showForm` action to display a form with specified details.
+## How It Works
+- Use the `showForm` action with a form ID and optional item key/items.
+- Can be triggered from buttons, automations, or other actions.
 
+## Usage Example
+**Show a feedback form:**
 ```json
 {
   "actions": [
     {
-      "name": "Open Feedback Form",
       "then": {
         "showForm": {
           "formId": "formkeyname",
           "itemKey": "feedback",
-          "items": [
-            "customer",
-            "project"
-          ]
+          "items": ["customer", "project"]
         }
       }
     }
   ]
 }
+```
+
+## Tips
+- Use the correct form ID and item keys for your use case.

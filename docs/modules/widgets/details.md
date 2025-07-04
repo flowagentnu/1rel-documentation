@@ -1,33 +1,38 @@
 # Details Widget
 
-The Details Widget displays custom fields from any module in the system, providing detailed information about specific items.
+The Details Widget displays custom fields from any module, providing detailed information about specific items in a clear, customizable layout.
 
-## JSON Configuration
+## When to Use
+Use the Details Widget when you want to show a summary or detailed view of an item’s fields—such as on dashboards, sidebars, or item pages.
 
-[Common Widget Properties](/docs/modules/widgets/common-properties)
+## How It Works
+- Configure the widget with the module ID and a query to select the item(s) to display.
+- Optionally, use relations to pull in related data from other modules.
+- Adjust `colSize` to control the number of columns (1-12) for field display.
 
-| Property    | Type    | Required | Default Value                     | Description                                                    |
-|-------------|---------|----------|-----------------------------------|----------------------------------------------------------------|
-| `moduleid`  | integer | Yes      | Current Module                    | The ID of the module to display data from.                     |
-| `query`     | array   | Yes      | `[["id", "=", "[itemid]"]]`       | [JSON Query](/docs/JSON/json-query) for filtering items.       |
-| `relations` | object  | No       | N/A                               | [JSON Relations](/docs/JSON/json-relations) for related data.  |
-| `colSize`   | integer | No       | auto-calculated                   | Overrides the column size for displaying fields. If not set, it is calculated based on the number of columns in the widget. |
+## Main Properties
+- **moduleid** (integer, required): The ID of the module to display data from. Defaults to the current module.
+- **query** (array, required): A [JSON Query](/docs/JSON/json-query.md) to filter which item(s) to show. Default: `[ ["id", "=", "[itemid]"] ]`
+- **relations** (object, optional): [JSON Relations](/docs/JSON/json-relations.md) for pulling in related data.
+- **colSize** (integer, optional): Number of columns for displaying fields (range: 1-12). If not set, it is auto-calculated based on the number of fields.
 
-## Examples
-
-### Example 1: Show details about a parent relation.
-In this example, we are on module 2, and we want to show details about the parent relation on module 1.
-We need to use the relation id between module 1 and module 2 which is 123.
+## Usage Example
+Show details about a parent relation (e.g., from module 2, show parent from module 1 using relation id 123):
 
 ```json
 {
-    "moduleid": 1,
-    "query": [
-        [
-            "id",
-            "=",
-            "[relation123]"
-        ]
-    ]
+  "moduleid": 1,
+  "query": [
+    ["id", "=", "[relation123]"]
+  ]
 }
 ```
+
+## Tips
+- Use `colSize` to control layout: 1 for a single column, up to 12 for a wide, multi-column display.
+- Combine with relations to show data from linked modules.
+
+## Related Links
+- [Common Widget Properties](/docs/modules/widgets/common-properties.md)
+- [JSON Query](/docs/JSON/json-query.md)
+- [JSON Relations](/docs/JSON/json-relations.md)

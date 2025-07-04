@@ -1,38 +1,20 @@
 # Module Item Types
 
-Module Item Types are used to differentiate items in each module. This is a useful functionality as it reduces the need to create extra modules when the difference between the type of items isn’t too wide.
+Module Item Types let you categorize items within a module, reducing the need for separate modules when differences are minor.
 
-For example, a module used for "orders" can have different types like:
+## When to Use
+Use item types when you want to distinguish between different item categories (e.g., Journal, Delivery, Waste) within the same module.
 
-- Journal
-- Delivery
-- Waste
+## How It Works
+- Define types in module settings (e.g., "Types" tab).
+- Assign custom fields, tabs, and relations to each type.
+- Types control which fields and tabs are visible for each item.
 
-By creating different types, it's possible to assign other FlowAgent functions. These are:
+## Usage Example
+Suppose you have an Orders module with two types: "Journal" and "Delivery".
 
-- Customfields
-- Tabs
-- Relations
-
-## Setup types
-
-Follow the steps below to create a new type:
-
-1. Select the module you wish to create/edit a customfield for.
-2. Navigate to "Settings".
-3. Choose the "Types" option.
-4. Click on "Create" or edit an existing one.
-
-## Configuring types
-
-After initiating the creation of a new type, you'll need to provide the following information:
-
-- **Name**: Specify the name of the type.
-- **Customfields**: Choose which customfields this type should have access to.
-- **Tabs**: Choose which tabs should be available for this type.
-
-Finish creating a type by pressing save.
-
-## Delete
-
-If a type is not needed anymore, you can delete it using the icon from the list below.
+## Creating and Configuring Types
+1. Go to module settings and select "Types."
+2. Click "Create" or edit an existing type.
+3. Assign fields and tabs for each type.
+4. Save your changes.

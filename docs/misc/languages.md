@@ -1,24 +1,36 @@
-# Language
+# Languages
 
-The primary language of the Flow platform is English. However, the platform supports multiple languages to cater to a diverse user base. A site has a default language, and users can change this setting to view the site in their preferred language.
+A guide to multi-language support and translation in FlowAgent.
 
-## Multi-Language Support
+## When to Use
+Use this page when you want to provide translations for labels, descriptions, or messages in your site.
 
-When configuring objects (e.g., tabs, widgets, action buttons), you can specify the languages that the site supports. This allows you to provide translations for the site's content, such as labels, descriptions, and messages. The platform uses the user's language preference to display the content in the appropriate language.
+## How It Works
+- The platform's default language is English, but you can add translations for any supported language.
+- Use a `labels` object (or `descriptions`, etc.) with language codes as keys for translations.
+- The user's language preference determines which translation is shown.
 
-Typically, when displaying text, a `label` is used. There can be variations, such as `description` and others. To support multiple languages, you need to provide a `labels` object with the language code as the key and the translation as the value (if the variable is not called `label`, but something else, just add an `s` to the end, e.g., `descriptions`).
-
-The `label` should always be written in English, as it is the default language of the platform. Then, in the `labels` object, you can provide translations for the languages you want to support.
-
-### Example
-
+## Usage Example
+**Provide translations for a button label:**
 ```json
 "visual": {
-    "label": "Complete Task",
-    "labels": {
-        "da_dk": "Afslut opgave",
-        "pl_pl": "Zakończ zadanie",
-        "ro_ro": "Finalizează sarcina"
-    }
+  "label": "Complete Task",
+  "labels": {
+    "da_dk": "Afslut opgave",
+    "pl_pl": "Zakończ zadanie",
+    "ro_ro": "Finalizează sarcina"
+  }
 }
 ```
+
+## Tips
+- Always provide an English default for `label`.
+- Add as many translations as your users need.
+- Use language codes (e.g., `da_dk`, `pl_pl`, `ro_ro`).
+
+## Related Links
+- [Visibility Component](../sites/actionalbuttons/components/visibility.md)
+
+---
+
+For more on translations, see the Visibility Component documentation.

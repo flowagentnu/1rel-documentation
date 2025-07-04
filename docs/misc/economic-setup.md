@@ -1,11 +1,43 @@
-1) Open https://secure.e-conomic.com/secure/api1/requestaccess.aspx?appPublicToken=WI2oIGz09dBKrhbrA2WD98kviDvI3YD7qRnJVGoljKY1
-2) Follow the guide on screen to allow FlowAgent acces to your e-conomic account
-3) Copy the "App Token" and save it for later use.
-4) Go to FlowAgent marketplace and install E-conomic integration
-5) Open the E-conomic integration in FlowAgent and paste the below code into the configuraton:
+# E-conomic Integration Setup
+
+A step-by-step guide to connecting FlowAgent with your E-conomic account for accounting, invoicing, and automation.
+
+## When to Use
+Use this page when you want to integrate FlowAgent with E-conomic for seamless financial data sync, invoicing, and automation (including webhooks).
+
+## How It Works
+1. **Authorize FlowAgent in E-conomic:**
+   - Go to [E-conomic API Access](https://secure.e-conomic.com/secure/api1/requestaccess.aspx?appPublicToken=WI2oIGz09dBKrhbrA2WD98kviDvI3YD7qRnJVGoljKY1).
+   - Follow the on-screen guide to allow FlowAgent access to your E-conomic account.
+   - Copy the "App Token" provided at the end. You will need this for configuration.
+2. **Install the Integration:**
+   - In FlowAgent, go to the Marketplace and install the E-conomic integration.
+3. **Configure the Integration:**
+   - Open the E-conomic integration settings in FlowAgent.
+   - Paste your App Token and fill out the configuration JSON (see below for a full example and field explanations).
+4. **Set Up Webhooks in E-conomic:**
+   - Go to [E-conomic Webhooks Settings](https://secure.e-conomic.com/settings/extensions/web-hooks).
+   - Create a new webhook for product updates:
+     - **Type:** Vare opdateret
+     - **Navn:** Vare til FlowAgent
+     - **URL:** `https://job.flowagent.nu/api/sync/economic/products/{app_token}`
+     - **Content-Type:** application/json
+     - **Sendte data:** `numbers=[OLDNUMBER]&newnumber=[newnumber]&oldnumber=[oldnumber]`
+   - Create a new webhook for customer updates:
+     - **Type:** Kunde opdateret
+     - **Navn:** Kunder til FlowAgent
+     - **URL:** `https://job.flowagent.nu/api/sync/economic/customers/{app_token}`
+     - **Content-Type:** application/json
+     - **Sendte data:** `numbers=[OLDNUMBER]&newnumber=[newnumber]&oldnumber=[oldnumber]`
+   - Replace `{app_token}` with your actual E-conomic App Token.
+   - These webhooks will ensure FlowAgent receives real-time updates from E-conomic for products and customers.
+
+## Configuration Example (JSON)
+Below is a sample configuration for the E-conomic integration. Adjust the modules, field mappings, and values to match your setup.
+
 ```json
 {
-  "api_key": "",
+  "api_key": "<your-app-token>",
   "layout_number": 20,
   "currency": "DKK",
   "vat": 0.25,
@@ -40,7 +72,7 @@
   "orderlines": {
     "module": "bogf-ringslinjer",
     "fieldmap": {
-        "title": "bogfringslinjerfield_titel",
+      "title": "bogfringslinjerfield_titel",
       "amount": "bogfringslinjerfield_antal",
       "discount_percentage": "bogfringslinjerfield_-discount"
     },
@@ -64,7 +96,7 @@
     "module": "k-kkener",
     "moduleitemtype": "kkkenermit_skole",
     "fieldmap": {
-        "distribution_number": "kkkenerfield_afdelingsnummer",
+      "distribution_number": "kkkenerfield_afdelingsnummer",
       "company_name": "kkkenerfield_k-kken",
       "number": "kkkenerfield_k-kken-nummer",
       "address": "kkkenerfield_vejnavn",
@@ -79,22 +111,22 @@
 }
 ```
 
-6) Replace the `api_key` with the App Token you copied in step 3.
-7) Update all fields in the configuration to match your FlowAgent setup.
-8) Save the configuration.
+### Configuration Field Explanations
+- **api_key**: Your E-conomic App Token.
+- **layout_number, currency, vat, payment_terms, vat_zone**: General invoice/accounting settings.
+- **orders, orderlines, products, customers**: Map your FlowAgent modules and fields to E-conomic data.
+- **relations**: Define how modules are linked (e.g., which customer/orderlines relate to which order).
+- **update**: Specify which fields to update on success/error.
 
-9) Go back into e-conomic and open https://secure.e-conomic.com/settings/extensions/web-hooks
-10) Create a new webhook with the following settings:
-- Type: Vare opdateret
-- Navn: Vare til FlowAgent
-- URL: https://job.flowagent.nu/api/sync/economic/products/{app_token}
-- Content-Type: application/json
-- Sendte data: numbers=[OLDNUMBER]&newnumber=[newnumber]&oldnumber=[oldnumber]
-11) Create a new webhook with the following settings:
-- Type: Kunde opdateret
-- Navn: Kunder til FlowAgent
-- URL: https://job.flowagent.nu/api/sync/economic/customers/{app_token}
-- Content-Type: application/json
-- Sendte data: numbers=[OLDNUMBER]&newnumber=[newnumber]&oldnumber=[oldnumber]
+## Tips
+- Always test the integration in a safe environment before using it in production.
+- Use the Marketplace to install and manage integrations.
+- Set up webhooks for real-time updates between E-conomic and FlowAgent.
 
-12) Replace `{app_token}` in the URLs with the App Token displayed in the FlowAgent Marketplace under the E-conomic integration.
+## Related Links
+- [Marketplace](../sites/marketplace.md)
+- [Webhook Action](../JSON/actions-webhook.md)
+
+---
+
+For more on integrations and automations, see the Marketplace and Webhook documentation.

@@ -152,7 +152,6 @@ const sidebars = {
           label: 'Resource Planning',
           items: [
             'apps/resourceplanning/introduction',
-            'apps/resourceplanning/configuration'
           ],
         },
         {
@@ -160,7 +159,6 @@ const sidebars = {
           label: 'Price Group',
           items: [
             'apps/pricegroup/introduction',
-            'apps/pricegroup/configuration'
           ]
         }
       ],

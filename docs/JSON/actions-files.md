@@ -1,24 +1,22 @@
-# Files
+# File Actions
 
-Ability to add tags, remove tags and delete files provided in a file field.
+A guide to managing file tags and deletions in FlowAgent automations.
 
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `addtags`                  | array  | (empty)        | N/A            | The tags to add to the file.                           |
-| `removetags`                  | array  | (empty)        | N/A            | The tags to remove from the file.                           |
-| `delete`                  | boolean  | false        | N/A            | The files to delete |
+## When to Use
+Use this page when you want to add/remove tags or delete files via automation or actions.
 
-## Examples
+## How It Works
+- Use `addtags` or `removetags` to manage file tags.
+- Use `delete` to remove files.
+- Specify the field and tags/files to affect.
 
-### Example 1: Add tags to a file
-
+## Usage Example
+**Add tags to a file:**
 ```json
 {
-    "addtags": {
-        "myfilesfield": [
-            "form"
-        ]
-    }
+  "addtags": {
+    "myfilesfield": ["form"]
+  }
 }
 ```
 
@@ -41,3 +39,7 @@ Ability to add tags, remove tags and delete files provided in a file field.
     "delete": ["myfilesfield"]
 }
 ```
+
+## Tips
+- Use field keys that match your file fields.
+- Combine with other actions for complex workflows.

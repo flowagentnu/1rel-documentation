@@ -1,17 +1,21 @@
-# Navigate user to an lat/lng or address
+# Open Location Action
 
-This will open a new window with navigation turned on for the user. Good to fast and easy navigate user to a destination.
+A guide to navigating users to a location via automation in FlowAgent.
 
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `location`               | string  | (empty)        | N/A            | Lat/lng or the address to navigate to.                                      |
+## When to Use
+Use this page when you want to open a map/location for a user automatically.
 
-## Examples
+## How It Works
+- Use the `location` property to specify a lat/lng or address.
+- Opens a new window with navigation enabled.
 
-### Example 1: Navigate to a lat/lng
-
+## Usage Example
+**Navigate to a lat/lng:**
 ```json
 {
   "location": "59.3293,18.0686"
 }
 ```
+
+## Tips
+- Use valid coordinates or addresses.

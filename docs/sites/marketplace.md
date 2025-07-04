@@ -1,7 +1,9 @@
 # Marketplace
 
-Marketplace are the magic of the Flow platform. Here you can intergrate your platform with external systems like your accounting software etc. You are also able to find [solutions to install here](/docs/sites/solutions).
+A guide to integrating FlowAgent with external systems and finding installable solutions.
 
-:::note
-A new version of marketplace are expected to come end of 2025. There are no documentation supporting the existing version currently.
-:::
+## When to Use
+Read this page when you want to connect FlowAgent to other software (e.g., accounting systems) or browse/install solutions.
+
+## How It Works
+- Install any available app from the Marketplace to connect FlowAgent with external systems.

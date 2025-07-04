@@ -1,11 +1,20 @@
 # Item Trash
-Item Trash is a feature that allows you to recover items that have been deleted. When an item is deleted, it is not permanently removed from the system. Instead, it is moved to the trash, where it can be restored if needed. After a certain period, items in the trash may be permanently deleted based on the the deletion policy.
 
-## How to Use Item Trash
-To use the item trash feature, follow these steps:
-1. **Delete an Item**: When you delete an item, it is moved to the trash instead of being permanently deleted.
-2. **Access the Trash**: You can access the trash from the item list view or the item detail view. Look for a "Trash" or "Deleted Items" option in the menu.
-3. **Restore an Item**: In the trash view, you can see all deleted items. Select the item you want to restore and click the "Restore" button. The item will be moved back to its original location.
+Item Trash lets you recover deleted items before they are permanently removed, providing a safety net for accidental deletions.
+
+## When to Use
+Use Item Trash when you want to restore deleted items or review what has been removed from a module.
+
+## How It Works
+- Deleted items are moved to the trash instead of being permanently deleted.
+- Access the trash from the item list or detail view.
+- Restore items from the trash or let them be permanently deleted after a set period (default: 30 days).
+
+## Usage Example
+1. Delete an item from a module.
+2. Go to the trash view ("Trash" or "Deleted Items" in the menu).
+3. Select the item and click "Restore" to recover it.
 
 ## Deletion Policy
-The deletion policy determines how long deleted items are kept in the trash before they are permanently deleted. The default policy is to keep items in the trash for 30 days. After this period, items will be permanently deleted and cannot be restored.
+- Items remain in trash for 30 days by default.
+- After this period, items are permanently deleted and cannot be restored.

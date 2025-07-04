@@ -1,60 +1,32 @@
-# General
+# General Module Settings
 
-The general settings tab is the first page loaded when you navigate to the settings menu. Here, you will find several subsections that allow you to configure the basic aspects of your site.
+The General settings tab lets you configure the basic properties and appearance of each module in FlowAgent.
 
-## Accessing General settings
+## When to Use
+Use General settings to set up or update a module’s name, description, color, icon, parent relationship, and permissions.
 
-Navigate to General module settings:
+## How It Works
+- Access General settings from the module’s settings menu.
+- Configure module info, appearance, and permissions.
+- Changes affect how the module appears and behaves throughout FlowAgent.
 
-1. Open the **Site Settings** by clicking on the three-dot menu in the top right corner.
-2. Navigate to the **"Modules"** tab from the settings menu.
-3. Choose the module you wish to configure.
-4. Click on the **Edit icon** to access the module settings.
+## Usage Example
+To update a module’s name and icon:
 
-## Module info
+1. Open **Site Settings** > **Modules**.
+2. Select your module and click the edit icon.
+3. Change the name and select a new icon.
+4. Save your changes.
 
-Information about the module.
+## Main Properties
+- **name** (string): Module name
+- **description** (string): Description of the module
+- **color** (string): Color used to identify the module
+- **icon** (image): Icon representing the module
+- **Parent relationship** (Module Relation): Parent module (if any)
+- **Title column** (Customfield): Main title field for the module
+- **Subtitle columns** (Customfields): Subtitle fields for the module
 
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `name`                   | string  | N/A            | N/A            | Module name used to identify the module.                           |
-| `description`            | string  | N/A            | N/A            | Description of the module.        |
-
-## Appearance
-
-Configure the appearance of the module.
-
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `color`                  | string  | N/A            | N/A            | Color used to identify the module.                           |
-| `icon`                   | image   | N/A            | N/A            | Icon that will be used to represent the module.        |
-| `Parent relationship`    | Module Relation    | N/A            | N/A            | The relation to be considered the parent of this module (if any).        |
-| `Title column`          | Customfield  | N/A            | N/A            | The column to be used as the title of the module.        |
-| `Subtitle columns`          | Customfields  | N/A            | N/A            | The columns to be used as the subtitles of the module.        |
-
-## Permissions
-
-Configure the permissions of the module.
-
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `Allow create button`   | bool    | false          | `true` or `false` | Show or hide the create button. |
-| `Allow edit button`     | bool    | false          | `true` or `false` | Show or hide the edit button. |
-| `Allow search`          | bool    | false          | `true` or `false` | Are items in this module allowed to be shown in search results. |
-| `Hide in menu`          | bool    | false          | `true` or `false` | Hide the module in the menu. |	
-| `Audit history`         | bool    | false          | `true` or `false` | Should changes to items in this module be logged. |
-| `Audit history retention in days` | int | 30          | 30-360 days            | How many days should the audit history be kept. |
-
-## JSON Configuration
-
-| Property                 | Type    | Default Value  | Options        | Description                                                                 |
-|--------------------------|---------|----------------|----------------|-----------------------------------------------------------------------------|
-| `actionalButtons`     | array  | null           | N/A            | Show actional buttons on the module. See [how to show actional buttons](/docs/sites/actionalbuttons/how-to-use). |
-| `featureFlags`        | array  | null           | N/A            | Enable or disable features for the module. See list below of possible features |
-| `permissionFields`    | array  | null           | N/A            | Define which fields are required for the user to have access to the module. |
-
-### Permission Fields
-Permission fields are used to define which fields are required for the user to have access to the module. If the user does not have access to the required fields, the module will not be visible to the user.
-:::note
-Not documented yet
-:::
+## Related Links
+- [Module Item Types](/docs/modules/module-item-types.md)
+- [Custom Fields](/docs/modules/customfields.md)
