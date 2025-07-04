@@ -211,6 +211,7 @@ const sidebars = {
         'misc/languages',
         'misc/replaceables',
         'misc/conditionals',
+        'misc/economic-setup',
       ],
       link: {
         type: 'generated-index'
