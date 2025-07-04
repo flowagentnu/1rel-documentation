@@ -139,6 +139,37 @@ Integrated with map services and allows toggling specific address parts.
 "valueFieldCity": "[project.cf691]"
 ```
 
+## Files Upload
+
+### File Upload Field
+
+Allows users to upload one or more files as part of the form submission. The field supports permission checks, file filtering, and integration with widgets for file management.
+
+#### Example Configuration
+```json
+"fieldtype": "files",
+"metadata": {
+  "widgetKeyName": "my_widget_key", // Required, associates the file upload with a specific widget
+  "itemId": "12345", // Optional, used to associate the file with a specific item
+  "filterOnTags": ["item1234", "Tilsynssag"] // Optional, filters files based on specified tags
+},
+"required": true // Optional, set to true if file upload is mandatory
+```
+
+#### Key Features
+- **Permission Check**: Only users with the `Files.Create` permission can upload files.
+- **Widget Integration**: Uses `widgetKeyName` to associate uploads with a specific widget.
+- **Item Association**: Optionally links files to a specific `itemId`.
+- **Tag Filtering**: Filters files based on specified tags, allowing for better organization and retrieval.
+- **Multiple Uploads**: Supports uploading multiple files at once.
+- **UI Elements**: Includes upload buttons for desktop and mobile, and displays alerts for missing resources or insufficient permissions.
+
+#### Example UI
+- File upload button (with cloud icon)
+- Quick capture button for mobile (with camera icon)
+- List of uploaded files
+- Hidden input to store uploaded file IDs
+
 ---
 
 ## HTML Fields
