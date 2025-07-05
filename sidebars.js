@@ -11,9 +11,7 @@ const sidebars = {
         'getting-started/configuration',
         'getting-started/documentation',
       ],
-      link: {
-        type: 'generated-index',
-      },
+      link: { type: 'generated-index' },
     },
     {
       type: 'category',
@@ -28,6 +26,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Actional Buttons',
+          link: { type: 'generated-index' },
           collapsed: true,
           items: [
             'sites/actionalbuttons/introduction',
@@ -35,30 +34,21 @@ const sidebars = {
             {
               type: 'category',
               label: 'Components',
-              link: {
-                type: 'doc',
-                id: 'sites/actionalbuttons/components/components'
-              },
+              link: { type: 'doc', id: 'sites/actionalbuttons/components/components' },
               items: [
                 'sites/actionalbuttons/components/items',
                 'sites/actionalbuttons/components/visibility',
                 'sites/actionalbuttons/components/actions',
-                'sites/actionalbuttons/components/outcome'
-              ]
-            }
+                'sites/actionalbuttons/components/outcome',
+              ],
+            },
           ],
-          link: {
-            type: 'doc',
-            id: 'sites/actionalbuttons/introduction',
-          },
         },
         'sites/marketplace',
         'sites/automations',
         'sites/solutions',
       ],
-      link: {
-        type: 'generated-index'
-      },
+      link: { type: 'generated-index' },
     },
     {
       type: 'category',
@@ -73,6 +63,7 @@ const sidebars = {
         {
           type: 'category',
           label: 'Widgets',
+          link: { type: 'generated-index' },
           collapsed: true,
           items: [
             'modules/widgets/common-properties',
@@ -83,55 +74,67 @@ const sidebars = {
             'modules/widgets/maps',
             'modules/widgets/chart',
             'modules/widgets/calendar-timeline',
+            'modules/widgets/calendar',
             'modules/widgets/files',
-          ]
+            'modules/widgets/actionalbutton',
+            'modules/widgets/comments',
+            'modules/widgets/note',
+            'modules/widgets/smart-text',
+          ],
         },
         'modules/documents',
         {
           type: 'category',
           label: 'Forms',
+          link: { type: 'generated-index' },
           collapsed: true,
           items: [
-            'modules/forms/forms-main-components',
-            'modules/forms/forms-visibility',
-            'modules/forms/forms-items',
+            'modules/forms/introduction',
+            'modules/forms/how-to-use-forms',
+            'modules/forms/how-to-use-form-buttons',
             {
               type: 'category',
-              label: 'Pages',
-              link: {
-                type: 'doc',
-                id: 'modules/forms/forms-pages',
-              },
+              label: 'Components',
+              link: { type: 'generated-index' },
               items: [
-                'modules/forms/forms-pages-fields',
+                'modules/forms/components/items',
+                'modules/forms/components/visibility',
                 {
                   type: 'category',
-                  label: 'Submit & Cancel',
-                  link: {
-                    type: 'doc',
-                    id: 'modules/forms/forms-pages-submit-cancel',
-                  },
+                  label: 'Pages',
+                  link: { type: 'doc', id: 'modules/forms/components/pages/introduction' },
                   items: [
-                    'modules/forms/forms-pages-submit-cancel-triggers',
+                    {
+                      type: 'category',
+                      label: 'Fields',
+                      link: { type: 'doc', id: 'modules/forms/components/pages/fields/introduction' },
+                      items: [
+                        'modules/forms/components/pages/fields/field_key',
+                        'modules/forms/components/pages/fields/field_html',
+                        'modules/forms/components/pages/fields/field_options',
+                      ],
+                    },
+                    {
+                      type: 'category',
+                      label: 'Submit & Cancel',
+                      link: { type: 'doc', id: 'modules/forms/components/pages/submit/introduction' },
+                      items: [
+                        'modules/forms/components/pages/submit/triggers',
+                      ],
+                    },
                   ],
                 },
-                'modules/forms/forms-endflow',
+                'modules/forms/components/endflow',
               ],
             },
           ],
-          link: {
-            type: 'doc',
-            id: 'modules/forms/forms-introduction',
-          },
         },
         'modules/import',
         'modules/powersearch',
         'modules/dynamic-values',
         'modules/trash',
       ],
-      link: {
-        type: 'generated-index'
-      },
+      link: { type: 'generated-index' },
     },
     {
       type: 'category',
@@ -145,27 +148,12 @@ const sidebars = {
           items: [
             'apps/integrations/integrations-365-sync',
             'apps/integrations/integrations-optimo-route',
-          ]
-        },
-        {
-          type: 'category',
-          label: 'Resource Planning',
-          items: [
-            'apps/resourceplanning/introduction',
           ],
         },
-        {
-          type: 'category',
-          label: 'Price Group',
-          items: [
-            'apps/pricegroup/introduction',
-          ]
-        }
+        'apps/resourceplanning/introduction',
+        'apps/pricegroup/introduction',
       ],
-      link: {
-        type: 'doc',
-        id: 'apps/intro-to-apps',
-      },
+      link: { type: 'doc', id: 'apps/intro-to-apps' },
     },
     {
       type: 'category',
@@ -173,48 +161,45 @@ const sidebars = {
       collapsed: true,
       items: [
         'JSON/json-query',
+        'JSON/json-columns',
         {
           type: 'category',
           label: 'JSON Actions',
           collapsed: true,
           items: [
             'JSON/actions-crud',
+            'JSON/actions-files',
+            'JSON/actions-item-image',
+            'JSON/actions-note',
             'JSON/actions-open-location',
             'JSON/actions-send-email',
             'JSON/actions-send-toast',
             'JSON/actions-show-form',
             'JSON/actions-show-relevant-forms',
             'JSON/actions-webhook',
-            'JSON/actions-note',
-            'JSON/actions-files',
-            'JSON/actions-item-image',
           ],
-          link: {
-            type: 'doc',
-            id: 'JSON/json-actions',
-          },
+          link: { type: 'doc', id: 'JSON/json-actions' },
         },
         'JSON/json-relations',
       ],
-      link: {
-        type: 'doc',
-        id: 'JSON/json-intro-to-json',
-      },
+      link: { type: 'doc', id: 'JSON/json-intro-to-json' },
     },
     {
-      'type': 'category',
-      'label': 'Miscellaneous',
-      'collapsed': true,
+      type: 'category',
+      label: 'Miscellaneous',
+      collapsed: true,
       items: [
+        'misc/icons',
         'misc/languages',
         'misc/replaceables',
         'misc/conditionals',
+        'misc/custom-login-screen',
+        'misc/custom-mail-templates',
+        'misc/default-organisation',
         'misc/economic-setup',
       ],
-      link: {
-        type: 'generated-index'
-      },
-    }
+      link: { type: 'generated-index' },
+    },
   ],
 };
 

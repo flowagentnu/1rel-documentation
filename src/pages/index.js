@@ -17,11 +17,21 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          {/* <Link
+          <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Get Started
-          </Link> */}
+            to="https://flowagent.nu"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{marginRight: '1rem'}}>
+            Website
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="https://app.flowagent.nu"
+            target="_blank"
+            rel="noopener noreferrer">
+            App
+          </Link>
         </div>
       </div>
     </header>

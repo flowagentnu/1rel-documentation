@@ -17,6 +17,7 @@ Conditionals are widely used across the Flow platform to control visibility and 
   - **Triggers**: Execute logic (e.g., autofill, CRUD operations) when certain conditions are met.
 - **Action Buttons**
   - **Visibility**: Show or hide buttons depending on user context, field values, or item state.
+  - **Triggers**: Perform actions like sending emails, updating fields, or showing forms when conditions are met.
 
 These conditionals are defined using the same JSON format and evaluated by the `ConditionalHelper`.
 
@@ -46,6 +47,35 @@ A typical conditional block looks like this:
 
 ---
 
+## Advanced: Using conditionType and conditionVar
+You can use `conditionType` to perform advanced checks on the results of a query or count:
+
+- **conditionType**: Controls how the condition is evaluated. Supported values:
+  - `has_results`: True if the query returns any results.
+  - `no_results`: True if the query returns no results.
+  - `count_equal`: True if the query result count equals `conditionVar`.
+  - `count_not_equal`: True if the query result count does not equal `conditionVar`.
+  - `count_greater`: True if the query result count is greater than `conditionVar`.
+  - `count_less`: True if the query result count is less than `conditionVar`.
+- **conditionVar**: (Required for count_* types) The number to match against the query result count.
+
+**Example: Only show a button if a user has exactly 2 active items:**
+```json
+{
+  "if": [
+    ["status", "=", "active"],
+    ["user_id", "=", "[user]"]
+  ],
+  "conditionType": "count_equal",
+  "conditionVar": 2,
+  "then": {
+    "visible": true
+  }
+}
+```
+
+---
+
 ## Supported Conditions
 You can use the following condition keywords:
 
@@ -72,11 +102,7 @@ You can use the following condition keywords:
 ```json
 {
   "if": [
-    [
-      "optaelling_liste",
-      "is",
-      "empty"
-    ]
+    ["optaelling_liste", "is", "empty"]
   ],
   "then": {
     "loop": "produkter",
@@ -98,11 +124,7 @@ You can use the following condition keywords:
 ```json
 {
   "if": [
-    [
-      "[usergroups]",
-      "contains",
-      "admin"
-    ]
+    ["[usergroups]", "contains", "admin"]
   ],
   "then": {
     "visible": true
@@ -114,12 +136,22 @@ You can use the following condition keywords:
 ```json
 {
   "if": [
-    [
-      "[item.cf1001]",
-      "!=",
-      "closed"
-    ]
+    ["[item.cf1001]", "!=", "closed"]
   ],
+  "then": {
+    "visible": true
+  }
+}
+```
+
+### Example: Only show button if query returns more than 3 results
+```json
+{
+  "if": [
+    ["status", "=", "active"]
+  ],
+  "conditionType": "count_greater",
+  "conditionVar": 3,
   "then": {
     "visible": true
   }

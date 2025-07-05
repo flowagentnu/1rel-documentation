@@ -9,12 +9,14 @@ Use the Details Widget when you want to show a summary or detailed view of an it
 - Configure the widget with the module ID and a query to select the item(s) to display.
 - Optionally, use relations to pull in related data from other modules.
 - Adjust `colSize` to control the number of columns (1-12) for field display.
+- Columns support all options described in [JSON Columns](/docs/JSON/json-columns.md).
 
 ## Main Properties
 - **moduleid** (integer, required): The ID of the module to display data from. Defaults to the current module.
 - **query** (array, required): A [JSON Query](/docs/JSON/json-query.md) to filter which item(s) to show. Default: `[ ["id", "=", "[itemid]"] ]`
 - **relations** (object, optional): [JSON Relations](/docs/JSON/json-relations.md) for pulling in related data.
 - **colSize** (integer, optional): Number of columns for displaying fields (range: 1-12). If not set, it is auto-calculated based on the number of fields.
+- **columns** (array, optional): List of columns to show, with options described in [JSON Columns](/docs/JSON/json-columns.md).
 
 ## Usage Example
 Show details about a parent relation (e.g., from module 2, show parent from module 1 using relation id 123):
@@ -24,6 +26,9 @@ Show details about a parent relation (e.g., from module 2, show parent from modu
   "moduleid": 1,
   "query": [
     ["id", "=", "[relation123]"]
+  ],
+  "columns": [
+    { "keyName": "customer_name", "backgroundColor": "#f0f0f0", "textColor": "#000000" }
   ]
 }
 ```
@@ -31,8 +36,10 @@ Show details about a parent relation (e.g., from module 2, show parent from modu
 ## Tips
 - Use `colSize` to control layout: 1 for a single column, up to 12 for a wide, multi-column display.
 - Combine with relations to show data from linked modules.
+- Use all available column options for custom display and interactivity. See [JSON Columns](/docs/JSON/json-columns.md).
 
 ## Related Links
 - [Common Widget Properties](/docs/modules/widgets/common-properties.md)
 - [JSON Query](/docs/JSON/json-query.md)
 - [JSON Relations](/docs/JSON/json-relations.md)
+- [JSON Columns](/docs/JSON/json-columns.md)

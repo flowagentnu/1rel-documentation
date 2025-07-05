@@ -8,12 +8,12 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'FlowAgent Configuration Documentation',
+  title: 'FlowAgent Documentation',
   tagline: 'Trim & tune workflows with FlowAgent platform',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://1relation.github.io',
+  url: 'https://documentation.flowagent.nu',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -49,10 +49,6 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -79,7 +75,17 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-                    {
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'left',
+          },
+          {
+            href: 'https://app.flowagent.nu',
+            label: 'App',
+            position: 'right',
+          },
+          {
             href: 'https://flowagent.nu',
             label: 'flowagent.nu',
             position: 'right',

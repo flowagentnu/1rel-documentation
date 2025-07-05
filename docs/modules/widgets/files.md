@@ -1,42 +1,85 @@
 # Files Widget
 
-The Files Widget is designed to enhance the management and display of files such as pictures and documents. It supports file uploads from computers and mobile devices, making it a versatile tool for users.
+The Files Widget lets you manage and display files—such as pictures and documents—directly in your dashboard. It supports uploads from both computers and mobile devices.
 
-## Files Widget Properties
+## When to Use
+Use the Files Widget to allow users to upload, view, and organize files related to items, projects, or modules.
 
-In widget configuration, the `filesWidget` property is an object that contains the following properties:
+## How It Works
+- Add the widget to your dashboard and configure its properties.
+- Use tags to control which files are shown and how uploads are categorized.
+- Choose between list or grid views for displaying files.
+- Enable the download button to let users download selected files as an archive.
+- Configure reporting options to generate and export custom reports for selected files.
+- Configure video capture settings for the quick capture feature.
 
-| Property                | Type    | Description                                                   |
-|-------------------------|---------|---------------------------------------------------------------|
-| `getWithTags`           | array   | Tags for displaying files in the widget.                      |
-| `createWithTags`        | array   | Tags automatically added when a file is uploaded.             |
-| `allowFilterOnTags`     | array   | Additional tags that can be used to filter files (theese tags will not be used with the getWithTagsRule). |
-| `getWithTagsRule`       | string  | Rule for displaying files in the widget. Options are `all`, `any` and `exact` |
-| `forcedView`            | string  | Set a specific view that overrules the users preferred view. Options are `list` or `grid` |
-
-## Examples
+## Usage Example
 
 ```json
 {
-  "height": 300,
-  "icon": "assignment",
-  "iconColor": "white",
-  "iconBackgroundColor": "orange",
   "filesWidget": {
     "createWithTags": [
       "item[itemid]",
       "Inspections"
     ],
-     "getWithTags": [
+    "getWithTags": [
       "item[itemid]",
       "item[relation77]"
-    ]
+    ],
+    "showDownloadAllButton": true,
+    "report": {
+      "showButton": true,
+      "color": "#6060FF",
+      "additionals": {
+        "Sagsnavn": "[item.cf641]",
+        "Ansvarlig": "[relation80.cf660]",
+        "Note": "[item.cf684]"
+      },
+      "title": "[item.cf641]"
+    },
+    "exportFileName": "Kvalitetsrapport for [item.cf641]",
+    "videoConfig": {
+      "width": {
+        "ideal": 1024,
+        "max": 1600,
+        "min": 640
+      },
+      "height": {
+        "ideal": 768,
+        "max": 1200,
+        "min": 480
+      },
+      "aspectRatio": 1.3333333333
+    }
   }
 }
 ```
 
-This JSON example is a `file widget` on a project with the id: `1234`.
-`"createWithTags"`:  When uploading a file, it will be tagged with `item[itemid]`(which is converted to `item1234`) and `insepection`. 
-`"getWithTags"`: When viewing, the configuration shows Files Tagged With:
-- `item[itemid]`: This instruction makes the widget display only the files that are tagged with the specific item you're looking at. (`item1234`).
-- `item[relation77]`: This inststruction makes the widget display the files from items related to the current item. In this case `item[relation77]` which is translated to `item7878` 
+*In this example:*
+- **createWithTags**: When uploading a file, it will be tagged with the current item (e.g., `item1234`) and "Inspections".
+- **getWithTags**: The widget displays files tagged with the current item and files from related items (e.g., `item[relation77]` becomes `item7878`).
+- **showDownloadAllButton**: Shows a download button when files are selected, allowing users to download them as an archive.
+- **report**: Adds a report button to the widget. The button color, title, and additional fields can be customized. When clicked, a report is generated using the specified fields.
+- **exportFileName**: Sets the default file name for exported reports, supporting variables like `[item.cf641]`.
+- **videoConfig**: Configures the quick capture video feature, setting ideal, max, and min width/height and aspect ratio for captured videos.
+
+## Options & Parameters
+- **getWithTags** (array): Tags for displaying files in the widget.
+- **createWithTags** (array): Tags automatically added when a file is uploaded.
+- **allowFilterOnTags** (array): Additional tags that can be used to filter files (these tags are not used with getWithTagsRule).
+- **getWithTagsRule** (string): Rule for displaying files. Options: `all`, `any`, or `exact`.
+- **forcedView** (string): Set a specific view that overrules the user's preferred view. Options: `list` or `grid`.
+- **showDownloadAllButton** (boolean): Show a download button when files are selected. Selected files can be downloaded as an archive.
+- **report** (object):
+  - **showButton** (boolean): Show a report button in the widget.
+  - **color** (string): Color of the report button (hex code).
+  - **additionals** (object): Additional fields to include in the report, with keys as labels and values as variables.
+  - **title** (string): Title for the report, supports variables.
+- **exportFileName** (string): Default file name for exported reports, supports variables like `[item.cf641]`.
+- **videoConfig** (object):
+  - **width** (object): Set ideal, max, and min width for video capture.
+  - **height** (object): Set ideal, max, and min height for video capture.
+  - **aspectRatio** (number): Set the aspect ratio for video capture (e.g., 1.333 for 4:3).
+
+## Related Links
+- [Common Widget Properties](/docs/modules/widgets/common-properties.md)

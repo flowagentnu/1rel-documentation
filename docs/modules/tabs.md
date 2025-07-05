@@ -35,5 +35,5 @@ Add actional and form buttons to a tab:
 - **formButtons**: Array of form button configs
 
 ## Related Links
-- [Actional Buttons](/docs/sites/actionalbuttons/introduction.md)
-- [Forms Introduction](/docs/modules/forms/forms-introduction.md)
+- [How to use Actional Buttons](/docs/sites/actionalbuttons/how-to-use.md)
+- [How to Use Form Buttons](/docs/modules/forms/how-to-use-form-buttons.md)

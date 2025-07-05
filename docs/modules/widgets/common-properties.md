@@ -1,9 +1,15 @@
-# Common Properties
+# Common Widget Properties
 
-These properties are available for all widgets. Use them to customize appearance and behavior.
+These properties are available for all widgets and let you customize their appearance and behavior.
 
-## JSON Configuration
+## When to Use
+Use these properties whenever you want to adjust the look, feel, or actions of any widget in FlowAgent.
 
+## How It Works
+- Add these properties to your widget configuration JSON.
+- Adjust icons, colors, height, and add buttons as needed.
+
+## Options & Parameters
 - **icon** (string): Widget icon. Use any Google Fonts icon name.
 - **iconColor** (string): Icon color (e.g., `#634DA3`).
 - **iconBackgroundColor** (string): Icon background color (hex code).
@@ -13,7 +19,7 @@ These properties are available for all widgets. Use them to customize appearance
 - **minHeight** (integer, 1–500): Minimum widget height in pixels.
 - **maxHeight** (integer, 1–500): Maximum widget height in pixels.
 
-**Example:**
+## Usage Example
 
 ```json
 {

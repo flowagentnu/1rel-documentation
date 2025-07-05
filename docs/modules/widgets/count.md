@@ -1,25 +1,19 @@
 # Count Widget
 
-The Count Widget in FlowAgent allows you to display aggregated numerical data on your dashboard, providing a quick summary of key metrics or counts of items within a particular module. By tapping on the widget, a subpage can be opened where details related to the count can be seen by the user.
+The Count Widget displays a total count of items from a module, letting you quickly show key metrics or totals on your dashboard. Tapping the widget can open a subpage with more details.
 
-Navigate to **Module > Module settings > Widgets** to find and set up the Count Widget. Alternatively, you can access Count Widgets through the **Tab Widgets** option from a dashboard.
+## When to Use
+Use the Count Widget to highlight totals, KPIs, or any count of items from a module—such as open tasks, active users, or completed jobs.
 
-To configure the Count Widget through the FlowAgent UI, follow these steps:
+## How It Works
+- Configure the widget with the module ID and optional relations.
+- Use queries to filter which items are counted.
+- Optionally use the `formel` property to calculate a value based on custom fields (e.g., percentages, differences).
+- Customize appearance with labels, icons, colors, and layout.
+- Add tap actions to open tabs or subpages.
+- Adjust size for mobile devices and select a visual variant.
 
-- **Name**: Enter a name for the widget to identify it on the dashboard.
-- **Label**: Enter a label for the widget.
-- **Type**: Select 'Count' from the dropdown to choose the widget type.
-- **Sort**: Specify the position of the widget on the dashboard.
-- **Size**: Set the size of the widget (between 1 and 12).
-- **Tabs**: Select the tabs where this widget should be displayed.
-- **Columns**: This setting is not relevant for the Count Widget.
-- **Query**: Provide a JSON query to filter the data that will be counted.
-
-You can configure the Count Widget using JSON to further customize its settings. Each property allows for specific customizations to ensure the count behaves and displays data in a manner that best suits user needs.
-
-## JSON Configuration Properties
-
-#### Full Example
+## Usage Example
 
 ```json
 {
@@ -32,15 +26,10 @@ You can configure the Count Widget using JSON to further customize its settings.
     }
   },
   "query": [
-    [
-      "module112Item.id",
-      "=",
-      "[itemid]"
-    ]
+    ["module112Item.id", "=", "[itemid]"]
   ],
   "label": "Active",
   "pluralLabel": "Active",
-  "displayType": "vertical",
   "icon": "view_timeline",
   "iconColor": "white",
   "iconBackgroundColor": "#68aa68",
@@ -55,165 +44,56 @@ You can configure the Count Widget using JSON to further customize its settings.
 }
 ```
 
-*Explanation:* This full example provides a complete JSON configuration for the Count Widget, demonstrating all the possible properties and how they interact to customize the widget's appearance and behavior.
+*This example shows a count of related items, filtered by query, with custom display and tap action.*
 
-### 3.1 Module ID Configuration
-
-The `moduleid` property specifies which module provides the data that will be counted.
-
-| Property   | Type    | Required | Description                                                                   |
-| ---------- | ------- | -------- | ----------------------------------------------------------------------------- |
-| `moduleid` | integer | Yes      | Unique identifier for the module whose data will be represented by the count. |
-
-#### Example
+## Calculation Example
+You can use the `formel` property to calculate a value based on custom fields. For example, to show a percentage:
 
 ```json
 {
-  "moduleid": 52
-}
-```
-
-*Explanation:* This example demonstrates how to configure the respective JSON properties to achieve the desired functionality in the Count Widget. Each property plays a specific role, such as defining the data source.
-
-### 3.2 Relations Configuration
-
-The `relations` property defines relationships between different modules within the widget.
-
-| Property    | Type   | Required | Description                                                        |
-| ----------- | ------ | -------- | ------------------------------------------------------------------ |
-| `relations` | object | No       | Defines relationships between different modules within the widget. [JSON Relations Documentation](/docs/JSON/json-relations) ||
-
-#### Example
-
-```json
-{
-  "relations": {
-    "module75": {
-      "parent": 75,
-      "child": 77,
-      "relationid": 79
-    }
-  }
-}
-```
-
-*Explanation:* This example demonstrates how to set up relationships between modules, which is useful when multiple related datasets need to be displayed.
-
-### 3.3 Query Configuration
-
-The `query` property is used to filter the data that will be counted. It is an array of conditions, allowing you to define specific criteria for the count.
-
-| Property | Type  | Required | Description                                                  |
-| -------- | ----- | -------- | ------------------------------------------------------------ |
-| `query`  | array | No       | Array of conditions to filter the data that will be counted. [JSON Query Documentation](/docs/JSON/json-query) | |
-
-#### Example
-
-```json
-{
-  "query": [
-    [
-      "module75Item.status",
-      "=",
-      "active"
-    ],
-    [
-      "cf1066.string",
-      "!=",
-      ""
-    ]
-  ]
-}
-```
-
-*Explanation:* This example shows how to use queries to filter the data counted, ensuring only relevant items are included in the total.
-
-### 3.4 Widget Display Configuration
-
-The `display` property allows customization of how the Count Widget is displayed on the dashboard.
-
-| Property               | Type    | Required | Description                                                          |
-| ---------------------- | ------- | -------- | -------------------------------------------------------------------- |
-| `label`                | string  | Yes      | Defines the text under the number represented in the count widget.   |
-| `pluralLabel`          | string  | No       | The same as `label` but used for values higher than 1.               |
-| `displayType`          | string  | Yes      | Determines the representation of the widget, either "horizontal" or "vertical". |
-| `icon`                 | string  | Yes      | The icon used in the widget.                                         |
-| `iconColor`            | string  | No       | The color of the icon in the widget.                                 |
-| `iconBackgroundColor`  | string  | No       | The color of the circular background around the icon in the widget.  |
-
-#### Example
-
-```json
-{
-  "label": "Active",
-  "pluralLabel": "Active",
-  "displayType": "vertical",
-  "icon": "view_timeline",
+  "moduleid": 123,
+  "label": "kr.",
+  "pluralLabel": "kr.",
+  "icon": "file-plus-minus",
   "iconColor": "white",
-  "iconBackgroundColor": "#68aa68"
-}
-```
-
-*Explanation:* This example shows how to configure the display settings of the Count Widget, including labels, icon, and layout options to customize its appearance.
-
-### 3.5 Tap Actions Configuration
-
-The `tapActions` property allows you to configure what happens when the user taps on the Count Widget.
-
-| Property     | Type   | Required | Description                                                    |
-| ------------ | ------ | -------- | -------------------------------------------------------------- |
-| `tapActions` | object | No       | Defines the actions that occur when the widget is tapped.      |
-| `tap`        | object | Yes      | Specifies the action to be performed when tapping the widget.  |
-| `action`     | string | Yes      | The type of action to perform, currently only "tab" is supported. |
-| `value`      | string | Yes      | The tab that will be opened when the widget is tapped. The value is the last part of the URL for that given tab. |
-
-#### Example
-
-```json
-{
-  "tapActions": {
-    "tap": {
-      "action": "tab",
-      "value": "customerstab_projects"
+  "iconBackgroundColor": "#2c2c80",
+  "mobileSize": 3,
+  "variant": 2,
+  "relations": {
+    "module77": {
+      "parent": 77,
+      "child": 123,
+      "relationid": 133
     }
-  }
+  },
+  "decimals": 2,
+  "query": [
+    ["module77Item.id", "=", "[itemid]"]
+  ],
+  "formel": "(cf1245-cf1244)/cf1245*100"
 }
 ```
 
-*Explanation:* This example demonstrates how to configure a tap action that opens a specific tab when the Count Widget is tapped. The `value` property specifies the tab to open by using the last part of the tab's URL.
+*This example calculates a percentage using two custom fields and displays the result with two decimals.*
 
-### 3.6 Variant Configuration
+## Options & Parameters
+- **moduleid** (integer, required): The module to count items from.
+- **relations** (object, optional): Define relationships to other modules. See [JSON Relations Documentation](/docs/JSON/json-relations).
+- **query** (array, optional): Filter which items are counted. See [JSON Query Documentation](/docs/JSON/json-query).
+- **label** (string, required): Text label under the number.
+- **pluralLabel** (string, optional): Label for values greater than 1.
+- **formel** (string, optional): Formula for calculating a value using custom fields (e.g., `"(cf1245-cf1244)/cf1245*100"`).
+- **decimals** (integer, optional): Number of decimals to show for calculated values.
+- **tapActions** (object, optional): Actions when tapping the widget. Example:
+  - **tap** (object):
+    - **action** (string): Action type (currently only "tab").
+    - **value** (string): Tab to open (last part of the tab's URL).
+- **variant** (string): Visual style of the widget.  
+  - `outlined` (default)  
+  - `soft`
+- **mobileSize** (integer, optional): Size (1–12) for mobile devices.
 
-The `variant` property allows you to select between different visual styles for the Count Widget.
-
-| Property   | Type    | Required | Description                                             |
-| ---------- | ------- | -------- | ------------------------------------------------------- |
-| `variant`  | integer | No       | Specifies the visual style of the widget. Available values are: 1 (default) and 2 (soft) |
-
-#### Example
-
-```json
-{
-  "variant": 2
-}
-```
-
-*Explanation:* This example demonstrates how to configure the `variant` property to apply the "soft" visual style to the Count Widget. Variants allow for visual differentiation and customization depending on user preference.
-
-### 3.7 Mobile Size Configuration
-
-The `mobileSize` property allows you to set an alternative size for the widget when viewed on a mobile device.
-
-| Property     | Type    | Required | Description                                                                |
-| ------------ | ------- | -------- | -------------------------------------------------------------------------- |
-| `mobileSize` | integer | No       | A number between 1 and 12 that gives an alternative size for the widget on mobile devices. |
-
-#### Example
-
-```json
-{
-  "mobileSize": 3
-}
-```
-
-*Explanation:* This example shows how to configure the `mobileSize` property to specify an alternative size for the widget when viewed on mobile devices. This allows for better optimization and display of the widget depending on the screen size and orientation.
+## Related Links
+- [JSON Query Documentation](/docs/JSON/json-query)
+- [JSON Relations Documentation](/docs/JSON/json-relations)
+- [Common Widget Properties](/docs/modules/widgets/common-properties.md)

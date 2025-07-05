@@ -26,7 +26,13 @@ To update a module’s name and icon:
 - **Parent relationship** (Module Relation): Parent module (if any)
 - **Title column** (Customfield): Main title field for the module
 - **Subtitle columns** (Customfields): Subtitle fields for the module
+- **options** (JSON editor): Advanced settings for the module. You can add supported properties here to control module behavior.
+  - **permissionFields** (array of customfield keynames): A supported method for restricting item view access. Specifies which custom fields act as view permissions for module items. If a module item uses user or group-based permissions, the logged-in user's name or group must be present in at least one of these fields to grant view access to that item.
 
-## Related Links
-- [Module Item Types](/docs/modules/module-item-types.md)
-- [Custom Fields](/docs/modules/customfields.md)
+  **Example:**
+  ```json
+  {
+    "permissionFields": ["cf1234", "cf5678"]
+  }
+  ```
+  If the permission type on the item is user or group, and the user's name or group is found in any of these fields, they will have view access to the item.
