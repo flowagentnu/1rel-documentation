@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_1_relation_documentation=self.webpackChunk_1_relation_documentation||[]).push([[8121],{8070:n=>{n.exports=JSON.parse('{"tags":[{"label":"announcement","permalink":"/blog/tags/announcement","count":1},{"label":"documentation","permalink":"/blog/tags/documentation","count":1}]}')}}]);

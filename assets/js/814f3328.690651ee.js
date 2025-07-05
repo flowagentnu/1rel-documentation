@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_1_relation_documentation=self.webpackChunk_1_relation_documentation||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome to the FlowAgent Documentation!","permalink":"/blog/welcome-july-2025","unlisted":false,"date":"2025-07-05T00:00:00.000Z"}]}')}}]);
