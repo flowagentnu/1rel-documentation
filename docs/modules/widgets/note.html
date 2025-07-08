@@ -10,7 +10,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="FlowAgent Documentation" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.83215ce4.css">
-<script src="/assets/js/runtime~main.9822810e.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.14440414.js" defer="defer"></script>
 <script src="/assets/js/main.a93b895f.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -26,14 +26,14 @@
 <li>Displays a WYSIWYG editor for writing notes.</li>
 <li>Notes are saved and associated with the given item and a required title.</li>
 <li>The <code>title</code> is used internally to identify and retrieve the note (not shown to users). This allows multiple notes per item.</li>
-<li>If <code>itemId</code> is not set, the current item (if any) is used.</li>
+<li>If <code>itemid</code> is not set, the current item (if any) is used.</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="usage-example">Usage Example<a href="#usage-example" class="hash-link" aria-label="Direct link to Usage Example" title="Direct link to Usage Example">​</a></h2>
-<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;itemId&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1234</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;title&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;internal_note&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;itemid&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1234</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;title&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;internal_note&quot;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
 <p><em>This example creates or displays a note for item 1234, identified by the title <code>internal_note</code>.</em></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="options--parameters">Options &amp; Parameters<a href="#options--parameters" class="hash-link" aria-label="Direct link to Options &amp; Parameters" title="Direct link to Options &amp; Parameters">​</a></h2>
 <ul>
-<li><strong>itemId</strong> (integer, optional): The item to show the note for. If not set, uses the current item (if any).</li>
+<li><strong>itemid</strong> (integer, optional): The item to show the note for. If not set, uses the current item (if any).</li>
 <li><strong>title</strong> (string, required): Internal identifier for the note. Required to ensure notes can be referenced and managed later. Not shown to users.</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="related-links">Related Links<a href="#related-links" class="hash-link" aria-label="Direct link to Related Links" title="Direct link to Related Links">​</a></h2>
