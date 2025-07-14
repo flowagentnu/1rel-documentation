@@ -28,6 +28,7 @@ Use the Table Widget when you want to present lists of items, allow users to fil
   - **showDownloadPrint** (boolean): Allow printing results.
   - **allowRowSelect** (boolean): Allow selecting rows.
   - **allowOrdering** (boolean): Allow sorting columns.
+  - **allowSorting** (boolean, default: true): Enable or disable all sorting features. If set to false, disables sorting for the table.
   - **allowMobileCards** (boolean): Show results as cards on mobile.
   - **allowMobileChips** (boolean): Show results as chips on mobile.
   - **useChipsAfter** (integer): Use chips layout after this number of columns.
@@ -48,6 +49,7 @@ Show a table with powerSearch enabled and advanced options:
     "showDownloadPrint": false,
     "allowRowSelect": false,
     "allowOrdering": true,
+    "allowSorting": false,
     "allowMobileCards": true,
     "allowMobileChips": true,
     "useChipsAfter": 6,
@@ -59,6 +61,8 @@ Show a table with powerSearch enabled and advanced options:
 }
 ```
 *When powerSearch is enabled, configure all columns, filters, and relations inside the powerSearch object. Root-level columns, query, and relations are ignored. The lists property is now an array of keyNames (strings) for saved views.*
+
+**allowSorting** (default: true) disables all sorting features for the table when set to false. Use this if you want to prevent users from sorting columns in the table widget.
 
 ## Usage Example: Without powerSearch
 Show a table using direct columns and query configuration:
