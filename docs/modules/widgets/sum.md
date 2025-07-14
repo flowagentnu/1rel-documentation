@@ -73,6 +73,7 @@ You can use the `formel` property to calculate a value based on custom fields. F
 
 *This example calculates a percentage using two custom fields and displays the result with two decimals.*
 
+
 ## Options & Parameters
 
 - **moduleid** (integer, required): The module to sum data from.
@@ -92,6 +93,9 @@ You can use the `formel` property to calculate a value based on custom fields. F
     - **value** (string): Tab to open (last part of the tab's URL).
 - **variant** (integer, optional): Visual style (1 = default, 2 = soft).
 - **mobileSize** (integer, optional): Size (1–12) for mobile devices.
+- **format** (string, optional): How to display the summed value. Options:
+  - `"number"` (default): Shows the value as a regular number (e.g., 5.5).
+  - `"hmformat"`: Formats the value (given in hours) as a human-readable time, e.g., `5.5` becomes `5h 30m`.
 
 ## Related Links
 - [JSON Query Documentation](/docs/JSON/json-query)
