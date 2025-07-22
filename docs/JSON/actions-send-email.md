@@ -11,7 +11,7 @@ Use this page when you want to send emails automatically from actions or automat
 - Attach files if needed.
 
 ## Usage Example
-**Send an email to a static address:**
+**Send an email to a static address (with CC and BCC):**
 ```json
 {
   "documentKeyName": "mltiderdoc_dette-er-min-document-email",
@@ -23,6 +23,14 @@ Use this page when you want to send emails automatically from actions or automat
   "previewText": "This is my preview text",
   "attachments": [
     { "name": "file.pdf", "url": "https://example.com/file.pdf" }
+  ],
+  "cc": [
+    { "user": 1 },
+    { "name": "Giacomo Lindorff", "email": "giacomo@flowagent.nu" }
+  ],
+  "bcc": [
+    { "name": "Emil Andreæ", "email": "emil@flowagent.nu" },
+    { "user": 2 }
   ]
 }
 ```
