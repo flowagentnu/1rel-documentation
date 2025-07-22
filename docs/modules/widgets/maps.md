@@ -57,13 +57,15 @@ Use the Maps Widget to show the spatial distribution of items, such as customers
       "Entreprise": "#6060ff",
       "Tilsyn": "green"
     }
-  }
+  },
+  "showRoute": true
 }
 ```
 
 *This example configures a map with custom marker icons, colors, popups, filtered data, highlights the current item, and shows all users on the map if GPS tracking is enabled for them.*
 
 ## Options & Parameters
+- **showRoute** (boolean, optional, default: false): If true, displays a driving route from the starting point (the defined `lat`/`lng` or first item) through all items provided by the query, in order. The route is shown as a blue line and the total distance is displayed on the map.
 - **moduleid** (integer, required): The module to display data from.
 - **lat** (string, required for single item): Latitude value (can use placeholders like `[cf1154]`).
 - **lng** (string, required for single item): Longitude value (can use placeholders like `[cf1155]`).
