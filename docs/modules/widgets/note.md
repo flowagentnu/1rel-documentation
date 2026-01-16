@@ -15,7 +15,8 @@ Use the Note Widget to add rich-text notes, instructions, or comments to a speci
 ```json
 {
   "itemid": 1234,
-  "title": "internal_note"
+  "title": "internal_note",
+  "hideNoteWhenEmpty": false
 }
 ```
 *This example creates or displays a note for item 1234, identified by the title `internal_note`.*
@@ -23,6 +24,7 @@ Use the Note Widget to add rich-text notes, instructions, or comments to a speci
 ## Options & Parameters
 - **itemid** (integer, optional): The item to show the note for. If not set, uses the current item (if any).
 - **title** (string, required): Internal identifier for the note. Required to ensure notes can be referenced and managed later. Not shown to users.
+- **hideNoteWhenEmpty** (boolean, optional): If set to true, the widget will be hidden when there is no note content. Default is false.
 
 ## Related Links
 - [Common Widget Properties](/docs/modules/widgets/common-properties.md)
