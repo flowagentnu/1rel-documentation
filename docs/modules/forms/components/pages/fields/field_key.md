@@ -28,7 +28,8 @@ The `key` object specifies the configuration for a single input field. It suppor
     "required": true,
     "defaultValue": "",
     "labels": { "da": "Kundenavn" },
-    "metadata": { "minLength": 2 }
+    "metadata": { "minLength": 2 },
+    "width": 6
   }
 }
 ```
