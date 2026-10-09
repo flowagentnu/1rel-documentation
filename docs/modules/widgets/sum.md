@@ -1,21 +1,20 @@
 # Sum Widget
 
-The Sum Widget displays a total or sum of values from a module, letting you quickly show key metrics or totals on your dashboard. Tapping the widget can open a subpage with more details.
+The Sum Widget is a tile in the top row that adds up the values of one or more fields across the records that match your filters, such as hours worked today, total sales, or the remaining budget of a project. It can also calculate with a formula, and its result can be saved into a field every night. Clicking the tile can open a tab or a web address.
 
 ## When to Use
-Use the Sum Widget to highlight totals, KPIs, or any aggregated value from a module—such as hours worked, total sales, or open tasks.
+Use the Sum Widget to highlight a total: hours registered by the logged-in user today, the total value of a customer's orders, or a percentage calculated from two totals.
 
 ## How It Works
-- Configure the widget with the module ID and the field(s) to sum.
-- Optionally filter data using a query or show related data with relations.
-- You can use the `formel` property to calculate a value based on custom fields (e.g., percentages, differences).
-- Customize appearance with labels, icons, colors, and layout.
-- Add tap actions to open tabs or subpages.
-- Adjust size for mobile devices.
-- The Sum Widget can be placed in both top and main widget areas, depending on your dashboard layout.
+- Everything can be set in the form on the [widget settings page](/docs/modules/widgets/widget-settings). The relevant sections are **Which records** (module, related modules, filters), **Number** (fields to add up, decimals, format and formula) and **Tile** (look and click action).
+- The widget takes the records of `moduleid` that match `query` (only records the user may read) and adds up the fields in `columns`. With several fields, all of them are added into one number.
+- **Always set `moduleid`.** Without a module, records of all modules that match the filters are included, and without both a module and filters the tile shows `-1`. The tile also shows `-1` when no fields are chosen.
+- With `formel`, you decide how the fields are combined, for example a difference or a percentage. The formula can be applied once to the totals, or to each record before the results are added up (`formelType: "individual"`).
+- The number is loaded when the tile comes into view, and is updated after records are changed on the page.
+- **Save the result every night in field** (a setting next to Size on the widget settings page, for widgets on a module): every night, the result is calculated for each active record of the module, as if the widget was shown on that record's page, and saved in the chosen field of that record. The value is saved as it is shown on the tile. This makes the total available for lists, filters and automations.
 
 ## Usage Example
-A complete JSON configuration for a Sum Widget:
+Hours registered by the logged-in user today, shown as hours and minutes. Clicking the tile opens the time registration tab.
 
 ```json
 {
@@ -24,38 +23,32 @@ A complete JSON configuration for a Sum Widget:
     ["cf949.string", "=", "[user]"],
     ["cf953.string", "=", "[datenow]"]
   ],
-  "label": "Hour",
-  "pluralLabel": "Hours",
-  "displayType": "vertical",
-  "icon": "nest_clock_farsight_analog",
-  "iconColor": "white",
+  "columns": [
+    { "keyName": "timesheet_hours" }
+  ],
+  "format": "hmformat",
+  "label": "Today",
+  "icon": "clock",
   "iconBackgroundColor": "orange",
+  "variant": "soft",
+  "mobileSize": 6,
   "tapActions": {
     "tap": {
       "action": "tab",
       "value": "dashboardtab_mont-rtimer"
     }
-  },
-  "variant": 2,
-  "mobileSize": 3
+  }
 }
 ```
 
-*This example shows all main options: data source, filtering, display, tap actions, variant, and mobile size.*
+*This example shows a total of one field, filtered to the logged-in user and today, with a soft (coloured) tile and a click action.*
 
-## Calculation Example
-You can use the `formel` property to calculate a value based on custom fields. For example, to show a percentage:
+## Calculation Example: formula on the totals
+The contribution margin of a project in percent, calculated from the totals of two fields (`cf1245` is the sales value, `cf1244` the cost) of the related records. Both fields must be in `columns`.
 
 ```json
 {
   "moduleid": 123,
-  "label": "kr.",
-  "pluralLabel": "kr.",
-  "icon": "file-plus-minus",
-  "iconColor": "white",
-  "iconBackgroundColor": "#2c2c80",
-  "mobileSize": 3,
-  "variant": 2,
   "relations": {
     "module77": {
       "parent": 77,
@@ -63,42 +56,89 @@ You can use the `formel` property to calculate a value based on custom fields. F
       "relationid": 133
     }
   },
-  "decimals": 2,
   "query": [
     ["module77Item.id", "=", "[itemid]"]
   ],
-  "formel": "(cf1245-cf1244)/cf1245*100"
+  "columns": [
+    { "keyName": "lines_salesvalue" },
+    { "keyName": "lines_cost" }
+  ],
+  "formel": "(cf1245-cf1244)/cf1245*100",
+  "decimals": 2,
+  "label": "Margin",
+  "postfix": "%",
+  "icon": "percent",
+  "iconBackgroundColor": "#2c2c80",
+  "variant": "soft"
 }
 ```
 
-*This example calculates a percentage using two custom fields and displays the result with two decimals.*
+*The formula is applied once: (total sales − total cost) / total sales × 100.*
 
+## Calculation Example: formula per record
+The total price of all lines, where each line's price is quantity × unit price (`cf12` × `cf13`). Each record's result is rounded up to a whole number before the results are added up.
+
+```json
+{
+  "moduleid": 123,
+  "relations": {
+    "module77": { "parent": 77, "child": 123, "relationid": 133 }
+  },
+  "query": [
+    ["module77Item.id", "=", "[itemid]"]
+  ],
+  "columns": [
+    { "keyName": "lines_quantity" },
+    { "keyName": "lines_unitprice" }
+  ],
+  "formel": "cf12*cf13",
+  "formelType": "individual",
+  "ceilPerIndividual": true,
+  "label": "Total price",
+  "prefix": "kr.",
+  "icon": "coins"
+}
+```
+
+*Without `formelType: "individual"`, the formula would multiply the total quantity by the total unit price, which is not the same.*
 
 ## Options & Parameters
 
-- **moduleid** (integer, required): The module to sum data from.
-- **relations** (object, optional): Define relationships to other modules. See [JSON Relations Documentation](/docs/JSON/json-relations).
-- **query** (array, optional): Filter data to sum. See [JSON Query Documentation](/docs/JSON/json-query).
-- **label** (string, required): Text label under the number.
-- **pluralLabel** (string, optional): Label for values greater than 1.
-- **formel** (string, optional): Formula for calculating a value using custom fields (e.g., `"(cf1245-cf1244)/cf1245*100"`).
-- **decimals** (integer, optional): Number of decimals to show for calculated values.
-- **displayType** (string, required): "horizontal" or "vertical" layout.
-- **icon** (string, required): Widget icon (Google Fonts icon name).
-- **iconColor** (string, optional): Icon color (hex code).
-- **iconBackgroundColor** (string, optional): Icon background color (hex code).
-- **tapActions** (object, optional): Actions when tapping the widget. Example:
-  - **tap** (object):
-    - **action** (string): Action type (currently only "tab").
-    - **value** (string): Tab to open (last part of the tab's URL).
-- **variant** (integer, optional): Visual style (1 = default, 2 = soft).
-- **mobileSize** (integer, optional): Size (1–12) for mobile devices.
-- **format** (string, optional): How to display the summed value. Options:
-  - `"number"` (default): Shows the value as a regular number (e.g., 5.5).
-  - `"hmformat"`: Formats the value (given in hours) as a human-readable time, e.g., `5.5` becomes `5h 30m`.
+### Which records
+- **moduleid** (integer, always set it): The module whose records are added up.
+- **query** (array, optional): Which records are included, see [JSON Query](/docs/JSON/json-query). [Placeholders](/docs/misc/replaceables) like `[itemid]`, `[user]` and `[datenow]` can be used.
+- **relations** (object, optional): Needed when `query` filters on related records, see [JSON Relations](/docs/JSON/json-relations).
+
+### Number
+- **columns** (array, required): The fields to add up, each as `{ "keyName": "field_keyname" }`. See [JSON Columns](/docs/JSON/json-columns). Only fields are used; other column kinds are ignored. With several fields, their totals are added into one number, unless `formel` decides otherwise.
+- **decimals** (integer, default `0`): Number of decimals shown.
+- **format** (string, default `"number"`): How the result is shown.
+  - `"number"`: a normal number in the user's number format, e.g. `5,5`.
+  - `"hmformat"`: the result is read as hours and shown as hours and minutes, e.g. `5.5` becomes `5h 30m`. `decimals` is not used.
+  - `format` has no effect when `formel` is set.
+- **formel** (string, optional): A formula using the fields as `cf<field id>` (the field's id, not its keyname), numbers, `+ - * /` and parentheses, e.g. `"(cf1245-cf1244)/cf1245*100"`. Every field in the formula must also be in `columns`. If the formula cannot be calculated, the tile shows `0`.
+- **formelType** (string, optional): When the formula is applied.
+  - Not set (default): once, with the totals of the fields. `cf12*cf13` gives total of cf12 × total of cf13.
+  - `"individual"`: to each record, and the results are added up. `cf12*cf13` gives the sum of cf12 × cf13 of each record. An empty value counts as 0, and records where the formula cannot be calculated are skipped.
+- **ceilPerIndividual** (boolean, default `false`): Only with `formelType: "individual"`. Rounds each record's result up to a whole number before adding up.
+
+### Saving the result
+- **Save the result every night in field**: chosen on the widget settings page, not in the JSON. See How It Works.
+
+### Tile
+- **label** / **labels**: The text under the number. See [Common Widget Properties](/docs/modules/widgets/common-properties).
+- **icon**, **iconBackgroundColor**, **mobileSize**, **compactMode**, **variant** (`"soft"` for a coloured tile), **prefix**, **postfix** and **tapActions** (open a `url` or go to a `tab` on click) are the shared tile settings, described in [Common Widget Properties: Top Tiles](/docs/modules/widgets/common-properties#top-tiles). Icons are Font Awesome names.
+
+### Old settings without effect
+- **pluralLabel** and **displayType** are not used by the platform and can be removed.
+- **iconColor** has no effect on tiles; the icon is always white.
 
 ## Related Links
-- [JSON Query Documentation](/docs/JSON/json-query)
-- [JSON Relations Documentation](/docs/JSON/json-relations)
-- [Common Widget Properties](/docs/modules/widgets/common-properties.md)
-
+- [Widget Settings](/docs/modules/widgets/widget-settings)
+- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [JSON Query](/docs/JSON/json-query)
+- [JSON Relations](/docs/JSON/json-relations)
+- [JSON Columns](/docs/JSON/json-columns)
+- [Placeholders (Replaceables)](/docs/misc/replaceables)
+- [Count Widget](/docs/modules/widgets/count)
+- [Average Widget](/docs/modules/widgets/average)

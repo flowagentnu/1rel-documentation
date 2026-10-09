@@ -1,23 +1,27 @@
 # Icons Reference
 
-A quick reference for using icons in FlowAgent modules, dashboards, and UI elements.
+A quick reference for using icons in FlowAgent modules, tabs, item types, widgets and buttons.
 
 ## When to Use
 Use this page when you want to add or customize icons in your modules or dashboards.
 
 ## How It Works
-- FlowAgent supports a wide range of icons for visual clarity and branding.
-- Icons can be set in module settings, dashboard widgets, and other UI elements.
-- Icon set are FontAwesome, which provides a comprehensive collection of icons.
+- FlowAgent uses [Font Awesome](https://fontawesome.com/search?o=r&s=regular) icons, shown in the *regular* style.
+- Write the icon name **without** the `fa-` prefix, e.g. `user`, `calendar`, `chart-pie`.
+- Icons can be set on tabs, item types, widgets, columns, actional buttons and map markers.
+- In the widget settings form, icon fields show a preview of the icon and a **Browse icons** link.
 
 ## Usage Example
-**Setting an icon in a module configuration (JSON):**
+**Setting the icon of a widget (JSON):**
 ```json
 {
-  "icon": "fa-user"
+  "icon": "user",
+  "iconColor": "#ffffff",
+  "iconBackgroundColor": "#6060ff"
 }
 ```
 
 ## Tips
 - Use icons to make navigation easier and interfaces more intuitive.
-- Refer to FontAwesome for the official icon set documentation for available icon names.
+- If an icon shows as an empty square, the name is not a Font Awesome name. Names from other icon sets (e.g. Material names like `home_work` or `pin_drop`) do not work.
+- Search the [Font Awesome icon list](https://fontawesome.com/search?o=r&s=regular) for available names.

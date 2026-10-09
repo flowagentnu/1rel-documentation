@@ -1,19 +1,19 @@
 # Count Widget
 
-The Count Widget displays a total count of items from a module, letting you quickly show key metrics or totals on your dashboard. Tapping the widget can open a subpage with more details.
+The Count Widget is a tile in the top row that shows how many records match your filters, such as open tasks, active projects of a customer, or jobs completed today. Clicking the tile can open a tab or a web address.
 
 ## When to Use
-Use the Count Widget to highlight totals, KPIs, or any count of items from a module—such as open tasks, active users, or completed jobs.
+Use the Count Widget to highlight a number of records: a KPI on a dashboard, or the number of related records on a record page.
 
 ## How It Works
-- Configure the widget with the module ID and optional relations.
-- Use queries to filter which items are counted.
-- Optionally use the `formel` property to calculate a value based on custom fields (e.g., percentages, differences).
-- Customize appearance with labels, icons, colors, and layout.
-- Add tap actions to open tabs or subpages.
-- Adjust size for mobile devices and select a visual variant.
+- Everything can be set in the form on the [widget settings page](/docs/modules/widgets/widget-settings). The relevant sections are **Which records** (module, related modules, filters), **Number** (decimals) and **Tile** (look and click action).
+- The widget counts the records of `moduleid` that match `query`. Only records the user may read are counted.
+- **Always set `moduleid`.** Without a module, records of all modules that match the filters are counted, and without both a module and filters the tile shows `-1`.
+- To count records related to the record the page shows, add the relation in `relations` and filter on `[itemid]`.
+- The number is loaded when the tile comes into view, and is updated after records are changed on the page.
 
 ## Usage Example
+Counts the projects related to the customer the page shows. Clicking the tile opens the customer's projects tab.
 
 ```json
 {
@@ -28,72 +28,62 @@ Use the Count Widget to highlight totals, KPIs, or any count of items from a mod
   "query": [
     ["module112Item.id", "=", "[itemid]"]
   ],
-  "label": "Active",
-  "pluralLabel": "Active",
-  "icon": "view_timeline",
-  "iconColor": "white",
+  "label": "Active projects",
+  "icon": "folder-open",
   "iconBackgroundColor": "#68aa68",
+  "variant": "soft",
+  "mobileSize": 6,
   "tapActions": {
     "tap": {
       "action": "tab",
       "value": "customerstab_projects"
     }
-  },
-  "mobileSize": 3,
-  "variant": 2
+  }
 }
 ```
 
-*This example shows a count of related items, filtered by query, with custom display and tap action.*
+*This example shows a count of related records, with a soft (coloured) tile, half width on mobile, and a click action that opens a tab.*
 
-## Calculation Example
-You can use the `formel` property to calculate a value based on custom fields. For example, to show a percentage:
+## Usage Example: My open tasks on a dashboard
 
 ```json
 {
-  "moduleid": 123,
-  "label": "kr.",
-  "pluralLabel": "kr.",
-  "icon": "file-plus-minus",
-  "iconColor": "white",
-  "iconBackgroundColor": "#2c2c80",
-  "mobileSize": 3,
-  "variant": 2,
-  "relations": {
-    "module77": {
-      "parent": 77,
-      "child": 123,
-      "relationid": 133
-    }
-  },
-  "decimals": 2,
+  "moduleid": 105,
   "query": [
-    ["module77Item.id", "=", "[itemid]"]
+    ["cf949.string", "=", "[user]"],
+    ["cf950.string", "!=", "option_312"]
   ],
-  "formel": "(cf1245-cf1244)/cf1245*100"
+  "label": "My open tasks",
+  "icon": "list-check",
+  "postfix": "tasks"
 }
 ```
 
-*This example calculates a percentage using two custom fields and displays the result with two decimals.*
-
 ## Options & Parameters
-- **moduleid** (integer, required): The module to count items from.
-- **relations** (object, optional): Define relationships to other modules. See [JSON Relations Documentation](/docs/JSON/json-relations).
-- **query** (array, optional): Filter which items are counted. See [JSON Query Documentation](/docs/JSON/json-query).
-- **label** (string, required): Text label under the number.
-- **pluralLabel** (string, optional): Label for values greater than 1.
-- **formel** (string, optional): Formula for calculating a value using custom fields (e.g., `"(cf1245-cf1244)/cf1245*100"`).
-- **decimals** (integer, optional): Number of decimals to show for calculated values.
-- **tapActions** (object, optional): Actions when tapping the widget. Example:
-  - **tap** (object):
-    - **action** (string): Action type (currently only "tab").
-    - **value** (string): Tab to open (last part of the tab's URL).
-- **variant** (string): Visual style of the widget.  
-  - `outlined` (default)  
-  - `soft`
-- **mobileSize** (integer, optional): Size (1–12) for mobile devices.
+
+### Which records
+- **moduleid** (integer, always set it): The module whose records are counted.
+- **query** (array, optional): Which records are counted, see [JSON Query](/docs/JSON/json-query). [Placeholders](/docs/misc/replaceables) like `[itemid]` and `[user]` can be used.
+- **relations** (object, optional): Needed when `query` filters on related records, see [JSON Relations](/docs/JSON/json-relations).
+
+### Number
+- **decimals** (integer, default `0`): Number of decimals shown.
+- **columns** (array, optional): Only needed when a filter uses fields that must be joined. It does not change the count. Usually left out.
+
+### Tile
+- **label** / **labels**: The text under the number. See [Common Widget Properties](/docs/modules/widgets/common-properties).
+- **icon**, **iconBackgroundColor**, **mobileSize**, **compactMode**, **variant** (`"soft"` for a coloured tile), **prefix**, **postfix** and **tapActions** (open a `url` or go to a `tab` on click) are the shared tile settings, described in [Common Widget Properties: Top Tiles](/docs/modules/widgets/common-properties#top-tiles). Icons are Font Awesome names.
+
+### Old settings without effect
+- **pluralLabel** and **displayType** are not used by the platform and can be removed.
+- **iconColor** has no effect on tiles; the icon is always white.
+- **formel** and **format** are not used by the Count Widget. To calculate with field values, use the [Sum Widget](/docs/modules/widgets/sum) or the [Average Widget](/docs/modules/widgets/average).
 
 ## Related Links
-- [JSON Query Documentation](/docs/JSON/json-query)
-- [JSON Relations Documentation](/docs/JSON/json-relations)
-- [Common Widget Properties](/docs/modules/widgets/common-properties.md)
+- [Widget Settings](/docs/modules/widgets/widget-settings)
+- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [JSON Query](/docs/JSON/json-query)
+- [JSON Relations](/docs/JSON/json-relations)
+- [Placeholders (Replaceables)](/docs/misc/replaceables)
+- [Sum Widget](/docs/modules/widgets/sum)
+- [Average Widget](/docs/modules/widgets/average)
