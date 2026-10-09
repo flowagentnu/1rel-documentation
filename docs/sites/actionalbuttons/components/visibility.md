@@ -88,4 +88,4 @@ Group multiple buttons into one. Clicking the group button opens a modal with th
 - Use `condition` to show/hide buttons based on item or user context.
 - Use `popconfirm` for actions that need confirmation.
 - Use `actionalButtons` to group related actions under a single button.
-- Reference the [Icons documentation](/docs/misc/icons) for icon names.
+- Reference the [Icons documentation](../../../misc/icons.md) for icon names.

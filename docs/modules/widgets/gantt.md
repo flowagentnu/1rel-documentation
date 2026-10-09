@@ -6,7 +6,7 @@ The Gantt Widget shows records as bars on a timeline, from a start date to an en
 Use the Gantt Widget to plan and follow up on work over time, for example the tasks of a project, all running projects with their tasks, or the bookings of a team.
 
 ## How It Works
-- **Records** come from the module in `moduleid`, filtered by `query`. Use `relations` to use fields of related modules, for example the project a task belongs to. In the [form editor on the widget settings page](/docs/modules/widgets/widget-settings) this is the **Which records** section; the bar settings are in the **Gantt chart** section.
+- **Records** come from the module in `moduleid`, filtered by `query`. Use `relations` to use fields of related modules, for example the project a task belongs to. In the [form editor on the widget settings page](./widget-settings.md) this is the **Which records** section; the bar settings are in the **Gantt chart** section.
 - Each record becomes a row with a bar from `startField` to `endField` (both days included). The row's name is `titleField` and links to the record.
 - Each row has two percentages:
   - **DL%** (deadline %): how much of the period from start to end has passed today.
@@ -64,8 +64,8 @@ Use the Gantt Widget to plan and follow up on work over time, for example the ta
 
 ### Which records
 - **moduleid** (number, required): the module whose records are shown. Only records the user may read are shown.
-- **query** (list, default: none): filters for the records, for example `["module167Item.id", "=", "[itemid]"]` for the tasks of the project of the page. See [JSON Query](/docs/JSON/json-query).
-- **relations** (object, default: none): joins related modules, so that their fields can be used in filters and in the `gantt` settings (for example a project's name and status). See [JSON Relations](/docs/JSON/json-relations).
+- **query** (list, default: none): filters for the records, for example `["module167Item.id", "=", "[itemid]"]` for the tasks of the project of the page. See [JSON Query](../../JSON/json-query.md).
+- **relations** (object, default: none): joins related modules, so that their fields can be used in filters and in the `gantt` settings (for example a project's name and status). See [JSON Relations](../../JSON/json-relations.md).
 
 ### Gantt chart (`gantt` object)
 All values are field **keynames**. Fields of related modules can be used when the relation is added under `relations`.
@@ -81,11 +81,11 @@ All values are field **keynames**. Fields of related modules can be used when th
 - **parentField** (string, default: none): field holding the record id of another record in the chart; the record is shown under that record. Only used when `projectField` and `groupField` are empty.
 
 ### General settings
-Title, icon and size work as described in [Common Widget Properties](/docs/modules/widgets/common-properties).
+Title, icon and size work as described in [Common Widget Properties](./common-properties.md).
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [JSON Query Documentation](/docs/JSON/json-query)
-- [JSON Relations Documentation](/docs/JSON/json-relations)
-- [Replaceables](/docs/misc/replaceables)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [Widget Settings](./widget-settings.md)
+- [JSON Query Documentation](../../JSON/json-query.md)
+- [JSON Relations Documentation](../../JSON/json-relations.md)
+- [Replaceables](../../misc/replaceables.md)
+- [Common Widget Properties](./common-properties.md)

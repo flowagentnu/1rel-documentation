@@ -8,7 +8,7 @@ Use this page when you want to define or use items in your Forms configuration.
 ## How It Works
 - The `items` object defines which data items the button interacts with (for conditions, actions, or populating forms).
 - Each key in the `items` object is a variable name for use in conditions or actions.
-- Values are arrays of conditions, using the [JSON Query Documentation](/docs/JSON/json-query.md).
+- Values are arrays of conditions, using the [JSON Query Documentation](../../../JSON/json-query.md).
 
 ## Usage Example
 ```json
@@ -29,4 +29,4 @@ Use this page when you want to define or use items in your Forms configuration.
 
 ## Tips
 - Use variable names that make sense for your use case.
-- Reference the [JSON Query Documentation](/docs/JSON/json-query.md) for condition syntax.
+- Reference the [JSON Query Documentation](../../../JSON/json-query.md) for condition syntax.

@@ -10,7 +10,7 @@ Use Powersearch when you need to locate specific items, run complex searches, or
 - You can use Powersearch as a standalone feature on the module page or embed it in a widget table.
 - Enter keywords, select filters, or build advanced queries.
 - Results update in real time as you refine your search.
-- Configure columns with options like clickable, editable, sort, backgroundColor, and textColor. See [JSON Columns](/docs/JSON/json-columns.md) for all supported options.
+- Configure columns with options like clickable, editable, sort, backgroundColor, and textColor. See [JSON Columns](../JSON/json-columns.md) for all supported options.
 - Use filters to predefine search criteria.
 - Use relations to join related modules.
 
@@ -42,7 +42,7 @@ A full Powersearch configuration might look like this:
   }
 }
 ```
-*This configuration sets up filters, advanced column options, and joins related modules for a powerful search experience. See [JSON Columns](/docs/JSON/json-columns.md) for all available column options.*
+*This configuration sets up filters, advanced column options, and joins related modules for a powerful search experience. See [JSON Columns](../JSON/json-columns.md) for all available column options.*
 
 ## Options & Parameters
 - **filters** (array, optional): Predefined search criteria. Each filter is `[field, operator, value]`.

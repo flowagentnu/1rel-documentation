@@ -138,7 +138,7 @@ These are replaced in **every** setting of every widget type (titles, filters, c
 | `[itemname]` | The title of the page record. |
 
 ### Only in filter values, calculated columns and Smart Text
-These are only replaced in the **values** of a `query` (and in lookups of [calculated columns](/docs/JSON/json-columns.md#calculated-static-columns)), in the `value` of calculated columns and in the text of a Smart Text widget:
+These are only replaced in the **values** of a `query` (and in lookups of [calculated columns](../JSON/json-columns.md#calculated-static-columns)), in the `value` of calculated columns and in the text of a Smart Text widget:
 
 - user details: `[usergroups]`, `[user.name]`, `[user.email]`, ...
 - dates: `[datenow]`, `[datenow-7]`, `[dateweek]`, `[datemonth]`, `[timenow]`, ... (with offsets)
@@ -182,9 +182,9 @@ A Table widget on a Project page that lists the open tasks of the project's cust
 ## Related Links
 - [Custom Mail Templates](custom-mail-templates.md)
 - [Automations](../sites/automations.md)
-- [JSON Queries](/docs/JSON/json-query.md)
-- [JSON Columns](/docs/JSON/json-columns.md)
-- [Common Widget Properties](/docs/modules/widgets/common-properties.md)
+- [JSON Queries](../JSON/json-query.md)
+- [JSON Columns](../JSON/json-columns.md)
+- [Common Widget Properties](../modules/widgets/common-properties.md)
 
 ---
 

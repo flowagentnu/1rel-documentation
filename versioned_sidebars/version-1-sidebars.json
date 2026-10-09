@@ -1,0 +1,252 @@
+{
+  "docs": [
+    "introduction",
+    {
+      "type": "category",
+      "label": "Getting started",
+      "collapsed": true,
+      "items": [
+        "getting-started/structure",
+        "getting-started/configuration",
+        "getting-started/documentation"
+      ],
+      "link": {
+        "type": "generated-index"
+      }
+    },
+    {
+      "type": "category",
+      "label": "Sites",
+      "collapsed": true,
+      "items": [
+        "sites/general",
+        "sites/users",
+        "sites/groups",
+        "sites/organisations",
+        "sites/modules",
+        {
+          "type": "category",
+          "label": "Actional Buttons",
+          "link": {
+            "type": "generated-index"
+          },
+          "collapsed": true,
+          "items": [
+            "sites/actionalbuttons/introduction",
+            "sites/actionalbuttons/how-to-use",
+            {
+              "type": "category",
+              "label": "Components",
+              "link": {
+                "type": "doc",
+                "id": "sites/actionalbuttons/components/components"
+              },
+              "items": [
+                "sites/actionalbuttons/components/items",
+                "sites/actionalbuttons/components/visibility",
+                "sites/actionalbuttons/components/actions",
+                "sites/actionalbuttons/components/outcome"
+              ]
+            }
+          ]
+        },
+        "sites/marketplace",
+        "sites/automations",
+        "sites/solutions"
+      ],
+      "link": {
+        "type": "generated-index"
+      }
+    },
+    {
+      "type": "category",
+      "label": "Modules",
+      "collapsed": true,
+      "items": [
+        "modules/general",
+        "modules/customfields",
+        "modules/module-item-types",
+        "modules/relations",
+        "modules/tabs",
+        {
+          "type": "category",
+          "label": "Widgets",
+          "link": {
+            "type": "generated-index"
+          },
+          "collapsed": true,
+          "items": [
+            "modules/widgets/overview",
+            "modules/widgets/widget-settings",
+            "modules/widgets/common-properties",
+            "modules/widgets/details",
+            "modules/widgets/table",
+            "modules/widgets/count",
+            "modules/widgets/sum",
+            "modules/widgets/average",
+            "modules/widgets/number",
+            "modules/widgets/actionalbutton",
+            "modules/widgets/chart",
+            "modules/widgets/maps",
+            "modules/widgets/gantt",
+            "modules/widgets/calendar",
+            "modules/widgets/agenda",
+            "modules/widgets/calendar-timeline",
+            "modules/widgets/files",
+            "modules/widgets/note",
+            "modules/widgets/comments",
+            "modules/widgets/smart-text",
+            "modules/widgets/business-process",
+            "modules/widgets/audit-history",
+            "modules/widgets/image",
+            "modules/widgets/iframe",
+            "modules/widgets/asset-booking",
+            "modules/widgets/installed-widgets"
+          ]
+        },
+        "modules/documents",
+        {
+          "type": "category",
+          "label": "Forms",
+          "link": {
+            "type": "generated-index"
+          },
+          "collapsed": true,
+          "items": [
+            "modules/forms/introduction",
+            "modules/forms/how-to-use-forms",
+            "modules/forms/how-to-use-form-buttons",
+            {
+              "type": "category",
+              "label": "Components",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                "modules/forms/components/items",
+                "modules/forms/components/visibility",
+                {
+                  "type": "category",
+                  "label": "Pages",
+                  "link": {
+                    "type": "doc",
+                    "id": "modules/forms/components/pages/introduction"
+                  },
+                  "items": [
+                    {
+                      "type": "category",
+                      "label": "Fields",
+                      "link": {
+                        "type": "doc",
+                        "id": "modules/forms/components/pages/fields/introduction"
+                      },
+                      "items": [
+                        "modules/forms/components/pages/fields/field_key",
+                        "modules/forms/components/pages/fields/field_html",
+                        "modules/forms/components/pages/fields/field_options"
+                      ]
+                    },
+                    {
+                      "type": "category",
+                      "label": "Submit & Cancel",
+                      "link": {
+                        "type": "doc",
+                        "id": "modules/forms/components/pages/submit/introduction"
+                      },
+                      "items": [
+                        "modules/forms/components/pages/submit/triggers"
+                      ]
+                    }
+                  ]
+                },
+                "modules/forms/components/endflow"
+              ]
+            }
+          ]
+        },
+        "modules/import",
+        "modules/powersearch",
+        "modules/dynamic-values",
+        "modules/trash"
+      ],
+      "link": {
+        "type": "generated-index"
+      }
+    },
+    {
+      "type": "category",
+      "label": "Apps",
+      "collapsed": true,
+      "items": [
+        {
+          "type": "category",
+          "label": "Intergrations",
+          "collapsed": true,
+          "items": [
+            "apps/integrations/integrations-365-sync",
+            "apps/integrations/integrations-optimo-route"
+          ]
+        },
+        "apps/resourceplanning/introduction",
+        "apps/pricegroup/introduction"
+      ],
+      "link": {
+        "type": "doc",
+        "id": "apps/intro-to-apps"
+      }
+    },
+    {
+      "type": "category",
+      "label": "JSON",
+      "collapsed": true,
+      "items": [
+        "JSON/json-query",
+        "JSON/json-columns",
+        {
+          "type": "category",
+          "label": "JSON Actions",
+          "collapsed": true,
+          "items": [
+            "JSON/actions-crud",
+            "JSON/actions-files",
+            "JSON/actions-item-image",
+            "JSON/actions-note",
+            "JSON/actions-open-location",
+            "JSON/actions-send-email",
+            "JSON/actions-send-toast",
+            "JSON/actions-show-form",
+            "JSON/actions-show-relevant-forms",
+            "JSON/actions-webhook"
+          ],
+          "link": {
+            "type": "doc",
+            "id": "JSON/json-actions"
+          }
+        },
+        "JSON/json-relations"
+      ],
+      "link": {
+        "type": "doc",
+        "id": "JSON/json-intro-to-json"
+      }
+    },
+    {
+      "type": "category",
+      "label": "Miscellaneous",
+      "collapsed": true,
+      "items": [
+        "misc/icons",
+        "misc/languages",
+        "misc/replaceables",
+        "misc/conditionals",
+        "misc/custom-login-screen",
+        "misc/custom-mail-templates",
+        "misc/default-organisation",
+        "misc/economic-setup"
+      ],
+      "link": {
+        "type": "generated-index"
+      }
+    }
+  ]
+}

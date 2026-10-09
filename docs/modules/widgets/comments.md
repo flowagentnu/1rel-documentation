@@ -12,7 +12,7 @@ Use the Comments Widget to enable discussion, feedback or collaboration on a spe
 - Without **itemid**, the thread belongs to the record of the page. With **itemid** you can show the thread of another record, for example `[relation12]`.
 - The widget needs a record. On the dashboard, set **itemid** to a record.
 
-In the form editor on the [widget settings page](/docs/modules/widgets/widget-settings), these settings are in the **Comments** section.
+In the form editor on the [widget settings page](./widget-settings.md), these settings are in the **Comments** section.
 
 ## Usage Examples
 
@@ -36,10 +36,10 @@ In the form editor on the [widget settings page](/docs/modules/widgets/widget-se
 
 ## Options & Parameters
 - **title** (text, required): The thread name. Widgets with the same name on the same record share the comments. Use only letters, numbers, `-` and `_`. Without a title, no comments are loaded.
-- **itemid** (number or text with a placeholder, default the record of the page): The record whose comments are shown. See [Replaceables](/docs/misc/replaceables).
+- **itemid** (number or text with a placeholder, default the record of the page): The record whose comments are shown. See [Replaceables](../../misc/replaceables.md).
 - **pageLength** (number from 1 to 100, default `5`): Number of comments per page. Values outside 1–100 stop the comments from loading.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [Note Widget](/docs/modules/widgets/note)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [Note Widget](./note.md)

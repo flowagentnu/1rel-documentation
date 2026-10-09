@@ -8,7 +8,7 @@ Use this page to understand how to create a widget, how the form is organised, a
 ## How It Works
 
 ### 1. Choose the widget type
-When you create a widget, you first pick its type from a list of cards. Each card has a short description, and you can search them. Installed widgets (from the marketplace) are listed after the built-in ones. See the [overview of widget types](/docs/modules/widgets/overview).
+When you create a widget, you first pick its type from a list of cards. Each card has a short description, and you can search them. Installed widgets (from the marketplace) are listed after the built-in ones. See the [overview of widget types](./overview.md).
 
 ### 2. General settings
 These settings are stored on the widget itself, not in its configuration:
@@ -46,13 +46,13 @@ Turn on **Show JSON keys** to see the JSON name of each form field next to its l
 - Lists of fields, modules, relations, tabs, buttons and views are picked from your site's data. Long lists can be searched: click the list and start typing.
 - Field pickers write the reference in the format the widget needs (for example `cf1234` for maps, the field keyname for gantt and columns). You do not need to know the format.
 - Where an option of a list field is needed (e.g. a status), the options of that field are offered.
-- Many pickers also let you type a value, for example a [placeholder](/docs/misc/replaceables) such as `[itemid]`.
+- Many pickers also let you type a value, for example a [placeholder](../../misc/replaceables.md) such as `[itemid]`.
 
 ### Placeholders
 Fields that accept placeholders have a small **[ ]** button inside the field. It opens a list of all placeholders with an explanation, including the fields and relations of the current module (e.g. `[cf204]` Price, `[relation29]` Tasks). Click a placeholder to insert it where the cursor is, or copy it with the copy button.
 
 ### Filters
-In **Which records → Filters** each row is one condition: a field, an operator and a value. Rows are combined with **AND** or **OR**, and **Add group (…)** adds parentheses for combinations such as *(A or B) and C*. For list fields you can pick the option instead of typing its value. See [JSON Query](/docs/JSON/json-query) for all operators.
+In **Which records → Filters** each row is one condition: a field, an operator and a value. Rows are combined with **AND** or **OR**, and **Add group (…)** adds parentheses for combinations such as *(A or B) and C*. For list fields you can pick the option instead of typing its value. See [JSON Query](../../JSON/json-query.md) for all operators.
 
 ### Lists: columns, buttons, steps
 Lists show one row per entry. Drag the handle (or use the arrow) to reorder, use the copy icon to duplicate and the bin to remove. Click an entry to edit its settings. When you add a field from a related module, the relation it needs is added under **Which records** automatically.
@@ -69,9 +69,9 @@ Settings without a field in the form are never lost. They are listed under **Oth
 - Required settings are marked with a red star and a *Required* note until they are filled in.
 
 ## Related Links
-- [Overview of widget types](/docs/modules/widgets/overview)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [JSON Query](/docs/JSON/json-query)
-- [JSON Columns](/docs/JSON/json-columns)
-- [JSON Relations](/docs/JSON/json-relations)
-- [Replaceables](/docs/misc/replaceables)
+- [Overview of widget types](./overview.md)
+- [Common Widget Properties](./common-properties.md)
+- [JSON Query](../../JSON/json-query.md)
+- [JSON Columns](../../JSON/json-columns.md)
+- [JSON Relations](../../JSON/json-relations.md)
+- [Replaceables](../../misc/replaceables.md)

@@ -6,7 +6,7 @@ The Sum Widget is a tile in the top row that adds up the values of one or more f
 Use the Sum Widget to highlight a total: hours registered by the logged-in user today, the total value of a customer's orders, or a percentage calculated from two totals.
 
 ## How It Works
-- Everything can be set in the form on the [widget settings page](/docs/modules/widgets/widget-settings). The relevant sections are **Which records** (module, related modules, filters), **Number** (fields to add up, decimals, format and formula) and **Tile** (look and click action).
+- Everything can be set in the form on the [widget settings page](./widget-settings.md). The relevant sections are **Which records** (module, related modules, filters), **Number** (fields to add up, decimals, format and formula) and **Tile** (look and click action).
 - The widget takes the records of `moduleid` that match `query` (only records the user may read) and adds up the fields in `columns`. With several fields, all of them are added into one number.
 - **Always set `moduleid`.** Without a module, records of all modules that match the filters are included, and without both a module and filters the tile shows `-1`. The tile also shows `-1` when no fields are chosen.
 - With `formel`, you decide how the fields are combined, for example a difference or a percentage. The formula can be applied once to the totals, or to each record before the results are added up (`formelType: "individual"`).
@@ -106,11 +106,11 @@ The total price of all lines, where each line's price is quantity × unit price 
 
 ### Which records
 - **moduleid** (integer, always set it): The module whose records are added up.
-- **query** (array, optional): Which records are included, see [JSON Query](/docs/JSON/json-query). [Placeholders](/docs/misc/replaceables) like `[itemid]`, `[user]` and `[datenow]` can be used.
-- **relations** (object, optional): Needed when `query` filters on related records, see [JSON Relations](/docs/JSON/json-relations).
+- **query** (array, optional): Which records are included, see [JSON Query](../../JSON/json-query.md). [Placeholders](../../misc/replaceables.md) like `[itemid]`, `[user]` and `[datenow]` can be used.
+- **relations** (object, optional): Needed when `query` filters on related records, see [JSON Relations](../../JSON/json-relations.md).
 
 ### Number
-- **columns** (array, required): The fields to add up, each as `{ "keyName": "field_keyname" }`. See [JSON Columns](/docs/JSON/json-columns). Only fields are used; other column kinds are ignored. With several fields, their totals are added into one number, unless `formel` decides otherwise.
+- **columns** (array, required): The fields to add up, each as `{ "keyName": "field_keyname" }`. See [JSON Columns](../../JSON/json-columns.md). Only fields are used; other column kinds are ignored. With several fields, their totals are added into one number, unless `formel` decides otherwise.
 - **decimals** (integer, default `0`): Number of decimals shown.
 - **format** (string, default `"number"`): How the result is shown.
   - `"number"`: a normal number in the user's number format, e.g. `5,5`.
@@ -126,19 +126,19 @@ The total price of all lines, where each line's price is quantity × unit price 
 - **Save the result every night in field**: chosen on the widget settings page, not in the JSON. See How It Works.
 
 ### Tile
-- **label** / **labels**: The text under the number. See [Common Widget Properties](/docs/modules/widgets/common-properties).
-- **icon**, **iconBackgroundColor**, **mobileSize**, **compactMode**, **variant** (`"soft"` for a coloured tile), **prefix**, **postfix** and **tapActions** (open a `url` or go to a `tab` on click) are the shared tile settings, described in [Common Widget Properties: Top Tiles](/docs/modules/widgets/common-properties#top-tiles). Icons are Font Awesome names.
+- **label** / **labels**: The text under the number. See [Common Widget Properties](./common-properties.md).
+- **icon**, **iconBackgroundColor**, **mobileSize**, **compactMode**, **variant** (`"soft"` for a coloured tile), **prefix**, **postfix** and **tapActions** (open a `url` or go to a `tab` on click) are the shared tile settings, described in [Common Widget Properties: Top Tiles](./common-properties.md#top-tiles). Icons are Font Awesome names.
 
 ### Old settings without effect
 - **pluralLabel** and **displayType** are not used by the platform and can be removed.
 - **iconColor** has no effect on tiles; the icon is always white.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [JSON Query](/docs/JSON/json-query)
-- [JSON Relations](/docs/JSON/json-relations)
-- [JSON Columns](/docs/JSON/json-columns)
-- [Placeholders (Replaceables)](/docs/misc/replaceables)
-- [Count Widget](/docs/modules/widgets/count)
-- [Average Widget](/docs/modules/widgets/average)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [JSON Query](../../JSON/json-query.md)
+- [JSON Relations](../../JSON/json-relations.md)
+- [JSON Columns](../../JSON/json-columns.md)
+- [Placeholders (Replaceables)](../../misc/replaceables.md)
+- [Count Widget](./count.md)
+- [Average Widget](./average.md)

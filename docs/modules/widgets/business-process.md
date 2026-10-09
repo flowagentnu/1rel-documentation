@@ -14,7 +14,7 @@ Use the Business Process Widget on a record page to visualise a process that fol
 - The widget only works on a record page.
 - The widget has no header, title, icon or background, so it blends into the page. The form editor therefore does not offer these settings.
 
-In the form editor on the [widget settings page](/docs/modules/widgets/widget-settings), these settings are in the **Process steps** section. Pick the status field first; the list of steps then offers the options of that field.
+In the form editor on the [widget settings page](./widget-settings.md), these settings are in the **Process steps** section. Pick the status field first; the list of steps then offers the options of that field.
 
 ## Usage Example
 ```json
@@ -40,5 +40,5 @@ In the form editor on the [widget settings page](/docs/modules/widgets/widget-se
 There are no settings for the colour, icon or text of each step. The step names are the option names of the field.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)

@@ -6,7 +6,7 @@ The Count Widget is a tile in the top row that shows how many records match your
 Use the Count Widget to highlight a number of records: a KPI on a dashboard, or the number of related records on a record page.
 
 ## How It Works
-- Everything can be set in the form on the [widget settings page](/docs/modules/widgets/widget-settings). The relevant sections are **Which records** (module, related modules, filters), **Number** (decimals) and **Tile** (look and click action).
+- Everything can be set in the form on the [widget settings page](./widget-settings.md). The relevant sections are **Which records** (module, related modules, filters), **Number** (decimals) and **Tile** (look and click action).
 - The widget counts the records of `moduleid` that match `query`. Only records the user may read are counted.
 - **Always set `moduleid`.** Without a module, records of all modules that match the filters are counted, and without both a module and filters the tile shows `-1`.
 - To count records related to the record the page shows, add the relation in `relations` and filter on `[itemid]`.
@@ -63,27 +63,27 @@ Counts the projects related to the customer the page shows. Clicking the tile op
 
 ### Which records
 - **moduleid** (integer, always set it): The module whose records are counted.
-- **query** (array, optional): Which records are counted, see [JSON Query](/docs/JSON/json-query). [Placeholders](/docs/misc/replaceables) like `[itemid]` and `[user]` can be used.
-- **relations** (object, optional): Needed when `query` filters on related records, see [JSON Relations](/docs/JSON/json-relations).
+- **query** (array, optional): Which records are counted, see [JSON Query](../../JSON/json-query.md). [Placeholders](../../misc/replaceables.md) like `[itemid]` and `[user]` can be used.
+- **relations** (object, optional): Needed when `query` filters on related records, see [JSON Relations](../../JSON/json-relations.md).
 
 ### Number
 - **decimals** (integer, default `0`): Number of decimals shown.
 - **columns** (array, optional): Only needed when a filter uses fields that must be joined. It does not change the count. Usually left out.
 
 ### Tile
-- **label** / **labels**: The text under the number. See [Common Widget Properties](/docs/modules/widgets/common-properties).
-- **icon**, **iconBackgroundColor**, **mobileSize**, **compactMode**, **variant** (`"soft"` for a coloured tile), **prefix**, **postfix** and **tapActions** (open a `url` or go to a `tab` on click) are the shared tile settings, described in [Common Widget Properties: Top Tiles](/docs/modules/widgets/common-properties#top-tiles). Icons are Font Awesome names.
+- **label** / **labels**: The text under the number. See [Common Widget Properties](./common-properties.md).
+- **icon**, **iconBackgroundColor**, **mobileSize**, **compactMode**, **variant** (`"soft"` for a coloured tile), **prefix**, **postfix** and **tapActions** (open a `url` or go to a `tab` on click) are the shared tile settings, described in [Common Widget Properties: Top Tiles](./common-properties.md#top-tiles). Icons are Font Awesome names.
 
 ### Old settings without effect
 - **pluralLabel** and **displayType** are not used by the platform and can be removed.
 - **iconColor** has no effect on tiles; the icon is always white.
-- **formel** and **format** are not used by the Count Widget. To calculate with field values, use the [Sum Widget](/docs/modules/widgets/sum) or the [Average Widget](/docs/modules/widgets/average).
+- **formel** and **format** are not used by the Count Widget. To calculate with field values, use the [Sum Widget](./sum.md) or the [Average Widget](./average.md).
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [JSON Query](/docs/JSON/json-query)
-- [JSON Relations](/docs/JSON/json-relations)
-- [Placeholders (Replaceables)](/docs/misc/replaceables)
-- [Sum Widget](/docs/modules/widgets/sum)
-- [Average Widget](/docs/modules/widgets/average)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [JSON Query](../../JSON/json-query.md)
+- [JSON Relations](../../JSON/json-relations.md)
+- [Placeholders (Replaceables)](../../misc/replaceables.md)
+- [Sum Widget](./sum.md)
+- [Average Widget](./average.md)

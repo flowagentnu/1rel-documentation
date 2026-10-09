@@ -24,4 +24,4 @@ NOT AVAILABLE YET
 
 ## Related Links
 - [Optimo Route API Documentation](https://www.optimoroute.com/api/)
-- [Marketplace](/docs/sites/marketplace)
+- [Marketplace](../../sites/marketplace.md)

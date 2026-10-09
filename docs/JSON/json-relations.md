@@ -206,5 +206,5 @@ On a dashboard there is no page record, so `[itemid]` is empty and this filter f
 ## Related Links
 - [JSON Queries](json-query.md)
 - [JSON Columns](json-columns.md)
-- [Replaceables](/docs/misc/replaceables.md)
-- [Relations](/docs/modules/relations.md)
+- [Replaceables](../misc/replaceables.md)
+- [Relations](../modules/relations.md)

@@ -30,7 +30,7 @@ Good to know:
 - The settings are always read from the saved widget, so users cannot change them in the browser.
 - To book, the user must be able to read the project.
 - Only **one** Asset Booking Widget works per page. Put a booking widget and a returning widget on different pages, for example the project page and the warehouse page.
-- In the [form editor on the widget settings page](/docs/modules/widgets/widget-settings) all settings are in the **Asset booking** section, grouped as **Asset**, **Bookings** and **Projects**, with pickers for fields, options, relations and item types.
+- In the [form editor on the widget settings page](./widget-settings.md) all settings are in the **Asset booking** section, grouped as **Asset**, **Bookings** and **Projects**, with pickers for fields, options, relations and item types.
 
 ## Usage Example
 
@@ -79,7 +79,7 @@ Value formats:
 
 ### General
 - **operation** (string, default: `"booking"`): `"booking"` books the scanned asset onto the project; `"returning"` returns it to stock.
-- **projectid** (number or string, required for booking): the project record to book onto. Normally `"[itemid]"`, the record of the page (see [Replaceables](/docs/misc/replaceables)).
+- **projectid** (number or string, required for booking): the project record to book onto. Normally `"[itemid]"`, the record of the page (see [Replaceables](../../misc/replaceables.md)).
 - **moduleid** (number, optional): module whose widgets on the page are refreshed after a scan.
 
 ### Asset
@@ -111,9 +111,9 @@ Value formats:
 - **fieldProjectActiveBookingCount** (field id, required): number field counting the project's open bookings.
 - **moduleProjectTypeIdWarehouse** (item type id, required): item type of projects that are warehouses. Booking onto a warehouse puts the asset in stock instead of in use.
 
-The general settings `query`, `columns` and `relations` are not used. Title, icon and size work as described in [Common Widget Properties](/docs/modules/widgets/common-properties).
+The general settings `query`, `columns` and `relations` are not used. Title, icon and size work as described in [Common Widget Properties](./common-properties.md).
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Replaceables](/docs/misc/replaceables)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [Widget Settings](./widget-settings.md)
+- [Replaceables](../../misc/replaceables.md)
+- [Common Widget Properties](./common-properties.md)

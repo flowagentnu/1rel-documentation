@@ -1,12 +1,12 @@
 # Average Widget
 
-The Average Widget is a tile in the top row that shows the average of one or more fields across the records that match your filters, such as the average order value or the average number of hours per task. It works like the [Sum Widget](/docs/modules/widgets/sum), but divides the total by the number of records. Clicking the tile can open a tab or a web address.
+The Average Widget is a tile in the top row that shows the average of one or more fields across the records that match your filters, such as the average order value or the average number of hours per task. It works like the [Sum Widget](./sum.md), but divides the total by the number of records. Clicking the tile can open a tab or a web address.
 
 ## When to Use
 Use the Average Widget to highlight an average: the average value of a customer's orders, the average duration of cases this year, or the average rating of a supplier.
 
 ## How It Works
-- Everything can be set in the form on the [widget settings page](/docs/modules/widgets/widget-settings). The relevant sections are **Which records** (module, related modules, filters), **Number** (fields to add up, decimals, format and formula) and **Tile** (look and click action).
+- Everything can be set in the form on the [widget settings page](./widget-settings.md). The relevant sections are **Which records** (module, related modules, filters), **Number** (fields to add up, decimals, format and formula) and **Tile** (look and click action).
 - The widget takes the records of `moduleid` that match `query` (only records the user may read), adds up the fields in `columns`, and divides the total by **the number of matching records**. Records where the field is empty still count, so they pull the average down as if the value was 0. Add a filter such as "field is not empty" if they should not count.
 - With several fields, their totals are added together before dividing.
 - **Always set `moduleid`.** Without a module, records of all modules that match the filters are included, and without both a module and filters the tile shows `-1`. The tile also shows `-1` when no fields are chosen.
@@ -61,31 +61,31 @@ The average of the hours field of the logged-in user's tasks, shown as hours and
 
 ### Which records
 - **moduleid** (integer, always set it): The module whose records are used.
-- **query** (array, optional): Which records are included, see [JSON Query](/docs/JSON/json-query). [Placeholders](/docs/misc/replaceables) like `[itemid]` and `[user]` can be used.
-- **relations** (object, optional): Needed when `query` filters on related records, see [JSON Relations](/docs/JSON/json-relations).
+- **query** (array, optional): Which records are included, see [JSON Query](../../JSON/json-query.md). [Placeholders](../../misc/replaceables.md) like `[itemid]` and `[user]` can be used.
+- **relations** (object, optional): Needed when `query` filters on related records, see [JSON Relations](../../JSON/json-relations.md).
 
 ### Number
-- **columns** (array, required): The fields to average, each as `{ "keyName": "field_keyname" }`. See [JSON Columns](/docs/JSON/json-columns). Only fields are used. With several fields, their totals are added together before dividing by the number of records.
+- **columns** (array, required): The fields to average, each as `{ "keyName": "field_keyname" }`. See [JSON Columns](../../JSON/json-columns.md). Only fields are used. With several fields, their totals are added together before dividing by the number of records.
 - **decimals** (integer, default `0`): Number of decimals shown.
 - **format** (string, default `"number"`): `"number"` shows a normal number. `"hmformat"` reads the result as hours and shows hours and minutes, e.g. `1.5` becomes `1h 30m` (`decimals` is not used). `format` has no effect when `formel` is set.
 - **formel** (string, optional): A formula using the fields as `cf<field id>` (the field's id, not its keyname), numbers, `+ - * /` and parentheses. Every field in the formula must also be in `columns`. If the formula cannot be calculated, the tile shows `0`.
 - **formelType** (string, optional): Not set (default) applies the formula once to the totals, then divides by the number of records. `"individual"` applies it to each record, adds up the results and divides by the number of records.
 
-`ceilPerIndividual` (rounding each record up) is only available on the [Sum Widget](/docs/modules/widgets/sum).
+`ceilPerIndividual` (rounding each record up) is only available on the [Sum Widget](./sum.md).
 
 ### Saving the result
 - **Save the result every night in field**: chosen on the widget settings page, not in the JSON. See How It Works.
 
 ### Tile
-- **label** / **labels**: The text under the number. See [Common Widget Properties](/docs/modules/widgets/common-properties).
-- **icon**, **iconBackgroundColor**, **mobileSize**, **compactMode**, **variant** (`"soft"` for a coloured tile), **prefix**, **postfix** and **tapActions** (open a `url` or go to a `tab` on click) are the shared tile settings, described in [Common Widget Properties: Top Tiles](/docs/modules/widgets/common-properties#top-tiles). Icons are Font Awesome names.
+- **label** / **labels**: The text under the number. See [Common Widget Properties](./common-properties.md).
+- **icon**, **iconBackgroundColor**, **mobileSize**, **compactMode**, **variant** (`"soft"` for a coloured tile), **prefix**, **postfix** and **tapActions** (open a `url` or go to a `tab` on click) are the shared tile settings, described in [Common Widget Properties: Top Tiles](./common-properties.md#top-tiles). Icons are Font Awesome names.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [Sum Widget](/docs/modules/widgets/sum)
-- [Count Widget](/docs/modules/widgets/count)
-- [JSON Query](/docs/JSON/json-query)
-- [JSON Relations](/docs/JSON/json-relations)
-- [JSON Columns](/docs/JSON/json-columns)
-- [Placeholders (Replaceables)](/docs/misc/replaceables)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [Sum Widget](./sum.md)
+- [Count Widget](./count.md)
+- [JSON Query](../../JSON/json-query.md)
+- [JSON Relations](../../JSON/json-relations.md)
+- [JSON Columns](../../JSON/json-columns.md)
+- [Placeholders (Replaceables)](../../misc/replaceables.md)

@@ -161,7 +161,7 @@ You can use the following condition keywords:
 ---
 
 ## Notes
-- Most values can be dynamic, using [Replaceables](/docs/misc/replaceables.md) like `[user]`, `[item.cf1234]`, etc.
+- Most values can be dynamic, using [Replaceables](./replaceables.md) like `[user]`, `[item.cf1234]`, etc.
 - String comparisons are case-insensitive by default.
 - Arrays and comma-separated values are supported for `in` and `contains`.
-- For more info on how JSON queries work, see [JSON Queries](/docs/JSON/json-query.md).
+- For more info on how JSON queries work, see [JSON Queries](../JSON/json-query.md).

@@ -6,10 +6,10 @@ The Chart Widget shows data as a bar, line, pie, doughnut, polar area or radar c
 Use the Chart Widget to show breakdowns and comparisons, such as the status of a customer's cases, sales compared to costs, or the number of tasks per employee.
 
 ## How It Works
-- Everything can be set in the form on the [widget settings page](/docs/modules/widgets/widget-settings). The relevant sections are **Which records** (module, related modules, filters) and **Chart** (chart type, data, labels, colours, grouping and fields used). The chart's height is set under **Appearance**.
+- Everything can be set in the form on the [widget settings page](./widget-settings.md). The relevant sections are **Which records** (module, related modules, filters) and **Chart** (chart type, data, labels, colours, grouping and fields used). The chart's height is set under **Appearance**.
 - `chart.data` decides where the numbers come from:
   - `"query"`: the numbers are calculated from the records of `moduleid` that match `query` (only records the user may read), using `group`.
-  - A list of numbers, e.g. `[120, 80]`: the numbers are shown as they are, with `chart.labels` as their labels. On a record page you can use [placeholders](/docs/misc/replaceables) like `"[cf1270]"` to show values of the page's record.
+  - A list of numbers, e.g. `[120, 80]`: the numbers are shown as they are, with `chart.labels` as their labels. On a record page you can use [placeholders](../../misc/replaceables.md) like `"[cf1270]"` to show values of the page's record.
 - **Count per value:** with `group` set to `{ "cf<id>": "count" }`, the chart gets one bar or slice per value of that field, showing how many records have that value. The field must also be in `columns`. This is the most common use.
 - **Totals of fields:** with `group` set to `"sum"` for one or more fields, each field gives one bar or slice with the field's total. The label of each bar is its total. There is no total per value (such as sales per month) at the moment.
 - **Always set `moduleid` and at least one field in `columns`**, also for fixed numbers. Without them the chart is empty.
@@ -120,8 +120,8 @@ Use the Chart Widget to show breakdowns and comparisons, such as the status of a
 
 ### Which records
 - **moduleid** (integer, always set it): The module whose records are used.
-- **query** (array, optional): Which records are used, see [JSON Query](/docs/JSON/json-query). [Placeholders](/docs/misc/replaceables) like `[itemid]` and `[user]` can be used.
-- **relations** (object, optional): Related modules whose fields are used or filtered on, see [JSON Relations](/docs/JSON/json-relations).
+- **query** (array, optional): Which records are used, see [JSON Query](../../JSON/json-query.md). [Placeholders](../../misc/replaceables.md) like `[itemid]` and `[user]` can be used.
+- **relations** (object, optional): Related modules whose fields are used or filtered on, see [JSON Relations](../../JSON/json-relations.md).
 
 ### Chart
 - **chart** (object, required): The chart settings.
@@ -133,16 +133,16 @@ Use the Chart Widget to show breakdowns and comparisons, such as the status of a
 - **group** (object): How the records are aggregated when `chart.data` is `"query"`. Keys are field ids in the form `"cf<id>"` (not keynames), values are `"count"` or `"sum"` (lowercase).
   - `"count"`: one bar or slice per value of the field, with the number of records with that value.
   - `"sum"`: one bar or slice with the total of the field.
-- **columns** (array, required): The fields used, each as `{ "keyName": "field_keyname" }`. Must contain the fields in `group`. Fields that are not in `group` are not shown. With fixed numbers, any one field is enough. See [JSON Columns](/docs/JSON/json-columns).
+- **columns** (array, required): The fields used, each as `{ "keyName": "field_keyname" }`. Must contain the fields in `group`. Fields that are not in `group` are not shown. With fixed numbers, any one field is enough. See [JSON Columns](../../JSON/json-columns.md).
 
 ### Appearance
 - **height** (integer, recommended): Height of the chart area in pixels.
-- Title, icon, colours, header, background, margin and buttons are shared by all widgets, see [Common Widget Properties](/docs/modules/widgets/common-properties).
+- Title, icon, colours, header, background, margin and buttons are shared by all widgets, see [Common Widget Properties](./common-properties.md).
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [JSON Query](/docs/JSON/json-query)
-- [JSON Relations](/docs/JSON/json-relations)
-- [JSON Columns](/docs/JSON/json-columns)
-- [Placeholders (Replaceables)](/docs/misc/replaceables)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [JSON Query](../../JSON/json-query.md)
+- [JSON Relations](../../JSON/json-relations.md)
+- [JSON Columns](../../JSON/json-columns.md)
+- [Placeholders (Replaceables)](../../misc/replaceables.md)

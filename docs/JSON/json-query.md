@@ -118,7 +118,7 @@ Do not use the operators `IS NULL`, `IS NOT NULL` or `BETWEEN`. They do not work
 | Date | `YYYY-MM-DD` | `"2026-01-31"` or `"[datenow]"` |
 | Number | the number | `100` |
 
-- [Replaceables](/docs/misc/replaceables.md) can be used in values, e.g. `"[itemid]"`, `"[user]"`, `"[usergroups]"`, `"[datenow-7]"`, `"[relation12]"`. Write them inside quotes.
+- [Replaceables](../misc/replaceables.md) can be used in values, e.g. `"[itemid]"`, `"[user]"`, `"[usergroups]"`, `"[datenow-7]"`, `"[relation12]"`. Write them inside quotes.
 - `"null"` stands for "no value" (use it with `IS` / `IS NOT`).
 
 ## moduleid: always set it
@@ -161,5 +161,5 @@ To show only records that are related to the record on the page, see [JSON Relat
 - [JSON Relations](json-relations.md)
 - [JSON Columns](json-columns.md)
 - [JSON Actions](json-actions.md)
-- [Replaceables](/docs/misc/replaceables.md)
-- [Common Widget Properties](/docs/modules/widgets/common-properties.md)
+- [Replaceables](../misc/replaceables.md)
+- [Common Widget Properties](../modules/widgets/common-properties.md)

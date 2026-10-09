@@ -23,5 +23,5 @@ Suppose you want to import a list of customers:
 - Make sure your CSV columns match your module’s custom fields for best results.
 
 ## Related Links
-- [Custom Fields](/docs/modules/customfields.md)
-- [General Module Settings](/docs/modules/general.md)
+- [Custom Fields](./customfields.md)
+- [General Module Settings](./general.md)

@@ -7,9 +7,9 @@ Use this page when you want to change how a widget looks or which buttons it sho
 
 ## How It Works
 - A widget has a few **general settings** (name, label, type, tabs, sort, size) that are always edited as normal fields at the top of the widget settings page.
-- Everything else is the widget's **configuration**. You can edit it in the form editor, or switch to **JSON** and edit the same settings as a JSON object. Both views change the same configuration. See [Widget Settings](/docs/modules/widgets/widget-settings).
+- Everything else is the widget's **configuration**. You can edit it in the form editor, or switch to **JSON** and edit the same settings as a JSON object. Both views change the same configuration. See [Widget Settings](./widget-settings.md).
 - Settings you leave out use their default.
-- [Replaceables](/docs/misc/replaceables.md) such as `[itemid]` or `[relation12.title]` can be used in any text setting, as long as they are written inside quotes in JSON.
+- [Replaceables](../../misc/replaceables.md) such as `[itemid]` or `[relation12.title]` can be used in any text setting, as long as they are written inside quotes in JSON.
 
 ## General Settings (not part of the JSON)
 
@@ -46,7 +46,7 @@ These settings apply to all widgets shown in the main area (Table, Details, Char
 
 | Key | Type | Default | Description |
 |---|---|---|---|
-| `icon` | string | none (new widgets get `list`) | Icon shown before the title. A [Font Awesome](/docs/misc/icons.md) icon name without `fa-`, for example `list`, `user` or `chart-pie`. Without an icon only the title is shown. |
+| `icon` | string | none (new widgets get `list`) | Icon shown before the title. A [Font Awesome](../../misc/icons.md) icon name without `fa-`, for example `list`, `user` or `chart-pie`. Without an icon only the title is shown. |
 | `iconColor` | colour | white | Colour of the icon itself, e.g. `#ffffff`. |
 | `iconBackgroundColor` | colour | the theme's primary colour (new widgets get `#6060ff`) | Colour of the rounded square behind the icon. |
 | `showWidgetHeader` | boolean | `true` | `false` hides the whole header: icon, title, the settings and refresh buttons, the header buttons on desktop and the edit (pen) button of Details widgets. |
@@ -71,7 +71,7 @@ Some widget types always use their own header, padding and background. For these
 
 ## Header Buttons
 
-Main-area widgets can show [actional buttons](/docs/modules/widgets/actionalbutton.md) and form buttons in their header. On mobile they are shown in a bar at the top of the widget.
+Main-area widgets can show [actional buttons](./actionalbutton.md) and form buttons in their header. On mobile they are shown in a bar at the top of the widget.
 
 | Key | Type | Description |
 |---|---|---|
@@ -90,7 +90,7 @@ Each entry can also change the button for this widget only: any setting you add 
 | `visibility.visual.bgColor` / `textColor` | Button colour and text colour (theme colour names such as `primary`, `success`, `danger`). |
 | `visibility.visual.allowMultipleItems` | `true` lets the button run on all selected rows of a Table widget. The table must have row checkboxes turned on (`powerSearch.allowRowSelect`); the button is disabled until rows are selected. |
 | `visibility.popconfirm` | Ask "Are you sure?" before running. |
-| `visibility.condition` | Only show the button when the [condition](/docs/misc/conditionals.md) is true for the record shown on the page. |
+| `visibility.condition` | Only show the button when the [condition](../../misc/conditionals.md) is true for the record shown on the page. |
 
 Entries without `keyName` (for example a plain string with the key name) are ignored.
 
@@ -185,10 +185,10 @@ The whole configuration (with replaceables filled in) is passed on to the instal
 - If a header or padding setting seems to have no effect, check the list of widget types that decide this themselves.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Icons](/docs/misc/icons.md)
-- [JSON Queries](/docs/JSON/json-query.md)
-- [JSON Columns](/docs/JSON/json-columns.md)
-- [JSON Relations](/docs/JSON/json-relations.md)
-- [Replaceables](/docs/misc/replaceables.md)
-- [Actional Button Widget](/docs/modules/widgets/actionalbutton.md)
+- [Widget Settings](./widget-settings.md)
+- [Icons](../../misc/icons.md)
+- [JSON Queries](../../JSON/json-query.md)
+- [JSON Columns](../../JSON/json-columns.md)
+- [JSON Relations](../../JSON/json-relations.md)
+- [Replaceables](../../misc/replaceables.md)
+- [Actional Button Widget](./actionalbutton.md)

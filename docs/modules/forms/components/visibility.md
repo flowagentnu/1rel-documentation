@@ -12,15 +12,15 @@ Use `visibility` to control the appearance and availability of form buttons, ens
 
 ## Options & Properties
 - `visual` (object, required): Defines the button's appearance (label, color, icon, etc.).
-- `condition` (array, optional): Array of conditions (JSON Query) that must be true for the button to be visible. See [JSON Query Documentation](/docs/JSON/json-query).
+- `condition` (array, optional): Array of conditions (JSON Query) that must be true for the button to be visible. See [JSON Query Documentation](../../../JSON/json-query.md).
 - `popconfirm` (object, optional): Adds a confirmation dialog before the action is executed.
 
 ### Visual Options
 - `label` (string, required): Button text.
-- `labels` (object, optional): Translated labels. See [Languages](/docs/misc/languages).
+- `labels` (object, optional): Translated labels. See [Languages](../../../misc/languages.md).
 - `textColor` (string, optional, default: `white`): Button text color.
 - `bgColor` (string, optional, default: `primary`): Button background color.
-- `icon` (string, optional): Button icon. See [Icons](/docs/misc/icons).
+- `icon` (string, optional): Button icon. See [Icons](../../../misc/icons.md).
 - `displayIconOnly` (boolean, optional, default: `false`): Show only the icon, hide text.
 - `allowMultipleItems` (boolean, optional, default: `false`): Enable button for multiple selected items.
 - `placement` (string, optional, default: `widget`): Where the button appears (`widget` or `row`).

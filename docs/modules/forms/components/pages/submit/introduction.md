@@ -45,4 +45,4 @@ Use the `submit` and `cancel` properties to define the actions, labels, and trig
 
 ## Related Links
 - [Form Pages Introduction](../introduction.md)
-- [Languages documentation](/docs/misc/languages)
+- [Languages documentation](../../../../../misc/languages.md)

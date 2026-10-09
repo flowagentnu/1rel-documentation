@@ -28,6 +28,6 @@ Suppose you want all new vendor or customer users to be added to a shared group 
 - You can still manually assign users to additional groups as needed.
 
 ## Related Links
-- [Users](/docs/sites/users.md)
-- [Organisations](/docs/sites/organisations.md)
-- [Groups](/docs/sites/groups.md)
+- [Users](../sites/users.md)
+- [Organisations](../sites/organisations.md)
+- [Groups](../sites/groups.md)

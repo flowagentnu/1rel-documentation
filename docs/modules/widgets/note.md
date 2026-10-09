@@ -13,7 +13,7 @@ Use the Note Widget for free text that belongs to a record, such as a case descr
 - Users need the Notes permissions: without read permission they see a "no permission" message, and only users with update permission can edit the note.
 - The note widget always has a header and no margin around the editor. The form editor therefore does not offer these settings.
 
-In the form editor on the [widget settings page](/docs/modules/widgets/widget-settings), these settings are in the **Note** section.
+In the form editor on the [widget settings page](./widget-settings.md), these settings are in the **Note** section.
 
 ## Usage Examples
 
@@ -37,7 +37,7 @@ In the form editor on the [widget settings page](/docs/modules/widgets/widget-se
 
 ## Options & Parameters
 - **title** (text, required): The note name. Widgets with the same name on the same record share one note. Use only letters, numbers, `-` and `_`, for example `case_description`.
-- **itemid** (number or text with a placeholder, default the record of the page): The record whose note is shown, for example `[relation12]`. See [Replaceables](/docs/misc/replaceables).
+- **itemid** (number or text with a placeholder, default the record of the page): The record whose note is shown, for example `[relation12]`. See [Replaceables](../../misc/replaceables.md).
 - **hideNoteWhenEmpty** (boolean, default `false`): Hide the whole widget when the note is missing or empty.
 
 :::note Old settings
@@ -45,6 +45,6 @@ In the form editor on the [widget settings page](/docs/modules/widgets/widget-se
 :::
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [Comments Widget](/docs/modules/widgets/comments)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [Comments Widget](./comments.md)

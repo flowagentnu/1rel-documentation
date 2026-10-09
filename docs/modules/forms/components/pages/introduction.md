@@ -8,7 +8,7 @@ Use form pages to break up a form into logical steps or sections, improving usab
 ## How It Works
 - Each form contains a `pages` object, with each page identified by a number (e.g., "1", "2").
 - Each page consists of the following properties:
-  - `label` and `labels`: The page's name and translations. See [Languages documentation](/docs/misc/languages).
+  - `label` and `labels`: The page's name and translations. See [Languages documentation](../../../../misc/languages.md).
   - `fields`: Array of field definitions (inputs, HTML, or options). See [Fields](fields/introduction.md).
   - `submit` and `cancel`: Both are configured the same way, including label, triggers, and actions. See [Submit](submit/introduction.md) for details on both.
     - *Note: The structure and options for `submit` and `cancel` are identical, so only one documentation page is needed.*

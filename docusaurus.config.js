@@ -46,10 +46,22 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/flowagentnu/1rel-documentation/tree/main/',
+          // FP V1 is the released platform and stays the default at /docs.
+          // The docs/ folder holds the upcoming FP V2 under /docs/v2.
+          lastVersion: '1',
+          versions: {
+            current: {
+              label: 'FP V2 (upcoming)',
+              path: 'v2',
+              banner: 'unreleased',
+            },
+            '1': {
+              label: 'FP V1',
+              banner: 'none',
+            },
+          },
         },
-        blog: {
-          showReadingTime: true,
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -76,9 +88,8 @@ const config = {
             label: 'Documentation',
           },
           {
-            to: '/blog',
-            label: 'Blog',
-            position: 'left',
+            type: 'docsVersionDropdown',
+            position: 'right',
           },
           {
             href: 'https://app.flowagent.nu',
@@ -116,10 +127,6 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/flowagentnu/1rel-documentation',

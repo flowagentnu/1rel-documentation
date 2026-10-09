@@ -1,6 +1,6 @@
 # Calendar Widget
 
-The Calendar Widget shows **events** in a month, week or day view and lets users create, move and edit them. Events are the appointments of the platform's calendar (including events synced from Outlook). The calendar does not show module records: there is no setting that turns a date field of a module into calendar entries. To show records on a timeline, use the [Gantt Widget](/docs/modules/widgets/gantt).
+The Calendar Widget shows **events** in a month, week or day view and lets users create, move and edit them. Events are the appointments of the platform's calendar (including events synced from Outlook). The calendar does not show module records: there is no setting that turns a date field of a module into calendar entries. To show records on a timeline, use the [Gantt Widget](./gantt.md).
 
 ## When to Use
 Use the Calendar Widget to show and plan appointments, for example:
@@ -8,11 +8,11 @@ Use the Calendar Widget to show and plan appointments, for example:
 - On a dashboard: all events the user may see, or the events of one user.
 - When users should pick a title, a description template or a reminder quickly while creating an event.
 
-For one day with a week strip, see the [Agenda Widget](/docs/modules/widgets/agenda). For a list of events, newest first, see the [Event Timeline Widget](/docs/modules/widgets/calendar-timeline).
+For one day with a week strip, see the [Agenda Widget](./agenda.md). For a list of events, newest first, see the [Event Timeline Widget](./calendar-timeline.md).
 
 ## How It Works
 - All calendar settings are placed inside one object, **calendarWidget**. The general widget settings `moduleid`, `query`, `columns` and `relations` are not used by the calendar.
-- In the [form editor on the widget settings page](/docs/modules/widgets/widget-settings) the settings are split into three sections:
+- In the [form editor on the widget settings page](./widget-settings.md) the settings are split into three sections:
   - **Events**: which events are shown (`relevantItem`, `showUserId`, `eventShowRelatedOnly`) and the status shown on events (`statusModuleId`, `statusField`).
   - **Calendar view**: the view the calendar opens in, read-only mode, the week and month views and time zones.
   - **Creating events**: the record pickers, title suggestions, description templates and reminders of the event form.
@@ -22,7 +22,7 @@ For one day with a week strip, see the [Agenda Widget](/docs/modules/widgets/age
 - **Status:** with `statusModuleId` and `statusField`, the status of the related record of that module is shown in the event's tooltip.
 - **Reminders:** documents listed in `reminders` are offered as reminder templates in the event form. When the user chooses one and a time, an e-mail based on the document is sent to the event's owner and participants that long before the event. In the document, `[name]` is replaced with the recipient's name, and the document's fields are filled from the event's related record of the document's module.
 - Users switch between month, week and day view in the widget. The calendar is 580 px high. On phones and narrow screens it is read-only by default (no dragging or selecting to create).
-- Placeholders such as `[itemid]`, `[itemname]`, `[relation77]` and `[relation77.title]` work in every value. See [Replaceables](/docs/misc/replaceables).
+- Placeholders such as `[itemid]`, `[itemname]`, `[relation77]` and `[relation77.title]` work in every value. See [Replaceables](../../misc/replaceables.md).
 
 ## Usage Examples
 
@@ -139,11 +139,11 @@ Other options of the calendar library (TOAST UI Calendar) can also be written in
 - **reminders** (list of document keynames, default: none): documents offered as reminder templates in the event form. Without this setting the reminder choice is only shown for events that already have a reminder.
 
 ### General settings
-Title, icon and size work as described in [Common Widget Properties](/docs/modules/widgets/common-properties).
+Title, icon and size work as described in [Common Widget Properties](./common-properties.md).
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Agenda Widget](/docs/modules/widgets/agenda)
-- [Event Timeline Widget](/docs/modules/widgets/calendar-timeline)
-- [Replaceables](/docs/misc/replaceables)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [Widget Settings](./widget-settings.md)
+- [Agenda Widget](./agenda.md)
+- [Event Timeline Widget](./calendar-timeline.md)
+- [Replaceables](../../misc/replaceables.md)
+- [Common Widget Properties](./common-properties.md)

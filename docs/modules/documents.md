@@ -23,5 +23,5 @@ Use the Documents module when you need to create reusable templates for emails, 
 - Combine with automations to send documents automatically.
 
 ## Related Links
-- [Replaceables](/docs/misc/replaceables.md)
-- [Send Email Action](/docs/JSON/actions-send-email.md)
+- [Replaceables](../misc/replaceables.md)
+- [Send Email Action](../JSON/actions-send-email.md)

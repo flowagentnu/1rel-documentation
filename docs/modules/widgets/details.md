@@ -6,7 +6,7 @@ The Details Widget shows selected fields of a record in a clear, compact layout.
 Use the Details Widget when you want to show a summary of a record's fields, such as the key facts at the top of a record page, the contact details of the related customer, or a short set of editable fields.
 
 ## How It Works
-- Everything can be set in the form on the [widget settings page](/docs/modules/widgets/widget-settings). The relevant sections are **Which records** (module, related modules, filters) and **Fields** (the fields, their options and the width of each field).
+- Everything can be set in the form on the [widget settings page](./widget-settings.md). The relevant sections are **Which records** (module, related modules, filters) and **Fields** (the fields, their options and the width of each field).
 - Without `query`, the widget shows **the record the page shows**. In that case `moduleid` must be the module of the page (or be left out), otherwise nothing is shown.
 - To show another record, for example a related record, set `moduleid` to that record's module and use `query` to find it. If several records match, each one is shown as its own block, ordered by when they were created.
 - On a dashboard there is no record of the page, so the widget only shows something when `moduleid` and `query` are set.
@@ -50,11 +50,11 @@ On a record of module 2, show the parent record from module 1 related through re
 
 ### Which records
 - **moduleid** (integer): The module of the record shown. Default: the module of the widget. Set it when you show a record of another module, and always on dashboards.
-- **query** (array, optional): Which record to show, see [JSON Query](/docs/JSON/json-query). Default: the record the page shows. Use [placeholders](/docs/misc/replaceables) such as `[relation123]` or a relation filter with `[itemid]` to show a related record.
-- **relations** (object, optional): Related modules whose fields are shown, see [JSON Relations](/docs/JSON/json-relations).
+- **query** (array, optional): Which record to show, see [JSON Query](../../JSON/json-query.md). Default: the record the page shows. Use [placeholders](../../misc/replaceables.md) such as `[relation123]` or a relation filter with `[itemid]` to show a related record.
+- **relations** (object, optional): Related modules whose fields are shown, see [JSON Relations](../../JSON/json-relations.md).
 
 ### Fields
-- **columns** (array): The fields shown, in order. Without fields the widget is empty. Each field is described in [JSON Columns](/docs/JSON/json-columns). Fields from another module than `moduleid` are shown with that module's icon. Options with a special meaning in details:
+- **columns** (array): The fields shown, in order. Without fields the widget is empty. Each field is described in [JSON Columns](../../JSON/json-columns.md). Fields from another module than `moduleid` are shown with that module's icon. Options with a special meaning in details:
   - **label** (string): The label above the value. Default: the field name.
   - **editable** (boolean, default `false`): The field can be changed in the editor opened by the pen button. If no field is editable, there is no pen button.
   - **clickable** (boolean, default `false`): The value links to the record the field belongs to.
@@ -67,7 +67,7 @@ On a record of module 2, show the parent record from module 1 related through re
 Sorting, column width and colour rules (`sort`, `width`, `colorConditions`, `icon`) are table options and have no effect in details.
 
 ### Buttons and appearance
-Actional buttons, form buttons, title, icon, colours and heights are shared by all widgets, see [Common Widget Properties](/docs/modules/widgets/common-properties).
+Actional buttons, form buttons, title, icon, colours and heights are shared by all widgets, see [Common Widget Properties](./common-properties.md).
 
 ## Tips
 - Use `colSize` to control the layout: 12 shows one field per line, 6 shows two, 4 shows three.
@@ -75,9 +75,9 @@ Actional buttons, form buttons, title, icon, colours and heights are shared by a
 - Make only the fields users often change editable, so the editor stays short.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [JSON Query](/docs/JSON/json-query)
-- [JSON Relations](/docs/JSON/json-relations)
-- [JSON Columns](/docs/JSON/json-columns)
-- [Placeholders (Replaceables)](/docs/misc/replaceables)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [JSON Query](../../JSON/json-query.md)
+- [JSON Relations](../../JSON/json-relations.md)
+- [JSON Columns](../../JSON/json-columns.md)
+- [Placeholders (Replaceables)](../../misc/replaceables.md)

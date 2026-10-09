@@ -13,9 +13,9 @@ Use the Files Widget to keep the files of a record together, for example the pho
 - Users can switch between a list and a grid view. **forcedView** locks the view instead. 12 files are shown per page.
 - Selected files can be downloaded as one zip file, and image files can be collected in a PDF picture report. Both are prepared in the background and sent to the user by email.
 - What users may do depends on their Files permissions (read, create, update and delete), not on the widget settings.
-- Placeholders such as `[itemid]`, `[itemname]`, `[relation77]` and `[cf641]` work in all tags and texts. See [Replaceables](/docs/misc/replaceables).
+- Placeholders such as `[itemid]`, `[itemname]`, `[relation77]` and `[cf641]` work in all tags and texts. See [Replaceables](../../misc/replaceables.md).
 
-In the form editor on the [widget settings page](/docs/modules/widgets/widget-settings), these settings are in the **Files** section.
+In the form editor on the [widget settings page](./widget-settings.md), these settings are in the **Files** section.
 
 :::caution
 When users change the tags of files with **Change tags**, the files get exactly the tags they pick, and their other tags are removed. If the record tag (for example `item1234`) is not picked again, the files no longer belong to the record and disappear from the widget.
@@ -107,13 +107,13 @@ All settings except **forcedView** are inside the `filesWidget` object. Without 
   - **additionals** (object, default none): Extra lines under the title. Each key is a label and each value is the text, for example `"Address": "[cf684]"`. Placeholders work.
 - **forcedView** (text, not inside `filesWidget`): `list` or `grid`. Always open the widget in this view. Without it, the widget opens in the view the user chose last (grid on small screens).
 
-Height, minimum height and maximum height from the [common properties](/docs/modules/widgets/common-properties) also limit the file area, so long lists scroll inside the widget.
+Height, minimum height and maximum height from the [common properties](./common-properties.md) also limit the file area, so long lists scroll inside the widget.
 
 :::note Old settings
 `report.color` and `videoConfig` are not used by the platform. The form editor shows them with a warning, and they can be removed.
 :::
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [Replaceables](/docs/misc/replaceables)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [Replaceables](../../misc/replaceables.md)

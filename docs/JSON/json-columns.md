@@ -44,7 +44,7 @@ For `datediff`, `timediff`, `clockdiff` and `deadline` columns, the source field
 | `textWrap` | boolean | details | `true` wraps long values over several lines instead of cutting them off. |
 | `width` | number 1–100 | table | The share of the table width (in percent) the column should take. Must be between 1 and 100, otherwise the table does not load. |
 | `sort` | object | table | Default sort order: `{ "order": "ASC" \| "DESC", "priority": 1 }`. With several sorted columns, priority 1 is sorted first. Without any `sort`, the table is sorted by the first column. |
-| `icon` | string | table | [Font Awesome](/docs/misc/icons.md) icon shown in the column heading. |
+| `icon` | string | table | [Font Awesome](../misc/icons.md) icon shown in the column heading. |
 
 ### Formats
 `string`, `number`, `float`, `financial`, `percentage`, `date`, `datetime`, `time`, `decimaltime`, `weeknumber`, `email`, `phone`, `list`, `usergroup`, `location`, `country`. `timediff` and `clockdiff` columns also accept `hhmm`. Other values are shown as plain text.
@@ -77,7 +77,7 @@ A `static` column shows a value that you build from text, placeholders and funct
 
 **In `value` you can use:**
 - `[row.<field key name>]` – the value of a field in the row, e.g. `[row.salesfield_price]`. The field must also be a column of the widget.
-- [Replaceables](/docs/misc/replaceables.md) for the row's record, such as `[relation12.<field key name>]`, `[relation12.id]`, `[relation12.type]`, and general ones such as `[user.name]` or `[datenow]`.
+- [Replaceables](../misc/replaceables.md) for the row's record, such as `[relation12.<field key name>]`, `[relation12.id]`, `[relation12.type]`, and general ones such as `[user.name]` or `[datenow]`.
 - Values of looked-up records (see `items`): `[<name>.title]`, `[<name>.id]`, `[<name>.type]`, `[<name>.<field key name>]`.
 - A function, when the value starts with `=`:
 
@@ -149,9 +149,9 @@ Use **field key names** in calculated columns (`[row.salesfield_price]`, `[custo
 - Combine `editable` and `clickable` for interactive tables.
 
 ## Related Links
-- [Table Widget](/docs/modules/widgets/table.md)
-- [Details Widget](/docs/modules/widgets/details.md)
-- [Powersearch Documentation](/docs/modules/powersearch.md)
+- [Table Widget](../modules/widgets/table.md)
+- [Details Widget](../modules/widgets/details.md)
+- [Powersearch Documentation](../modules/powersearch.md)
 - [JSON Queries](json-query.md)
 - [JSON Relations](json-relations.md)
-- [Replaceables](/docs/misc/replaceables.md)
+- [Replaceables](../misc/replaceables.md)

@@ -6,7 +6,7 @@ A FlowAgent app for two-way synchronization between Microsoft 365 Calendar and F
 Use this integration if you want to keep your Microsoft 365 Calendar and FlowAgent events in sync, allowing updates from either side to reflect automatically.
 
 ## How It Works
-- Admin installs the Microsoft 365 Sync App (see [Marketplace](/docs/sites/marketplace)).
+- Admin installs the Microsoft 365 Sync App (see [Marketplace](../../sites/marketplace.md)).
 - Users connect their Microsoft account in FlowAgent via Account Settings.
 - Events are synchronized bidirectionally using Microsoft Graph API.
 - Data is encrypted in transit and at rest, with strict access controls.
@@ -15,7 +15,7 @@ Use this integration if you want to keep your Microsoft 365 Calendar and FlowAge
 1. Go to **Account Settings** in FlowAgent.
 2. Click **Connect to Microsoft** under the General tab.
 3. Log in and approve the connection.
-4. Your Microsoft 365 Calendar events will now sync with FlowAgent apps (e.g., [Calendar Widget](/docs/modules/widgets/calendar)).
+4. Your Microsoft 365 Calendar events will now sync with FlowAgent apps (e.g., [Calendar Widget](../../modules/widgets/calendar.md)).
 
 ## Security & Data Handling
 - OAuth login with Microsoft; FlowAgent is a verified publisher.
@@ -25,6 +25,6 @@ Use this integration if you want to keep your Microsoft 365 Calendar and FlowAge
 
 ## Related Links
 - [Microsoft Graph API](https://learn.microsoft.com/en-us/graph/)
-- [Calendar Widget](/docs/modules/widgets/calendar)
+- [Calendar Widget](../../modules/widgets/calendar.md)
 
 

@@ -41,7 +41,7 @@ Set inside a trigger to override the global endflow for that action.
 - `endflow`: (boolean) Ends the form when the trigger is activated.
 - `endflow_redirect`: (string) Redirection target for this trigger (see [Endflow Commands](#endflow-commands)).
 - `closeModal`: (boolean) Closes the modal after this trigger. Ignores other endflow commands.
-- `relevantForItems`: (JSON Query) [See JSON Query](/docs/JSON/json-query). Determines which items are relevant for the endflow. If not set, all items are considered relevant.
+- `relevantForItems`: (JSON Query) [See JSON Query](../../../JSON/json-query.md). Determines which items are relevant for the endflow. If not set, all items are considered relevant.
 
 **Example:**
 ```json

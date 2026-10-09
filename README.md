@@ -3,6 +3,17 @@
 ## Purpose
 Our documentation should be as clear, concise, and helpful as the best open-source docs (e.g., Laravel). The goal is to help users quickly understand, use, and troubleshoot the platform.
 
+## Versions
+The docs are split into two versions of the Flow Platform (FP):
+- **FP V1 (current):** `versioned_docs/version-1/` with its sidebar in `versioned_sidebars/version-1-sidebars.json`. Served at `/docs/...` and shown by default.
+- **FP V2 (upcoming):** `docs/` with its sidebar in `sidebars.js`. Served at `/docs/v2/...` with an "unreleased" banner.
+
+Edit the folder for the version your change applies to. If a change applies to both, edit both.
+
+Link between pages with relative file paths (e.g. `[JSON Query](../JSON/json-query.md)`), not absolute `/docs/...` URLs, so links stay within their own version.
+
+When V2 is released, run `npm run docusaurus docs:version 2` and set `lastVersion` in `docusaurus.config.js` to `'2'`.
+
 ## General Principles
 - **Clarity:** Use simple, direct language. Avoid jargon unless defined.
 - **Brevity:** Be concise. Split complex topics into multiple pages or sections.

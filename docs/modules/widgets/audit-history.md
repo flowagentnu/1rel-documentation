@@ -9,9 +9,9 @@ Use the Audit History Widget on a record page when users need to see how a recor
 - The widget shows the changes of the record of the page, newest first, 5 changes per page. Users can page back through older changes.
 - It always shows all changes of the record. It is not possible to limit it to certain fields, users or types of change.
 - The widget only works on a record page. On the dashboard there is no record, so it shows nothing.
-- The widget has no settings of its own. Only the [common properties](/docs/modules/widgets/common-properties), such as title, icon and height, apply.
+- The widget has no settings of its own. Only the [common properties](./common-properties.md), such as title, icon and height, apply.
 
-In the form editor on the [widget settings page](/docs/modules/widgets/widget-settings), the **History** section only contains this explanation.
+In the form editor on the [widget settings page](./widget-settings.md), the **History** section only contains this explanation.
 
 ## Usage Example
 ```json
@@ -24,8 +24,8 @@ In the form editor on the [widget settings page](/docs/modules/widgets/widget-se
 *Shows the history of the record with a clock icon in the widget header.*
 
 ## Options & Parameters
-This widget has no settings of its own. See [Common Widget Properties](/docs/modules/widgets/common-properties) for the title, icon, colours and height.
+This widget has no settings of its own. See [Common Widget Properties](./common-properties.md) for the title, icon, colours and height.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)

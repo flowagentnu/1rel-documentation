@@ -6,7 +6,7 @@ The Table Widget shows records from a module as a table. Users can search, filte
 Use the Table Widget when you want to present lists of records, let users find and sort them, or give quick access to actions on each record. Examples: the tasks of a case, today's routes of the logged-in user, or all open orders on a dashboard.
 
 ## How It Works
-- Everything can be set in the form on the [widget settings page](/docs/modules/widgets/widget-settings). The relevant sections are **Which records** (module, related modules, filters), **Columns**, **Table** (rows per page, toolbar and behaviour, saved views, totals per value) and **Buttons**.
+- Everything can be set in the form on the [widget settings page](./widget-settings.md). The relevant sections are **Which records** (module, related modules, filters), **Columns**, **Table** (rows per page, toolbar and behaviour, saved views, totals per value) and **Buttons**.
 - The widget lists the records of `moduleid` that match `query`. The user's read permissions are always applied on top of your filters.
 - `columns` decides which columns are shown and in which order. Fields from a related module need that module in `relations`. The form adds the relation for you when you pick a field from a related module.
 - The `powerSearch` object turns toolbar buttons and table behaviour on or off. All toolbar buttons are on by default.
@@ -137,11 +137,11 @@ With `group`, rows with the same status are combined into one row. Here `cf1499`
 
 ### Which records
 - **moduleid** (integer): The module whose records are listed. Default: the module of the page. **Required on dashboards**, where there is no module of the page.
-- **query** (array, optional): Filters, see [JSON Query](/docs/JSON/json-query). Default: no filters (all records the user may read). [Placeholders](/docs/misc/replaceables) like `[itemid]` and `[user]` can be used.
-- **relations** (object, optional): Related modules whose fields are shown or filtered on, see [JSON Relations](/docs/JSON/json-relations).
+- **query** (array, optional): Filters, see [JSON Query](../../JSON/json-query.md). Default: no filters (all records the user may read). [Placeholders](../../misc/replaceables.md) like `[itemid]` and `[user]` can be used.
+- **relations** (object, optional): Related modules whose fields are shown or filtered on, see [JSON Relations](../../JSON/json-relations.md).
 
 ### Columns
-- **columns** (array, required): The columns, in order. A table without columns shows an error. Each column is described in [JSON Columns](/docs/JSON/json-columns). Options with a special meaning in tables:
+- **columns** (array, required): The columns, in order. A table without columns shows an error. Each column is described in [JSON Columns](../../JSON/json-columns.md). Options with a special meaning in tables:
   - **label** (string): Heading text. Default: the field name.
   - **icon** (string): Font Awesome icon name shown before the heading.
   - **clickable** (boolean): Links the cell to the record the field belongs to (for a field of a related module, the related record). Default: `true` for the module's title field, otherwise `false`.
@@ -163,7 +163,7 @@ With `group`, rows with the same status are combined into one row. Here `cf1499`
 | `showFiltersButton` | boolean | `true` | Filter icon in each column heading. |
 | `showColumnsButton` | boolean | `true` | **Columns** button where users choose which columns they see. The choice is remembered in the user's browser, not in the widget. |
 | `showViews` | boolean | `true` | Dropdown with the saved views in `lists`. Administrators also get buttons to save, rename and create views. |
-| `lists` | array | `[]` | Saved views offered in the dropdown, each as `{ "keyName": "view_keyname" }` (or `{ "id": 12, "name": "Active" }`). Views that cannot be found are left out. **The first view opens when the table loads and replaces the widget's columns, filters and relations.** See [Powersearch](/docs/modules/powersearch). |
+| `lists` | array | `[]` | Saved views offered in the dropdown, each as `{ "keyName": "view_keyname" }` (or `{ "id": 12, "name": "Active" }`). Views that cannot be found are left out. **The first view opens when the table loads and replaces the widget's columns, filters and relations.** See [Powersearch](../powersearch.md). |
 | `showDownloadExcel` | boolean | `true` | Excel download (desktop only). The file uses the current filters, columns and sort order. |
 | `showDownloadPrint` | boolean | `true` | Print button (desktop only). |
 | `showOrderBy` | boolean | `true` | Sort chips above the table (mobile only). |
@@ -189,7 +189,7 @@ Use real `true` and `false`, not the text `"false"`.
 - **formButtons** (array, optional): Form buttons, each as `{ "keyName": "..." }`.
 
 ### Appearance
-Title, icon, colours, header, background, margin and heights are shared by all widgets, see [Common Widget Properties](/docs/modules/widgets/common-properties).
+Title, icon, colours, header, background, margin and heights are shared by all widgets, see [Common Widget Properties](./common-properties.md).
 
 ## Tips
 - Start with columns and filters in the widget. Add saved views only when users need to switch between layouts, and remember that the first view replaces the widget's own columns and filters.
@@ -197,11 +197,11 @@ Title, icon, colours, header, background, margin and heights are shared by all w
 - Use `[itemid]` with a relation in `query` to list records related to the record the page shows.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
-- [JSON Query](/docs/JSON/json-query)
-- [JSON Columns](/docs/JSON/json-columns)
-- [JSON Relations](/docs/JSON/json-relations)
-- [Placeholders (Replaceables)](/docs/misc/replaceables)
-- [Powersearch](/docs/modules/powersearch)
-- [Actional Button](/docs/modules/widgets/actionalbutton)
+- [Widget Settings](./widget-settings.md)
+- [Common Widget Properties](./common-properties.md)
+- [JSON Query](../../JSON/json-query.md)
+- [JSON Columns](../../JSON/json-columns.md)
+- [JSON Relations](../../JSON/json-relations.md)
+- [Placeholders (Replaceables)](../../misc/replaceables.md)
+- [Powersearch](../powersearch.md)
+- [Actional Button](./actionalbutton.md)

@@ -6,7 +6,7 @@ The Maps Widget shows records from your modules as markers on a map (OpenStreetM
 Use the Maps Widget to see where things are: customers, jobs, tasks or assets. Typical uses are a map of a case's tasks on the case page, or a dashboard map of all open jobs.
 
 ## How It Works
-- **Records** come from the module in `moduleid`, filtered by `query`. Use `relations` to filter on, or show fields of, related modules. In the [form editor on the widget settings page](/docs/modules/widgets/widget-settings) this is the **Which records** section.
+- **Records** come from the module in `moduleid`, filtered by `query`. Use `relations` to filter on, or show fields of, related modules. In the [form editor on the widget settings page](./widget-settings.md) this is the **Which records** section.
 - **Markers:** every record with a numeric latitude and longitude in `latField` and `lngField` becomes a marker. Records with an empty or non-numeric value are left out. Latitude and longitude must already be stored on the records as numbers; the map does not look up addresses. In the form editor the marker settings are in the **Markers** section.
 - **Fields used:** all fields used by the map (latitude, longitude, popup fields and the fields of colour and icon rules) must be listed in `columns`. The form editor adds them automatically when you pick them.
 - **Popup:** `popupTitleField` is shown as a link to the record that owns the field, and `popupContentField` as text below it. `popupTitleField` is required: without it no markers are shown.
@@ -85,8 +85,8 @@ A map on a case page showing the case's tasks. The case's own position is the ce
 
 ### Which records
 - **moduleid** (number, required): the module whose records become markers. Only records the user may read are shown.
-- **query** (list, default: none): filters for the records, for example `["module75Item.id", "=", "[itemid]"]` for the records related to the record of the page. See [JSON Query](/docs/JSON/json-query).
-- **relations** (object, default: none): joins related modules, so that their fields can be used in filters and on the map. See [JSON Relations](/docs/JSON/json-relations).
+- **query** (list, default: none): filters for the records, for example `["module75Item.id", "=", "[itemid]"]` for the records related to the record of the page. See [JSON Query](../../JSON/json-query.md).
+- **relations** (object, default: none): joins related modules, so that their fields can be used in filters and on the map. See [JSON Relations](../../JSON/json-relations.md).
 - **columns** (list, required in practice): every field the map uses: `latField`, `lngField`, `popupTitleField`, `popupContentField` and the `field` of the colour and icon rules. Write each as `{"keyName": "<field keyname>"}` or as `"cf<id>"`. A field missing here is empty on the map, and records then get no marker.
 
 ### Markers
@@ -105,24 +105,24 @@ Field settings in this section are written as **`"cf<id>"`**, for example `"cf10
   - **condition** (object): value → icon.
 - **showUsersOnMap** (boolean, default: `false`): show every user with a GPS position as a person marker.
 
-Colours are CSS colours, such as `"#DC3545"`, `"green"` or `"red"`. Icons are [Font Awesome](/docs/misc/icons) icon names without `fa-`, such as `"house"`, `"map-pin"`, `"star"` or `"list-check"`. Names from other icon sets (such as `home_work` or `pin_drop`) are not shown.
+Colours are CSS colours, such as `"#DC3545"`, `"green"` or `"red"`. Icons are [Font Awesome](../../misc/icons.md) icon names without `fa-`, such as `"house"`, `"map-pin"`, `"star"` or `"list-check"`. Names from other icon sets (such as `home_work` or `pin_drop`) are not shown.
 
 ### Map
 - **height** (number, required): height of the map in pixels. Without it the map is not shown.
 - **zoom** (number 1-19 or `"fit"`, default: `15`): zoom level used around the centre (`lat`/`lng`). `"fit"` zooms to fit all markers and the centre. Without a centre the map always fits the markers.
-- **lat** / **lng** (number or string, default: none): centre of the map, also the start of the route, shown as a marker. Usually placeholders for the position fields of the record of the page, such as `"[cf1154]"` and `"[cf1155]"` (see [Replaceables](/docs/misc/replaceables)). Placeholders of a record only work on record pages; on a dashboard use numbers or leave them out.
+- **lat** / **lng** (number or string, default: none): centre of the map, also the start of the route, shown as a marker. Usually placeholders for the position fields of the record of the page, such as `"[cf1154]"` and `"[cf1155]"` (see [Replaceables](../../misc/replaceables.md)). Placeholders of a record only work on record pages; on a dashboard use numbers or leave them out.
 - **showRoute** (boolean, default: `false`): draw a driving route from the centre through all markers, with the total distance. Needs at least two points.
 - **currentItemCondition** (object, default: none): style of the centre marker, and of the marker of the record the page shows.
   - **markerColor** (string): colour. Default: `yellow` for the page's record among the markers, `#6060FF` for the centre marker.
   - **markerIcon** (string, default: none): icon.
 
 ### General settings
-Title, icon and size work as described in [Common Widget Properties](/docs/modules/widgets/common-properties). Set `"showWidgetHeader": false` and `"hasMargin": false` for a map from edge to edge.
+Title, icon and size work as described in [Common Widget Properties](./common-properties.md). Set `"showWidgetHeader": false` and `"hasMargin": false` for a map from edge to edge.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [JSON Query Documentation](/docs/JSON/json-query)
-- [JSON Relations Documentation](/docs/JSON/json-relations)
-- [Replaceables](/docs/misc/replaceables)
-- [Icons](/docs/misc/icons)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [Widget Settings](./widget-settings.md)
+- [JSON Query Documentation](../../JSON/json-query.md)
+- [JSON Relations Documentation](../../JSON/json-relations.md)
+- [Replaceables](../../misc/replaceables.md)
+- [Icons](../../misc/icons.md)
+- [Common Widget Properties](./common-properties.md)

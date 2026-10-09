@@ -1,6 +1,6 @@
 # Agenda Widget
 
-The Agenda Widget shows the calendar **events** of one day as a list, with a week strip above it to pick the day. It uses the same events as the [Calendar Widget](/docs/modules/widgets/calendar). When the user has a home address, it also shows the driving time and distance between the day's appointments.
+The Agenda Widget shows the calendar **events** of one day as a list, with a week strip above it to pick the day. It uses the same events as the [Calendar Widget](./calendar.md). When the user has a home address, it also shows the driving time and distance between the day's appointments.
 
 ## When to Use
 Use the Agenda Widget for a compact "my day" view, for example on a dashboard for field workers, or on a record page to see the day's appointments related to that record.
@@ -9,7 +9,7 @@ Use the Agenda Widget for a compact "my day" view, for example on a dashboard fo
 - The widget opens on today. Click a day in the week strip to see its events, and use the arrows to move a week back or forward. The title of the widget shows the month, year and week number.
 - Click an event to open it.
 - **Driving times:** when the logged-in user has a home address and driving times are available on the site, the agenda shows the drive from home to the first appointment with a location, between appointments, and back home, plus the total driving time and distance of the day.
-- The settings are placed inside the **calendarWidget** object, like the Calendar Widget's. The agenda only uses the "which events" settings: `relevantItem`, `showUserId`, `eventShowRelatedOnly`, `statusModuleId` and `statusField`. In the [form editor on the widget settings page](/docs/modules/widgets/widget-settings) they are in the **Events** section. All other calendar settings, and `moduleid`, `query`, `columns` and `relations`, are not used.
+- The settings are placed inside the **calendarWidget** object, like the Calendar Widget's. The agenda only uses the "which events" settings: `relevantItem`, `showUserId`, `eventShowRelatedOnly`, `statusModuleId` and `statusField`. In the [form editor on the widget settings page](./widget-settings.md) they are in the **Events** section. All other calendar settings, and `moduleid`, `query`, `columns` and `relations`, are not used.
 - **Which events are shown:** on a record page the agenda shows, by default, only the events related to that record. On a dashboard it shows the events the user may see according to their **Calendar** permission: their own events, the events of users in the same groups, or all events of the site. Use `showUserId` to show only one user's events, for example `"[user]"` for the logged-in user.
 - The widget always has a header and no background or margin, so the general settings `showWidgetHeader`, `hasBackground`, `hasMargin` and `style` have no effect. The title set on the widget is replaced by the month and week.
 
@@ -43,11 +43,11 @@ Use the Agenda Widget for a compact "my day" view, for example on a dashboard fo
   - **statusModuleId** (number, default: none): module whose related record's status is shown on each event. Requires `statusField`.
   - **statusField** (string, default: none): **keyname** of the status field on that module (for example `"projectsfield_status"`, not `"cf123"`). Requires `statusModuleId`.
 
-See the [Calendar Widget](/docs/modules/widgets/calendar) for more about these settings.
+See the [Calendar Widget](./calendar.md) for more about these settings.
 
 ## Related Links
-- [Calendar Widget](/docs/modules/widgets/calendar)
-- [Event Timeline Widget](/docs/modules/widgets/calendar-timeline)
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Replaceables](/docs/misc/replaceables)
-- [Common Widget Properties](/docs/modules/widgets/common-properties)
+- [Calendar Widget](./calendar.md)
+- [Event Timeline Widget](./calendar-timeline.md)
+- [Widget Settings](./widget-settings.md)
+- [Replaceables](../../misc/replaceables.md)
+- [Common Widget Properties](./common-properties.md)

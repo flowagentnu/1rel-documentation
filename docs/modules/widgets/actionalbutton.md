@@ -13,7 +13,7 @@ Use the ActionalButton Widget when you want to highlight one action, such as cre
 - On mobile the icon is shown large in the middle of the tile, with the text below it.
 - Buttons that open a form dialog or work on several selected records are not suited for this widget.
 
-In the form editor on the [widget settings page](/docs/modules/widgets/widget-settings), these settings are in the **Button** section. Pick the button from the list of your site's Actional Buttons; the look can be changed under *Change the look in this widget*.
+In the form editor on the [widget settings page](./widget-settings.md), these settings are in the **Button** section. Pick the button from the list of your site's Actional Buttons; the look can be changed under *Change the look in this widget*.
 
 ## Usage Examples
 
@@ -61,18 +61,18 @@ In the form editor on the [widget settings page](/docs/modules/widgets/widget-se
   - **keyName** (text, required): The keyName of the Actional Button, for example `ab_close-case`.
   - **visibility.visual.displayIconOnly** (boolean, default: icon only): Set to `false` to show the text next to (on mobile below) the icon.
   - **visibility.visual.label** (text, default: the button's own text): The text on the tile. Only shown when `displayIconOnly` is `false`.
-  - **visibility.visual.icon** (text, default: the button's own icon): A [Font Awesome](/docs/misc/icons) icon name without `fa-`, for example `circle-check`.
+  - **visibility.visual.icon** (text, default: the button's own icon): A [Font Awesome](../../misc/icons.md) icon name without `fa-`, for example `circle-check`.
   - **visibility.visual.bgColor** (text, default: the button's own colour, otherwise `primary`): The tile colour. One of `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`, `white`, `transparent`.
   - **visibility.visual.textColor** (text, default: the button's own text colour, otherwise `white`): The colour of the icon and text. One of `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`.
   - **visibility.popconfirm.show** (boolean, default: as set on the button): Ask the user "Are you sure?" before the button runs. The tile always uses the standard question and button texts.
-  - **visibility.condition** (array, optional): Only show the tile when all conditions are true, e.g. `[["userGroup", "IN", "admins"]]`, where `admins` is the keyname of a user group. The tile has no record to check against, so only conditions on the user (`user`, `userGroup`) work here. See [Actional Button visibility](/docs/sites/actionalbuttons/components/visibility).
+  - **visibility.condition** (array, optional): Only show the tile when all conditions are true, e.g. `[["userGroup", "IN", "admins"]]`, where `admins` is the keyname of a user group. The tile has no record to check against, so only conditions on the user (`user`, `userGroup`) work here. See [Actional Button visibility](../../sites/actionalbuttons/components/visibility.md).
 - **mobileSize** (number 1–12, default `12`): Width of the tile on mobile. 12 is the full width, 6 is half.
 
-The widget's own title, icon and colours (from the [common properties](/docs/modules/widgets/common-properties)) are not shown on this tile.
+The widget's own title, icon and colours (from the [common properties](./common-properties.md)) are not shown on this tile.
 
 ## Related Links
-- [Widget Settings](/docs/modules/widgets/widget-settings)
-- [Actional Buttons Overview](/docs/sites/actionalbuttons/introduction)
-- [How to Use Actional Button](/docs/sites/actionalbuttons/how-to-use)
-- [Visibility Component](/docs/sites/actionalbuttons/components/visibility)
-- [Count Widget](/docs/modules/widgets/count)
+- [Widget Settings](./widget-settings.md)
+- [Actional Buttons Overview](../../sites/actionalbuttons/introduction.md)
+- [How to Use Actional Button](../../sites/actionalbuttons/how-to-use.md)
+- [Visibility Component](../../sites/actionalbuttons/components/visibility.md)
+- [Count Widget](./count.md)
